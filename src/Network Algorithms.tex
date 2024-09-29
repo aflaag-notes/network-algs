@@ -123,11 +123,12 @@
         \end{algorithmic}
     \end{algorithm}
 
-    \begin{algorithm}[H]
-        \caption{
-            \textit{Floyd-Warshall}: Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithms returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$.
-        }
+    \begin{framedalgo}{Floyd-Warshall}
+        Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithms returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$. \\
 
+        \hrule
+
+        \quad
         \label{alg:floyd_warshall}
         \begin{algorithmic}[1]
             \Function{floydWarshall}{$G$, $w$}
@@ -147,8 +148,8 @@
                 \EndFor
             \EndFunction
         \end{algorithmic}
-    \end{algorithm}
-
+    \end{framedalgo}
+   
     \idea{
         The core concept of the algorithm is to construct a matrix using a \href{https://en.wikipedia.org/wiki/Dynamic_programming}{dynamic programming} approach, that evaluates all possible paths between every pair of vertices. Specifically, to determine the shortest path from a vertex $u$ to a vertex $v$, the algorithm considers two options: either traveling directly from $u$ to $v$, or passing through an intermediate vertex $k$, potentially improving the path.
     }
@@ -188,36 +189,81 @@
     \end{frameddefn}
 
     \begin{example}[Bufferfly network]
-        TODO
+        The following figure shows an example of a butterfly network.
+
+        \centeredimage[A butterfly network.]{0.3}{../assets/butterfly.png}
     \end{example}
 
-    The nodes of a butterfly are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and {bar} (shown below, respectively). \todo{mettere foto}
+    The nodes of a butterfly are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and {bar} (shown below, respectively).
 
-    It can be shown that each node (except those in the first and the last layers) has degree 4 \todo{prove it?}. Therefore, $4N$ additional nodes are typically added ($2N$ for the input, and $2N$ for the output) such that $\deg(u) = 4$ for each $u \in V(G)$ --- these nodes will not be considered in the networks analyzed in this notes. \todo{mettere foto}
+    \centeredimage[A butterfly network node.]{0.25}{../assets/butterfly_nodes.png}
+
+    It can be shown that each node, except those in the first and the last layers, has degree 4 \todo{prove it?}. Therefore, $4N$ additional nodes are typically added ($2N$ for the input, and $2N$ for the output) such that $\deg(u) = 4$ for each $u \in V(G)$ --- these nodes will not be considered in the networks analyzed in this notes.
+
+    \centeredimage[An extended butterfly network.]{0.25}{../assets/butterfly_extended.png}
 
     As a result, a butterfly network can be viewed as a \tit{switching network} that connects $2N$ input units to $2N$ ouptut units, through a layered structure divided into $\log N +1 = \log 2^n +1 = n + 1$ layers, each consisting of $N$ nodes.
 
-    Moreover, butterfly networks have a recursive structure, which is highlighted in the following figure. Specifically, one $n$-dimensional butterfly contains two $(n - 1)$-dimensional butterfly networks as subgraphs. \todo{aggiungi foto}
+    Moreover, butterfly networks have a recursive structure, which is highlighted in the following figure. Specifically, one $n$-dimensional butterfly contains two $(n - 1)$-dimensional butterfly networks as subgraphs.
+
+    \centeredimage[The recursive structure of butterfly networks.]{0.3}{../assets/butterfly_recursive.png}
 
     The topology of the butterfly network can be leveraged as stated in the following proposition.
 
-    \begin{framedprop}{Greedy path}
+    \begin{framedprop}[label={prop:greedy_path}]{Greedy path}
         Given a pair of rows $w$ and $w'$, there exists a \tit{unique path of length $n$}, called \tbf{greedy path}, from node $(w, 0)$ to node $(w', n)$. This path passes through each layer exactly once, and it can be found through the following procedure:
 
-        % \begin{algorithm}[H]
-            \begin{algorithmic}[1]
-                \Function{greedyPath}{$w$, $w'$}
-                    \For{$i \in [1, n]$}
-                        \If{$w_i == w'_i$}
-                            \State Traverse a \tit{straight edge}
-                        \Else
-                            \State Traverse a \tit{cross edge}
-                        \EndIf
-                    \EndFor
-                \EndFunction
-            \end{algorithmic}
-        % \end{algorithm}
+        \begin{algorithmic}[1]
+            \Function{greedyPath}{$w$, $w'$}
+                \For{$i \in [1, n]$}
+                    \If{$w_i == w'_i$}
+                        \State Traverse a \tit{straight edge}
+                    \Else
+                        \State Traverse a \tit{cross edge}
+                    \EndIf
+                \EndFor
+            \EndFunction
+        \end{algorithmic}
     \end{framedprop}
 
+    \subsection{Routing on a butterfly network}
+
+    Packet-routing performed on a butterfly network can pose some challenges. Assume that each node $(u, 0)$ in the network on layer 0 of the butterfly contains a packet, which is destined for node $(\pi(u), n)$ in layer $n$ --- there are $n + 1$ layers, ranging in $[0, n]$ --- where $$\func{\pi}{[1, N]}{[1, N]}$$ describes the permutation of the packet destinations. In a \tbf{greedy routing algorithm}, each packet follows its \tit{greedy path}, meaning that at each intermediate layer, it makes progress toward its final destination by choosing the edges to cross through the algorithm described in \cref{prop:greedy_path}.
+
+    When routing only a \tit{single packet}, the greedy algorithm works efficiently, since there are no conflicts or competing resources along the path. However, when \tit{multiple packets} are routed in parallel, conflicts can arise, especially when multiple packets attempt to traverse the same edge or node simultaneousl. n fact, \tit{multiple greedy paths} may intersect at the same node or edge, and since only one packet can traverse a given edge at any moment, the other packets must be \tbf{delayed} until the edge becomes available. As a result, the butterfly network cannot route every permutation without delays, making it a \tbf{blocking network}.
+
+    For simplicity, assume that $n$ is odd (though similar results hold for even values of $n$), and consider the following edge $$e :=  \rbk{ \rbk{0 \ldots 0, \frac{n-1}{2}},  \rbk{ 0 \ldots 0,\frac{n+1}{2} } }$$ Note that $e$'s endpoints are the roots of two complete binary trees, which have $2^{\frac{n -1}{2}}$ and $2^{\frac{n + 1}{2}}$ nodes respectively.
+
+    \centeredimage{0.3}{../assets/butterfly_trees.png}
+
+    In the worst case, $\pi$ can be such that \tit{each greedy path starting from a leaf on the left tree and ending on a leaf on the right tree traverses $e$}. Note that the number of such paths is precisely the number of leafs of the left complete binary tree, namely $2^\frac{n- 1}{2} = \sqrt{\frac{N}{2}}$. Therefore, in the worst case $\sqrt{\frac{N}{2}}$ packets may need to traverse $e$, which means that one of them may be delayed by $\sqrt{\frac{N}{2}} - 1$ steps. Since it takes $n = \log N$ steps to traverse the whole network, the greedy algorithm can take up to $$\sqrt{\dfrac{N}{2}} -1 + \log N$$ steps to route a permutation.
+
+    The following theorem generalizes this result.
+
+    \begin{framedthm}{Butterfly routing}
+        Given any routing problem on a $n$-dimensional butterfly network, for which at most one packet starts at each $0$-th layer node, and at most one packet is destined for each $n$-th layer node, the \tit{greedy algorithm} will route all the packets to their destination in $O (\sqrt N)$ steps.
+    \end{framedthm}
+
+    \begin{proof}
+        For simplicity, assume that $n$ is odd (though similar results can be proven for even values of $n$). Given $0 < i \le n$, let $e$ be any edge in the $i$-th layer, and let $n_i$ be the number of greedy paths traversing $e$.
+
+        The number of greedy paths in the first half of the butterfly is bounded by the number of leaves of the left complete binary tree, namely $n_i \le 2^{i - 1}$. Analogously, on the second half of the butterfly, $n_i$ is bounded by the number of leaves of the right complete binary tree, therefore $n_i \le 2^{n - i}$. Note that both this results hold because $n$ is odd. \todo{scrivere che prendiamo il minimo, ma prima da capire il perché}
+
+        Note that any packet that need to cross $e$ can be delayed by \tit{at most} the other $n_i - 1$ packets. Therefore, recalling that $\displaystyle \sum_{j = 0}^k {2^j} = 2^{k + 1} - 1$, as a packet traverses layers 1 through $n$, the total delay it can encounter is at most \todo{non capisco a che serva questa frase}
+
+        \begin{equation*}
+            \begin{split}
+                \sum_{i = 1}^n {(n_i -1)} &= \sum_{i = 1}^\frac{n + 1}{2} {(n_1 - 1)} + \sum_{\frac{n + 1}{2} + 1}^n(n_i - 1) \\
+                                          &\le \sum_{i = 1}^\frac{n + 1}{2} {\rbk{2^{i - 1} - 1}} + \sum_{i = \frac{n + 3}{2}}^n {\rbk{2^{n - i} - 1}} \\
+                                          &= \sum_{j = 0}^{\frac{n + 1}{2} - 1}{\rbk{2^j - 1}} + \sum_{j = 0}^{\frac{n - 3}{2}} {\rbk{2^j - 1}} \\
+                                          &=\sum_{j = 0}^{\frac{n + 1}{2} - 1}{2^j} + \sum_{j = 0}^{\frac{n - 3}{2}} {2^j} - n \\
+                                          &=2^{\frac{n + 1}{2}} - 1 + 2^{\frac{n - 1}{2}} - 1 - n \\
+                                            &\le O(\sqrt N) - n \\
+                                            &\le O(\sqrt N)
+            \end{split}
+        \end{equation*}
+    \end{proof}
+
+    Although such a greedy routing algorithm performs poorly in the worst case, it is \tbf{highly effective in practice}. In fact, for many practical classes of permutations, the greedy algorithm runs in $n$ steps, which is optimal, and for most permutations the algorithm runs in $n + o(n)$ steps. Consequently, the greedy algorithm is widely used in real-world applications.
 
 \end{document}
