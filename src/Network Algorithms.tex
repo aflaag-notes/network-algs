@@ -1,0 +1,160 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[dvipsnames]{xcolor}
+
+%%%%%%%%%%%%%%%%%
+% Set Variables %
+%%%%%%%%%%%%%%%%%
+
+\def\useItalian{0}  % 1 = Italian, 0 = English
+
+\def\courseName{Network Algorithms}
+
+\def\coursePrerequisites{
+    \begin{itemize}
+        \item Progettazione di Algorithmi
+    \end{itemize}
+}
+
+\def\book{TODO}
+
+% \def\authorName{Simone Bianco}
+% \def\email{bianco.simone@outlook.it}
+% \def\github{https://github.com/Exyss/university-notes}
+% \def\linkedin{https://www.linkedin.com/in/simone-bianco}
+
+\def\authorName{Alessio Bandiera}
+\def\email{alessio.bandiera02@gmail.com}
+\def\github{https://github.com/aflaag-notes}
+\def\linkedin{https://www.linkedin.com/in/alessio-bandiera-a53767223}
+
+% Do not change
+
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
+
+\usepackage{../../packages/Nyx/nyx-packages}
+\usepackage{../../packages/Nyx/nyx-styles}
+\usepackage{../../packages/Nyx/nyx-frames}
+\usepackage{../../packages/Nyx/nyx-macros}
+\usepackage{../../packages/Nyx/nyx-title}
+\usepackage{../../packages/Nyx/nyx-intro}
+
+%%%%%%%%%%%%%%
+% Title-page %
+%%%%%%%%%%%%%%
+
+\logo{../../packages/Nyx/logo.png}
+
+\ifx\useItalian0
+    \institute{\curlyquotes{\hspace{0.25mm}Sapienza} Università di Roma}
+    \faculty{Ingegneria dell'Informazione,\\Informatica e Statistica}
+    \department{Dipartimento di Informatica}
+    \subtitle{Appunti integrati con il libro \book}
+    \author{\textit{Autore}\\\authorName}
+\else
+    \institute{\curlyquotes{\hspace{0.25mm}Sapienza} University of Rome}
+    \faculty{Faculty of Information Engineering,\\Informatics and Statistics}
+    \department{Department of Computer Science}
+    \subtitle{Lecture notes integrated with the book \book}
+    \author{\textit{Author}\\\authorName}
+\fi
+
+\title{\courseName}
+\date{\today}
+
+% \supervisor{Linus \textsc{Torvalds}}
+% \context{Well, I was bored\ldots}
+
+%%%%%%%%%%%%
+% Document %
+%%%%%%%%%%%%
+
+\begin{document}
+    \maketitle
+
+    % The following style changes are valid only inside this scope 
+    {
+        \hypersetup{allcolors=black}
+        \fancypagestyle{plain}{%
+        \fancyhead{}        % clear all header fields
+        \fancyfoot{}        % clear all header fields
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}}
+
+        \romantableofcontents
+    }
+
+    \introduction
+
+    %%%%%%%%%%%%%%%%%%%%%
+
+    \chapter{TODO}
+
+    \section{TODO}
+    
+    \subsection{Classical solutions}
+    
+    \begin{algorithm}[H]
+        \caption{
+            \textit{Bellman-Ford}: TODO
+        }
+
+        \label{alg:bellman_ford}
+        \begin{algorithmic}[1]
+            \Function{bellmanFord}{$G$}
+                \State TODO
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}[H]
+        \caption{
+            \textit{Dijkstra}: TODO
+        }
+
+        \label{alg:dijkstra}
+        \begin{algorithmic}[1]
+            \Function{dijkstra}{$G$}
+                \State TODO
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}[H]
+        \caption{
+            \textit{Floyd-Warshall}: Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithms returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$.
+        }
+
+        \label{alg:floyd_warshall}
+        \begin{algorithmic}[1]
+            \Function{floydWarshall}{$G$, $w$}
+                \State Let $\texttt{dist[}n\texttt{][}n\texttt{]}$ be an $n \times n$ matrix, initialized with every cell at $+ \infty$
+                \For{$u \in V(G)$}
+                    \State $\arraytt{dist}{u}{u} = 0$
+                \EndFor
+                \For{$(u, v) \in E(G)$}
+                    \State $\arraytt{dist}{u}{v} = w(u, v)$
+                \EndFor
+                \For{$k \in V(G)$}
+                    \For{$u \in V(G)$}
+                        \For{$v \in V(G)$}
+                            \State $\arraytt{dist}{u}{v} = \min \rbk{\arraytt{dist}{u}{k}, \arraytt{dist}{k}{v}}$
+                        \EndFor
+                    \EndFor
+                \EndFor
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+    \idea{
+        The core concept of the algorithm is to construct a matrix using a \href{https://en.wikipedia.org/wiki/Dynamic_programming}{dynamic programming} approach, that evaluates all possible paths between every pair of vertices. Specifically, to determine the shortest path from a vertex $u$ to a vertex $v$, the algorithm considers two options: either traveling directly from $u$ to $v$, or passing through an intermediate vertex $k$, potentially improving the path.
+    }
+
+    \cost{
+        The \texttt{for} loop in line 3 has cost $\Theta(n)$, the \texttt{for} loop in line 6 has cost $\Theta(m) = \Theta(n^2)$ and the cost of the triple nested \texttt{for} loop is simply $\Theta(n^3)$. Therefore, the cost of the algorithm is $$\Theta(n) + \Theta(n^2) + \Theta(n^3) = \Theta(n^3)$$
+    }
+
+\end{document}
