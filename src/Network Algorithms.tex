@@ -157,4 +157,67 @@
         The \texttt{for} loop in line 3 has cost $\Theta(n)$, the \texttt{for} loop in line 6 has cost $\Theta(m) = \Theta(n^2)$ and the cost of the triple nested \texttt{for} loop is simply $\Theta(n^3)$. Therefore, the cost of the algorithm is $$\Theta(n) + \Theta(n^2) + \Theta(n^3) = \Theta(n^3)$$
     }
 
+    \section{Interconnection topologies}
+
+    Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
+
+    While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical conecrn in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
+
+    There are many types of routing models. In this notes, the focus will be on the \href{https://en.wikipedia.org/wiki/Store_and_forward}{store-and-forward} model:
+
+    \begin{itemize}
+        \item aata is divided into \tit{discrete packets};
+        \item each packet contains \tit{control information} (such as source, destination, and sequence data) and is treated as an independent unit that is forwarded from node to node through the network;
+        \item packets may be temporarily stored in \tbf{buffer queues} at intermediate nodes if necessary, due to link congestion or busy channels;
+        \item each node makes a \tbf{local routing decision} based on the packet's destination address and the chosen routing algorithm;
+        \item during each step of the routing process, \tbf{a single packet can cross each edge};
+        \item additionally, mechanisms for error detection and recovery may be employed to ensure reliable packet delivery, and flow control and congestion management may be applied to optimize network performance.
+    \end{itemize}
+
+    \subsection{Bufferfly network}
+
+    \begin{frameddefn}{Bufferfly network}
+        Let $n$ be an integer, and let $N := 2^n$; an \tbf{$n$-bufferfly network} is a \tit{layered graph} defined as follows:
+
+        \begin{itemize}
+            \item there are $n + 1$ layers of $N$ nodes each, for a total of $N(n + 1)$ nodes;
+            \item each node is labeled with a pair $(w, i)$, where $i$ is the \tit{layer of the node}, and $w$ is an $n$-bit binary number that denotes the \tit{row of the node};
+            \item there are $2Nn = 2 \cdot 2^n \cdot n = n2^{n + 1}$ edges;
+            \item two nodes $(w, i)$ and $(w', i')$ are linked by an edge if and only if $i' = i + 1$ and either $w = w'$ (which is a \tit{straight edge}) or $w$ and $w'$ differ in only the $i$-th bit (which is a \tit{cross edge}).
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{example}[Bufferfly network]
+        TODO
+    \end{example}
+
+    The nodes of a butterfly are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and {bar} (shown below, respectively). \todo{mettere foto}
+
+    It can be shown that each node (except those in the first and the last layers) has degree 4 \todo{prove it?}. Therefore, $4N$ additional nodes are typically added ($2N$ for the input, and $2N$ for the output) such that $\deg(u) = 4$ for each $u \in V(G)$ --- these nodes will not be considered in the networks analyzed in this notes. \todo{mettere foto}
+
+    As a result, a butterfly network can be viewed as a \tit{switching network} that connects $2N$ input units to $2N$ ouptut units, through a layered structure divided into $\log N +1 = \log 2^n +1 = n + 1$ layers, each consisting of $N$ nodes.
+
+    Moreover, butterfly networks have a recursive structure, which is highlighted in the following figure. Specifically, one $n$-dimensional butterfly contains two $(n - 1)$-dimensional butterfly networks as subgraphs. \todo{aggiungi foto}
+
+    The topology of the butterfly network can be leveraged as stated in the following proposition.
+
+    \begin{framedprop}{Greedy path}
+        Given a pair of rows $w$ and $w'$, there exists a \tit{unique path of length $n$}, called \tbf{greedy path}, from node $(w, 0)$ to node $(w', n)$. This path passes through each layer exactly once, and it can be found through the following procedure:
+
+        % \begin{algorithm}[H]
+            \begin{algorithmic}[1]
+                \Function{greedyPath}{$w$, $w'$}
+                    \For{$i \in [1, n]$}
+                        \If{$w_i == w'_i$}
+                            \State Traverse a \tit{straight edge}
+                        \Else
+                            \State Traverse a \tit{cross edge}
+                        \EndIf
+                    \EndFor
+                \EndFunction
+            \end{algorithmic}
+        % \end{algorithm}
+    \end{framedprop}
+
+
 \end{document}

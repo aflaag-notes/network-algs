@@ -5,3 +5,5 @@
 \contentsline {chapter}{\numberline {1}TODO}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}TODO}{2}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Classical solutions}{2}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Interconnection topologies}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Bufferfly network}{4}{subsection.1.2.1}%
