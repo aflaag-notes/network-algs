@@ -6,5 +6,7 @@
 \contentsline {section}{\numberline {1.1}TODO}{2}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Classical solutions}{2}{subsection.1.1.1}%
 \contentsline {section}{\numberline {1.2}Interconnection topologies}{3}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Bufferfly network}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Routing on a butterfly network}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.1}Butterfly network}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Bufferfly network}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Routing on a butterfly network}{6}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Beneš network}{9}{subsection.1.2.4}%

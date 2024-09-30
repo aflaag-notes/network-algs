@@ -160,6 +160,8 @@
 
     \section{Interconnection topologies}
 
+    \subsection{Butterfly network}
+
     Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
 
     While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical conecrn in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
@@ -194,11 +196,11 @@
         \centeredimage[A butterfly network.]{0.3}{../assets/butterfly.png}
     \end{example}
 
-    The nodes of a butterfly are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and {bar} (shown below, respectively).
+    It can be shown that each node, except those in the first and the last layers, has degree 4 \todo{prove it?}. Therefore, to perform the routing of the packets on a butterfly network, its nodes are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and \tit{bar} (shown below, respectively).
 
     \centeredimage[A butterfly network node.]{0.25}{../assets/butterfly_nodes.png}
 
-    It can be shown that each node, except those in the first and the last layers, has degree 4 \todo{prove it?}. Therefore, $4N$ additional nodes are typically added ($2N$ for the input, and $2N$ for the output) such that $\deg(u) = 4$ for each $u \in V(G)$ --- these nodes will not be considered in the networks analyzed in this notes.
+    Usually, $4N$ additional nodes are typically added ($2N$ for the input, and $2N$ for the output) such that $\deg(u) = 4$ for each $u \in V(G)$ --- these nodes will not be considered in the networks analyzed in this notes.
 
     \centeredimage[An extended butterfly network.]{0.25}{../assets/butterfly_extended.png}
 
@@ -265,5 +267,43 @@
     \end{proof}
 
     Although such a greedy routing algorithm performs poorly in the worst case, it is \tbf{highly effective in practice}. In fact, for many practical classes of permutations, the greedy algorithm runs in $n$ steps, which is optimal, and for most permutations the algorithm runs in $n + o(n)$ steps. Consequently, the greedy algorithm is widely used in real-world applications.
+
+    \subsection{Beneš network}
+
+    As shown in the previous section, the \tit{butterfly network} can present efficiency problems due to packet delays caused by congestion when multiple packets are routed simultaneously. One way to \tit{avoid routing delays} is by using a \tbf{non-blocking topology}.
+
+    \begin{frameddefn}{Beneš network}
+        An \tbf{$n$-dimensional Beneš network} is a network constructed by placing \tit{two $n$-dimensional butterfly networks back-to-back}.
+    \end{frameddefn}
+
+    \begin{example}[Beneš network]
+        The following is an example of a Beneš network. \todo{add pic}
+    \end{example}
+
+    Note that an $n$-dimensional Beneš network has $$2(n + 1) - 1 = 2n + 2 - 1 = 2n + 1$$ layers, because the two $n$-dimensional butterfly network --- which describe the first and last $n + 1$ layers --- have an \tit{overlapping layer}.
+
+    Consider the following property.
+
+    \begin{frameddefn}{Rearrangeability}
+        A network with $N$ inputs and $N$ outputs is said to be \tbf{rearrangeable} if, for any one-to-one mapping $\pi$ of the inputs to the outputs, the mapping can be realized using exclusively \tit{edge-disjoint paths}.
+    \end{frameddefn}
+    
+    As for the case of the butterfly network, two inputs and two outputs are typically connected at both the beginning and end of the Beneš network, ensuring that each node has a degree of 4. Therefore, this type of Beneš network has $2N = 2 \cdot 2^n = 2^{n + 1}$ inputs linked to the $0$-th layer, and $2^{n + 1}$ layers linked to the $2n$-th layer. \todo{add pic prob}
+
+    However, in the case of the Beneš network, the following theorem will establish an important result that leverages these additional inputs and outputs.
+
+    \begin{framedthm}{Rearrangeability of the Beneš network}
+        Any $n$-dimensional Beneš network is rearrangeable.
+    \end{framedthm}
+
+    \proofind{
+        The proof proceeds by induction on $n$.
+    }{
+        When $n = 0$, the Beneš consists of a single node, the theorem is vacuously true, because there are no edges on the network.
+    }{
+        Given any one-to-one mapping $\pi$ of the $2^n$ inputs and outputs on a $(n - 1)$-dimensional Beneš network, there exists \tit{a set of edge-disjoint paths} from the inputs to the outputs connecting each input $i$ to output $\pi(i)$, for each $1 \le i \le 2^{n}$.
+    }{
+        TODO
+    }
 
 \end{document}
