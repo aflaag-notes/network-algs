@@ -160,8 +160,6 @@
 
     \section{Interconnection topologies}
 
-    \subsection{Butterfly network}
-
     Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
 
     While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical conecrn in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
@@ -277,7 +275,9 @@
     \end{frameddefn}
 
     \begin{example}[Beneš network]
-        The following is an example of a Beneš network. \todo{add pic}
+        The following is an example of a Beneš network.
+
+        \centeredimage[A Beneš network.]{0.2}{../assets/benes.png}
     \end{example}
 
     Note that an $n$-dimensional Beneš network has $$2(n + 1) - 1 = 2n + 2 - 1 = 2n + 1$$ layers, because the two $n$-dimensional butterfly network --- which describe the first and last $n + 1$ layers --- have an \tit{overlapping layer}.
@@ -288,7 +288,7 @@
         A network with $N$ inputs and $N$ outputs is said to be \tbf{rearrangeable} if, for any one-to-one mapping $\pi$ of the inputs to the outputs, the mapping can be realized using exclusively \tit{edge-disjoint paths}.
     \end{frameddefn}
     
-    As for the case of the butterfly network, two inputs and two outputs are typically connected at both the beginning and end of the Beneš network, ensuring that each node has a degree of 4. Therefore, this type of Beneš network has $2N = 2 \cdot 2^n = 2^{n + 1}$ inputs linked to the $0$-th layer, and $2^{n + 1}$ layers linked to the $2n$-th layer. \todo{add pic prob}
+    As for the case of the butterfly network, two inputs and two outputs are typically connected at both the beginning and end of the Beneš network, ensuring that each node has a degree of 4. Therefore, this type of Beneš network has $2N = 2 \cdot 2^n = 2^{n + 1}$ inputs linked to the $0$-th layer, and $2^{n + 1}$ layers linked to the $2n$-th layer.
 
     However, in the case of the Beneš network, the following theorem will establish an important result that leverages these additional inputs and outputs.
 
@@ -301,9 +301,65 @@
     }{
         When $n = 0$, the Beneš consists of a single node, the theorem is vacuously true, because there are no edges on the network.
     }{
-        Given any one-to-one mapping $\pi$ of the $2^n$ inputs and outputs on a $(n - 1)$-dimensional Beneš network, there exists \tit{a set of edge-disjoint paths} from the inputs to the outputs connecting each input $i$ to output $\pi(i)$, for each $1 \le i \le 2^{n}$.
+        Given any one-to-one mapping $\pi$ of the $2^n$ inputs and outputs of a $(n - 1)$-dimensional Beneš network, there exists \tit{a set of edge-disjoint paths} from the inputs to the outputs, connecting each input $i$ to output $\pi(i)$, for each $1 \le i \le 2^{n}$.
     }{
-        TODO
+        Consider an $n$-dimensional Beneš network, with $2^{n + 1}$ inputs and outputs; note that its middle $2n - 1$ layers describe two $(n - 1)$-dimensionl Beneš networks, as shown in figure.
+
+        \centeredimage[Subnetworks of a Beneš network.]{0.2}{../assets/benes_subnetworks.png}
+
+
+        Note that each \tit{starting node} --- those in layer 0 --- has degree 4, and 2 of the links connect each starting node to the inputs, external to the Beneš network. Therefore, by definition of the Beneš network, the remaining two edges must connect each starting node with the two separate $(n - 1)$-dimensional Beneš networks. Formally, each input $2i -1$ and $2i$ must use different Beneš subnetworks, for each $1 \le i \le 2n$.
+
+        The proof is constructive, and involves a so called \tbf{looping algorithm}, which proceeds as follows:
+
+        \begin{itemize}
+            \item let two inupts connected to the same starting node be referred to as \tit{mates};
+            \item without loss of generality, start by routing input 1 to its destination, defined by $\pi(1)$; note that, as stated previously, this node will traverse only one of the two unconnected $(n - 1)$-dimensional Beneš networks;
+            \item route $\pi(1)$'s mate to its input, by traversing the Beneš subnetwork that \tit{was not} traversed by the path $1 \to \pi(1)$;
+            \item keep routing back and forth packets through the $n$-dimensional Beneš network; eventually, it will be routed the first input's \tit{mate}, which closes a routing loop;
+            \item open another loop and continue routing packets as described.
+        \end{itemize}
+
+        Finally, note that routing within the $(n - 1)$-dimensional Beneš networks is assumed to be achievable with edge-disjoint pahts inductively.
     }
+
+    If the Beneš network has \tit{1 single input and output connected to layers 0 and $2n$ respectively}, the following \tit{stronger} theorem can be proven.
+
+    \begin{framedthm}{Node-disjoint paths in Beneš networks}
+        Given any one-to-one mapping $\pi$ of the $2^n$ inputs and outputs of an $n$-dimensional Beneš network, there exists \tit{set of node-disjoint paths} from the inputs to the outputs, connecting each input $i$ to output $\pi(i)$, for each $1 \le i \le 2^n$.
+    \end{framedthm}
+
+    \begin{proof}
+        Details are omitted, because it is analogous to the proof of the previous theorem, but since there is a single input and a single ouptut connected to layer 0 and $2n$ respectively, the \tit{mate} of an input $i$ is input $i + 2^{n - 1}$, for each $1 \le i \le 2^{n - 1}$.
+
+        \centeredimage[Mates in this type of Beneš network.]{0.3}{../assets/benes_single.png}
+    \end{proof}
+
+    Although rearrangeability can be achieved, and even node-disjoint paths can be employed to route packets on Beneš networks, both versions of the \tbf{looping algorithm} have notable drawbacks:
+
+    \begin{itemize}
+        \item a \tbf{global controller} is \tit{required} to manage the network, determining the routing for each packet, knowing the permutation $\pi$ of the packets;
+        \item every time a new permutation $\pi$ needs to be routed, it takes $\Theta(N log N)$ time to reconfigure all the switches.
+    \end{itemize}
+    
+    \subsection{Mesh network}
+
+    Another important and widely used interconnection topology is the \tbf{mesh network}, which is described as follows.
+
+    \begin{frameddefn}{Mesh network}
+        Given two integers $m, n \ge 1$, an $m \times n$ \tbf{mesh network} $M_{m, n}$ is defines as follows:
+
+        \begin{itemize}
+            \item the nodes of the network are labeled by the following cartesian product $$\{1, \ldots, m\} \times \{1, \ldots, n\}$$
+            \item there is an edge between nodes $\abk{i,j}$ and $\abk{i',j'}$ if and only if $$\abs{i - i'} + \abs{j - j'} = 1$$
+            \item the path comprising the nodes labeled with $\{i\} \times \{1, \ldots n\}$ define the $i$-th row of the network; analogously, the set $\{1, \ldots, m\} \times \{j\}$ define the $j$-th column.
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{example}[Mesh network]
+        placeholder \todo{add pic}
+    \end{example}
+
+    For the convenience of physical layout, mesh networks are the most used topologies in \href{https://en.wikipedia.org/wiki/Network_on_a_chip}{Network-on-Chip} (NoC) design; however, this network will not be explored in these notes.
 
 \end{document}
