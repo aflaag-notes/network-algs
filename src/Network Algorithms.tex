@@ -175,7 +175,7 @@
         \item additionally, mechanisms for error detection and recovery may be employed to ensure reliable packet delivery, and flow control and congestion management may be applied to optimize network performance.
     \end{itemize}
 
-    \subsection{Bufferfly network}
+    \subsection{Bufferfly networks}
 
     \begin{frameddefn}{Bufferfly network}
         Let $n$ be an integer, and let $N := 2^n$; an \tbf{$n$-bufferfly network} is a \tit{layered graph} defined as follows:
@@ -226,8 +226,6 @@
         \end{algorithmic}
     \end{framedprop}
 
-    \subsection{Routing on a butterfly network}
-
     Packet-routing performed on a butterfly network can pose some challenges. Assume that each node $(u, 0)$ in the network on layer 0 of the butterfly contains a packet, which is destined for node $(\pi(u), n)$ in layer $n$ --- there are $n + 1$ layers, ranging in $[0, n]$ --- where $$\func{\pi}{[1, N]}{[1, N]}$$ describes the permutation of the packet destinations. In a \tbf{greedy routing algorithm}, each packet follows its \tit{greedy path}, meaning that at each intermediate layer, it makes progress toward its final destination by choosing the edges to cross through the algorithm described in \cref{prop:greedy_path}.
 
     When routing only a \tit{single packet}, the greedy algorithm works efficiently, since there are no conflicts or competing resources along the path. However, when \tit{multiple packets} are routed in parallel, conflicts can arise, especially when multiple packets attempt to traverse the same edge or node simultaneousl. n fact, \tit{multiple greedy paths} may intersect at the same node or edge, and since only one packet can traverse a given edge at any moment, the other packets must be \tbf{delayed} until the edge becomes available. As a result, the butterfly network cannot route every permutation without delays, making it a \tbf{blocking network}.
@@ -266,7 +264,7 @@
 
     Although such a greedy routing algorithm performs poorly in the worst case, it is \tbf{highly effective in practice}. In fact, for many practical classes of permutations, the greedy algorithm runs in $n$ steps, which is optimal, and for most permutations the algorithm runs in $n + o(n)$ steps. Consequently, the greedy algorithm is widely used in real-world applications.
 
-    \subsection{Beneš network}
+    \subsection{Beneš networks}
 
     As shown in the previous section, the \tit{butterfly network} can present efficiency problems due to packet delays caused by congestion when multiple packets are routed simultaneously. One way to \tit{avoid routing delays} is by using a \tbf{non-blocking topology}.
 
