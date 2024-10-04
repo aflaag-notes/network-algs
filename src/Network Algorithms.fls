@@ -249,21 +249,21 @@ INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
-INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
@@ -543,7 +543,12 @@ INPUT /usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-OUTPUT Network Algorithms.bcf
+OUTPUT Network_Algorithms-blx.bib
+INPUT Network Algorithms.bbl
+INPUT ./Network Algorithms.bbl
+INPUT ./Network Algorithms.bbl
+INPUT ./Network Algorithms.bbl
+INPUT Network Algorithms.bbl
 INPUT ./Network Algorithms.out
 INPUT ./Network Algorithms.out
 INPUT Network Algorithms.out
@@ -698,6 +703,45 @@ INPUT ../assets/grid.png
 INPUT ../assets/grid.png
 INPUT ../assets/grid.png
 INPUT ../assets/grid.png
+INPUT ../assets/not_allowed.png
+INPUT ../assets/not_allowed.png
+INPUT ../assets/not_allowed.png
+INPUT ../assets/not_allowed.png
+INPUT ../assets/not_allowed.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/h_tree_induct.png
+INPUT ../assets/h_tree_induct.png
+INPUT ../assets/h_tree_induct.png
+INPUT ../assets/h_tree_induct.png
+INPUT ../assets/h_tree_induct.png
+INPUT ../assets/h_tree_ex.png
+INPUT ../assets/h_tree_ex.png
+INPUT ../assets/h_tree_ex.png
+INPUT ../assets/h_tree_ex.png
+INPUT ../assets/h_tree_ex.png
+INPUT ../assets/symphony.png
+INPUT ../assets/symphony.png
+INPUT ../assets/symphony.png
+INPUT ../assets/symphony.png
+INPUT ../assets/symphony.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/0_h_tree.png
+INPUT ../assets/h_tree_3.png
+INPUT ../assets/h_tree_3.png
+INPUT ../assets/h_tree_3.png
+INPUT ../assets/h_tree_3.png
+INPUT ../assets/h_tree_3.png
+INPUT ../assets/h_tree_7.png
+INPUT ../assets/h_tree_7.png
+INPUT ../assets/h_tree_7.png
+INPUT ../assets/h_tree_7.png
+INPUT ../assets/h_tree_7.png
 INPUT Network Algorithms.aux
 INPUT ./Network Algorithms.out
 INPUT ./Network Algorithms.out

@@ -11,3 +11,4 @@
 \contentsline {subsection}{\numberline {1.2.3}Mesh network}{12}{subsection.1.2.3}%
 \contentsline {section}{\numberline {1.3}The Interconnection topology layout problem}{12}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Thompson's Model}{13}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}H trees}{16}{subsection.1.3.2}%

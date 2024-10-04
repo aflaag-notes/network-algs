@@ -67,6 +67,8 @@
 % \supervisor{Linus \textsc{Torvalds}}
 % \context{Well, I was bored\ldots}
 
+\addbibresource{./references.bib}
+
 %%%%%%%%%%%%
 % Document %
 %%%%%%%%%%%%
@@ -370,7 +372,16 @@
 
     \subsection{Thompson's Model}
 
-    To addresses the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the \href{https://caltechconf.library.caltech.edu/180/1/CDThompson.pdf}{Thompson's Model}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
+    To addresses the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the Thompson's Model \cite{thompson}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
+
+    \begin{frameddefn}{Graph drawing}
+        Given a graph $G$, its \tbf{drawing} $\Gamma$ is a function that
+
+        \begin{itemize}
+            \item maps each node $v \in V(G)$ to a distinct point $\Gamma(v)$ in the drawing
+            \item maps each edge $(u, v) \in E(G)$ in an open Jordan curve $\Gamma(u, v)$, that starts from $\Gamma(u)$ and ends in $\Gamma(v)$, such that it does not cross any point that is the mapping of a node.
+        \end{itemize}
+    \end{frameddefn}
 
     Thompson performed the following mapping, between \tit{VLSI circuits} and \tit{graphs}:
 
@@ -381,11 +392,157 @@
 
     However, due to the following spatial constraints imposed by VLSI technology manufacturing, this simple model requires further refinement in order to define a good \tbf{drawing} of this graph.
 
-    \begin{enumerate}
+    \begin{itemize}
         \item \tbf{Orthogonal drawing}: \tit{slanting lines} (diagonal connections) between components can only be \tit{approximated}, using small horizontal and vertical segments, because of the limitations in how the VLSI fabrication process manufactures the connections onto the \href{https://en.wikipedia.org/wiki/Wafer_(electronics)}{silicon wafer}. This forces the drawing to be \tbf{orthogonal}, which means that \tit{edges are represented as broken lines}, whose segments are horizontal or vertical, parallel to the coordinate axes.
             \centeredimage[An orthogonal drawing.]{0.15}{../assets/orthogonal.png}
-        \item \tbf{Grid drawing}: in VLSI design, maintaining \tit{adequate spacing} between wires is crucial to \tit{prevent interference}, which can degrade signal integrity. Proper spacing reduces parasitic capacitance and inductance, ensuring faster signal transmission and lower power consumption. Therefore, the graph drawing must be a \tbf{grid drawing}, such that all nodes, and crosses and bends of all the edges are put on grid points, on a grid plane, where the \tit{grid unit} is the minimum distance allowed between two wires.
+        \item \tbf{Grid drawing}: maintaining \tit{adequate spacing} between wires is crucial to \tit{prevent interference}, which can degrade signal integrity. Proper spacing reduces parasitic capacitance and inductance, ensuring faster signal transmission and lower power consumption. Therefore, the graph drawing must be a \tbf{grid drawing}, such that all nodes, and crosses and bends of all the edges are put on grid points, on a grid plane, where the \tit{grid unit} is the minimum distance allowed between two wires.
             \centeredimage[An grid drawing.]{0.2}{../assets/grid.png}
-    \end{enumerate}
+        \item \tbf{Crossing number minimization}: wires \tit{must not cross}, to avoid interference and signal integrity issues. To manage this constraint, designers often route wires on opposite sides of the circuit board, utilizing small \curlyquotes{holes} that create vertical connections between layers. While this technique helps prevent crossings, it is essential to \tbf{minimize} the number of such holes, as their fabrication can be \tit{expensive} and may complicate the manufacturing process.
+        \item \tbf{Area minimization}: silicon is a \tit{costly material}, making it essential to minimize the layout area of integrated circuits. Compact layouts not only reduce material costs, but also enhance performance by shortening wire lengths, which decreases signal delay and power consumption. Therefore, \tbf{area minimization} is a critical objective in the design process, as efficient use of silicon can lead to functional advantages in the final product.
+        \item \tbf{Edge length minimization}: wire lengths must be kept \tit{short}, because propagation delay increases with wire length, negatively impacting circuit performance. In layered topologies, it's particularly important that wires within the same layer are approximately equal in length to \tit{prevent synchronization issues} between signals. Thus, \tbf{edge length minimization} is crucial, as it helps ensure faster signal transmission and consistent timing across the circuit.
+    \end{itemize}
+
+    In 1980, Thompson introduced the following model, which describes how to draw the graph of a circuit to comply with the aforementioned constraints of VLSI design.
+
+    \begin{frameddefn}{Thompson's Model}
+        Given a graph of a topology $G$, the \tbf{Thompson's Model} is defines its layout drawing as a \tit{plane representation}, composed of a multitude of \tit{unit-distance horizontal and vertical traces}. This layout adheres to the following criteria:
+
+        \begin{itemize}
+            \item every \tit{node} in $V(G)$ is mapped to the \tit{intersection points} of the traces;
+            \item every \tit{edge} in $E(G)$ is represented by \tit{disjoint paths}, formed by horizontal and vertical segments along the traces; these paths \tit{must not} intersect nodes that are not their endpoints, and they can only cross each other at designated trace intersection points.
+            \item \tit{overlappings}, \tit{node-edge crosses} and \tit{\curlyquotes{knock-knees}} are not allowed.
+                \centeredimage[An overlapping, a node-edge cross, and a knock-knee.]{0.25}{../assets/not_allowed.png}
+        \end{itemize}
+    \end{frameddefn}
+
+    In other words, this definition states that the layout of the graph of a circuit should be drawn through an \tbf{orthogonal grid drawing}, which is defined as follows.
+
+    \begin{frameddefn}{Orthogonal grid drawing}
+        An \tbf{orthogonal grid drawing} of a given graph $G$ is a bijection, such that:
+
+        \begin{itemize}
+            \item each node $v \in V(G)$ is mapped to \tit{plane points} $\Gamma(v)$ at \tit{integer coordinates};
+            \item each edge $(u, v) \in E(G)$ is mapped to \tit{non-overlapping paths}, such that the images of the endpoints $\Gamma(u)$ and $\Gamma(v)$ are connected by the corresponding paths;
+            \item each path is constituted by \tit{horizontal and vertical segments}, and each possible bend lies on \tit{integer coordinates}.
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{framedobs}{Orthogonal grid drawings}
+        Note that only graphs with $\deg(v) \le 4$ for each $v \in V(G)$ can be correctly drawn.
+    \end{framedobs}
+
+    Hence, the \tbf{interconnection topology layout} is an \tbf{orthogonal grid drawing} of the corresopnding graph, aimed at \tit{minimize} the \tit{area}, the \tit{number of crossings} and the \tit{wire length}.
+
+    The literature on graph drawing is extensive, but it is \tit{not possible} to apply \tbf{existing algorithms} for orthogonal grid drawing to address the layout problem. In fact, while these algorithms provide \tit{certain bounds} on optimization functions, for any input graph meeting specified criteria, interconnection topologies are typically \tbf{highly structured graphs}, often regular, symmetric, or recursively built. By leveraging these unique properties, it is possible to achieve \tit{significantly better results}. General graph drawing algorithms take a graph as input and create a planar representation; in contrast, \tbf{layout algorithms} are \tit{specifically designed} for \tit{particular interconnection topologies}, and require only the dimensions of the topology as input. This implies that each interconnection topology will necessitate its \tbf{own tailored algorithm}.
+
+    It's also noteworthy that improving an optimization function by even a \tit{constant} factor can have \tbf{substantial implications}, particularly concerning area optimization. For example, if one layout occupies half the area of another, it effectively \tit{reduces costs by half}, making such optimizations critically important.
+
+    The following sections will explore some interconnection topologies and their own orthogonal grid drawing algorithms.
+
+    \subsection{H trees}
+
+    An efficient algorithm for generating an orthogonal grid drawing of a \tbf{$n$-node complete binary tree} has been found independently by \textcite{leiserson} and \textcite{valiant}, which employs \href{https://en.wikipedia.org/wiki/H_tree}{H tree}, defined as follows.
+
+    \begin{frameddefn}{H tree}
+        An \tbf{H tree} organizes the tree such that \tit{only horizontal and vertical lines} connect the nodes. It can be defined inductively from its height $h$ as follows:
+        \begin{itemize}
+            \item if $h = 0$ then a single node is needed
+                \centeredimage[An H tree of height $h = 0$.]{0.1}{../assets/0_h_tree.png}
+            \item otherwise, given two H trees of height $h - 1$, connect them as shown in the left drawing if $h$ even, otherwise use the right construction if $h$ is odd.
+                \centeredimage[The inductive step of the inductive H tree construction.]{0.2}{../assets/h_tree_induct.png}
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{example}[H trees]
+        The following figure shows an example of an H tree of height $h = 4$.
+
+        \centeredimage[H tree of height $h = 4$.]{0.2}{../assets/h_tree_ex.png}
+    \end{example}
+
+    \textcite{leiserson} and \textcite{valiant} showed that an H tree can be represented in an area of $O(n)$, where $n$ is the number of nodes of the H tree --- trivially, the area must be $\Omega(n)$. However, $O(n)$ is not sufficient, and the constant factor concealed by the big $O$ notation must also be considered. Additionally, \textcite{brent} proved that, if the leaves of a binary tree are required to be positioned along the borders of the rectangular area, the layout must occupy $\Omega (n \log n)$ area instead.
+
+    Note that the area of the grid we are considering is the following.
+
+    \centeredimage[The grid of the H tree]{0.15}{../assets/symphony.png}
+
+    \begin{framedthm}{Area of an H tree}
+        The area occupied by an $n$-node H tree is $2(n + 1) + o(n)$.
+    \end{framedthm}
+
+    \proofind{
+        The proof proceeds by induction on the height of $h$ the H tree
+    }{
+        There are 3 base cases, namely when $h = 0$, $h = 1$ and $h = 2$, respectively shown in the figure below.
+        \begin{figure}[H]
+            \centering
+            \begin{tabular}{ccccc}
+                \begin{tabular}{c}\includegraphics[scale=0.1]{../assets/0_h_tree.png}\end{tabular} & \quad & \begin{tabular}{c}\includegraphics[scale=0.15]{../assets/h_tree_3.png}\end{tabular} & \quad & \begin{tabular}{c}\includegraphics[scale=0.15]{../assets/h_tree_7.png}\end{tabular}
+            \end{tabular}
+            \caption{Cases for $h = 0$, $h = 1$ and $h = 2$.}
+        \end{figure}
+        Let $l_h$ and $w_h$ be the two sides of the rectangle enclosing the H tree of height $h$, respectively; thus, we have that
+        
+        \begin{itemize}
+            \item for $h = 0$, $l_0 = w_0 = 2 \implies A_0 = l_0 \cdot w_0 = 2 \cdot 2 = 4 = 2(1+1)$ 
+            \item for $h = 1$, $l_1 = 2$ and $w_1 = 4$, therefore $$A_1 = l_1 \cdot w_1 = 2 \cdot 4 = 8 = 2(3+1)$$
+            \item for $h = 2$, $l_2 = w_2 = 4 \implies A_2 = l_2 \cdot w_2 = 4 \cdot 4 = 16 = 2(7+1)$
+        \end{itemize}
+    }{
+        Assume the result is true for an H tree of height $h - 1$.
+    }{
+        Two different cases must be analyzed, specifically when $h$ is \tit{odd} an $h$ is \tit{even}.
+        
+        \begin{itemize}
+            \item For the \tit{odd} case, the sides of the rectangle are defined as follows: $$\soe{l}{l_h = l_{h - 1} = 2l_{h - 2} \\ w_h = 2w_{h - 1} = 2w_{h - 2}}$$ (note that $l_{h - 1} = 2l_{h - 2}$ and $w_{h - 1} = w_{h - 2}$). Therefore
+                \begin{equation*}
+                    \begin{split}
+                        l_h &= 2l_{h-2} \\
+                            &= \ldots \\
+                            &= 2^k \cdot l_{h - 2k} \quad \quad \rbk{h - 2k = 1 \implies k = \frac{h - 1}{2}} \\
+                            &= 2^\frac{h - 1}{2} \cdot l_1 \\
+                            &= 2^\frac{h - 1}{2} \cdot 2 \\
+                            &= 2^{\frac{h - 1}{2} + 1} \\
+                            &= 2^\frac{h + 1}{2}
+                    \end{split}
+                \end{equation*}
+                and analogously
+                \begin{equation*}
+                    \begin{split}
+                        w_h &= 2w_{h - 2} \\
+                            &= \ldots \\
+                            &= 2^k \cdot w_{h - 2k} \quad \quad \rbk{h - 2k = 1 \implies k = \frac{h - 1}{2}} \\
+                            &= 2^\frac{h - 1}{2} \cdot w_1 \\
+                            &= 2^\frac{h - 1}{2} \cdot 4 \\
+                            &= 2^{\frac{h - 1}{2} + 2} \\
+                            &= 2^\frac{h + 3}{2}
+                    \end{split}
+                \end{equation*}
+                Hence, the area is
+                \begin{equation*}
+                    \begin{split}
+                        A_h &= l_h \cdot w_h \\
+                            &= 2^\frac{h + 1}{2} \cdot 2^\frac{h + 3}{2} \\
+                            &= 2^\frac{2h + 4}{2} \\
+                            &= 2^{h + 2} \quad \quad (h = \log (n + 1) - 1) \\
+                            &= 2^{\log(n + 1) -1 +2} \\
+                            &= 2^{\log(n + 1) +1} \\
+                            &= 2(n + 1)
+                    \end{split}
+                \end{equation*}
+            \item For the \tit{even} case, the sides of the rectangle are defined as follows: $$\soe{l}{l_h = 2l_{h - 1} = 2l_{h - 2} \\ w_h = w_{h - 1} = 2w_{h - 2}}$$ (note that $l_{h - 1} = l_{h - 2}$ and $w_{h - 1} = 2w_{h - 2}$) Therefore, the calculations are analogous, but $h - 2k = 0 \implies k = \dfrac{h}{2}$ which leads to $$l_h = w_h = 2^\frac{h + 2}{2}$$ (recall that $l_0 = w_0 = 2$), hence
+                \begin{equation*}
+                    \begin{split}
+                        A_h &= l_h \cdot w_h \\
+                            &= 2^\frac{h + 2}{2} \cdot 2^\frac{h + 2}{2} \\
+                            &= 2^\frac{2h + 4}{2} \\
+                            &= 2^{h + 2} \\
+                            &= \ldots \\
+                            &= 2(n + 1)
+                    \end{split}
+                \end{equation*}
+        \end{itemize}
+    }
+
+    \printbibliography
 
 \end{document}
