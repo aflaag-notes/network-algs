@@ -360,4 +360,32 @@
 
     For the convenience of physical layout, mesh networks are the most used topologies in \href{https://en.wikipedia.org/wiki/Network_on_a_chip}{Network-on-Chip} (NoC) design; however, this network will not be explored in these notes.
 
+    \section{The Interconnection topology layout problem}
+
+    The \tbf{interconnection topology layout problem} is a crucial challenge in \href{very-large-scale integration} (VLSI) design, the process of creating an \href{https://en.wikipedia.org/wiki/Integrated_circuit}{integrated circuit} (IC) by combining billions of \href{https://en.wikipedia.org/wiki/MOSFET}{MOS} transistors onto a single chip. It involves finding the most efficient way to place and connect various components (such as transistors, resistors, and other circuit elements) on a silicon chip. The goal is to optimize several factors, including \tit{space}, \tit{power consumption}, \tit{signal delay}, and \tit{manufacturing cost}. This problem becomes particularly important as modern chips contain billions of transistors and require complex interconnections between components.
+
+    The problem originated in the 1940s, during the early stages of digital computing. However, at that time, the technology was not advanced enough to implement complex circuit layouts in an efficient manner. Physical constraints, costs, and the lack of sophisticated computational methods limited the practical application of these ideas.
+
+    In recent decades, as technology advanced, VLSI design has evolved to allow highly dense and intricate circuits in both 2D and 3D layouts. This made the \tbf{interconnection topology layout problem} a crucial area of study, particularly for \tit{optimizing performance}, \tit{reducing power consumption}, and \tit{controlling costs} in increasingly smaller chip designs.
+
+    \subsection{Thompson's Model}
+
+    To addresses the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the \href{https://caltechconf.library.caltech.edu/180/1/CDThompson.pdf}{Thompson's Model}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
+
+    Thompson performed the following mapping, between \tit{VLSI circuits} and \tit{graphs}:
+
+    \begin{itemize}
+        \item the \tit{various components} of the VLSI circuit, such as \tit{ports}, \tit{switches} and other electronic elements, are represented by \tbf{nodes} in a graph;
+        \item the \tit{wires}, or connections, between the components are represented by \tbf{edges} in a graph.
+    \end{itemize}
+
+    However, due to the following spatial constraints imposed by VLSI technology manufacturing, this simple model requires further refinement in order to define a good \tbf{drawing} of this graph.
+
+    \begin{enumerate}
+        \item \tbf{Orthogonal drawing}: \tit{slanting lines} (diagonal connections) between components can only be \tit{approximated}, using small horizontal and vertical segments, because of the limitations in how the VLSI fabrication process manufactures the connections onto the \href{https://en.wikipedia.org/wiki/Wafer_(electronics)}{silicon wafer}. This forces the drawing to be \tbf{orthogonal}, which means that \tit{edges are represented as broken lines}, whose segments are horizontal or vertical, parallel to the coordinate axes.
+            \centeredimage[An orthogonal drawing.]{0.15}{../assets/orthogonal.png}
+        \item \tbf{Grid drawing}: in VLSI design, maintaining \tit{adequate spacing} between wires is crucial to \tit{prevent interference}, which can degrade signal integrity. Proper spacing reduces parasitic capacitance and inductance, ensuring faster signal transmission and lower power consumption. Therefore, the graph drawing must be a \tbf{grid drawing}, such that all nodes, and crosses and bends of all the edges are put on grid points, on a grid plane, where the \tit{grid unit} is the minimum distance allowed between two wires.
+            \centeredimage[An grid drawing.]{0.2}{../assets/grid.png}
+    \end{enumerate}
+
 \end{document}
