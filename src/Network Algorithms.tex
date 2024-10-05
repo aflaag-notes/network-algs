@@ -95,6 +95,159 @@
 
     \chapter{TODO}
 
+    \section{Introduction on graphs}
+
+    In many network applications, graphs are used as a natural model. In other applications, the graph model may be less obvious, but appears to be anyway very useful. Graph algorithms are useful instruments to solve important and living problems. We will see a number of advanced techniques for efficient algorithm design to solve problems from networks and graphs. 
+
+    \begin{frameddefn}{Graph}
+        A \textbf{graph} is a mathematical structure $G = (V,E)$ made of a set $V$ called the \textit{vertex set} (or \textit{node set}), and a set $E \subseteq V \times V$ called \textit{edge set}.
+    \end{frameddefn}
+
+    Graphs are usually represented through circles and lines, were each line between two vertices $u,v$ represents the edge $(u,v)$. We will assume to be working with \textit{simple graphs}, a type of graph that doesn't allow loop edges, i.e. edges from a node to itself, or a multiple number of edges between two vertices.  
+   
+
+    The edges of a graph can also be \textit{directed} or \textit{undirected}. In the former, the two edges $(u,v)$ and $(v,u)$ are considered two distinct edges while in the latter they are considered as the same edge. A directed graph is usually also referred to as \textbf{digraph}. 
+    
+    \begin{figure}[H]
+        \centering
+
+        \begin{tabular}{ccc}
+            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=3cm,thick,main node/.style={scale=0.6,circle,draw,font=\sffamily\normalsize}]
+                \node[main node] (1) {1};
+                \node[main node] (2) [below left of=1] {2};
+                \node[main node] (3) [below right of=2] {3};
+                \node[main node] (6) [right of=2] {6};
+                \node[main node] (5) [above right of=6] {5};
+                \node[main node] (4) [below of=5] {4};
+    
+                \path[every node/.style={font=\sffamily\small}]
+                    (1) edge (2)
+                    (2) edge (3)
+                    (2) edge (4)
+                    (3) edge (4)
+                    (4) edge (1)
+                    (5) edge (1)
+                    (6) edge (3)
+                    (6) edge (5)
+                    ;
+            \end{tikzpicture}
+
+            &\qquad\qquad&
+
+            \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=3cm,thick,main node/.style={scale=0.6,circle,draw,font=\sffamily\normalsize}]
+                \node[main node] (1) {1};
+                \node[main node] (2) [below left of=1] {2};
+                \node[main node] (3) [below right of=2] {3};
+                \node[main node] (6) [right of=2] {6};
+                \node[main node] (5) [above right of=6] {5};
+                \node[main node] (4) [below of=5] {4};
+    
+                \path[every node/.style={font=\sffamily\small}]
+                    (1) edge (2)
+                    (2) edge (3)
+                    (2) edge (4)
+                    (3) edge (4)
+                    (4) edge (1)
+                    (5) edge (1)
+                    (6) edge (3)
+                    (6) edge (5)
+                    ;
+            \end{tikzpicture}
+        \end{tabular}
+
+        \caption{On the left: a simple graph. On the right: a simple digraph}
+    \end{figure}
+
+    Graphs were born in 1736, when Euler used them formalize and solve the famous \textit{Seven Bridges of Königsberg} problem: is there a way to walk through all the bridges of the town and end up on the starting point? 
+
+    \begin{figure}[H]
+        \centering
+
+        \includegraphics[scale=0.6]{../assets/Konigsberg_bridges.png}
+        \caption{The city of Königsberg and its seven bridges}
+    \end{figure}
+
+    To solve the problem, Euler represented the problem as the following \textit{multi-graph}, i.e. a non-simple graph that allows multiple edges between two vertices. Euler proved that the answer to the question is negative: a walk that passes through all the edges of such graph while also returning to the starting node cannot exist.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=3cm,thick,main node/.style={scale=0.6,circle,draw,font=\sffamily\normalsize}]
+            \node[main node] (1) {};
+            \node[main node] (2) [below left of=1, xshift = -50] {};
+            \node[main node] (3) [below right of=2, xshift = 50] {};
+            \node[main node] (4) [right of=2, xshift = 75] {};
+
+            \path[every node/.style={font=\sffamily\small}]
+                (1) edge [out=180, in=90] (2)
+                (1) edge [out=-110, in=30] (2)
+                (2) edge [out=270, in=180] (3)
+                (2) edge [out=-30, in=110] (3)
+                (2) edge (4)
+                (1) edge (4)
+                (3) edge (4)
+                ;
+        \end{tikzpicture}
+
+        \caption{The multi-graph representing the Seven Bridges of Königsberg problem}
+    \end{figure}
+
+    In general, a \textbf{walk} on a graph $G$ is given by a sequence of nodes $v_1, \ldots, v_k$ such that $(v_i, v_{i+1}) \in E(G)$. A \textbf{path} is walk whose vertices are all distinct. As we'll see in the following sections, walks and paths are the basis of graph theory.
+
+    \newpage
+
+    \section{The routing problem}
+
+    When packets are sent from a computer to another through a network, each computer has to route data on a path passing through intermediate computers. This problem is usually referred to as the \textbf{routing problem}.
+    
+    By modelling the network as a graph whose vertices correspond to the computers and its edges correspond to the links between them, such problem is reduced to the concept of a path from an initial node to an arrival node.
+
+    Based on the required conditions, the routing reduces to a specific type of path problem:
+    \begin{enumerate}
+        \item In \textbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion. 
+        \item In \textbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well.
+        \item In \textbf{fault-sensitive routing}, the routing algorithm must consider the possibility of a link failing: we want the route with the highest probability of working. 
+    \end{enumerate}
+
+
+    Each of these problems can be modeled as a graph. In particular, adaptive routing and fault-sensitive routing need an additional \textit{weight function} $w : E(G) \to \R$ such that $w(e)$ represents the weight of an edge $e \in E(G)$. The \textbf{weight (or cost) of a path} $P$, written as $w(P)$, is the sum of the edges that compose it.
+
+    \begin{example}[Weighted graphs]
+        The following is an example of a graph with weights on the edges.
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[-,>=stealth',shorten >=1pt,auto,node distance=3cm,thick,main node/.style={scale=0.6,circle,draw,font=\sffamily\normalsize}]
+                \node[main node] (1) {1};
+                \node[main node] (2) [above of=1] {2};
+                \node[main node] (3) [right of=2] {3};
+                \node[main node] (4) [below of=3] {4};
+
+                \path[every node/.style={font=\sffamily\small}]
+                    (1) edge node {1} (2)
+                    (2) edge node {2} (3)
+                    (3) edge node {5} (4)
+                    (4) edge node {10} (1)
+                    (1) edge node {6} (3)
+                    ;
+            \end{tikzpicture}
+            \caption{An indirected weighted graph.}
+        \end{figure}
+
+        For instance, the path $1, 2, 3, 4$ has weight $1 + 2 + 5 = 8$.
+    \end{example}
+    
+    The weight measure varies based on the context. In adaptive routing the traffic acts as the weight, while in fault-sensitive routing the probability acts as the weight. In particular, let $p(u,v)$ be the probability that an edge $(u,v) \in E(G)$ doesn't fail. Under the not-so-realistic assumption that edge failures occur independently of each other, we get that the probability that a path $P = v_1, \ldots, v_k$ doesn't fail is given by $p(v_1, v_2) \cdot \ldots \cdot p(v_{k-1}, v_k)$.
+    
+    By setting each weight $w(u,v)$ equal to $-\log(p(u,v))$, we get that the product $p(v_1, v_2) \cdot \ldots p(v_{k-1}, v_k)$ reaches its maximum when the sum $w(v_1, v_2) + \ldots + w(v_{k-1}, v_k)$ reaches its minimum. Through this weight function, fault-sensitive routing is also reduces to the least cost path problem.
+
+    Similarly, the shortest path problem can also be reduced to the least cost path problem by setting $w(u,v)$ equal to 1 for each edge. One problem to rule them all!
+
+    \begin{frameddefn}{Distance}
+        Let $G = (V,E)$ be a graph. Given two nodes $u,v \in V(G)$, the \textbf{distance} between $u$ and $v$, written as $\dist(u,v)$, is the minimum weight of all the paths $u \to v$ of $G$.
+    \end{frameddefn}
+
+    On digraphs the concept of distance is non-symmetrical: the distance $\dist(u,v)$ may be different from the distance $\dist(v,u)$. Moreover, when there is no path $u \to v$, we assume that $\dist(u,v) = +\infty$.
+
     \section{TODO}
     
     \subsection{Classical solutions}
@@ -144,7 +297,7 @@
                 \For{$k \in V(G)$}
                     \For{$u \in V(G)$}
                         \For{$v \in V(G)$}
-                            \State $\arraytt{dist}{u}{v} = \min \rbk{\arraytt{dist}{u}{k}, \arraytt{dist}{k}{v}}$
+                            \State $\arraytt{dist}{u}{v} = \min \rbk{\arraytt{dist}{u}{v}, \arraytt{dist}{u}{k} + \arraytt{dist}{k}{v}}$
                         \EndFor
                     \EndFor
                 \EndFor
@@ -164,7 +317,7 @@
 
     Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
 
-    While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical conecrn in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
+    While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical concern in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
 
     There are many types of routing models. In this notes, the focus will be on the \href{https://en.wikipedia.org/wiki/Store_and_forward}{store-and-forward} model:
 
@@ -177,9 +330,9 @@
         \item additionally, mechanisms for error detection and recovery may be employed to ensure reliable packet delivery, and flow control and congestion management may be applied to optimize network performance.
     \end{itemize}
 
-    \subsection{Bufferfly networks}
+    \subsection{Butterfly networks}
 
-    \begin{frameddefn}{Bufferfly network}
+    \begin{frameddefn}{Butterfly network}
         Let $n$ be an integer, and let $N := 2^n$; an \tbf{$n$-bufferfly network} is a \tit{layered graph} defined as follows:
 
         \begin{itemize}
@@ -190,13 +343,19 @@
         \end{itemize}
     \end{frameddefn}
 
-    \begin{example}[Bufferfly network]
+    \begin{example}[Butterfly network]
         The following figure shows an example of a butterfly network.
 
-        \centeredimage[A butterfly network.]{0.3}{../assets/butterfly.png}
+        \centeredimage[A butterfly network.]{0.35}{../assets/butterfly.png}
     \end{example}
 
-    It can be shown that each node, except those in the first and the last layers, has degree 4 \todo{prove it?}. Therefore, to perform the routing of the packets on a butterfly network, its nodes are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and \tit{bar} (shown below, respectively).
+    Note that the nodes of a butterfly network can be \tbf{rearranged} to form a mirror image of the original network.
+
+    Butterfly networks have a \tbf{recursive structure}, which is highlighted in the following figure. Specifically, one $n$-dimensional butterfly contains two $(n - 1)$-dimensional butterfly networks as subgraphs.
+
+    \centeredimage[The recursive structure of butterfly networks.]{0.3}{../assets/butterfly_recursive.png}
+
+    Through the recursive structure of the butterfly network it can be easily shown, by structural induction, that each node of the network has degree 4, except for the ones in the first and last layer. Therefore, to perform the routing of the packets on a butterfly network, its nodes are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and \tit{bar} (shown below, respectively).
 
     \centeredimage[A butterfly network node.]{0.25}{../assets/butterfly_nodes.png}
 
@@ -205,10 +364,6 @@
     \centeredimage[An extended butterfly network.]{0.25}{../assets/butterfly_extended.png}
 
     As a result, a butterfly network can be viewed as a \tit{switching network} that connects $2N$ input units to $2N$ ouptut units, through a layered structure divided into $\log N +1 = \log 2^n +1 = n + 1$ layers, each consisting of $N$ nodes.
-
-    Moreover, butterfly networks have a recursive structure, which is highlighted in the following figure. Specifically, one $n$-dimensional butterfly contains two $(n - 1)$-dimensional butterfly networks as subgraphs.
-
-    \centeredimage[The recursive structure of butterfly networks.]{0.3}{../assets/butterfly_recursive.png}
 
     The topology of the butterfly network can be leveraged as stated in the following proposition.
 
@@ -247,13 +402,13 @@
     \begin{proof}
         For simplicity, assume that $n$ is odd (though similar results can be proven for even values of $n$). Given $0 < i \le n$, let $e$ be any edge in the $i$-th layer, and let $n_i$ be the number of greedy paths traversing $e$.
 
-        The number of greedy paths in the first half of the butterfly is bounded by the number of leaves of the left complete binary tree, namely $n_i \le 2^{i - 1}$. Analogously, on the second half of the butterfly, $n_i$ is bounded by the number of leaves of the right complete binary tree, therefore $n_i \le 2^{n - i}$. Note that both this results hold because $n$ is odd. \todo{scrivere che prendiamo il minimo, ma prima da capire il perché}
+        The number of greedy paths in the first half of the butterfly is bounded by the number of leaves of the left complete binary tree, namely $n_i \le 2^{i - 1}$. Analogously, on the second half of the butterfly, $n_i$ is bounded by the number of leaves of the right complete binary tree, therefore $n_i \le 2^{n - i}$. Note that both this results hold because $n$ is odd.
 
-        Note that any packet that need to cross $e$ can be delayed by \tit{at most} the other $n_i - 1$ packets. Therefore, recalling that $\displaystyle \sum_{j = 0}^k {2^j} = 2^{k + 1} - 1$, as a packet traverses layers 1 through $n$, the total delay it can encounter is at most \todo{non capisco a che serva questa frase}
+        Note that any packet that need to cross $e$ can be delayed by \tit{at most} the other $n_i - 1$ packets. Therefore, recalling that $\displaystyle \sum_{j = 0}^k {2^j} = 2^{k + 1} - 1$, as a packet traverses layers 1 through $n$, the total delay it can encounter is at most
 
         \begin{equation*}
             \begin{split}
-                \sum_{i = 1}^n {(n_i -1)} &= \sum_{i = 1}^\frac{n + 1}{2} {(n_1 - 1)} + \sum_{\frac{n + 1}{2} + 1}^n(n_i - 1) \\
+                \sum_{i = 1}^n {(n_i -1)} &= \sum_{i = 1}^\frac{n + 1}{2} {(n_1 - 1)} + \sum_{i = \frac{n + 1}{2} + 1}^n(n_i - 1) \\
                                           &\le \sum_{i = 1}^\frac{n + 1}{2} {\rbk{2^{i - 1} - 1}} + \sum_{i = \frac{n + 3}{2}}^n {\rbk{2^{n - i} - 1}} \\
                                           &= \sum_{j = 0}^{\frac{n + 1}{2} - 1}{\rbk{2^j - 1}} + \sum_{j = 0}^{\frac{n - 3}{2}} {\rbk{2^j - 1}} \\
                                           &=\sum_{j = 0}^{\frac{n + 1}{2} - 1}{2^j} + \sum_{j = 0}^{\frac{n - 3}{2}} {2^j} - n \\
@@ -362,7 +517,7 @@
 
     For the convenience of physical layout, mesh networks are the most used topologies in \href{https://en.wikipedia.org/wiki/Network_on_a_chip}{Network-on-Chip} (NoC) design; however, this network will not be explored in these notes.
 
-    \section{The Interconnection topology layout problem}
+    \section{The interconnection topology layout problem}
 
     The \tbf{interconnection topology layout problem} is a crucial challenge in \href{very-large-scale integration} (VLSI) design, the process of creating an \href{https://en.wikipedia.org/wiki/Integrated_circuit}{integrated circuit} (IC) by combining billions of \href{https://en.wikipedia.org/wiki/MOSFET}{MOS} transistors onto a single chip. It involves finding the most efficient way to place and connect various components (such as transistors, resistors, and other circuit elements) on a silicon chip. The goal is to optimize several factors, including \tit{space}, \tit{power consumption}, \tit{signal delay}, and \tit{manufacturing cost}. This problem becomes particularly important as modern chips contain billions of transistors and require complex interconnections between components.
 
