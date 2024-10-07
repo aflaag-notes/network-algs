@@ -10,7 +10,11 @@
 \contentsline {section}{\numberline {1.4}Interconnection topologies}{6}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Butterfly networks}{7}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Beneš networks}{12}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Mesh network}{15}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.3}Mesh networks}{15}{subsection.1.4.3}%
 \contentsline {section}{\numberline {1.5}The interconnection topology layout problem}{16}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Thompson's Model}{16}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}H trees}{20}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}The collinear layout}{23}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}The Wise layout}{25}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Layered layout}{27}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.6}Optimal area of the butterfly network}{32}{subsection.1.5.6}%

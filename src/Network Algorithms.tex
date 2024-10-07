@@ -100,13 +100,13 @@
     In many network applications, graphs are used as a natural model. In other applications, the graph model may be less obvious, but appears to be anyway very useful. Graph algorithms are useful instruments to solve important and living problems. We will see a number of advanced techniques for efficient algorithm design to solve problems from networks and graphs. 
 
     \begin{frameddefn}{Graph}
-        A \textbf{graph} is a mathematical structure $G = (V,E)$ made of a set $V$ called the \textit{vertex set} (or \textit{node set}), and a set $E \subseteq V \times V$ called \textit{edge set}.
+        A \tbf{graph} is a mathematical structure $G = (V,E)$ made of a set $V$ called the \textit{vertex set} (or \textit{node set}), and a set $E \subseteq V \times V$ called \textit{edge set}.
     \end{frameddefn}
 
     Graphs are usually represented through circles and lines, were each line between two vertices $u,v$ represents the edge $(u,v)$. We will assume to be working with \textit{simple graphs}, a type of graph that doesn't allow loop edges, i.e. edges from a node to itself, or a multiple number of edges between two vertices.  
    
 
-    The edges of a graph can also be \textit{directed} or \textit{undirected}. In the former, the two edges $(u,v)$ and $(v,u)$ are considered two distinct edges while in the latter they are considered as the same edge. A directed graph is usually also referred to as \textbf{digraph}. 
+    The edges of a graph can also be \textit{directed} or \textit{undirected}. In the former, the two edges $(u,v)$ and $(v,u)$ are considered two distinct edges while in the latter they are considered as the same edge. A directed graph is usually also referred to as \tbf{digraph}. 
     
     \begin{figure}[H]
         \centering
@@ -191,25 +191,25 @@
         \caption{The multi-graph representing the Seven Bridges of Königsberg problem}
     \end{figure}
 
-    In general, a \textbf{walk} on a graph $G$ is given by a sequence of nodes $v_1, \ldots, v_k$ such that $(v_i, v_{i+1}) \in E(G)$. A \textbf{path} is walk whose vertices are all distinct. As we'll see in the following sections, walks and paths are the basis of graph theory.
+    In general, a \tbf{walk} on a graph $G$ is given by a sequence of nodes $v_1, \ldots, v_k$ such that $(v_i, v_{i+1}) \in E(G)$. A \tbf{path} is walk whose vertices are all distinct. As we'll see in the following sections, walks and paths are the basis of graph theory.
 
     \newpage
 
     \section{The routing problem}
 
-    When packets are sent from a computer to another through a network, each computer has to route data on a path passing through intermediate computers. This problem is usually referred to as the \textbf{routing problem}.
+    When packets are sent from a computer to another through a network, each computer has to route data on a path passing through intermediate computers. This problem is usually referred to as the \tbf{routing problem}.
     
     By modelling the network as a graph whose vertices correspond to the computers and its edges correspond to the links between them, such problem is reduced to the concept of a path from an initial node to an arrival node.
 
     Based on the required conditions, the routing reduces to a specific type of path problem:
     \begin{enumerate}
-        \item In \textbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion. 
-        \item In \textbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well.
-        \item In \textbf{fault-sensitive routing}, the routing algorithm must consider the possibility of a link failing: we want the route with the highest probability of working. 
+        \item In \tbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion. 
+        \item In \tbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well.
+        \item In \tbf{fault-sensitive routing}, the routing algorithm must consider the possibility of a link failing: we want the route with the highest probability of working. 
     \end{enumerate}
 
 
-    Each of these problems can be modeled as a graph. In particular, adaptive routing and fault-sensitive routing need an additional \textit{weight function} $w : E(G) \to \R$ such that $w(e)$ represents the weight of an edge $e \in E(G)$. The \textbf{weight (or cost) of a path} $P$, written as $w(P)$, is the sum of the edges that compose it.
+    Each of these problems can be modeled as a graph. In particular, adaptive routing and fault-sensitive routing need an additional \textit{weight function} $w : E(G) \to \R$ such that $w(e)$ represents the weight of an edge $e \in E(G)$. The \tbf{weight (or cost) of a path} $P$, written as $w(P)$, is the sum of the edges that compose it.
 
     \begin{example}[Weighted graphs]
         The following is an example of a graph with weights on the edges.
@@ -243,7 +243,7 @@
     Similarly, the shortest path problem can also be reduced to the least cost path problem by setting $w(u,v)$ equal to 1 for each edge. One problem to rule them all!
 
     \begin{frameddefn}{Distance}
-        Let $G = (V,E)$ be a graph. Given two nodes $u,v \in V(G)$, the \textbf{distance} between $u$ and $v$, written as $\dist(u,v)$, is the minimum weight of all the paths $u \to v$ of $G$.
+        Let $G = (V,E)$ be a graph. Given two nodes $u,v \in V(G)$, the \tbf{distance} between $u$ and $v$, written as $\dist(u,v)$, is the minimum weight of all the paths $u \to v$ of $G$.
     \end{frameddefn}
 
     On digraphs the concept of distance is non-symmetrical: the distance $\dist(u,v)$ may be different from the distance $\dist(v,u)$. Moreover, when there is no path $u \to v$, we assume that $\dist(u,v) = +\infty$.
@@ -330,7 +330,7 @@
         \item additionally, mechanisms for error detection and recovery may be employed to ensure reliable packet delivery, and flow control and congestion management may be applied to optimize network performance.
     \end{itemize}
 
-    \subsection{Butterfly networks}
+    \subsection{Butterfly networks} \label{butterfly_networks}
 
     \begin{frameddefn}{Butterfly network}
         Let $n$ be an integer, and let $N := 2^n$; an \tbf{$n$-bufferfly network} is a \tit{layered graph} defined as follows:
@@ -497,7 +497,7 @@
         \item every time a new permutation $\pi$ needs to be routed, it takes $\Theta(N log N)$ time to reconfigure all the switches.
     \end{itemize}
     
-    \subsection{Mesh network}
+    \subsection{Mesh networks}
 
     Another important and widely used interconnection topology is the \tbf{mesh network}, which is described as follows.
 
@@ -697,6 +697,198 @@
                 \end{equation*}
         \end{itemize}
     }
+
+    \subsection{The collinear layout}
+
+    The Thompson model imposes the restriction that each \tit{processing element} (i.e. node) can have at most \tbf{4 wires} coming out of it in 2D (and 6 in 3D). This constraint ensures that nodes have \textit{manageable connectivity}, which is crucial for simplifying VLSI layouts.
+
+    However, when nodes with \tbf{higher degrees} are \textit{required}, especially in more complex designs, this limitation becomes problematic. By the late 1990s, researchers proposed the following \tbf{non-constant node degree model} as a solution:
+
+    \begin{itemize}
+        \item a node with degree $d$ occupies a square with side length proportional to $\Theta(d)$;
+        \item the wires connecting these nodes follow \tbf{horizontal or vertical paths} along \tit{grid lines}, similar to how connections are handled in lower-degree models.
+    \end{itemize}
+
+    This adaptation maintains simplicity while accommodating \tit{more complex topologies}. This evolution in layout strategies allows for more scalable VLSI design, making it possible to handle larger, more interconnected networks without overly restrictive node degree constraints.
+
+    In particular, this section will focus on a layout proposed by \textcite{yeh}, called the \tbf{collinear layout}, in which all the nodes of the network are placed \tit{on the same line}.
+
+    The following example will show how to get a \tit{collinear layout} from a \tbf{complete graph}.
+
+    \begin{example}[Collinear layouts]
+        Consider the following \tit{labeled complete graph}
+
+        \centeredimage[A clique of degree 6.]{0.2}{../assets/complete_graph.png}
+
+        and let a \tbf{link of type-$i$} be any edge between two nodes whose labels differ of exactly $i$. To obtain the corresponding \tit{collinear layout}, place the 6 nodes on the same line in order, and connect them by placing type-$i$ links in the least possible number of \tbf{tracks} --- in this context a \tit{track} is a horizontal line on which links can be placed. For instance, type-1 links can be places in 1 track, type-2 links can be placed in 2 tracks --- by placing links between odd numbers on one track and links connecting even numbers on the other --- and so on.
+
+        \centeredimage[Arrangement of links in tracks]{0.2}{../assets/collinear_clique.png}
+    \end{example}
+
+    This example shows that type-$i$ links of a collinear layout occupy at most $\min(i, n - i)$. In fact, the following property can be derived. Thus, the total number of tracks of this layout can be obtained by evaluating the following sum:
+    
+    \begin{equation*}
+        \begin{split}
+            \sum_{i = 1}^{n - 1}{\min(i, n - i)} &= \sum_{i = 1}^{\frac{n}{2}}{i} + \sum_{i = \frac{n}{2} + 1}^{n - 1}{(n - i)} \\
+                                                 &= \sum_{i = 1}^\frac{n}{2}{i} + \sum_{j = 1}^{\frac{n}{2} - 1}{j} \quad \quad (j = n - i) \\
+                                                 &= \dfrac{1}{2}\sbk{\dfrac{n}{2} \rbk{\dfrac{n}{2} + 1} + \dfrac{n}{2}\rbk{\dfrac{n}{2} - 1}} \\
+                                                 &= \dfrac{n^2}{4}
+        \end{split}
+    \end{equation*}
+
+    placeholder \todo{incomplete}
+
+    \subsection{The Wise layout} \label{wise}
+
+    In a paper published by \textcite{butterwise}, it was proposed a \tit{different layout} for the butterfly network (discussed in \cref{butterfly_networks}), which is shown in the following figure.
+
+    \centeredimage[The alternative layout of the butterfly network.]{0.3}{../assets/butterwise.png}
+
+    Note that inputs are placed in the upper layer, and outputs in the lower layer; also, the \tit{blue circles} represent nodes of the butterfly network, and \tit{black squares} represent \tbf{devices} that allows to avoid interference, since those wire conjunctions are \tit{knock-knees}.
+
+    \centeredimage[Rearrangement to get the Wise layout]{0.2}{../assets/butterwise_perm.png}
+
+    This rearrangement of the wires allows to have some important \tit{properties}.
+    
+    \begin{itemize}
+        \item All the wires in the same layer have \tbf{equal length}. Note that this is \tit{not true} for every layout; for instance, in the \tit{classical drawing} of the butterfly network, the \tit{straight edges} in the last layer have \tbf{unit length}, while the \tit{cross-edges} in the same layer have lengths that \tbf{scale} linearly with the input size $N$. This disparity is problematic, as it causes a \tit{loss of synchronization} in the information flow. Nevertheless, this length grows exponentially.
+        \item The length of the \tbf{longest path} from any input to any output is linear in $N$, namely $2(N - 1)$, and it can be computed by evaluating the diagonal of the square having side length equal to $\sqrt 2 (N - 1)$, shown in figure \todo{add pic}
+            which is$$\sqrt{2 \cdot \rbk{\sqrt{2}(N - 1)}^2} = \sqrt{2 \cdot 2 \rbk{N - 1}^2} = \sqrt{4 \cdot \rbk{N - 1}^2} = 2( N - 1)$$
+        \item placeholder \todo{pag 20 slide?}
+        \item The value of the \tbf{area} of this layout is good, which is $$\rbk{\sqrt 2(N - 1)}^2 + o(N^2) = 2N^2 + o(N^2)$$
+    \end{itemize}
+
+    Later studies found that the \tbf{area} of this layout is \tit{inaccurate} because the \tbf{slanted} lines --- rotated by 45° --- that define this layout cannot be produced by machines of the fabrication process. In fact, machines can only create \tit{horizontal and vertical lines}, which means that the actual layout on a board would occupy significantly more area.
+
+    \centeredimage[The \tit{actual} Wise butterfly layout.]{0.2}{../assets/rotated_butterwise.png}
+
+    The area of this layout can be evaluated by calculating the area of this \tit{bigger} square, which has side length $2(N - 1)$: $$\rbk{2(N -1)}^2 = 4N^2 + o(N^2)$$ Additionally, \tit{knock-knees} are not avoided, but arranged in the layout thanks to devices that enlarge the layout area even more.
+
+    \subsection{Layered layout}
+
+    In 2000 \textcite{seven} presented a new layout, based on the \tbf{layered cross product} between graphs, which is described below.
+
+    \begin{frameddefn}{Layered graph}
+        A \tbf{layered graph} of $l + 1$ layers $G = (V_0, \ldots, V_l, E)$ consists of $l + 1$ layers of notes, where $V_i$ is the $i$-th node layer, and each edge $(u, v) \in E$ connect $u$ and $v$ if and only if $u \in V_i$ and $v \in V_{i + 1}$ --- i.e. they belong to adjacent layers.
+    \end{frameddefn}
+
+    \begin{example}[Layered graphs]
+        The following is an example of a layered graph.
+
+        placeholder \todo{add pic}
+    \end{example}
+
+    \begin{frameddefn}{Layered cross product}
+        Given two layered graphs $G_1 = (V_0^1, \ldots, V_l^1, E^1)$ and $G_2 = (V_0^2, \ldots, V_l^2, E^2)$ of $l + 1$ layers, the \tbf{layered cross product} (LCP) is a new \tit{layered graph} $$G = G_1 \times G_2 := (V_0, \ldots, V_l, E)$$ defined as follows:
+
+        \begin{itemize}
+            \item for each $i \in [0, l]$, $V_i := V_i ^1 \times V_i^2$, i.e. each layer in $G$ is the \tit{cartesian product} of the corresponding two layers in $G_1$ and $G_2$;
+            \item $((u^1, u^2), (v^1, v^2)) \in E \iff (u^1, u^2) \in E^1 \land (v^1, v^2) \in E_2$, there is an edge between two nodes of $G$ if and only if the corresponding nodes are connected in the original graphs.
+        \end{itemize}
+    \end{frameddefn}
+
+    Note that the LCP is not commutative.
+
+    \begin{example}[LCPs]
+        The following is an example of LCP between two graphs.
+        
+        \centeredimage[An LCP between two graphs.]{0.2}{../assets/lcp.png}
+    \end{example}
+
+    LCPs are particularly useful because \textcite{evenlitman} demonstrated that \tit{various topologies} can be defined as LCPs of \tit{simpler structures}, such as trees. Specifically, it can be shown that butterfly networks are LCPs of \tbf{two complete binary trees}, one oriented upward and the other downward.
+
+    \centeredimage[The LCP that defines the 2-dimensional butterfly network.]{0.27}{../assets/butterfly_lcp.png}
+
+    Interestingly, the LCP of two graphs can be evaluated through a method known as \tbf{Projection Methodology} (PM), as illustrated below.
+
+    \centeredimage[The LCP of the two graphs is obtained by this projection.]{0.27}{../assets/lcp_pm.png}
+
+    It is important to note that the PM may produce results that \tit{do not align} with the requirements of the Thompson model. For instance, while the projection above still represents the same butterfly network as before, it is not an \tbf{orthogonal drawing}.
+
+    Consider the following projection plane.
+
+    \centeredimage[Possible edge cross products.]{0.2}{../assets/lcp_edges.png}
+    
+    From these projections, it is evident that:
+
+    \begin{itemize}
+        \item the product of \tit{two diagonal edges} yields a \tit{diagonal edge}, which is \tit{not allowed};
+        \item the product of a \tit{vertical edge} and a \tit{diagonal edge} yields a \tit{vertical edge}, which is allowed;
+        \item the product of a \tit{diagonal edge} and a \tit{vertical edge} yields a \tit{horizontal edge}, which is allowed;
+        \item the product of \tit{vertical edges} yields \tit{two overlapping points}, which is \tit{not allowed}.
+    \end{itemize}
+
+    Therefore, to achieve a \tit{valid layout} using the PM, it is essential to ensure that the product of \tit{two diagonal edges} or \tit{two vertical edges} \tbf{never occurs}.
+
+    Note that this is not the only problem that may occur in layouts generated through the PM.
+
+    \begin{frameddefn}{Consistent edges}
+        Two edges $e_1$ and $e_2$ are said to be \tbf{consistent} if the open intervals of their projections along the same axis are \tit{disjoint}.
+    \end{frameddefn}
+
+    \begin{example}[Consistent edges]
+        Consider the following edges and their projections on the $x$-axis:
+
+        \centeredimage[Consistent and inconsistent pair of edges, from left to right.]{0.3}{../assets/intervals.png}
+
+        the first two edges are \tit{consistent}, while the other two are not.
+    \end{example}
+
+    \tit{Consistency} of edges in the input graphs must be checked, to avoid overlapping wires in the resulting graph. In particular, \tit{two cases} must be avoided.
+
+        In this first scenario, in $G_1$ there are two inconsistent edges in the same layer $i$, and there is an edge in $G_2$ in layer $i$ as well. This produces two overlapping edges in the projection.
+
+        \centeredimage[First inconsistency case]{0.25}{../assets/consistency1.png}
+
+        Note that this situation arises only when the edge in $G_2$ is parallel to the $x$-axis, as it cannot be drawn diagonally, since the inconsistent edges in $G_1$ are already diagonal, and ---  as previously discussed --- the cross product between two diagonal edges must be avoided.
+
+        The second scenario occurs when in $G_1$ there are two inconsistent edges in different layers $i_1$ and $i_2$, and there are collinear edges in $G_2$ in layers $i_1$ and $i_2$ as well. This produces two overlapping edges in the projection.
+
+        \centeredimage[Second inconsistency case]{0.3}{../assets/consistency2.png}
+
+    All the required constraints are summarized in the next proposition.
+
+    \begin{framedprop}{Valid PM layouts}
+        Given two graphs $G_1$ and $G_2$, the PM between them generates \tbf{valid layouts}, i.e. in the resulting graph
+
+        \begin{enumerate}
+            \item every edge lies on grid lines
+            \item at most one node is mapped to each grid point
+            \item no pair of edges overlap
+        \end{enumerate}
+        
+        if and only if
+
+        \begin{enumerate}
+            \item the cross product of any pair of edges $e_1 \in E_1$ and $e_2 \in E_2$ is such that exactly one between $e_1$ and $e_2$ is drawn diagonally
+            \item for each $i \in [0, l]$, it holds that $$\bigcap_{i = 0}^l{\{\abk{u_x,v_z} \mid u \in V_i^1, v \in V_i^2 \}} = \varnothing$$ where $\abk{u_x, v_z}$ is the node at the intersection of the projection lines of $u$ and $v$ along the $x$ ans $z$ axes, respectively
+            \item there are no edges in $G_2$ on layers that contain inconsistent edges in $G_1$, and no collinear edges in different layers of $G_2$ in which $G_1$ has inconsistent edges
+        \end{enumerate}
+
+        respectively.
+
+    \end{framedprop}
+
+    For the first constraint, a solution is to \tbf{double} the number of layers, such that the edges in the drawing of $G_1$ are diagonal in \tit{odd} layers, and straight in the \tit{even} layers, while the edges in the drawing of $G_2$ are straight in the \tit{odd} layers, and diagonal in the \tit{even} layers.
+
+    \centeredimage[A complete layered binary tree with the nodes doubled.]{0.3}{../assets/doubled.png}
+
+    The second constraint can be addressed by ensuring that no pair of nodes in the drawing of the first (or second) graph, except for the two endpoints of the same straight edge, share the same $x$-coordinate (or $z$-coordinate). This is always achievable by appropriately enlarging the drawings of the two graphs.
+    
+    This condition is more difficult to enforce and presents a significant limitation of this technique. For this reason, the focus of this work is restricted to networks where each LCP is calculated from two complete layered binary trees, with double the number of nodes.
+
+    \centeredimage[The LCP of two such trees.]{0.3}{../assets/square_butterfly.png}
+
+    This figure represents the \tbf{planar layout} of a butterfly network, which adheres to all the previously outlined constraints. Moreover
+
+    \begin{itemize}
+        \item it is symmetric;
+        \item it is a square with side length $2(N - 1)$, therefore the area is $4N^2 + o(N^2)$ --- note that this area is worse than the Wise layout (discussed in \cref{wise}) because in this case the whole area is filled, whereas the Wise layout only uses a portion of such a big area;
+        \item all the edges on the same layer have the same length;
+        \item unfortunately, input and output nodes do not lie on the boundaries.
+    \end{itemize}
+
+    \subsection{Optimal area of the butterfly network}
 
     \printbibliography
 

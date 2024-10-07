@@ -57,6 +57,87 @@
     \field{year}{1980}
   \endentry
 
+  \entry{seven}{article}{}
+    \name{author}{2}{}{%
+      {{hash=EG}{%
+         family={Even},
+         familyi={E\bibinitperiod},
+         given={Guy},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=ES}{%
+         family={Even},
+         familyi={E\bibinitperiod},
+         given={Shimon},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{EG+1}
+    \strng{fullhash}{EGES1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \verb{doi}
+    \verb 10.1002/1097-0037(200009)36:2<91::aid-net3>3.0.co;2-4
+    \endverb
+    \field{issn}{1097-0037}
+    \field{number}{2}
+    \field{pages}{91–95}
+    \field{title}{Embedding interconnection networks in grids via the layered cross product}
+    \verb{url}
+    \verb http://dx.doi.org/10.1002/1097-0037(200009)36:2<91::AID-NET3>3.0.CO;2
+    \verb -4
+    \endverb
+    \field{volume}{36}
+    \field{journaltitle}{Networks}
+    \field{year}{2000}
+  \endentry
+
+  \entry{evenlitman}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ES}{%
+         family={Even},
+         familyi={E\bibinitperiod},
+         given={Shimon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Litman},
+         familyi={L\bibinitperiod},
+         given={Ami},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{ES+1}
+    \strng{fullhash}{ESLA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \verb{doi}
+    \verb 10.1002/(sici)1097-0037(199707)29:4<219::aid-net5>3.0.co;2-i
+    \endverb
+    \field{issn}{1097-0037}
+    \field{number}{4}
+    \field{pages}{219–223}
+    \field{title}{Layered cross product - A technique to construct interconnection networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1002/(SICI)1097-0037(199707)29:4<219::AID-NET5>3
+    \verb .0.CO;2-I
+    \endverb
+    \field{volume}{29}
+    \field{journaltitle}{Networks}
+    \field{month}{07}
+    \field{year}{1997}
+  \endentry
+
   \entry{leiserson}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=LCE}{%
@@ -151,6 +232,80 @@
     \field{journaltitle}{IEEE Transactions on Computers}
     \field{month}{02}
     \field{year}{1981}
+  \endentry
+
+  \entry{butterwise}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=WDS}{%
+         family={Wise},
+         familyi={W\bibinitperiod},
+         given={David\bibnamedelima S.},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{WDS1}
+    \strng{fullhash}{WDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{VLSI Systems and Computations}
+    \verb{doi}
+    \verb 10.1007/978-3-642-68402-9_21
+    \endverb
+    \field{isbn}{9783642684029}
+    \field{pages}{186–195}
+    \field{title}{Compact Layouts of Banyan/FFT Networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-642-68402-9_21
+    \endverb
+    \field{year}{1981}
+  \endentry
+
+  \entry{yeh}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=YCH}{%
+         family={Yeh},
+         familyi={Y\bibinitperiod},
+         given={Chi-Hsiang},
+         giveni={C\bibinithyphendelim H\bibinitperiod},
+      }}%
+      {{hash=VE}{%
+         family={Varvarigos},
+         familyi={V\bibinitperiod},
+         given={E.A.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=PB}{%
+         family={Parhami},
+         familyi={P\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{YCH+1}
+    \strng{fullhash}{YCHVEPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \field{booktitle}{Proceedings. Frontiers ’99. Seventh Symposium on the Frontiers of Massively Parallel Computation}
+    \verb{doi}
+    \verb 10.1109/fmpc.1999.750589
+    \endverb
+    \field{pages}{98–105}
+    \field{title}{Efficient VLSI layouts of hypercubic networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/FMPC.1999.750589
+    \endverb
+    \field{volume}{9}
+    \field{year}{1999}
   \endentry
 \enddatalist
 \endinput
