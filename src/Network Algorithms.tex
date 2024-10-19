@@ -97,7 +97,7 @@
 
     \section{Introduction on graphs}
 
-    In many network applications, graphs are used as a natural model. In other applications, the graph model may be less obvious, but appears to be anyway very useful. Graph algorithms are useful instruments to solve important and living problems. We will see a number of advanced techniques for efficient algorithm design to solve problems from networks and graphs. 
+    In many network applications, graphs are used as a natural model. In other applications, the graph model may be less obvious, but appears to be still very useful. Graph algorithms are useful instruments to solve important and living problems. We will see a number of advanced techniques for efficient algorithm design to solve problems from networks and graphs. 
 
     \begin{frameddefn}{Graph}
         A \tbf{graph} is a mathematical structure $G = (V,E)$ made of a set $V$ called the \textit{vertex set} (or \textit{node set}), and a set $E \subseteq V \times V$ called \textit{edge set}.
@@ -203,8 +203,9 @@
 
     Based on the required conditions, the routing reduces to a specific type of path problem:
     \begin{enumerate}
-        \item In \tbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion. 
-        \item In \tbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well.
+        \item In \tbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion.  Usually this type of routing is implemented through one global \tit{routing table}.
+        \item In \tbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well. In this type of routing, each router creates its own \tit{routing table}.
+        \item In \tbf{half-adaptive routing}, depending on traffic and workload on the network, the routing type can switch between \tit{adaptive} and \tit{non-adaptive}.
         \item In \tbf{fault-sensitive routing}, the routing algorithm must consider the possibility of a link failing: we want the route with the highest probability of working. 
     \end{enumerate}
 
@@ -248,35 +249,114 @@
 
     On digraphs the concept of distance is non-symmetrical: the distance $\dist(u,v)$ may be different from the distance $\dist(v,u)$. Moreover, when there is no path $u \to v$, we assume that $\dist(u,v) = +\infty$.
 
-    \section{TODO}
-    
-    \subsection{Classical solutions}
-    
-    \begin{algorithm}[H]
-        \caption{
-            \textit{Bellman-Ford}: TODO
-        }
+    Note that for the \tbf{one-to-all} shortest path problem where each edge has unit weight, the problem can be solved through a simple \tit{Breadth-First-Search} (BFS) algorithm, invented by \textcite{moore}.
 
+    Moreover, all known algorithm for finding the least cost path between any two nodes on a graph are based on \tbf{graph exploration}, which is based on multiple \tit{walks} (i.e. paths where vertices may be repeated) on the graph. This raises a problem when there are \tbf{negative-weight cycles}, because the walk could take such a cycle infinitely many times, and the weight of the path between the two nodes can be lowered infinitely, without halting. Therefore, only networks without negative-weight cycles will be discussed.
+
+    Therefore, in any solution of the least cost path problem:
+
+    \begin{itemize}
+        \item cycles having \tbf{negative weight} cannot exist, by hypothesis;
+        \item cycles having \tbf{positive weight} cannot exist, by contradiction: if there is such a cycle in a solution, then a solution without the cycle would yield a lower-weight path;
+        \item cycles having \tbf{null length} cannot exist, by assumption: if there is such a cycle in a solution, then a solution withouth the cycle would yield a path of the same weight;
+    \end{itemize}
+
+    Hence, we can assume that there exists at least one solution \tbf{without any cycle}.
+    
+    \subsection{Classical algorithms}
+    
+    All the classical algorithms that will be described are based on the \tbf{relaxation} principle. Given a graph $G$, a weight function $w$, and a starting vertex $s \in V(G)$, let $\func{d}{V(G)}{\R}$ be a function that represents the current \tit{estimate} of the distance from $s$ to any other node. At the beginning, $d(v) := + \infty$ for each $v \in V(G)$. Then, a \tbf{relaxation step} is performed as follows: given an edge $(u, v) \in E(G)$, if $d(u) + w(u, v) < d(v)$, then we set $d(v) = d(u) + w(u, v)$.
+
+    The first papers that presented a solution to the least cost path problem were published by \textcite{bellman} and \textcite{ford} independently, which described the following algorithm.
+
+    \begin{framedalgo}{Bellman-Ford}
+        Given a graph $G$, a weight function $\func{w}{E(G)}{\R}$ on the edges, and an input node $s$, the algorithm returns the minimum distance tree rooted in $s$ as a parent array, based on $w$. \\
+        \hrule
+
+        \quad
         \label{alg:bellman_ford}
         \begin{algorithmic}[1]
-            \Function{bellmanFord}{$G$}
-                \State TODO
+            \Function{bellmanFord}{$G$, $w$, $s$}
+                \For{$v \in V(G)$}
+                    \State $d(v) := +\infty$
+                \EndFor
+                \State $\texttt{p} := \texttt{[}\texttt{NULL}, \ldots, \texttt{NULL}\texttt{]}$
+                \For{$i \in [1, n - 1]$}
+                    \For{$(u, v) \in E(G)$}
+                        \If{$d(u) + w(u, v) < d(v)$} \Comment{relaxation step}
+                            \State $d(v) = d(u) + w(u, v)$
+                            \State $\texttt{p[}v\texttt{]} = u$
+                        \EndIf
+                    \EndFor
+                \EndFor
+                \State \textbf{return} \ttt{p}
             \EndFunction
         \end{algorithmic}
-    \end{algorithm}
+    \end{framedalgo}
 
-    \begin{algorithm}[H]
-        \caption{
-            \textit{Dijkstra}: TODO
-        }
+    \idea{
+        The algorithm updates each distance $\dist(s, v)$ for any $v \in V(G)$ progressively: for instance, in the first iteration of the \texttt{for} loop in line 6, since each distance is set to $+\infty$, only $s$'s neighbours will be updated. This will be repeated by \curlyquotes{expanding} the updated vertices progressively at each iteration, exactly $n - 1$ times, because a path has at most $n - 1$ nodes since we are assuming that our solution do not contain cycles.
+    }
 
+    \cost{
+        The cost of the algorithm is simply given by $$O(n) + O((n - 1) \cdot m) = O(nm)$$
+    }
+
+    The Bellman-Ford algorithm is used for \href{https://en.wikipedia.org/wiki/Distance-vector_routing_protocol}{distance vector routing protocol}, an iterative, asynchronous and distributed protocol.
+
+    One year later, \textcite{dijkstra} presented the following algorithm, which lowered the computational cost of the Bellman-Ford algorithm. In fact, each step of the latter iterates on all the nodes in $G$, even when the majority will not be updated.
+
+    Note that the following algorithm lowers the time complexity, at the cost of reducing the generality of the algorithm, because the weight function $w$ can only be defined on $\R^+$.
+
+    \begin{framedalgo}{Dijkstra}
+        Given a graph $G$, a weight function $\func{w}{E(G)}{\R^+}$ on the edges, and an input node $s$, the algorithm returns the minimum distance tree rooted in $s$ as a parent array, based on $w$. \\
+        \hrule
+
+        \quad
         \label{alg:dijkstra}
         \begin{algorithmic}[1]
-            \Function{dijkstra}{$G$}
-                \State TODO
+            \Function{dijkstra}{$G$, $w$, $s$}
+                \For{$v \in V(G)$}
+                    \State $d(v) := +\infty$
+                \EndFor
+                \State $\texttt{p} := \texttt{[}\texttt{NULL}, \ldots, \texttt{NULL}\texttt{]}$
+                \State $S := \varnothing$
+                \State $Q := V(G)$ \Comment{$Q$ is based on $d$}
+                \While{$Q \neq \varnothing$}
+                    \State $u := Q\ttt{.extract\_min()}$
+                    \State $S = S \cup \{u\}$
+                    \For{$(u, v) \in E(G)$}
+                        \If{$d(u) + w(u, v) < d(v)$} \Comment{relaxation step}
+                            \State $d(v) = d(u) + w(u, v)$
+                            \State $\texttt{p[}v\texttt{]} = u$
+                            \State $Q\texttt{.update()}$
+                        \EndIf
+                    \EndFor
+                \EndWhile
             \EndFunction
         \end{algorithmic}
-    \end{algorithm}
+    \end{framedalgo}
+
+    \idea{
+        The algorithm expands $S$, i.e. the set of visited nodes, iteratively, and at each iteration:
+
+        \begin{itemize}
+            \item the closest node $u$ to $s$ is choosen, based on $d(u)$;
+            \item for each outcoming edge $(u, v)$ from $u$, $v$ is relaxed w.r.t $(u, v)$, and $Q$ is updated based on $d(v)$.
+        \end{itemize}
+    }
+
+    \cost{
+        The cost of the algorithm depends on the implementation:
+
+        \begin{itemize}
+            \item if $Q$ is implemented through a \tit{queue}, then the time complexity is $O(n^2)$
+            \item if $Q$ is implemented through a \tit{heap}, then the time complexity is $O(m \log n)$
+            \item if $Q$ is implemented through a \tit{fibonacci heap}, then the time complexity is $O(m + n \log n)$
+        \end{itemize}
+    }
+
+    The last algorithm that will be discussed was discovered independetly by \textcite{floyd} and \textcite{warshall}, which solves the \tbf{all-to-all} version of the least cost path problem.
 
     \begin{framedalgo}{Floyd-Warshall}
         Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithms returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$. \\
