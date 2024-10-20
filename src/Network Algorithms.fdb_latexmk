@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Network Algorithms"] 1729347840.60387 "Network Algorithms.aux" "Network Algorithms.bbl" "Network Algorithms" 1729347856.35379 0
-  "./Network_Algorithms-blx.bib" 1729347855.83935 344 e588c9a99e172ae2d6714a5a36257b2b ""
-  "./references.bib" 1729347783.99602 5047 c1df05723cbc5a09f6080913b96bd21f ""
+["bibtex Network Algorithms"] 1729443117.7559 "Network Algorithms.aux" "Network Algorithms.bbl" "Network Algorithms" 1729445921.64857 0
+  "./Network_Algorithms-blx.bib" 1729445921.11201 344 e588c9a99e172ae2d6714a5a36257b2b ""
+  "./references.bib" 1729437532.62573 5849 3436bc5be6ca40be005bf097a44bb486 ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1727349926 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "Network Algorithms.aux" 1729347855.80268 13986 4037f29021eb84a49042c2d264848199 "pdflatex"
+  "Network Algorithms.aux" 1729445921.07534 16079 dd3d186dc57c7e07a1181db48e9c5306 "pdflatex"
   (generated)
   "Network Algorithms.bbl"
   "Network Algorithms.blg"
   (rewritten before read)
-["pdflatex"] 1729347848.3471 "Network Algorithms.tex" "Network Algorithms.pdf" "Network Algorithms" 1729347856.35405 0
+["pdflatex"] 1729445913.1971 "Network Algorithms.tex" "Network Algorithms.pdf" "Network Algorithms" 1729445921.64912 0
   "../../packages/Nyx/logo.png" 1710239380.27782 91419 8de48debf770a599a084520c83ce5d80 ""
   "../../packages/Nyx/nyx-frames.sty" 1728154319.12301 4375 747ecc81b9cc3ddd6a4162d2d8d9e05e ""
   "../../packages/Nyx/nyx-intro.sty" 1710239380.27782 3476 d82343305e561945eb7e4f3f9e3a4fe2 ""
@@ -436,12 +436,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1727349926 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1728724236.9752 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1728724212 7165013 4ac378a529a7bd4fbdbbd71d85e222b1 ""
-  "Network Algorithms.aux" 1729347855.80268 13986 4037f29021eb84a49042c2d264848199 "pdflatex"
-  "Network Algorithms.bbl" 1729347840.67935 12794 662580cf6d42c5d00b458213f602aa00 "bibtex Network Algorithms"
-  "Network Algorithms.out" 1729347855.83268 2564 2f4c61dd27bfae275ab3b26fc32d25ff "pdflatex"
-  "Network Algorithms.run.xml" 1729347855.83935 2664 df1e6e300845d67cd10f4948af798c27 "pdflatex"
-  "Network Algorithms.tex" 1729347824.62935 68401 d4cec0fed00c0e7cee9de91cd028b06b ""
-  "Network Algorithms.toc" 1729347855.83935 1530 d2bdd7c42ca3d03305fc31cd5fdc0a8e "pdflatex"
+  "Network Algorithms.aux" 1729445921.07534 16079 dd3d186dc57c7e07a1181db48e9c5306 "pdflatex"
+  "Network Algorithms.bbl" 1729443117.83214 14536 d7bcdd6b27b9e475b073521ca37f9cba "bibtex Network Algorithms"
+  "Network Algorithms.out" 1729445921.10534 3397 6f1ef16e1af04aa13f31424504589673 "pdflatex"
+  "Network Algorithms.run.xml" 1729445921.11201 2664 df1e6e300845d67cd10f4948af798c27 "pdflatex"
+  "Network Algorithms.tex" 1729445911.56534 83765 26fc2997deea93bac9ab23d93b72ef67 ""
+  "Network Algorithms.toc" 1729445921.11201 1834 d850d2c4964913474d4376b3a5652733 "pdflatex"
   (generated)
   "Network Algorithms.aux"
   "Network Algorithms.log"

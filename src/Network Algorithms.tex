@@ -93,7 +93,7 @@
 
     %%%%%%%%%%%%%%%%%%%%%
 
-    \chapter{TODO}
+    \chapter{The routing problem}
 
     \section{Introduction on graphs}
 
@@ -195,7 +195,7 @@
 
     \newpage
 
-    \section{The routing problem}
+    \section{The least cost path problem}
 
     When packets are sent from a computer to another through a network, each computer has to route data on a path passing through intermediate computers. This problem is usually referred to as the \tbf{routing problem}.
     
@@ -597,15 +597,15 @@
 
     For the convenience of physical layout, mesh networks are the most used topologies in \href{https://en.wikipedia.org/wiki/Network_on_a_chip}{Network-on-Chip} (NoC) design; however, this network will not be explored in these notes.
 
-    \section{The interconnection topology layout problem}
-
+    \chapter{The interconnection topology layout problem}
+    
     The \tbf{interconnection topology layout problem} is a crucial challenge in \href{very-large-scale integration} (VLSI) design, the process of creating an \href{https://en.wikipedia.org/wiki/Integrated_circuit}{integrated circuit} (IC) by combining billions of \href{https://en.wikipedia.org/wiki/MOSFET}{MOS} transistors onto a single chip. It involves finding the most efficient way to place and connect various components (such as transistors, resistors, and other circuit elements) on a silicon chip. The goal is to optimize several factors, including \tit{space}, \tit{power consumption}, \tit{signal delay}, and \tit{manufacturing cost}. This problem becomes particularly important as modern chips contain billions of transistors and require complex interconnections between components.
 
     The problem originated in the 1940s, during the early stages of digital computing. However, at that time, the technology was not advanced enough to implement complex circuit layouts in an efficient manner. Physical constraints, costs, and the lack of sophisticated computational methods limited the practical application of these ideas.
 
     In recent decades, as technology advanced, VLSI design has evolved to allow highly dense and intricate circuits in both 2D and 3D layouts. This made the \tbf{interconnection topology layout problem} a crucial area of study, particularly for \tit{optimizing performance}, \tit{reducing power consumption}, and \tit{controlling costs} in increasingly smaller chip designs.
 
-    \subsection{Thompson's Model}
+    \section{The orthogonal grid drawing problem}
 
     To addresses the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the Thompson's Model \cite{thompson}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
 
@@ -969,6 +969,233 @@
     \end{itemize}
 
     \subsection{Optimal area of the butterfly network}
+
+    \chapter{The worm propagation prevention problem}
+
+    A \href{https://en.wikipedia.org/wiki/Computer_worm}{computer worm} is a type of malware designed to self-replicate and spread across networks without needing a host program. Unlike \tit{viruses}, which require human action to propagate, \tbf{worms} use computer networks to exploit security vulnerabilities in target systems, infiltrating and duplicating themselves automatically.
+
+    Once a worm gains access, it can spread rapidly to other devices, causing network slowdowns, data breaches, or system damage, depending on the worm's purpose. Additionally, worms can carry payloads that steal sensitive data, install other forms of malware, or create backdoors for unauthorized access. Effective network security measures, such as patching vulnerabilities and monitoring traffic, are essential to prevent worm attacks.
+
+    The harmful effects of a worm can be broadly classified into \tit{two categories}:
+
+    \begin{itemize}
+        \item \tbf{Direct damage}. These are caused by the worm's execution on the victim's system. It may lead to system instability, data corruption, file deletion, or even the theft of sensitive information. The worm might consume significant system resources, slowing down performance or rendering the machine unusable. They consist solely of instructions to replicate themselves, and typically do not cause severe direct damage beyond consuming computational resources, which can degrade system performance. However, more advanced \tit{direct damage} worms often disrupt the proper functioning of security software, such as antivirus programs and firewalls, making it harder to detect and remove the malware. This interference can severely hinder the normal operation of the infected machine. In many cases, they also act as \tit{carriers} for the automatic installation of \href{https://en.wikipedia.org/wiki/Backdoor_(computing)}{backdoors} or \href{https://en.wikipedia.org/wiki/Keystroke_logging}{keyloggers}, which can later be exploited by attackers or other forms of malware, further compromising the system's security.
+        \item \tbf{Indirect damage}. These arise from the methods the worm uses to spread. For example, worms can generate a large volume of traffic while replicating, which can overwhelm networks, disrupt email systems, and lead to costly downtime or loss of productivity. Additionally, their use of social engineering tactics might result in reputational damage or further security breaches. Their damages result from the widespread infection of many computers across a network, creating cascading effects. These type of worms send numerous email messages during replication, flooding inboxes and contributing to email spam, which wastes valuable bandwidth and user attention. They exploit known vulnerabilities in certain software which can lead to software malfunctions, causing instability in the operating system. This often results in system crashes, forced reboots, or even shutdowns, further disrupting normal operations..
+    \end{itemize}
+
+    Assume that the time required to transmit information over any connection in a network is constant and denoted as $T$. If a worm successfully infects a set of nodes $C$, and the worm can spread to all other nodes in the network in a single step, then the entire network will be \tbf{infected} within time $T$. Therefore, we are interested in finding the set of nodes $C$ that can lead to a fully infected network.
+
+    The property that every edge in the network is incident to at least one node in the infected set $C$ ensures that the entire network can be infected after the first propagation step. This condition is \tit{sufficient} (though not \tit{necessary}) to guarantee that the worm will spread to all nodes in the next step.
+
+    From a network manager's perspective, any filter implemented to protect against first-order worm attacks typically reduces communication efficiency. Therefore, \tbf{minimizing} the number of filters is crucial to strike a balance between security and maintaining communication speed.
+
+    Note that, in reality, the situation is more complicated because large-scale networks tend to have \tit{dynamic connections}, meaning the structure of the network changes over time, which can affect the speed and manner of the worm's propagation.
+
+    \section{The vertex cover problem}
+
+    The problem of finding the set $C$ of vertices discussed earlier, where each edge in the network is incident to at least one vertex in $C$, can be reduced to finding the \tbf{minimal vertex cover} of the network graph.
+    
+    \begin{frameddefn}{Vertex cover}
+        Given a graph $G$, a \tbf{vertex cover} for $G$ is a set of vertices $C \subseteq V(G)$ such that every edge in $G$ is incident to at least one vertex in $C$. Using symbols $$\forall (u, v) \in E(G) \quad u \in C \lor v \in C$$
+    \end{frameddefn}
+
+    Note that the minimal vertex cover is not unique. Moreover, for any graph $G$, $V(G)$ is trivially a vertex cover for $G$. To find the minimal vertex cover is not trivial, because there are $\powerset(V(G)) = 2^{V(G)}$ possibile subsets of vertices to check.
+    
+    \begin{example}[Vertex covers]
+        The following are two examples of minimal vertex covers for the given graph:
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
+
+                \node[circle, draw]  (1) []{};
+                \node[circle, draw, fill=red]  (2) [right of = 1]{};
+                \node[circle, draw]  (3) [below right of = 2]{};
+                \node[circle, draw]  (4) [below left of = 3]{};
+                \node[circle, draw, fill=red]  (5) [left of = 4]{};
+                \node[circle, draw]  (6) [above left of = 5]{};
+
+                \node[circle, draw]  (1b) [above right of = 3, xshift=50]{};
+                \node[circle, draw]  (2b) [right of = 1b]{};
+                \node[circle, draw, fill=red]  (3b) [below right of = 2b]{};
+                \node[circle, draw]  (4b) [below left of = 3b]{};
+                \node[circle, draw, fill=red]  (5b) [left of = 4b]{};
+                \node[circle, draw]  (6b) [above left of = 5b]{};
+
+                \path[every node/.style={font=\sffamily\small}]
+
+                (1) edge (2)
+                (2) edge (3)
+                (3) edge (4)
+                (4) edge (5)
+                (5) edge (6)
+                (6) edge (1)
+                (6) edge (3)
+                (5) edge (1)
+
+                (1b) edge (2b)
+                (2b) edge (3b)
+                (3b) edge (4b)
+                (4b) edge (5b)
+                (5b) edge (6b)
+                (6b) edge (1b)
+                (6b) edge (3b)
+                (5b) edge (1b)
+            ;
+            \end{tikzpicture}
+            \caption{Two minimal vertex covers for a graph.}
+        \end{figure}
+    \end{example}
+
+    For the reasons mentioned, every minimal vertex cover serves as an excellent starting point for a worm's propagation within a network. Protecting the computers corresponding to the nodes in the \tbf{minimal vertex cover} of the communication graph is crucial. This strategy ensures that every edge in the graph is monitored, thus preventing a worm from exploiting vulnerabilities in unprotected nodes.
+
+    Moreover, if the graph has multiple minimum vertex covers, it is essential to identify and protect \tit{at least} the computers that lie in the \tbf{intersection} of all these covers. This intersection represents the most secure nodes, as they are critical in preventing the spread of the worm across all potential configurations of the network.
+
+    The following definition provides the \tbf{decisional version} of the minimal vertex cover problem.
+
+    \begin{frameddefn}{Minimal Vertex Cover (VC) problem}
+        Given a graph $G$, and an integer $k \ge 0$, is there a vertex cover $C$ for $G$ such that $\abs C \le k$?
+    \end{frameddefn}
+
+    The VC problem is one of Karp's 21 \NPComplete problems \cite{karp}, which are a collection of well-known computational problems that were classified as \NPComplete shortly after the introduction of the Cook theorem \cite{cook}.
+
+    The VC problem can be also formulated as a 0-1 \tbf{integer linear program} (ILP):
+    \begin{itemize}
+        \item For every node $v \in V(G)$, we define the variabile $x_v$.
+        \item For every edge $(i,j) \in E(G)$ we add the constraint $x_i + x_j \geq 1$. This constraint enforces that at least one between $x_i$ and $x_j$ has to be set to 1.
+    \end{itemize}
+
+    We get that:
+    \[\begin{array}{ccc}
+        \qquad\qquad\quad
+        & \min \; \sum\limits_{i = 1}^n x_i \\\\
+        & x_i + x_j \geq 1 & \forall (i,j) \in E(G) \\
+        & x \in \{0,1\}^n
+    \end{array}\]
+
+    This formulation is a reduction from VC to ILP, implying that the latter is \NPComplete as well.
+
+    Despite the fact that the VC problem is \NPComplete, it is possible to find an \tit{approximate solution} in polynomial time by leveraging its ILP formulation, by employing an ILP approximated solution.
+
+    \subsection{Approximation algorithms}
+
+    There are multiple algorithms for finding approximated solutions for the VC problem. The first algorithm presented is a naïve solution, based on a \tbf{greedy} approach.
+
+    \begin{framedalgo}[label={alg:first_greedy_avc}]{First greedy AVC}
+        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover for $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{firstGreedyAVC}{$G$}
+                \State $V' := \varnothing$
+                \State $E' := E(G)$
+                \While{$E' \neq \varnothing$}
+                    \State Choose $(i, j) \in E'$
+                    \State $V' = V' \cup \{i\}$
+                    \For{$(i, k) \in E(G)$} \Comment{any edge having $i$ as an endpoint}
+                        \State $E' = E' - \{(i, k)\}$
+                    \EndFor
+                \EndWhile
+                \State \tbf{return} $V'$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        At each iteration of the algorithm, an edge $(i, j ) \in E'$ is chosen randomly, then $i$ is added to the vertex cover set $V'$, and any edge having $i$ as an endpoint is removed from $E'$. This ensures that $V'$ is a vertex cover, though it may not be minimal.
+    }
+
+    \cost{
+        Edge has to be explored or removed by the algorithm, therefore the cost is $O(n + m)$.
+    }
+   
+    \begin{framedalgo}{Second greedy AVC}
+        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover for $G$. \\
+        \hrule
+
+        \quad
+        \label{alg:second_greedy_avc}
+        \begin{algorithmic}[1]
+            \Function{secondGreedyAVC}{$G$}
+                \State $V' := \varnothing$
+                \While{$E(G) \neq \varnothing$}
+                    \State $v \in \argmax_{v \in V(G)}{\deg(v)}$
+                    \State $V' = V' \cup \{v\}$
+                    \For{$(u, v) \in E(G)$} \Comment{any edge having $v$ as an endpoint}
+                        \State $G\texttt{.remove\_edge(}u, v\texttt{)}$
+                    \EndFor
+                \EndWhile
+                \State \tbf{return} $V'$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        At each step of the algorithm, the vertex with the highest degree $v$ is choosen from the current set of vertices $V(G)$, then $v$ is added to the vertex cover $V'$, and any edge having $v$ as an endpoint is removed from $G$. This ensures that $V'$ is a vertex cover, though it may not be minimal.
+    }
+
+    \cost{
+        At each iteration, the cost of finding $v$ is $O(m)$, and because the cost of removing an edge from $G$ is $O(n + m)$, we have that the cost of the algorithm is $O(m (n + m))$.
+    }
+
+    Note that algorithm can produce a vertex cover $V'$ whose cardinality is \tit{vary far} from optimum. In fact, consider the following graph: \todo{add pic}
+
+    The upper row of nodes consists of $r$ nodes, and the lower row consists of
+
+    \begin{itemize}
+        \item $r$ nodes of degree 1
+        \item $\floor{\dfrac{r}{2}}$ nodes of degree 2 $\ldots$
+        \item in general, $\floor{\dfrac{r}{i}}$ nodes of degree $i$
+    \end{itemize}
+
+    meaning that the total number of nodes is $$n = r + \sum_{i = 1}^r{\floor{\dfrac{r}{i}}} \le r + r \sum_{i = 1} ^r{\dfrac{1}{i}} = \Theta(r \log r)$$ (note that the \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{harmonic sum} can be approximated by $\Theta(\log r)$). Although the \tbf{optimal} minimal vertex cover is the \tit{upper row} itself, consisting of $r$ nodes, it may happen that the algorithm chooses the \tit{lower row} as vertex cover, as shown in the following figure \todo{add pic}
+
+    This means that there is an approximation ratio of $$\dfrac{\Theta(r \log r)}{r} = \Theta(\log r)$$
+
+    However, there are better algorithms that can find approximated minimal covers  $V'$ for a given graph $G$ such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover.
+
+    \begin{framedalgo}{2-approximation VC}
+        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        \hrule
+
+        \quad
+        \label{alg:2-approx_vc}
+        \begin{algorithmic}[1]
+            \Function{2approxVC}{$G$}
+                \State $V' := \varnothing$
+                \State $E' := E(G)$
+                \While{$E' \neq \varnothing$}
+                    \State Choose $(i, j) \in E'$
+                    \State $V' = V' \cup \{i, j\}$
+                    \For{$(i, k) \in E(G)$} \Comment{any edge having $i$ as an endpoint}
+                        \State $E' = E' - \{(i, k) \}$
+                    \EndFor
+                    \For{$(j, h) \in E(G)$} \Comment{any edge having $j$ as an endpoint}
+                        \State $E' = E' - \{(j, h) \}$
+                    \EndFor
+                \EndWhile
+                \State \tbf{return} $V'$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        The algorithm computes as the \cref{alg:first_greedy_avc}, but both endpoint of the choosen edge are considered in the removal step.
+    }
+
+    \cost{
+        The cost of the algorithm is the same of the \cref{alg:first_greedy_avc}, which is $O(n +m)$.
+    }
+
+    \begin{proof}
+        We will prove that any $V'$ returned from the algorithm is such that $\abs{V'} \le 2 \abs {V^*}$ for some minimal vertex cover $V^*$. Note that, by construction, $V'$ is a vertex cover for $G$.
+
+        Let $A$ be the set of the edges \tit{choosen} from $E'$. For each edge $(i, j) \in A$, $i$ and $j$ are added to $V'$ by the algorithm, therefore $$\abs{V'} = 2 \abs A$$
+
+        Moreover, all the edges having either $i$ or $j$ as endpoint are removed from $E'$, thus edges in $A$ cannot be incident, which means that there exists a minimal vertex cover $V^*$ such that $$\abs A \le \abs{V^*}$$
+
+        Finally, we have that $$\abs{V'} = 2 \abs A \le 2 \abs{V^*}$$
+    \end{proof}
 
     \printbibliography
 
