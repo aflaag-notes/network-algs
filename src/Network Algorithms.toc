@@ -20,3 +20,4 @@
 \contentsline {chapter}{\numberline {3}The worm propagation prevention problem}{36}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The vertex cover problem}{37}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{39}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{45}{subsection.3.1.2}%

@@ -231,7 +231,7 @@
                     (1) edge node {6} (3)
                     ;
             \end{tikzpicture}
-            \caption{An indirected weighted graph.}
+            \caption{An undirected weighted graph.}
         \end{figure}
 
         For instance, the path $1, 2, 3, 4$ has weight $1 + 2 + 5 = 8$.
@@ -1108,6 +1108,10 @@
     \cost{
         Edge has to be explored or removed by the algorithm, therefore the cost is $O(n + m)$.
     }
+
+    Consider a graph formed by two rows of nodes as follows: the upper row has $r$ nodes, and the lower row has $k > r$ nodes. Each node of the upper row is connected to each node on the lower row. Note that the upper row is a \tit{minimal} vertex cover for the graph.
+
+    Suppose that the algorithm always chooses the nodes from the lower row, then the resulting set of nodes is a vertex cover made of $k$ nodes. Thus, the approximation ratio between this set of nodes and the minimal vertex cover is $$\dfrac{k}{r} = \dfrac{n - r}{r}$$
    
     \begin{framedalgo}{Second greedy AVC}
         Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover for $G$. \\
@@ -1195,6 +1199,181 @@
         Moreover, all the edges having either $i$ or $j$ as endpoint are removed from $E'$, thus edges in $A$ cannot be incident, which means that there exists a minimal vertex cover $V^*$ such that $$\abs A \le \abs{V^*}$$
 
         Finally, we have that $$\abs{V'} = 2 \abs A \le 2 \abs{V^*}$$
+    \end{proof}
+
+    \begin{framedalgo}{2-approximation VC (ILP)}
+        Given an undirected graph $G$, the algorithm returns a vector that represents an approximated minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        \hrule
+
+        \quad
+        \label{alg:2-approx_vc_ilp}
+        \begin{algorithmic}[1]
+            \Function{2approxVCilp}{$G$}
+                \State Consider the ILP formulation of the VC problem on $G$
+                \State Relax the ILP by replacing the $x \in \{0, 1\}^n$ constraint into $x \in [0, 1]^n \subseteq \R^n$
+                \State $x^* := \texttt{polyLPSolver()}$
+                \State $y^* \in \{0, 1\}^n$
+                \For{$i \in [1, n]$}
+                    \If{$x_i \ge \frac{1}{2}$}
+                        \State $y_i^* := 1$
+                    \Else
+                        \State $y_i^* := 0$
+                    \EndIf
+                \EndFor
+                \State \tbf{return} $y^*$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        By relaxing the ILP formulation of the VC problem on $G$ to a LP problem, we can use any polynomial LP solver to get a fractional solution $x^* \in [0, 1]^n$. Thus, to get a valid vertex cover, it is sufficient to consider only the $x^*_i$'s such that $x^*_i \ge \frac{1}{2}$.
+    }
+
+    \begin{proof}
+        Let $V'$ be the set of vertices described by $y^*$. It is easy to see that $V'$ is a vertex cover for $G$, because the constraint of the ILP $$x^*_i + x^*_j \ge 1$$ forces at least one between $x^*_i$ and $x^*_j$ to be greater or equal than $\frac{1}{2}$, therefore at least one between $y^*_i$ and $y_i^*$ will be set to 1.
+
+        Now we will prove that the algorithm returns a 2-approximation of an optimal solution $V^*$. Let $$Z := \sum_{i = 1}^n{x^*_i}$$ Since $x^*_i \le 1$ for each $i \in [1, n]$, it must be that $Z \le \abs{V^*}$ \todo{what?}. Let $y^* \in \{0, 1\}^n$ be the integer solution obtained from $x^* \in [0, 1]^n$ by the rounding procedure; clearly, for each $i \in [1, n]$, we have that $y^*_i \le 2x^*_i$, therefore $$\abs{V'} = y^*_1 + \ldots + y^*_n \le 2 (x^*_1 + \ldots + x^*_n) = 2Z \le 2 \abs{V^*}$$
+    \end{proof}
+
+    The vertex cover problem is related to many other graph theory problems.
+
+    \begin{frameddefn}{Independent set}
+        Given an undirected graph $G$, $S \subseteq V(G)$ is an \tbf{independent set} if and only if $$\forall v, v' \in S \quad \nexists (v, v') \in E(G)$$
+    \end{frameddefn}
+
+    \begin{framedthm}{}
+        A set of nodes $V'$ is a vertex cover over a graph $G$ if and only if its complement $V(G) - V'$ is an independent set.
+    \end{framedthm}
+
+    \proofiff{
+        By way of contradiction, assume that there exist $x, y \in V(G) - V'$ such that $(x, y) \in E(G)$; then, neither $x$ nor $y$ are in $V'$, therefore $(x, y)$ is not covered by the vertex cover $V'$.
+    }{
+        Analogously, by way of contradiction, assume that there exists an edge $(x, y) \in E(G)$ that is not covered by any node in $V'$, then both $x, y \in V(G) - V'$, therefore there exist two adjacent nodes in $V(G) - V'$.
+    }
+
+    \begin{framedcor}{}
+        The number of nodes of a graph is equal to the size of its minimal vertex cover, plus the size of a maximal independent set.
+    \end{framedcor}
+
+    \begin{frameddefn}{Matching}
+        Given a graph $G$, $M \subseteq E(G)$ is a \tbf{matching} of $G$ if and only if $$\forall (x, y), (u, v) \in M \quad x , y\neq u,v$$
+    \end{frameddefn}
+
+    \begin{framedthm}[label={bounded_matching}]{}
+        Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$; then $\abs M \le \abs C$.
+    \end{framedthm}
+
+    \begin{proof}
+        $C$ is a vertex cover, thus it must cover all edges in $E(G)$, and in particular it covers all edges in $M$. By definition of vertex cover, for each edge in $M$, at least one of its endpoints must be in $C$, therefore $\abs C$ must be at least $\abs M$.
+    \end{proof}
+
+    \begin{framedcor}{}
+        Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$. If $\abs M = \abs C$ then $M$ is a maximal matching and $C$ is a minimal vertex cover.
+    \end{framedcor}
+
+    Note that, although a maximal matching can be found in polynomial time, the contrapositive of this corollary is not true in general, therefore it is not possible to try to solve the minimal vertex cover through the maximal matching problem.
+
+    \begin{framedalgo}{2-approximation VC (matching)}
+        Given an undirected graph $G$, the algorithm returns a minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        \hrule
+
+        \quad
+        \label{alg:2-approx_vc_matching}
+        \begin{algorithmic}[1]
+            \Function{2approxVCmatching}{$G$}
+                \State $M := \texttt{findMaximalMatching(}G\texttt{)}$
+                \State $V' := \varnothing$
+                \For{$(u, v) \in E(G)$}
+                    \State $V' = V' \cup \{u, v\}$
+                \EndFor
+                \State \tbf{return} $V'$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        By computing a maximal matching $M$ on $G$, all the endpoints of the edges in $M$ will form a vertex cover for $G$, by definition of matching.
+    }
+
+    \cost{
+        Note that the time complexity of the algorithm depends directly on the algorithm used to compute the maximal matching $M$ of $G$.
+    }
+
+    \begin{proof}
+        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been upt into $M$, but this is not possible because $M$ is maximal. This proves that $V'$ is a vertex cover.
+
+        Let $V^*$ be a minimal vertex cover for $G$; to prove that $V'$ is a 2-approximation of the VC problem, note that by \cref{bounded_matching} we have that $\abs M \le \abs{V^*}$, therefore $$\abs{V'} = 2 \abs M \le 2 \abs{V^*}$$
+    \end{proof}
+
+    \begin{frameddefn}{Bipartite graph}
+        A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent set.
+    \end{frameddefn}
+
+    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a VC on bipartite graphs in polynomial time.
+
+    \begin{framedthm}{König's theorem}
+        In any bipartite graph, the number of edges in a maximal matching is equal to the number of vertices in a minimal vertex cover.
+    \end{framedthm}
+
+    \subsection{The eternal vertex cover problem}
+
+    In \tbf{Dynamic network security}, the \tit{fault-tolerance model}'s objective is to deploy a \tit{minimum} set of guards across network nodes to provide continuous protection against attacks or faults on any single network link at any time. When an attack or fault occurs on a link, a guard stationed at one of the adjacent nodes detects it and \tit{immediately} moves across the link to defend or repair the issue. Meanwhile, the remaining guards reconfigure by repositioning themselves to adjacent nodes. This reconfiguration ensures that the system remains \tbf{protected} from future attacks or failures, maintaining a dynamic, adaptive defense mechanism.
+
+    This process ensures that protection is not only \tit{instantaneous} but can be maintained \tit{indefinitely}. The guards adjust their positions in response to each new incident, guaranteeing continuous defense against single-link attacks or failures in an \tit{ad infinitum} manner, adapting dynamically to evolving threats or faults without compromising the network's resilience.
+
+    This model can be translated into the \tbf{eternal vertex cover} problem, in which
+
+    \begin{itemize}
+        \item the network is modeled as a graph
+        \item at most one defender is located at each node
+        \item an attacker can target edges
+        \item a defender \tit{can} protect all the edges incident to the nodes where the guard is located
+        \item to defend an attacked edge, a guard must move along the attacked edge
+        \item any guard can traverse one edge at a time
+    \end{itemize}
+
+    Given the set of nodes where guards are deployed at any moment, if these nodes do not form a \tbf{vertex cover}, the attacker can exploit any uncovered edge to bypass the defense and successfully breach the network. Therefore, to ensure continuous protection, the defender must \tit{dynamically reconfigure} the guard positions so that the current set of guarded nodes always forms a valid vertex cover. This reconfiguration is crucial after any attack, transforming \tit{one vertex cover into another} in response to the attack, ensuring no edge remains exposed.
+
+    If $\alpha (G)$ is the cardinality of a minimal VC on a graph $G$, and $\alpha ^{\infty}(G)$ is the cardinality of a minimal eternal VC, then $$\alpha(G) \le \alpha^{\infty}(G)$$
+
+    \begin{framedthm}{Shadow guard}
+        Let $G$ be a connected graph, and let $V'$ be a vertex cover for $G$ that induces a connected subgraph of $G$. Then $\alpha^{\infty}(G) \le \abs{V'} + 1$.
+    \end{framedthm}
+
+    \begin{proof}
+        Choose a vertex $d \in V(G) - V'$, and place a new guard on it; we will refer to this guard as \tit{shadow guard}. Let $P$ be the following path $$P = d, v_1, \ldots, v_k, x$$ where $v_1, \ldots, v_k \in V'$, and $(v_k, x)$ is the attacked edge. To defend $(v_k, x)$, it is sufficient to slide each guard over $P$, towards $x$, therefore the \tit{shadow guard} will now be on $v_1$, and the attacked edge will be defended by the guard that slid from $v_k$ to $x$.
+
+        Finally, note that the new set of vertices on which the guards now stand on still form a vertex cover, hence $V' \cup \{d\}$ is an eternal vertex cover.
+    \end{proof}
+
+    \begin{framedlem}{}
+        Let $G$ be a connected graph, and let $V'$ be a vertex cover inducing a subgraph of $G$, with $k$ connected components. Then $\alpha^{\infty}(G) \le \abs{V'} + k$.
+    \end{framedlem}
+
+    \begin{proof}
+        Considering each connected component of $V'$ as a separate connected subgraph, we get the result of the lemma, by the same reasoning of the previous theorem.
+    \end{proof}
+
+    Note that $V'$ can induce at most $\abs{V'}$ connected components, we get the following theorem.
+
+    \begin{framedthm}{}
+        Given a graph $G$, we have that $$\alpha(G) \le \alpha^{\infty} (G) \le 2 \alpha(G)$$
+    \end{framedthm}
+
+    \begin{framedthm}{Eternal VC on cycles}
+        For any $n \ge 3$, we have that $$\alpha^{\infty}(C_n) = \alpha(C_n) = \ceil{\frac{n}{2}}$$ where $C_n$ is a cycle graph of $n$ nodes.
+    \end{framedthm}
+
+    \begin{proof}
+        By placing a guard on alternated nodes of the cycle graph $C_n$, we get an eternal vertex cover: if an edge is attacked, it is sufficient to rotate each guard by 1.
+    \end{proof}
+
+    \begin{framedthm}{Eternal VC on paths}
+        For any $n \ge 1$, we have that $$\alpha^{\infty}(P_n) = n - 1$$ where $P_n$ is a path graph of $n$ nodes.
+    \end{framedthm}
+    
+    \begin{proof}
+        Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to desing an attack strategy such that all the guard from a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
     \printbibliography

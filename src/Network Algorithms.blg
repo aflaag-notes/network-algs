@@ -19,47 +19,50 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
+Warning--entry type for "konig" isn't style-file defined
+--line 208 of file ./references.bib
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 17 entries,
+You've used 18 entries,
             6399 wiz_defined-function locations,
-            1343 strings with 12052 characters,
-and the built_in function-call counts, 101445 in all, are:
-= -- 7394
-> -- 2017
-< -- 735
-+ -- 2499
-- -- 753
-* -- 6685
-:= -- 9725
+            1348 strings with 12194 characters,
+and the built_in function-call counts, 105767 in all, are:
+= -- 7659
+> -- 2106
+< -- 764
++ -- 2594
+- -- 782
+* -- 6963
+:= -- 10130
 add.period$ -- 0
-call.type$ -- 17
-change.case$ -- 473
-chr.to.int$ -- 104
-cite$ -- 32
-duplicate$ -- 10452
-empty$ -- 9365
-format.name$ -- 825
-if$ -- 21343
+call.type$ -- 18
+change.case$ -- 482
+chr.to.int$ -- 110
+cite$ -- 34
+duplicate$ -- 10961
+empty$ -- 9789
+format.name$ -- 872
+if$ -- 22249
 int.to.chr$ -- 0
-int.to.str$ -- 50
+int.to.str$ -- 52
 missing$ -- 0
-newline$ -- 545
-num.names$ -- 1012
-pop$ -- 5401
+newline$ -- 568
+num.names$ -- 1053
+pop$ -- 5740
 preamble$ -- 1
-purify$ -- 515
+purify$ -- 526
 quote$ -- 0
-skip$ -- 3513
+skip$ -- 3669
 stack$ -- 0
-substring$ -- 12560
-swap$ -- 2712
-text.length$ -- 424
-text.prefix$ -- 16
+substring$ -- 12956
+swap$ -- 2832
+text.length$ -- 450
+text.prefix$ -- 17
 top$ -- 1
-type$ -- 566
+type$ -- 599
 warning$ -- 0
-while$ -- 1181
+while$ -- 1239
 width$ -- 0
-write$ -- 529
+write$ -- 551
+(There was 1 warning)
