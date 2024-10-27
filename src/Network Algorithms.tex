@@ -970,6 +970,14 @@
 
     \subsection{Optimal area of the butterfly network}
 
+    \begin{framedlem}{}
+        Given an $n$-dimensional butterfly network, for any non-negative integers $j, k > 0$ such that $0 \le j \le j + k \le n$, the subgraph of the butterfly network induces by the nodes in levels $j, j + 1, \ldots, j + k$ is the disjoint union of $2^{n - k}$ copies of $k$-dimensional butterfly networks.
+    \end{framedlem}
+
+    In particular, if $j = 0$ and $k = n - 1$, we get have the following \todo{add pic}
+
+    Therefore, an $(n - 1)$-dimensional butterfly network can be built from a pair of $(n - 2)$-dimensional butterfly networks connected by one node layer and one ege layer. \todo{what?}
+
     \chapter{The worm propagation prevention problem}
 
     A \href{https://en.wikipedia.org/wiki/Computer_worm}{computer worm} is a type of malware designed to self-replicate and spread across networks without needing a host program. Unlike \tit{viruses}, which require human action to propagate, \tbf{worms} use computer networks to exploit security vulnerabilities in target systems, infiltrating and duplicating themselves automatically.
