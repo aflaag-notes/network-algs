@@ -155,19 +155,19 @@
             \end{tikzpicture}
         \end{tabular}
 
-        \caption{On the left: a simple graph. On the right: a simple digraph}
+        \caption{On the left: a simple graph. On the right: a simple digraph.}
     \end{figure}
 
-    Graphs were born in 1736, when Euler used them formalize and solve the famous \textit{Seven Bridges of Königsberg} problem: is there a way to walk through all the bridges of the town and end up on the starting point? 
+    Graphs were born in 1736, when Euler used them to formalize and solve the famous \textit{Seven Bridges of Königsberg} problem: is there a way to walk through all the bridges of the town and end up on the starting point? 
 
     \begin{figure}[H]
         \centering
 
         \includegraphics[scale=0.6]{../assets/Konigsberg_bridges.png}
-        \caption{The city of Königsberg and its seven bridges}
+        \caption{The city of Königsberg and its seven bridges.}
     \end{figure}
 
-    To solve the problem, Euler represented the problem as the following \textit{multi-graph}, i.e. a non-simple graph that allows multiple edges between two vertices. Euler proved that the answer to the question is negative: a walk that passes through all the edges of such graph while also returning to the starting node cannot exist.
+    To solve the problem, Euler represented the problem as the following \textit{multi-graph}, i.e. a non-simple graph that allows multiple edges between two vertices. Euler proved that the answer to the question is negative: a walk that passes through all the edges of such graph while also returning to the starting node \tbf{cannot exist}.
 
     \begin{figure}[H]
         \centering
@@ -188,7 +188,7 @@
                 ;
         \end{tikzpicture}
 
-        \caption{The multi-graph representing the Seven Bridges of Königsberg problem}
+        \caption{The multi-graph representing the \tit{Seven Bridges of Königsberg} problem.}
     \end{figure}
 
     In general, a \tbf{walk} on a graph $G$ is given by a sequence of nodes $v_1, \ldots, v_k$ such that $(v_i, v_{i+1}) \in E(G)$. A \tbf{path} is walk whose vertices are all distinct. As we'll see in the following sections, walks and paths are the basis of graph theory.
@@ -204,13 +204,12 @@
     Based on the required conditions, the routing reduces to a specific type of path problem:
     \begin{enumerate}
         \item In \tbf{non-adaptive routing}, the routing algorithm must minimize the number of intermediate computers on the route. This problem reduces to the \textit{shortest path problem}, i.e. finding the path that passes through the lowest amount of edges from node $s$ to node $t$. This type of routing gives good results with consistent topology and traffic conditions, but performs poorly in case of congestion.  Usually this type of routing is implemented through one global \tit{routing table}.
-        \item In \tbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid it in. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well. In this type of routing, each router creates its own \tit{routing table}.
+        \item In \tbf{adaptive routing}, the routing algorithm must take into account the traffic conditions: if a route is congested, we want to avoid passing through it. This problem reduces to the \textit{least cost path problem}, i.e. finding the path with the least cost from node $d$ to node $t$. This type of routing gives good results with high network workload, but routes must be computed frequently in order to perform well. In this type of routing, each router creates its own \tit{routing table}.
         \item In \tbf{half-adaptive routing}, depending on traffic and workload on the network, the routing type can switch between \tit{adaptive} and \tit{non-adaptive}.
         \item In \tbf{fault-sensitive routing}, the routing algorithm must consider the possibility of a link failing: we want the route with the highest probability of working. 
     \end{enumerate}
 
-
-    Each of these problems can be modeled as a graph. In particular, adaptive routing and fault-sensitive routing need an additional \textit{weight function} $w : E(G) \to \R$ such that $w(e)$ represents the weight of an edge $e \in E(G)$. The \tbf{weight (or cost) of a path} $P$, written as $w(P)$, is the sum of the edges that compose it.
+    Each of these problems can be modeled as a graph. In particular, adaptive routing and fault-sensitive routing need an additional \textit{weight function} $w : E(G) \to \R$ such that $w(e)$ represents the weight of an edge $e \in E(G)$. The \tbf{weight (or cost) of a path} $P$, written as $w(P)$, is the sum of its edges.
 
     \begin{example}[Weighted graphs]
         The following is an example of a graph with weights on the edges.
@@ -251,14 +250,14 @@
 
     Note that for the \tbf{one-to-all} shortest path problem where each edge has unit weight, the problem can be solved through a simple \tit{Breadth-First-Search} (BFS) algorithm, invented by \textcite{moore}.
 
-    Moreover, all known algorithm for finding the least cost path between any two nodes on a graph are based on \tbf{graph exploration}, which is based on multiple \tit{walks} (i.e. paths where vertices may be repeated) on the graph. This raises a problem when there are \tbf{negative-weight cycles}, because the walk could take such a cycle infinitely many times, and the weight of the path between the two nodes can be lowered infinitely, without halting. Therefore, only networks without negative-weight cycles will be discussed.
+    Moreover, all known algorithm for finding the least cost path between any two nodes on a graph are based on \tbf{graph exploration}, which is based on multiple \tit{walks} (i.e. paths where vertices may be repeated) on the graph. This raises a problem when there are \tbf{negative-weight cycles}, because the walk could take such a cycle infinitely many times, and the weight of the path between the two nodes can be lowered infinitely, without halting. Therefore, only networks \tit{without} negative-weight cycles will be discussed.
 
     Therefore, in any solution of the least cost path problem:
 
     \begin{itemize}
         \item cycles having \tbf{negative weight} cannot exist, by hypothesis;
         \item cycles having \tbf{positive weight} cannot exist, by contradiction: if there is such a cycle in a solution, then a solution without the cycle would yield a lower-weight path;
-        \item cycles having \tbf{null length} cannot exist, by assumption: if there is such a cycle in a solution, then a solution withouth the cycle would yield a path of the same weight;
+        \item cycles having \tbf{null length} cannot exist, by assumption: if there is such a cycle in a solution, then a solution without the cycle would yield a path of the same weight;
     \end{itemize}
 
     Hence, we can assume that there exists at least one solution \tbf{without any cycle}.
@@ -295,14 +294,14 @@
     \end{framedalgo}
 
     \idea{
-        The algorithm updates each distance $\dist(s, v)$ for any $v \in V(G)$ progressively: for instance, in the first iteration of the \texttt{for} loop in line 6, since each distance is set to $+\infty$, only $s$'s neighbours will be updated. This will be repeated by \curlyquotes{expanding} the updated vertices progressively at each iteration, exactly $n - 1$ times, because a path has at most $n - 1$ nodes since we are assuming that our solution do not contain cycles.
+        The algorithm updates each distance $\dist(s, v)$ for any $v \in V(G)$ progressively: for instance, in the first iteration of the \texttt{for} loop in line 6, since each distance is set to $+\infty$, only $s$'s neighbours will be updated. This will be repeated by \curlyquotes{expanding} the updated vertices progressively at each iteration, exactly $n - 1$ times, because a path has at most $n - 1$ nodes since we are assuming that our solution does not contain cycles.
     }
 
     \cost{
         The cost of the algorithm is simply given by $$O(n) + O((n - 1) \cdot m) = O(nm)$$
     }
 
-    The Bellman-Ford algorithm is used for \href{https://en.wikipedia.org/wiki/Distance-vector_routing_protocol}{distance vector routing protocol}, an iterative, asynchronous and distributed protocol.
+    The Bellman-Ford algorithm is used for the \href{https://en.wikipedia.org/wiki/Distance-vector_routing_protocol}{distance vector routing protocol}, an iterative, asynchronous and distributed protocol.
 
     One year later, \textcite{dijkstra} presented the following algorithm, which lowered the computational cost of the Bellman-Ford algorithm. In fact, each step of the latter iterates on all the nodes in $G$, even when the majority will not be updated.
 
@@ -329,10 +328,11 @@
                         \If{$d(u) + w(u, v) < d(v)$} \Comment{relaxation step}
                             \State $d(v) = d(u) + w(u, v)$
                             \State $\texttt{p[}v\texttt{]} = u$
-                            \State $Q\texttt{.update()}$
+                            \State $Q\texttt{.update()}$ \Comment{updating $v$'s value in $Q$}
                         \EndIf
                     \EndFor
                 \EndWhile
+                \State \textbf{return} \ttt{p}
             \EndFunction
         \end{algorithmic}
     \end{framedalgo}
@@ -359,7 +359,7 @@
     The last algorithm that will be discussed was discovered independetly by \textcite{floyd} and \textcite{warshall}, which solves the \tbf{all-to-all} version of the least cost path problem.
 
     \begin{framedalgo}{Floyd-Warshall}
-        Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithms returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$. \\
+        Given a directed graph $G$, and an unconstrained weight function $w$ for the edges, the algorithm returns a matrix \texttt{dist} such that $\arraytt{dist}{u}{v}$ is the weight of the least-cost path from $u$ to $v$. \\
 
         \hrule
 
@@ -402,7 +402,7 @@
     There are many types of routing models. In this notes, the focus will be on the \href{https://en.wikipedia.org/wiki/Store_and_forward}{store-and-forward} model:
 
     \begin{itemize}
-        \item aata is divided into \tit{discrete packets};
+        \item data is divided into \tit{discrete packets};
         \item each packet contains \tit{control information} (such as source, destination, and sequence data) and is treated as an independent unit that is forwarded from node to node through the network;
         \item packets may be temporarily stored in \tbf{buffer queues} at intermediate nodes if necessary, due to link congestion or busy channels;
         \item each node makes a \tbf{local routing decision} based on the packet's destination address and the chosen routing algorithm;
@@ -817,6 +817,32 @@
     \end{equation*}
 
     placeholder \todo{incomplete}
+
+    \begin{framedthm}{Thompson's theorem}
+        Given a VLSI design, and its corresponding graph $G$, the area occupied by the wires and the nodes of the design is at least $\frac{w^2}{4}$, where $w$ is $G$'s bisection width.
+    \end{framedthm}
+
+    \begin{proof}
+        The bound of the area of the VLSI design will be proved by counting the minimum number of occupied squares of the grid.
+
+        Consider the VLSI design on a grid as a Cartesian plane, and vertical lines of the form $x = a$. Each possible $x = a$ split the vertices of the network into three separate subsets:
+
+        \begin{itemize}
+            \item $L$, which contains the vertices on the left of the vertical line
+            \item $R$, which contains the vertices on the right of the vertical line
+            \item $S$, which contains the vertices that lie right on the vertical line
+        \end{itemize}
+
+        In particular, by monotonicity, there exists an $a$ such that $\abs L + \abs S \ge \dfrac{n}{2}$ and $\abs R + \abs S \ge \dfrac{n}{2}$. Clearly, if $\abs S = 0$, the line $x = a$ cuts the graph into two sets of vertices $L$ and $R$, which must cut at least $w$ edges (by definition of \tit{bisection width}). Otherwise, if $\abs S \neq 0$, $S$ can be split into two subsets $S_1$ and $S_2$, such that $\abs {L \cup S_1} = \abs{R \cup S_2} = \frac{n}{2}$, and the vertical line will still cut at least $w$ edges.
+
+        The line $x = a$ is said to account for the $w$ square units of area of wire and vertices that lie within $\frac{1}{2}$ unit distance of it.
+
+        Consider a \curlyquotes{zig-zag} defined as follows: $$Z_1(x) := \soe{ll}{a - 1 & y \ge b_1 \\ a - 1 \le x \le a + 1 & y = b_1 \\ a + 1 & y \le b_1}$$ where $b_1$ is such that $Z_1$ still bisects the graph, therefore it cuts at least $w$ edges. Note that the horizontal segment of $Z_1$ may cut at most 2 wires, therefore its vertical sections will cross at least $w - 2$ wires.
+
+        Consider each possible zig-zag $$Z_k(x) := \soe{ll}{a - k & y \ge b_k \\ a_ k \le x \le a + k & y = b_k \\ a + k & y \le b_k}$$ where $b_k$ is such that $Z_k$ still bisects the graph, therefore it cuts at least $w$ edges. Since the horizontal segment will cut $2k$ edges, the vertical sections of $Z_k$ will cut $w - 2k$ edges.
+
+        Finally, since $\floor{\dfrac{w}{2}}$ zig-zags can be drawn on the graph (by definition of \tit{bisection width}), the total area of wire and vertices of the VLSI design is at least $$\sum_{k = 0}^{\floor{\frac{w}{2}}} > \dfrac{w^2}{4}$$
+    \end{proof}
 
     \subsection{The Wise layout} \label{wise}
 
