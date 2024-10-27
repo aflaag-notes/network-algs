@@ -395,7 +395,7 @@
 
     \section{Interconnection topologies}
 
-    Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
+    Up to this point, the routing problem has considered the network as a graph where \tbf{the structure is not known to the nodes}, and can change over time due to factors like \tit{faults} and \tit{variable traffic}. However, when the network represents an \tbf{interconnection topology}, such as the one connecting processors, the structure of the network is known and remains fixed. This characteristic can be leveraged in the packet-routing algorithms.
 
     While the fixed nature of the network topology can be used to develop more efficient routing strategies, efficiency becomes a critical concern in interconnection topologies. As a result, solutions with stronger properties than basic shortest-path algorithms are required.
 
@@ -435,7 +435,7 @@
 
     \centeredimage[The recursive structure of butterfly networks.]{0.3}{../assets/butterfly_recursive.png}
 
-    Through the recursive structure of the butterfly network it can be easily shown, by structural induction, that each node of the network has degree 4, except for the ones in the first and last layer. Therefore, to perform the routing of the packets on a butterfly network, its nodes are \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and \tit{bar} (shown below, respectively).
+    Through the recursive structure of the butterfly network it can be easily shown, by structural induction, that each node of the network has degree 4, except for the ones in the first and last layer. Therefore, to perform the routing of the packets on a butterfly network, its nodes are made of \tbf{crossbar switches}, which have two input and two output ports and can operate in two states, namely \tit{cross} and \tit{bar} (shown below, respectively).
 
     \centeredimage[A butterfly network node.]{0.25}{../assets/butterfly_nodes.png}
 
@@ -465,13 +465,13 @@
 
     Packet-routing performed on a butterfly network can pose some challenges. Assume that each node $(u, 0)$ in the network on layer 0 of the butterfly contains a packet, which is destined for node $(\pi(u), n)$ in layer $n$ --- there are $n + 1$ layers, ranging in $[0, n]$ --- where $$\func{\pi}{[1, N]}{[1, N]}$$ describes the permutation of the packet destinations. In a \tbf{greedy routing algorithm}, each packet follows its \tit{greedy path}, meaning that at each intermediate layer, it makes progress toward its final destination by choosing the edges to cross through the algorithm described in \cref{prop:greedy_path}.
 
-    When routing only a \tit{single packet}, the greedy algorithm works efficiently, since there are no conflicts or competing resources along the path. However, when \tit{multiple packets} are routed in parallel, conflicts can arise, especially when multiple packets attempt to traverse the same edge or node simultaneousl. n fact, \tit{multiple greedy paths} may intersect at the same node or edge, and since only one packet can traverse a given edge at any moment, the other packets must be \tbf{delayed} until the edge becomes available. As a result, the butterfly network cannot route every permutation without delays, making it a \tbf{blocking network}.
+    When routing only a \tit{single packet}, the greedy algorithm works efficiently, since there are no conflicts or competing resources along the path. However, when \tit{multiple packets} are routed in parallel, conflicts can arise, especially when multiple packets attempt to traverse the same edge or node simultaneously. In fact, \tit{multiple greedy paths} may intersect at the same node or edge, and since only one packet can traverse a given edge at any moment, the other packets must be \tbf{delayed} until the edge becomes available. As a result, the butterfly network cannot route every permutation without delays, making it a \tbf{blocking network}.
 
     For simplicity, assume that $n$ is odd (though similar results hold for even values of $n$), and consider the following edge $$e :=  \rbk{ \rbk{0 \ldots 0, \frac{n-1}{2}},  \rbk{ 0 \ldots 0,\frac{n+1}{2} } }$$ Note that $e$'s endpoints are the roots of two complete binary trees, which have $2^{\frac{n -1}{2}}$ and $2^{\frac{n + 1}{2}}$ nodes respectively.
 
     \centeredimage{0.3}{../assets/butterfly_trees.png}
 
-    In the worst case, $\pi$ can be such that \tit{each greedy path starting from a leaf on the left tree and ending on a leaf on the right tree traverses $e$}. Note that the number of such paths is precisely the number of leafs of the left complete binary tree, namely $2^\frac{n- 1}{2} = \sqrt{\frac{N}{2}}$. Therefore, in the worst case $\sqrt{\frac{N}{2}}$ packets may need to traverse $e$, which means that one of them may be delayed by $\sqrt{\frac{N}{2}} - 1$ steps. Since it takes $n = \log N$ steps to traverse the whole network, the greedy algorithm can take up to $$\sqrt{\dfrac{N}{2}} -1 + \log N$$ steps to route a permutation.
+    In the worst case, $\pi$ can be such that \tit{each greedy path starting from a leaf on the left tree and ending on a leaf on the right tree traverses $e$}. Note that the number of such paths is precisely the number of leaves of the left complete binary tree, namely $2^\frac{n- 1}{2} = \sqrt{\frac{N}{2}}$. Therefore, in the worst case $\sqrt{\frac{N}{2}}$ packets may need to traverse $e$, which means that one of them may be delayed by $\sqrt{\frac{N}{2}} - 1$ steps. Since it takes $n = \log N$ steps to traverse the whole network, the greedy algorithm can take up to $$\sqrt{\dfrac{N}{2}} -1 + \log N$$ steps to route a permutation.
 
     The following theorem generalizes this result.
 
@@ -484,7 +484,7 @@
 
         The number of greedy paths in the first half of the butterfly is bounded by the number of leaves of the left complete binary tree, namely $n_i \le 2^{i - 1}$. Analogously, on the second half of the butterfly, $n_i$ is bounded by the number of leaves of the right complete binary tree, therefore $n_i \le 2^{n - i}$. Note that both this results hold because $n$ is odd.
 
-        Note that any packet that need to cross $e$ can be delayed by \tit{at most} the other $n_i - 1$ packets. Therefore, recalling that $\displaystyle \sum_{j = 0}^k {2^j} = 2^{k + 1} - 1$, as a packet traverses layers 1 through $n$, the total delay it can encounter is at most
+        Note that any packet that needs to cross $e$ can be delayed by \tit{at most} the other $n_i - 1$ packets. Therefore, recalling that $\displaystyle \sum_{j = 0}^k {2^j} = 2^{k + 1} - 1$, as a packet traverses layers 1 through $n$, the total delay it can encounter is at most
 
         \begin{equation*}
             \begin{split}
@@ -503,7 +503,7 @@
 
     \subsection{Beneš networks}
 
-    As shown in the previous section, the \tit{butterfly network} can present efficiency problems due to packet delays caused by congestion when multiple packets are routed simultaneously. One way to \tit{avoid routing delays} is by using a \tbf{non-blocking topology}.
+    As shown in the previous section, the \tit{butterfly network} can present efficiency problems due to packets' delays caused by congestion when multiple packets are routed simultaneously. One way to \tit{avoid routing delays} is by using a \tbf{non-blocking topology}.
 
     \begin{frameddefn}{Beneš network}
         An \tbf{$n$-dimensional Beneš network} is a network constructed by placing \tit{two $n$-dimensional butterfly networks back-to-back}.
@@ -515,7 +515,7 @@
         \centeredimage[A Beneš network.]{0.2}{../assets/benes.png}
     \end{example}
 
-    Note that an $n$-dimensional Beneš network has $$2(n + 1) - 1 = 2n + 2 - 1 = 2n + 1$$ layers, because the two $n$-dimensional butterfly network --- which describe the first and last $n + 1$ layers --- have an \tit{overlapping layer}.
+    Note that an $n$-dimensional Beneš network has $$2(n + 1) - 1 = 2n + 2 - 1 = 2n + 1$$ layers, because the two $n$-dimensional butterfly networks --- which describe the first and last $n + 1$ layers --- have an \tit{overlapping layer}.
 
     Consider the following property.
 
@@ -523,9 +523,9 @@
         A network with $N$ inputs and $N$ outputs is said to be \tbf{rearrangeable} if, for any one-to-one mapping $\pi$ of the inputs to the outputs, the mapping can be realized using exclusively \tit{edge-disjoint paths}.
     \end{frameddefn}
     
-    As for the case of the butterfly network, two inputs and two outputs are typically connected at both the beginning and end of the Beneš network, ensuring that each node has a degree of 4. Therefore, this type of Beneš network has $2N = 2 \cdot 2^n = 2^{n + 1}$ inputs linked to the $0$-th layer, and $2^{n + 1}$ layers linked to the $2n$-th layer.
+    As for the case of the butterfly network, two inputs and two outputs are typically connected at both the beginning and end of the Beneš network, ensuring that each node has a degree of 4. Therefore, this type of Beneš network has $2N = 2 \cdot 2^n = 2^{n + 1}$ inputs linked to the $0$-th layer, and $2^{n + 1}$ outputs linked to the $2n$-th layer.
 
-    However, in the case of the Beneš network, the following theorem will establish an important result that leverages these additional inputs and outputs.
+    The following theorem will establish an important result that leverages these additional inputs and outputs.
 
     \begin{framedthm}{Rearrangeability of the Beneš network}
         Any $n$-dimensional Beneš network is rearrangeable.
@@ -534,7 +534,7 @@
     \proofind{
         The proof proceeds by induction on $n$.
     }{
-        When $n = 0$, the Beneš consists of a single node, the theorem is vacuously true, because there are no edges on the network.
+        When $n = 0$, the Beneš consists of a single node, hence the theorem is vacuously true, because there are no edges on the network.
     }{
         Given any one-to-one mapping $\pi$ of the $2^n$ inputs and outputs of a $(n - 1)$-dimensional Beneš network, there exists \tit{a set of edge-disjoint paths} from the inputs to the outputs, connecting each input $i$ to output $\pi(i)$, for each $1 \le i \le 2^{n}$.
     }{
@@ -543,13 +543,13 @@
         \centeredimage[Subnetworks of a Beneš network.]{0.2}{../assets/benes_subnetworks.png}
 
 
-        Note that each \tit{starting node} --- those in layer 0 --- has degree 4, and 2 of the links connect each starting node to the inputs, external to the Beneš network. Therefore, by definition of the Beneš network, the remaining two edges must connect each starting node with the two separate $(n - 1)$-dimensional Beneš networks. Formally, each input $2i -1$ and $2i$ must use different Beneš subnetworks, for each $1 \le i \le 2n$.
+        Note that each \tit{starting node} --- those in layer 0 --- has degree 4, and 2 of the links connect each starting node to the inputs, external to the Beneš network. Therefore, by definition of the Beneš network, the remaining two edges must connect each starting node to the two separate $(n - 1)$-dimensional Beneš networks. Formally, each input $2i -1$ and $2i$ must use different Beneš subnetworks, for each $1 \le i \le 2n$.
 
         The proof is constructive, and involves a so called \tbf{looping algorithm}, which proceeds as follows:
 
         \begin{itemize}
             \item let two inupts connected to the same starting node be referred to as \tit{mates};
-            \item without loss of generality, start by routing input 1 to its destination, defined by $\pi(1)$; note that, as stated previously, this node will traverse only one of the two unconnected $(n - 1)$-dimensional Beneš networks;
+            \item without loss of generality, start by routing input 1 to its destination, defined by $\pi(1)$; note that, as stated previously, this node will traverse only one of the two unconnected $(n - 1)$-dimensional Beneš subnetworks;
             \item route $\pi(1)$'s mate to its input, by traversing the Beneš subnetwork that \tit{was not} traversed by the path $1 \to \pi(1)$;
             \item keep routing back and forth packets through the $n$-dimensional Beneš network; eventually, it will be routed the first input's \tit{mate}, which closes a routing loop;
             \item open another loop and continue routing packets as described.
@@ -574,7 +574,7 @@
 
     \begin{itemize}
         \item a \tbf{global controller} is \tit{required} to manage the network, determining the routing for each packet, knowing the permutation $\pi$ of the packets;
-        \item every time a new permutation $\pi$ needs to be routed, it takes $\Theta(N log N)$ time to reconfigure all the switches.
+        \item every time a new permutation $\pi$ needs to be routed, it takes $\Theta(N \log N)$ time to reconfigure all the switches.
     \end{itemize}
     
     \subsection{Mesh networks}
@@ -607,7 +607,7 @@
 
     \section{The orthogonal grid drawing problem}
 
-    To addresses the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the Thompson's Model \cite{thompson}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
+    To address the challenge of finding efficient ways to place and route the components of a VLSI circuit, while maintaining certain spatial constraints, Clark Duncan Thompson developed the Thompson's Model \cite{thompson}, which involves representing the circuit as a \href{https://en.wikipedia.org/wiki/Graph_drawing}{graph drawing}, and analyzing how the layout corresponds to graph drawing principles.
 
     \begin{frameddefn}{Graph drawing}
         Given a graph $G$, its \tbf{drawing} $\Gamma$ is a function that
@@ -625,28 +625,28 @@
         \item the \tit{wires}, or connections, between the components are represented by \tbf{edges} in a graph.
     \end{itemize}
 
-    However, due to the following spatial constraints imposed by VLSI technology manufacturing, this simple model requires further refinement in order to define a good \tbf{drawing} of this graph.
+    However, due to the following spatial constraints imposed by VLSI technology manufacturing, this simple model requires further refinement in order to define a good \tbf{drawing} of a graph.
 
     \begin{itemize}
         \item \tbf{Orthogonal drawing}: \tit{slanting lines} (diagonal connections) between components can only be \tit{approximated}, using small horizontal and vertical segments, because of the limitations in how the VLSI fabrication process manufactures the connections onto the \href{https://en.wikipedia.org/wiki/Wafer_(electronics)}{silicon wafer}. This forces the drawing to be \tbf{orthogonal}, which means that \tit{edges are represented as broken lines}, whose segments are horizontal or vertical, parallel to the coordinate axes.
             \centeredimage[An orthogonal drawing.]{0.15}{../assets/orthogonal.png}
         \item \tbf{Grid drawing}: maintaining \tit{adequate spacing} between wires is crucial to \tit{prevent interference}, which can degrade signal integrity. Proper spacing reduces parasitic capacitance and inductance, ensuring faster signal transmission and lower power consumption. Therefore, the graph drawing must be a \tbf{grid drawing}, such that all nodes, and crosses and bends of all the edges are put on grid points, on a grid plane, where the \tit{grid unit} is the minimum distance allowed between two wires.
-            \centeredimage[An grid drawing.]{0.2}{../assets/grid.png}
+            \centeredimage[A grid drawing.]{0.2}{../assets/grid.png}
         \item \tbf{Crossing number minimization}: wires \tit{must not cross}, to avoid interference and signal integrity issues. To manage this constraint, designers often route wires on opposite sides of the circuit board, utilizing small \curlyquotes{holes} that create vertical connections between layers. While this technique helps prevent crossings, it is essential to \tbf{minimize} the number of such holes, as their fabrication can be \tit{expensive} and may complicate the manufacturing process.
         \item \tbf{Area minimization}: silicon is a \tit{costly material}, making it essential to minimize the layout area of integrated circuits. Compact layouts not only reduce material costs, but also enhance performance by shortening wire lengths, which decreases signal delay and power consumption. Therefore, \tbf{area minimization} is a critical objective in the design process, as efficient use of silicon can lead to functional advantages in the final product.
-        \item \tbf{Edge length minimization}: wire lengths must be kept \tit{short}, because propagation delay increases with wire length, negatively impacting circuit performance. In layered topologies, it's particularly important that wires within the same layer are approximately equal in length to \tit{prevent synchronization issues} between signals. Thus, \tbf{edge length minimization} is crucial, as it helps ensure faster signal transmission and consistent timing across the circuit.
+        \item \tbf{Edge length minimization}: wire lengths must be kept \tit{short}, because propagation delay increases with wire length, negatively impacting circuit performance. In layered topologies, it is particularly important that wires within the same layer are approximately equal in length to \tit{prevent synchronization issues} between signals. Thus, \tbf{edge length minimization} is crucial, as it helps ensure faster signal transmission and consistent timing across the circuit.
     \end{itemize}
 
     In 1980, Thompson introduced the following model, which describes how to draw the graph of a circuit to comply with the aforementioned constraints of VLSI design.
 
     \begin{frameddefn}{Thompson's Model}
-        Given a graph of a topology $G$, the \tbf{Thompson's Model} is defines its layout drawing as a \tit{plane representation}, composed of a multitude of \tit{unit-distance horizontal and vertical traces}. This layout adheres to the following criteria:
+        Given a graph of a topology $G$, the \tbf{Thompson's Model} defines its layout drawing as a \tit{plane representation}, composed of a multitude of \tit{unit-distance horizontal and vertical traces}. This layout adheres to the following criteria:
 
         \begin{itemize}
             \item every \tit{node} in $V(G)$ is mapped to the \tit{intersection points} of the traces;
             \item every \tit{edge} in $E(G)$ is represented by \tit{disjoint paths}, formed by horizontal and vertical segments along the traces; these paths \tit{must not} intersect nodes that are not their endpoints, and they can only cross each other at designated trace intersection points.
-            \item \tit{overlappings}, \tit{node-edge crosses} and \tit{\curlyquotes{knock-knees}} are not allowed.
-                \centeredimage[An overlapping, a node-edge cross, and a knock-knee.]{0.25}{../assets/not_allowed.png}
+            \item \tit{overlappings}, \tit{node-edge crosses} and \tit{\curlyquotes{knock-knees}} are not allowed;
+                \centeredimage[An overlapping, a node-edge cross, and a \tit{knock-knee}.]{0.25}{../assets/not_allowed.png}
         \end{itemize}
     \end{frameddefn}
 
@@ -676,14 +676,14 @@
 
     \subsection{H trees}
 
-    An efficient algorithm for generating an orthogonal grid drawing of a \tbf{$n$-node complete binary tree} has been found independently by \textcite{leiserson} and \textcite{valiant}, which employs \href{https://en.wikipedia.org/wiki/H_tree}{H tree}, defined as follows.
+    An efficient algorithm for generating an orthogonal grid drawing of a \tbf{$n$-node complete binary tree} has been found independently by \textcite{leiserson} and \textcite{valiant}, which employs \href{https://en.wikipedia.org/wiki/H_tree}{H trees}, which are defined as follows.
 
     \begin{frameddefn}{H tree}
-        An \tbf{H tree} organizes the tree such that \tit{only horizontal and vertical lines} connect the nodes. It can be defined inductively from its height $h$ as follows:
+        An \tbf{H tree} organizes a complete binary tree such that \tit{only horizontal and vertical lines} connect the nodes. It can be defined inductively from its height $h$ as follows:
         \begin{itemize}
-            \item if $h = 0$ then a single node is needed
+            \item if $h = 0$ then a single node is sufficient
                 \centeredimage[An H tree of height $h = 0$.]{0.1}{../assets/0_h_tree.png}
-            \item otherwise, given two H trees of height $h - 1$, connect them as shown in the left drawing if $h$ even, otherwise use the right construction if $h$ is odd.
+            \item otherwise, given two H trees of height $h - 1$, connect them as shown in the left drawing if $h$ is even, otherwise use the rightmost construction if $h$ is odd.
                 \centeredimage[The inductive step of the inductive H tree construction.]{0.2}{../assets/h_tree_induct.png}
         \end{itemize}
     \end{frameddefn}
@@ -698,7 +698,7 @@
 
     Note that the area of the grid we are considering is the following.
 
-    \centeredimage[The grid of the H tree]{0.15}{../assets/symphony.png}
+    \centeredimage[The grid of the H tree.]{0.15}{../assets/symphony.png}
 
     \begin{framedthm}{Area of an H tree}
         The area occupied by an $n$-node H tree is $2(n + 1) + o(n)$.
@@ -780,7 +780,7 @@
 
     \subsection{The collinear layout}
 
-    The Thompson model imposes the restriction that each \tit{processing element} (i.e. node) can have at most \tbf{4 wires} coming out of it in 2D (and 6 in 3D). This constraint ensures that nodes have \textit{manageable connectivity}, which is crucial for simplifying VLSI layouts.
+    The Thompson's Model imposes the restriction that each \tit{processing element} (i.e. node) can have at most \tbf{4 wires} coming out of it in 2D (and 6 in 3D). This constraint ensures that nodes have \textit{manageable connectivity}, which is crucial for simplifying VLSI layouts.
 
     However, when nodes with \tbf{higher degrees} are \textit{required}, especially in more complex designs, this limitation becomes problematic. By the late 1990s, researchers proposed the following \tbf{non-constant node degree model} as a solution:
 
@@ -798,14 +798,14 @@
     \begin{example}[Collinear layouts]
         Consider the following \tit{labeled complete graph}
 
-        \centeredimage[A clique of degree 6.]{0.2}{../assets/complete_graph.png}
+        \centeredimage[A 6-clique.]{0.2}{../assets/complete_graph.png}
 
-        and let a \tbf{link of type-$i$} be any edge between two nodes whose labels differ of exactly $i$. To obtain the corresponding \tit{collinear layout}, place the 6 nodes on the same line in order, and connect them by placing type-$i$ links in the least possible number of \tbf{tracks} --- in this context a \tit{track} is a horizontal line on which links can be placed. For instance, type-1 links can be places in 1 track, type-2 links can be placed in 2 tracks --- by placing links between odd numbers on one track and links connecting even numbers on the other --- and so on.
+        and let a \tbf{link of type-$i$} be any edge between two nodes whose labels differ by exactly $i$. To obtain the corresponding \tit{collinear layout}, place the 6 nodes on the same line in order, and connect them by placing type-$i$ links in the least possible number of \tbf{tracks} --- in this context a \tit{track} is a horizontal line on which links can be placed. For instance, type-1 links can be placed in 1 track, type-2 links can be placed in 2 tracks --- by placing links between odd numbers on one track and links connecting even numbers on the other --- and so on.
 
         \centeredimage[Arrangement of links in tracks]{0.2}{../assets/collinear_clique.png}
     \end{example}
 
-    This example shows that type-$i$ links of a collinear layout occupy at most $\min(i, n - i)$. In fact, the following property can be derived. Thus, the total number of tracks of this layout can be obtained by evaluating the following sum:
+    This example shows that type-$i$ links of a collinear layout occupy at most $\min(i, n - i)$. Thus, the total number of tracks of this layout can be obtained by evaluating the following sum:
     
     \begin{equation*}
         \begin{split}
@@ -852,7 +852,7 @@
 
     Note that inputs are placed in the upper layer, and outputs in the lower layer; also, the \tit{blue circles} represent nodes of the butterfly network, and \tit{black squares} represent \tbf{devices} that allows to avoid interference, since those wire conjunctions are \tit{knock-knees}.
 
-    \centeredimage[Rearrangement to get the Wise layout]{0.2}{../assets/butterwise_perm.png}
+    \centeredimage[Rearrangement to get the Wise layout.]{0.2}{../assets/butterwise_perm.png}
 
     This rearrangement of the wires allows to have some important \tit{properties}.
     
@@ -861,7 +861,7 @@
         \item The length of the \tbf{longest path} from any input to any output is linear in $N$, namely $2(N - 1)$, and it can be computed by evaluating the diagonal of the square having side length equal to $\sqrt 2 (N - 1)$, shown in figure \todo{add pic}
             which is$$\sqrt{2 \cdot \rbk{\sqrt{2}(N - 1)}^2} = \sqrt{2 \cdot 2 \rbk{N - 1}^2} = \sqrt{4 \cdot \rbk{N - 1}^2} = 2( N - 1)$$
         \item placeholder \todo{pag 20 slide?}
-        \item The value of the \tbf{area} of this layout is good, which is $$\rbk{\sqrt 2(N - 1)}^2 + o(N^2) = 2N^2 + o(N^2)$$
+        \item The value of the \tbf{area} of this layout is good, which is $$\rbk{\sqrt 2(N - 1)}^2 = 2N^2 + o(N^2)$$
     \end{itemize}
 
     Later studies found that the \tbf{area} of this layout is \tit{inaccurate} because the \tbf{slanted} lines --- rotated by 45° --- that define this layout cannot be produced by machines of the fabrication process. In fact, machines can only create \tit{horizontal and vertical lines}, which means that the actual layout on a board would occupy significantly more area.
@@ -875,7 +875,7 @@
     In 2000 \textcite{seven} presented a new layout, based on the \tbf{layered cross product} between graphs, which is described below.
 
     \begin{frameddefn}{Layered graph}
-        A \tbf{layered graph} of $l + 1$ layers $G = (V_0, \ldots, V_l, E)$ consists of $l + 1$ layers of notes, where $V_i$ is the $i$-th node layer, and each edge $(u, v) \in E$ connect $u$ and $v$ if and only if $u \in V_i$ and $v \in V_{i + 1}$ --- i.e. they belong to adjacent layers.
+        A \tbf{layered graph} of $l + 1$ layers $G = (V_0, \ldots, V_l, E)$ consists of $l + 1$ layers of nodes, where $V_i$ is the $i$-th node layer, and each edge $(u, v) \in E$ connects $u$ and $v$ if and only if $u \in V_i$ and $v \in V_{i + 1}$ --- i.e. they belong to adjacent layers.
     \end{frameddefn}
 
     \begin{example}[Layered graphs]
@@ -889,19 +889,19 @@
 
         \begin{itemize}
             \item for each $i \in [0, l]$, $V_i := V_i ^1 \times V_i^2$, i.e. each layer in $G$ is the \tit{cartesian product} of the corresponding two layers in $G_1$ and $G_2$;
-            \item $((u^1, u^2), (v^1, v^2)) \in E \iff (u^1, u^2) \in E^1 \land (v^1, v^2) \in E_2$, there is an edge between two nodes of $G$ if and only if the corresponding nodes are connected in the original graphs.
+            \item $((u^1, u^2), (v^1, v^2)) \in E \iff (u^1, u^2) \in E^1 \land (v^1, v^2) \in E_2$, i.e. there is an edge between two nodes of $G$ if and only if the corresponding nodes were connected in the original graphs.
         \end{itemize}
     \end{frameddefn}
 
     Note that the LCP is not commutative.
 
     \begin{example}[LCPs]
-        The following is an example of LCP between two graphs.
+        The following is an example of an LCP between two graphs.
         
         \centeredimage[An LCP between two graphs.]{0.2}{../assets/lcp.png}
     \end{example}
 
-    LCPs are particularly useful because \textcite{evenlitman} demonstrated that \tit{various topologies} can be defined as LCPs of \tit{simpler structures}, such as trees. Specifically, it can be shown that butterfly networks are LCPs of \tbf{two complete binary trees}, one oriented upward and the other downward.
+    LCPs are particularly useful because \textcite{evenlitman} showed that \tit{various topologies} can be defined as LCPs of \tit{simpler structures}, such as trees. Specifically, it can be shown that butterfly networks are LCPs of \tbf{two complete binary trees}, one oriented upward and the other downward.
 
     \centeredimage[The LCP that defines the 2-dimensional butterfly network.]{0.27}{../assets/butterfly_lcp.png}
 
@@ -909,7 +909,7 @@
 
     \centeredimage[The LCP of the two graphs is obtained by this projection.]{0.27}{../assets/lcp_pm.png}
 
-    It is important to note that the PM may produce results that \tit{do not align} with the requirements of the Thompson model. For instance, while the projection above still represents the same butterfly network as before, it is not an \tbf{orthogonal drawing}.
+    It is important to note that the PM may produce results that \tit{do not align} with the requirements of the Thompson's Model. For instance, while the projection above still represents the same butterfly network as before, it is not an \tbf{orthogonal drawing}.
 
     Consider the following projection plane.
 
@@ -937,7 +937,7 @@
 
         \centeredimage[Consistent and inconsistent pair of edges, from left to right.]{0.3}{../assets/intervals.png}
 
-        the first two edges are \tit{consistent}, while the other two are not.
+        The first two edges are \tit{consistent}, while the other two are not.
     \end{example}
 
     \tit{Consistency} of edges in the input graphs must be checked, to avoid overlapping wires in the resulting graph. In particular, \tit{two cases} must be avoided.
@@ -981,7 +981,7 @@
 
     The second constraint can be addressed by ensuring that no pair of nodes in the drawing of the first (or second) graph, except for the two endpoints of the same straight edge, share the same $x$-coordinate (or $z$-coordinate). This is always achievable by appropriately enlarging the drawings of the two graphs.
     
-    This condition is more difficult to enforce and presents a significant limitation of this technique. For this reason, the focus of this work is restricted to networks where each LCP is calculated from two complete layered binary trees, with double the number of nodes.
+    Lastly, the third constraint is more difficult to enforce and presents a significant limitation of this technique. For this reason, the focus of this work is restricted to networks where each LCP is calculated from two complete layered binary trees, with double the number of nodes.
 
     \centeredimage[The LCP of two such trees.]{0.3}{../assets/square_butterfly.png}
 
@@ -1019,7 +1019,7 @@
 
     Assume that the time required to transmit information over any connection in a network is constant and denoted as $T$. If a worm successfully infects a set of nodes $C$, and the worm can spread to all other nodes in the network in a single step, then the entire network will be \tbf{infected} within time $T$. Therefore, we are interested in finding the set of nodes $C$ that can lead to a fully infected network.
 
-    The property that every edge in the network is incident to at least one node in the infected set $C$ ensures that the entire network can be infected after the first propagation step. This condition is \tit{sufficient} (though not \tit{necessary}) to guarantee that the worm will spread to all nodes in the next step.
+    The property that every edge in the network is incident to at least one node in the infected set $C$ ensures that the entire network can be infected after the first propagation step. This condition is \tit{sufficient} (though not \tit{necessary}) to guarantee that the worm will spread to all the nodes in the next step.
 
     From a network manager's perspective, any filter implemented to protect against first-order worm attacks typically reduces communication efficiency. Therefore, \tbf{minimizing} the number of filters is crucial to strike a balance between security and maintaining communication speed.
 
@@ -1036,7 +1036,7 @@
     Note that the minimal vertex cover is not unique. Moreover, for any graph $G$, $V(G)$ is trivially a vertex cover for $G$. To find the minimal vertex cover is not trivial, because there are $\powerset(V(G)) = 2^{V(G)}$ possibile subsets of vertices to check.
     
     \begin{example}[Vertex covers]
-        The following are two examples of minimal vertex covers for the given graph:
+        The following are two examples of minimal vertex covers for the given graph: \todo{this is wrong}
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
@@ -1140,7 +1140,7 @@
     }
 
     \cost{
-        Edge has to be explored or removed by the algorithm, therefore the cost is $O(n + m)$.
+        Each edge has to be either explored or removed by the algorithm, therefore the cost is $O(n + m)$.
     }
 
     Consider a graph formed by two rows of nodes as follows: the upper row has $r$ nodes, and the lower row has $k > r$ nodes. Each node of the upper row is connected to each node on the lower row. Note that the upper row is a \tit{minimal} vertex cover for the graph.
@@ -1222,7 +1222,7 @@
     }
 
     \cost{
-        The cost of the algorithm is the same of the \cref{alg:first_greedy_avc}, which is $O(n +m)$.
+        The cost of the algorithm is the same of the \cref{alg:first_greedy_avc}, which is $O(m(n +m))$.
     }
 
     \begin{proof}
@@ -1264,7 +1264,7 @@
     }
 
     \begin{proof}
-        Let $V'$ be the set of vertices described by $y^*$. It is easy to see that $V'$ is a vertex cover for $G$, because the constraint of the ILP $$x^*_i + x^*_j \ge 1$$ forces at least one between $x^*_i$ and $x^*_j$ to be greater or equal than $\frac{1}{2}$, therefore at least one between $y^*_i$ and $y_i^*$ will be set to 1.
+        Let $V'$ be the set of vertices described by $y^*$. It is easy to see that $V'$ is a vertex cover for $G$, because the constraint of the ILP $$x^*_i + x^*_j \ge 1$$ forces at least one between $x^*_i$ and $x^*_j$ to be greater or equal than $\frac{1}{2}$, therefore at least one between $y^*_i$ and $y_j^*$ will be set to 1.
 
         Now we will prove that the algorithm returns a 2-approximation of an optimal solution $V^*$. Let $$Z := \sum_{i = 1}^n{x^*_i}$$ Since $x^*_i \le 1$ for each $i \in [1, n]$, it must be that $Z \le \abs{V^*}$ \todo{what?}. Let $y^* \in \{0, 1\}^n$ be the integer solution obtained from $x^* \in [0, 1]^n$ by the rounding procedure; clearly, for each $i \in [1, n]$, we have that $y^*_i \le 2x^*_i$, therefore $$\abs{V'} = y^*_1 + \ldots + y^*_n \le 2 (x^*_1 + \ldots + x^*_n) = 2Z \le 2 \abs{V^*}$$
     \end{proof}
@@ -1280,7 +1280,7 @@
     \end{framedthm}
 
     \proofiff{
-        By way of contradiction, assume that there exist $x, y \in V(G) - V'$ such that $(x, y) \in E(G)$; then, neither $x$ nor $y$ are in $V'$, therefore $(x, y)$ is not covered by the vertex cover $V'$.
+        By way of contradiction, assume that there exist $x, y \in V(G) - V'$ such that $(x, y) \in E(G)$; note that neither $x$ nor $y$ are in $V'$ because they are in its complement, therefore $(x, y)$ is not covered by the vertex cover $V'$.
     }{
         Analogously, by way of contradiction, assume that there exists an edge $(x, y) \in E(G)$ that is not covered by any node in $V'$, then both $x, y \in V(G) - V'$, therefore there exist two adjacent nodes in $V(G) - V'$.
     }
@@ -1317,7 +1317,7 @@
             \Function{2approxVCmatching}{$G$}
                 \State $M := \texttt{findMaximalMatching(}G\texttt{)}$
                 \State $V' := \varnothing$
-                \For{$(u, v) \in E(G)$}
+                \For{$(u, v) \in M$}
                     \State $V' = V' \cup \{u, v\}$
                 \EndFor
                 \State \tbf{return} $V'$
@@ -1334,16 +1334,16 @@
     }
 
     \begin{proof}
-        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been upt into $M$, but this is not possible because $M$ is maximal. This proves that $V'$ is a vertex cover.
+        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been put into $M$, but this is not possible because $M$ is maximal. This proves that $V'$ is a vertex cover.
 
         Let $V^*$ be a minimal vertex cover for $G$; to prove that $V'$ is a 2-approximation of the VC problem, note that by \cref{bounded_matching} we have that $\abs M \le \abs{V^*}$, therefore $$\abs{V'} = 2 \abs M \le 2 \abs{V^*}$$
     \end{proof}
 
     \begin{frameddefn}{Bipartite graph}
-        A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent set.
+        A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent sets.
     \end{frameddefn}
 
-    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a VC on bipartite graphs in polynomial time.
+    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a maximal VC on bipartite graphs in polynomial time.
 
     \begin{framedthm}{König's theorem}
         In any bipartite graph, the number of edges in a maximal matching is equal to the number of vertices in a minimal vertex cover.
@@ -1366,7 +1366,7 @@
         \item any guard can traverse one edge at a time
     \end{itemize}
 
-    Given the set of nodes where guards are deployed at any moment, if these nodes do not form a \tbf{vertex cover}, the attacker can exploit any uncovered edge to bypass the defense and successfully breach the network. Therefore, to ensure continuous protection, the defender must \tit{dynamically reconfigure} the guard positions so that the current set of guarded nodes always forms a valid vertex cover. This reconfiguration is crucial after any attack, transforming \tit{one vertex cover into another} in response to the attack, ensuring no edge remains exposed.
+    Given the set of nodes where guards are deployed at any moment, if these nodes do not form a \tbf{vertex cover}, the attacker can exploit any uncovered edge to bypass the defense and successfully breach the network. Therefore, to ensure continuous protection, the defender must \tit{dynamically reconfigure} the guard positions so that the current set of guarded nodes always forms a valid vertex cover. This reconfiguration is crucial after any attack, transforming \tit{one vertex cover into another} in response to the attack, ensuring that no edge remains exposed.
 
     If $\alpha (G)$ is the cardinality of a minimal VC on a graph $G$, and $\alpha ^{\infty}(G)$ is the cardinality of a minimal eternal VC, then $$\alpha(G) \le \alpha^{\infty}(G)$$
 
@@ -1388,7 +1388,7 @@
         Considering each connected component of $V'$ as a separate connected subgraph, we get the result of the lemma, by the same reasoning of the previous theorem.
     \end{proof}
 
-    Note that $V'$ can induce at most $\abs{V'}$ connected components, we get the following theorem.
+    Note that $V'$ can induce at most $\abs{V'}$ connected components, therefore we get the following theorem.
 
     \begin{framedthm}{}
         Given a graph $G$, we have that $$\alpha(G) \le \alpha^{\infty} (G) \le 2 \alpha(G)$$
@@ -1407,7 +1407,7 @@
     \end{framedthm}
     
     \begin{proof}
-        Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to desing an attack strategy such that all the guard from a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
+        Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to design an attack strategy such that all the guards form a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
     \printbibliography

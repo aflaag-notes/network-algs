@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.12)  27 OCT 2024 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.12)  27 OCT 2024 19:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2814,7 +2814,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) h
 <to be read again> 
                    \relax 
 l.1320                 \For
-                           {$(u, v) \in E(G)$}
+                           {$(u, v) \in M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -2912,18 +2912,18 @@ Package logreq Info: Writing requests to '"Network Algorithms".run.xml'.
  )
 (\end occurred when \ifx on line 38 was incomplete) 
 Here is how much of TeX's memory you used:
- 74658 strings out of 476024
- 1825523 string characters out of 5792395
- 3019420 words of memory out of 5000000
- 95568 multiletter control sequences out of 15000+600000
+ 74667 strings out of 476024
+ 1825719 string characters out of 5792395
+ 3020561 words of memory out of 5000000
+ 95576 multiletter control sequences out of 15000+600000
  587505 words of font info for 100 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  119i,20n,123p,1909b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "Network Algorithms.pdf" (52 pages, 3492241 bytes).
+Output written on "Network Algorithms.pdf" (52 pages, 3492620 bytes).
 PDF statistics:
- 836 PDF objects out of 1000 (max. 8388607)
- 677 compressed objects within 7 object streams
- 230 named destinations out of 1000 (max. 500000)
+ 837 PDF objects out of 1000 (max. 8388607)
+ 678 compressed objects within 7 object streams
+ 231 named destinations out of 1000 (max. 500000)
  344 words of extra memory for PDF output out of 10000 (max. 10000000)
 
