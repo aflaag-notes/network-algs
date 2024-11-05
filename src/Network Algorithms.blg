@@ -21,49 +21,48 @@ Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
 Warning--entry type for "konig" isn't style-file defined
 --line 208 of file ./references.bib
-Warning--I didn't find a database entry for "christofides"
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 19 entries,
+You've used 22 entries,
             6399 wiz_defined-function locations,
-            1360 strings with 12560 characters,
-and the built_in function-call counts, 115281 in all, are:
-= -- 8317
-> -- 2476
-< -- 810
-+ -- 3095
-- -- 1052
-* -- 7559
-:= -- 11325
+            1387 strings with 13389 characters,
+and the built_in function-call counts, 135040 in all, are:
+= -- 9808
+> -- 2810
+< -- 951
++ -- 3598
+- -- 1154
+* -- 8858
+:= -- 13239
 add.period$ -- 0
-call.type$ -- 19
-change.case$ -- 500
-chr.to.int$ -- 134
-cite$ -- 36
-duplicate$ -- 12004
-empty$ -- 10515
-format.name$ -- 942
-if$ -- 23923
+call.type$ -- 22
+change.case$ -- 589
+chr.to.int$ -- 146
+cite$ -- 42
+duplicate$ -- 14183
+empty$ -- 12301
+format.name$ -- 1108
+if$ -- 28044
 int.to.chr$ -- 0
-int.to.str$ -- 55
+int.to.str$ -- 64
 missing$ -- 0
-newline$ -- 616
-num.names$ -- 1104
-pop$ -- 6101
+newline$ -- 724
+num.names$ -- 1295
+pop$ -- 7128
 preamble$ -- 1
-purify$ -- 550
+purify$ -- 649
 quote$ -- 0
-skip$ -- 3869
+skip$ -- 4520
 stack$ -- 0
-substring$ -- 14102
-swap$ -- 3056
-text.length$ -- 485
-text.prefix$ -- 18
+substring$ -- 16568
+swap$ -- 3582
+text.length$ -- 562
+text.prefix$ -- 21
 top$ -- 1
-type$ -- 633
+type$ -- 735
 warning$ -- 0
-while$ -- 1385
+while$ -- 1634
 width$ -- 0
-write$ -- 598
-(There were 2 warnings)
+write$ -- 703
+(There was 1 warning)

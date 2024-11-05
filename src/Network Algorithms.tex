@@ -1297,7 +1297,7 @@
         Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
     \end{frameddefn}
 
-    Note that every perfect matching is a \tit{maximal matching}.
+    Note that every perfect matching is a \tit{maximal matching}. Additionally, note that a perfect matching exists only if the number of vertices of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices.
 
     \begin{framedthm}[label={bounded_matching}]{}
         Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$; then $\abs M \le \abs C$.
@@ -1551,7 +1551,7 @@
         Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(C) = 2w(T) \le 2w(H^*)$$
     \end{proof}
 
-    In 1976 \textcite{christofides} \todo{find citation} showed that it is possible to obtain a better approximation of the TSP problem, because the algorithm previously discussed does not exploit all the available edges on the graph.
+    In 1976 \textcite{christofides} showed that it is possible to obtain a better approximation of the TSP problem, because the algorithm previously discussed does not exploit all the available edges on the graph.
 
     \begin{framedlem}{Handshaking lemma}
         Given a graph $G$, the sum of all the degrees of the vertices in $V(G)$ is $2 \abs E$.
@@ -1576,7 +1576,7 @@
                 \State Choose $r \in V(K_n)$ randomly
                 \State $T := \texttt{findMST}(K_n, r)$ \Comment{find an MST rooted in $r$}
                 \State $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{odd}\}$ \Comment{$\deg_T(v)$ is the degree of $v$ in $T$}
-                \State $M := \texttt{findMinWeightPM}(G^O)$
+                \State $M := \texttt{findMinWeightPM}(G^O)$ \Comment{$G^O$ is induced by $O$}
                 \State $U := M \cup T$ \Comment{$U$ is a multi-graph}
                 \State $L := \texttt{findEulerianCircuit}(U)$
                 \State $V := \varnothing$
@@ -1595,8 +1595,16 @@
     \begin{proof}
         We will prove that any solution $H$ of the algorithm is a $\frac{3}{2}$-approximation of an optimal solution $H^*$ for the TSP.
 
-    Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Note that, because of \cref{odd even}, we have that $\abs O$ is even. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$. Clearly, the graph induced by the union $M \cup T$ is a multi-graph, and it is connected because $T$ is a spanning tree. \todo{incomplete}
+    Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$. Clearly, the graph induced by the union $M \cup T$ is a multi-graph, and it is connected because $T$ is a spanning tree.
+
+    Note that, because of \cref{odd even}, $\abs O$ is even, therefore $G^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $G^O$. Moreover, let $N^*$ be a TS tour on $G^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately --- note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Note that both $M_O$ and $M_E$ are perfect matchings $G^O$, but since $M$ is the perfect matching of $G^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$ where the last inequality TODO \todo{i'm tired boss}
+
+        Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) = \dfrac{3}{2} w(H^*)$$
     \end{proof}
+
+    \textcite{christofides} originally developed his algorithm to solve the Euclidean TSP, a specific type of metric TSP. However, this algorithm is more general and can be applied to any metric TSP, not limited to Euclidean cases. Despite its general applicability, there are certain inputs that push the performance of this algorithm close to its worst-case approximation ratio of $\frac{3}{2}$.
+
+    In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidian TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidian space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
 
     \printbibliography
 \end{document}

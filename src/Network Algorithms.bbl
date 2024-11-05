@@ -17,6 +17,80 @@
 \endgroup
 
 \datalist[entry]{anyt/global//global/global}
+  \entry{arora}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=AS}{%
+         family={Arora},
+         familyi={A\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE Comput. Soc. Press}%
+    }
+    \strng{namehash}{AS1}
+    \strng{fullhash}{AS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Proceedings of 37th Conference on Foundations of Computer Science}
+    \verb{doi}
+    \verb 10.1109/sfcs.1996.548458
+    \endverb
+    \field{pages}{2–11}
+    \field{series}{SFCS-96}
+    \field{title}{Polynomial time approximation schemes for Euclidean TSP and other geometric problems}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/SFCS.1996.548458
+    \endverb
+  \endentry
+
+  \entry{bartal}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BY}{%
+         family={Bartal},
+         familyi={B\bibinitperiod},
+         given={Yair},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GLA}{%
+         family={Gottlieb},
+         familyi={G\bibinitperiod},
+         given={Lee-Ad},
+         giveni={L\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Krauthgamer},
+         familyi={K\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{BY+1}
+    \strng{fullhash}{BYGLAKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the forty-fourth annual ACM symposium on Theory of computing}
+    \verb{doi}
+    \verb 10.1145/2213977.2214038
+    \endverb
+    \field{pages}{663–672}
+    \field{series}{STOC’12}
+    \field{title}{The traveling salesman problem: low-dimensionality implies a polynomial time approximation scheme}
+    \verb{url}
+    \verb http://dx.doi.org/10.1145/2213977.2214038
+    \endverb
+    \field{month}{05}
+    \field{year}{2012}
+  \endentry
+
   \entry{bellman}{article}{}
     \name{author}{1}{}{%
       {{hash=BR}{%
@@ -85,6 +159,40 @@
     \field{journaltitle}{Information Processing Letters}
     \field{month}{08}
     \field{year}{1980}
+  \endentry
+
+  \entry{christofides}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CN}{%
+         family={Christofides},
+         familyi={C\bibinitperiod},
+         given={Nicos},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{CN1}
+    \strng{fullhash}{CN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1007/s43069-021-00101-z
+    \endverb
+    \field{issn}{2662-2556}
+    \field{number}{1}
+    \field{title}{Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s43069-021-00101-z
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{Operations Research Forum}
+    \field{month}{03}
+    \field{year}{2022}
   \endentry
 
   \entry{cook}{inproceedings}{}
