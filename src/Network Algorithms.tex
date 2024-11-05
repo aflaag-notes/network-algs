@@ -1293,6 +1293,12 @@
         Given a graph $G$, $M \subseteq E(G)$ is a \tbf{matching} of $G$ if and only if $$\forall (x, y), (u, v) \in M \quad x , y\neq u,v$$
     \end{frameddefn}
 
+    \begin{frameddefn}{Perfect matching}
+        Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
+    \end{frameddefn}
+
+    Note that every perfect matching is a \tit{maximal matching}.
+
     \begin{framedthm}[label={bounded_matching}]{}
         Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$; then $\abs M \le \abs C$.
     \end{framedthm}
@@ -1410,8 +1416,6 @@
         Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to design an attack strategy such that all the guards form a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
-    \printbibliography
-
     \chapter{TODO}
 
     TODO
@@ -1488,9 +1492,9 @@
     \end{framedthm}
 
     \begin{proof}
-        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_n)}$$ Note that, for the same reasoning applied in the proof of \cref{tsp np compl}, a TS tour with total weight $n$ exists in $K_n$ if and only if $G$ has a HC.
+        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_n) - E(G)}$$ Note that, for the same reasoning applied in the proof of \cref{tsp np compl}, a TS tour with total weight $n$ exists in $K_n$ if and only if $G$ has a HC.
 
-        Assume there exists an $r$-approximation algorithm $A$ for the TSP; therefore, because the total weight of the TS tour is $n$, $A$ ran on $K_n$ would find a solution $H$ such that $$\sum_{(i, j) \in H} {w(i, j)} \le rn$$ Now, assume that there exists an edge $(\hat i, \hat j)$ in $H$ such that $(\hat i, \hat j) \in E'(K_n) - E(G)$; hence, by definition of $w$, the total weight of $H$ must be at least $$\sum_{(i, j) \in H}{w(i, j)} = (n - 1) \cdot 1  + 2 + (r - 1)n = n - 1 + 2 + rn - n = rn + 1 > rn$$ because $H$ would be a cycle containing $n - 1$ edges from $E(G)$ and 1 edge from $E'(K_n) - E(G)$. Since $A$ is an $r$-approximation algorithm, this implies that any solution $H$ for $A$ must contain only edges inside $G$, otherwise $H$ would not be an $r$-approximation of an optimal solution for the TSP. However, if any of $A$'s solutions $H$ lie entirely in $G$, then $H$ is a HC for $G$ as previously discussed, which means that $A$ can find a HC in $G$ in polynomial time \todo{where did we say this}, which would imply that $\Pclass = \NPclass$ because $HC$ is \NPComplete.
+        Assume there exists an $r$-approximation polynomial algorithm $A$ for the TSP; therefore, because the total weight of the TS tour is $n$, $A$ ran on $K_n$ would find a solution $H$ such that $$\sum_{(i, j) \in H} {w(i, j)} \le rn$$ Now, assume that there exists an edge $(\hat i, \hat j)$ in $H$ such that $(\hat i, \hat j) \in E'(K_n) - E(G)$; hence, by definition of $w$, the total weight of $H$ must be at least $$\sum_{(i, j) \in H}{w(i, j)} = (n - 1) \cdot 1  + 2 + (r - 1)n = n - 1 + 2 + rn - n = rn + 1 > rn$$ because $H$ would be a cycle containing $n - 1$ edges from $E(G)$ and 1 edge from $E'(K_n) - E(G)$. Since $A$ is an $r$-approximation algorithm, this implies that any solution $H$ for $A$ must contain only edges inside $G$, otherwise $H$ would not be an $r$-approximation of an optimal solution for the TSP. However, if any of $A$'s solutions $H$ lie entirely in $G$, then $H$ is a HC for $G$ as previously discussed, which means that $A$ can find a HC in $G$ in polynomial time, which would imply that $\Pclass = \NPclass$ because HC is \NPComplete.
     \end{proof}
 
     \subsection{Special cases for the TSP}
@@ -1522,7 +1526,7 @@
         \begin{algorithmic}[1]
             \Function{2approxTSP}{$G$, $w$}
                 \State Choose $r \in V(K_n)$ randomly
-                \State $T := \texttt{findMST}(r)$ \Comment{find an MST rooted in $r$}
+                \State $T := \texttt{findMST}(K_n, r)$ \Comment{find an MST rooted in $r$}
                 \State $\texttt L := \texttt{DFSpreorder}(T)$ \Comment{a \tit{preorder} DFS on $T$}
                 \State $V := \varnothing$
                 \State $\texttt L' := \texttt{[]}$
@@ -1547,4 +1551,52 @@
         Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(C) = 2w(T) \le 2w(H^*)$$
     \end{proof}
 
+    In 1976 \textcite{christofides} \todo{find citation} showed that it is possible to obtain a better approximation of the TSP problem, because the algorithm previously discussed does not exploit all the available edges on the graph.
+
+    \begin{framedlem}{Handshaking lemma}
+        Given a graph $G$, the sum of all the degrees of the vertices in $V(G)$ is $2 \abs E$.
+    \end{framedlem}
+
+    \begin{framedcor}[label={odd even}]{}
+        The number of vertices that have an odd degree in a graph is even.
+    \end{framedcor}
+
+    \begin{proof}
+        Consider a graph $G$; for the handshaking lemma, we have that $$\sum_{v \in V(G)}{\deg(v)} = 2 m$$ Let $O: = \{v \in V(G) \mid \deg(v) \ \mathrm{odd}\}$ and $E := \{v \in V(G) \mid \deg(v) \ \mathrm{even}\}$ then, we have that $$\sum_{v \in O}{\deg(v)} + \sum_{v \in E}{\deg(v)} = \sum_{v \in V(G)} {\deg(v)} = 2m$$ because $O$ and $E$ describe a partition on $V(G)$. Therefore, because each degree of nodes in $E$ is even by definition, $\sum_{v \in E}{\deg(v)}$ is even, which means that the handshaking lemma is satisfied only if $\sum_{v \in O}{\deg(v)}$ is even as well. However, since each degree of nodes in $O$ is odd by definition, it must be that the entire sum is even.
+    \end{proof}
+
+    \begin{framedalgo}{$\frac{3}{2}$-approximation TSP}
+        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(G)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le \frac{3}{2}w(H^*)$, where $H^*$ is an optimal TS tour. \\
+        \hrule
+
+        \quad
+        \label{alg:3/2-approx_tsp}
+        \begin{algorithmic}[1]
+            \Function{3/2approxTSP}{$G$, $w$}
+                \State Choose $r \in V(K_n)$ randomly
+                \State $T := \texttt{findMST}(K_n, r)$ \Comment{find an MST rooted in $r$}
+                \State $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{odd}\}$ \Comment{$\deg_T(v)$ is the degree of $v$ in $T$}
+                \State $M := \texttt{findMinWeightPM}(G^O)$
+                \State $U := M \cup T$ \Comment{$U$ is a multi-graph}
+                \State $L := \texttt{findEulerianCircuit}(U)$
+                \State $V := \varnothing$
+                \State $\texttt L' := \texttt{[]}$
+                \For{$v \in \texttt L$}
+                    \If{$v \notin V$}
+                        \State $L'.\texttt{append}(v)$
+                        \State $V = V \cup \{v\}$
+                    \EndIf
+                \EndFor
+                \State \textbf{return} \ttt L' \Comment{\texttt L' is \texttt L without repetitions}
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \begin{proof}
+        We will prove that any solution $H$ of the algorithm is a $\frac{3}{2}$-approximation of an optimal solution $H^*$ for the TSP.
+
+        Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Note that, because of \cref{odd even}, we have that $\abs O$ is even. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$. Clearly, the graph induced by the union $M \cup T$ is a multi-graph, and it is connected because $T$ is a spanning tree. 
+    \end{proof}
+
+    \printbibliography
 \end{document}
