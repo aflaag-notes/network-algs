@@ -21,3 +21,6 @@
 \contentsline {section}{\numberline {3.1}The vertex cover problem}{38}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{40}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{46}{subsection.3.1.2}%
+\contentsline {chapter}{\numberline {4}TODO}{51}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{51}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{54}{subsection.4.1.1}%

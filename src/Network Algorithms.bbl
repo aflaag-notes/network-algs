@@ -118,6 +118,54 @@
     \field{year}{1971}
   \endentry
 
+  \entry{dantzig}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DG}{%
+         family={Dantzig},
+         familyi={D\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=FR}{%
+         family={Fulkerson},
+         familyi={F\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={Johnson},
+         familyi={J\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {INFORMS}%
+    }
+    \strng{namehash}{DG+1}
+    \strng{fullhash}{DGFRJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{abstract}{%
+    It is shown that a certain tour of 49 cities, one in each of the 48 states and Washington, D. C., has the shortest road distance.%
+    }
+    \field{issn}{00963984}
+    \field{number}{4}
+    \field{pages}{393\bibrangedash 410}
+    \field{title}{Solution of a Large-Scale Traveling-Salesman Problem}
+    \verb{url}
+    \verb http://www.jstor.org/stable/166695
+    \endverb
+    \field{volume}{2}
+    \field{journaltitle}{Journal of the Operations Research Society of America}
+    \field{year}{1954}
+    \field{urlday}{04}
+    \field{urlmonth}{11}
+    \field{urlyear}{2024}
+  \endentry
+
   \entry{dijkstra}{article}{}
     \name{author}{1}{}{%
       {{hash=DE}{%

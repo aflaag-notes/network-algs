@@ -1414,6 +1414,10 @@
 
     \chapter{TODO}
 
+    TODO
+
+    \section{The Traveling Salesman Problem}
+
     \begin{frameddefn}{Traveling Salesman Problem}
         The Traveling Salesman Problem (TSP) is defined as follows: a salesman has to visit a given set of cities, such that his tour ends on the same city on which he started, while minimizing the total length of the trip.
     \end{frameddefn}
@@ -1438,7 +1442,7 @@
 
     Note that any complete graph $K_n$ trivially contains a HC, but the problem aims at minimizing the cost of the HC. The following proof shows that the TSP is \NPComplete as well.
 
-    \begin{framedthm}{$\mathrm{TSP} \in \NPComplete$}
+    \begin{framedthm}[label={tsp np compl}]{$\mathrm{TSP} \in \NPComplete$}
         The TSP is \NPComplete.
     \end{framedthm}
 
@@ -1448,8 +1452,8 @@
         Now it will be proven that TSP is \NPHard, by reducing HC to TSP as follows:
 
         \begin{itemize}
-            \item consider a graph $G = (V, E)$, and construct the complete graph $K_n = (V, E')$, where $E(G) \subseteq E'(K_n)$ and the remaining edges are the ones added to make $K_n$ a complete graph
-            \item let $t := n$ and define $\func{w}{E'(K_n)}{\R^+}$ as follows: $$\soe{l}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 & (i, j) \in E'(K_n) - E(G)}$$
+            \item consider a graph $G = (V, E)$, and construct the complete graph $K_n = (V, E')$, where $E(G) \subseteq E'(K_n)$ and the remaining edges are the ones added to make $K_n$ a complete graph --- note that $n := \abs{V(G)}$
+            \item let $t := n$ and define $\func{w}{E'(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 & (i, j) \in E'(K_n) - E(G)}$$
             \item assume that there exists a Hamiltonian cycle $C$ in $G$; by definition of $w$, all edges of $C$ in $K_n$ have weight 1, since they are all in $G$; this shows that if $G$ has a HC, then $K_n$ has a traveling salesman tour of cost $n = t$
             \item conversely, if $K_n$ has a traveling salesman (TS) tour of cost $n$, all edges of the tour necessarily have weight 1, because edges with weight 2 would not minimize the cost; therefore, by definition of $w$, this tour describes a HC in $G$
             \end{itemize}
@@ -1468,23 +1472,79 @@
 
     \[\begin{array}{ccc}
         \qquad\qquad\quad
-        & \min \; \sum_{i = 1}^n {\sum_{j = 1}^n {w_{ij}x{ij}}} \\\\
-        & \sum_{i = 1}^n {x_{ij}} = 1, \quad j \in V(K_n) \\
-        & \sum_{j = 1}^n {x_{ij}} = 1, \quad i \in V(K_n) \\
-        & \sum_{i, j \in S} {x_{ij}} < \abs S, \quad S \subsetneq V(K_n) \\
+        & \min \; \sum\limits_{i = 1}^n {\sum\limits_{j = 1}^n {w_{ij}x_{ij}}} \\\\
+        & \sum\limits_{i = 1}^n {x_{ij}} = 1, \quad j \in V(K_n) \\
+        & \sum\limits_{j = 1}^n {x_{ij}} = 1, \quad i \in V(K_n) \\
+        & \sum\limits_{i, j \in S} {x_{ij}} < \abs S, \quad S \subsetneq V(K_n), S \neq \varnothing \\
         & x \in \{0,1\}^n
     \end{array}\]
 
-    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $j$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any proper subsets of vertices $S \subsetneq V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself; in fact, this constraint avoids the possibility of forming cycles in the solution because a cycle has the same number of edges and vertices.
+    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $j$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any proper subsets of vertices $S$ of $V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself; in fact, this constraint avoids the possibility of forming cycles in the solution because a cycle has the same number of edges and vertices.
 
-    The following theorem shows an improtant result regarding the TSP.
+    The next theorem shows that, in addition to being \NPComplete, the TSP is also non-approximable, making it an especially challenging problem.
 
     \begin{framedthm}{Inapproximability of the TSP}
         If there exists a polynomial time algorithm for the TSP with any approximation ratio $r > 1$, then $\Pclass = \NPclass$.
     \end{framedthm}
 
     \begin{proof}
-        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E(K_{\abs V})}{\R^+}$ as follows: $$\soe{l}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_\abs V)}$$
+        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_n)}$$ Note that, for the same reasoning applied in the proof of \cref{tsp np compl}, a TS tour with total weight $n$ exists in $K_n$ if and only if $G$ has a HC.
+
+        Assume there exists an $r$-approximation algorithm $A$ for the TSP; therefore, because the total weight of the TS tour is $n$, $A$ ran on $K_n$ would find a solution $H$ such that $$\sum_{(i, j) \in H} {w(i, j)} \le rn$$ Now, assume that there exists an edge $(\hat i, \hat j)$ in $H$ such that $(\hat i, \hat j) \in E'(K_n) - E(G)$; hence, by definition of $w$, the total weight of $H$ must be at least $$\sum_{(i, j) \in H}{w(i, j)} = (n - 1) \cdot 1  + 2 + (r - 1)n = n - 1 + 2 + rn - n = rn + 1 > rn$$ because $H$ would be a cycle containing $n - 1$ edges from $E(G)$ and 1 edge from $E'(K_n) - E(G)$. Since $A$ is an $r$-approximation algorithm, this implies that any solution $H$ for $A$ must contain only edges inside $G$, otherwise $H$ would not be an $r$-approximation of an optimal solution for the TSP. However, if any of $A$'s solutions $H$ lie entirely in $G$, then $H$ is a HC for $G$ as previously discussed, which means that $A$ can find a HC in $G$ in polynomial time \todo{where did we say this}, which would imply that $\Pclass = \NPclass$ because $HC$ is \NPComplete.
+    \end{proof}
+
+    \subsection{Special cases for the TSP}
+
+    Despite this result showing that the TSP is not generally approximable, it is still possible to find effective approximation algorithms for certain special cases. Note that, for any set of edges $E$, the following notation will be used $$w(E) := \sum_{(i, j) \in E}{w(i,j)}$$
+    
+    \begin{framedlem}[label={tsp bound}]{Lower bound on TS tours}
+        Given a graph $G$ and a weight function $\func{w}{E(G)}{\R^+}$, the weight of any TS tour on $G$ is at least the weight of any MST of $G$.
+    \end{framedlem}
+
+    \begin{proof}
+        Consider a graph $G$, an MST $T$ of $G$, and an optimal TS tour $H^*$ on $G$. Clearly, if by removing and edge from $H*$, we obtain a path $P$, which has weight strictly less than $H^*$'s weight --- note that this is true because $w(i, j) \in \R^+$ for any $(i, j) \in E(G)$. Moreover, note that a path is a special case of a tree, therefore $P$'s weight must be at least $T$'s weight, by definition of MST. Thus, we have that $$w(T) \le w(P) \le w(H^*)$$
+    \end{proof}
+
+    Consider the following special case of graphs.
+
+    \begin{frameddefn}{Metric graphs}
+        Given a graph $G$, and a weight function $\func{w}{E(G)}{\R^+}$, $G$ is said to be a \tbf{metric graph} if and only if $$\forall u, v, z \in V(G) \quad w(u, z) \le w(u, v) + w(v, z)$$ which means that $w$ satisfies the triangle inequality.
+    \end{frameddefn}
+
+    For metric graphs, there exist algorithm that can approximate solutions for the TSP. In particular, the following algorithm leverages the triangle inequality property of $w$ to obtain a 2-approximation for the TSP.
+
+    \begin{framedalgo}{2-approximation TSP}
+        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(G)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le 2w(H^*)$, where $H^*$ is an optimal TS tour. \\
+        \hrule
+
+        \quad
+        \label{alg:2-approx_tsp}
+        \begin{algorithmic}[1]
+            \Function{2approxTSP}{$G$, $w$}
+                \State Choose $r \in V(K_n)$ randomly
+                \State $T := \texttt{findMST}(r)$ \Comment{find an MST rooted in $r$}
+                \State $\texttt L := \texttt{DFSpreorder}(T)$ \Comment{a \tit{preorder} DFS on $T$}
+                \State $V := \varnothing$
+                \State $\texttt L' := \texttt{[]}$
+                \For{$v \in \texttt L$}
+                    \If{$v \notin V$}
+                        \State $L'.\texttt{append}(v)$
+                        \State $V = V \cup \{v\}$
+                    \EndIf
+                \EndFor
+                \State \textbf{return} \ttt L' \Comment{\texttt L' is \texttt L without repetitions}
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \begin{proof}
+        We will prove that any solution $H$ of the algorithm is a 2-approximation of an optimal solution $H^*$ for the TSP.
+
+        Consider an optimal TS tour $H^*$, and an MST $T$ of the complete graph $K_n$ in input, rooted in some $r \in V(K_n)$. The list \texttt L computed by the algorithm is obtained from a \tit{preorder} DFS visit $T$, therefore each \tit{edge} of the visit \texttt L will appear exactly \tit{twice}. This means that the tour $C$ described by the edges between the vertices of \texttt L is such that $w(C) = 2 w(T)$.
+
+        Note that $C$ is not a TS tour, since there nodes are repeated. However, by leveraging the triangle inequality of $w$, we can prove that the weight of the final list \texttt L' --- which is \texttt L without repetitions of the vertices --- is bounded by the weight of \texttt L. In fact, for any instance \texttt L in which $$\ldots \ u \ v \ z \ \ldots$$ where $v$ is repeated, by removing $v$ and passing through $(u, z)$ directly --- which always exists because $K_n$ is a complete graph --- will not worsen the total weight of the tour, because $$w(u, z) \le w(u, v) + w(v, z)$$ by hypothesis. Let $H$ be the tour described by the edges between the vertices of \texttt L'; hence, we have that $w(H) \le w(C)$.
+
+        Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(C) = 2w(T) \le 2w(H^*)$$
     \end{proof}
 
 \end{document}
