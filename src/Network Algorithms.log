@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.12)  5 NOV 2024 23:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.12)  6 NOV 2024 23:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2969,7 +2969,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) h
 <to be read again> 
                    \relax 
 l.1535                         \State
-                                      $L'.\texttt{append}(v)$
+                                      $\texttt L'.\texttt{append}(v)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -3017,7 +3017,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package cleveref Info: loaded `english' language definitions on input line 1555.
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1570
+Underfull \hbox (badness 10000) in paragraph at lines 1577--1578
 
  []
 
@@ -3025,89 +3025,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 1569--1570
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1575             \Function
+l.1583             \Function
                             {3/2approxTSP}{$G$, $w$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1576                 \State
+l.1584                 \State
                               Choose $r \in V(K_n)$ randomly
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1577                 \State
+l.1585                 \State
                               $T := \texttt{findMST}(K_n, r)$ \Comment{find ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1578                 \State
+l.1586                 \State
                               $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{od...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1579                 \State
+l.1587                 \State
                               $M := \texttt{findMinWeightPM}(G^O)$ \Comment{...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1580                 \State
+l.1588                 \State
                               $U := M \cup T$ \Comment{$U$ is a multi-graph}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1581                 \State
-                              $L := \texttt{findEulerianCircuit}(U)$
+l.1589                 \State
+                              $\texttt L := \texttt{findEulerianCircuit}(U)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1582                 \State
+l.1590                 \State
                               $V := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1583                 \State
+l.1591                 \State
                               $\texttt L' := \texttt{[]}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1584                 \For
+l.1592                 \For
                            {$v \in \texttt L$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1585                     \If
+l.1593                     \If
                               {$v \notin V$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1586                         \State
-                                      $L'.\texttt{append}(v)$
+l.1594                         \State
+                                      $\texttt L'.\texttt{append}(v)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1587                         \State
+l.1595                         \State
                                       $V = V \cup \{v\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1588                     \EndIf
+l.1596                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1589                 \EndFor
+l.1597                 \EndFor
                               
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1590                 \State
+l.1598                 \State
                               \textbf{return} \ttt L' \Comment{\texttt L' is...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1591             \EndFunction
+l.1599             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 1594.
+Package cleveref Info: loaded `english' language definitions on input line 1602.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3116,9 +3116,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1594.
+Package cleveref Info: loaded `english' language definitions on input line 1602.
 [54]
-Package cleveref Info: loaded `english' language definitions on input line 1603.
+Package cleveref Info: loaded `english' language definitions on input line 1613.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3127,9 +3127,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1603.
+Package cleveref Info: loaded `english' language definitions on input line 1613.
 [55]
-Package cleveref Info: loaded `english' language definitions on input line 1609.
+Package cleveref Info: loaded `english' language definitions on input line 1629.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3138,13 +3138,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1609.
+Package cleveref Info: loaded `english' language definitions on input line 1629.
 [56]
-Package cleveref Info: loaded `english' language definitions on input line 1609.
+Package cleveref Info: loaded `english' language definitions on input line 1629.
  [57
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 1610.
+Package cleveref Info: loaded `english' language definitions on input line 1630.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3153,7 +3153,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1610.
+Package cleveref Info: loaded `english' language definitions on input line 1630.
 [58] (./Network Algorithms.aux
 Package cleveref Info: loaded `english' language definitions on input line 12.
 )
@@ -3172,18 +3172,18 @@ Package logreq Info: Writing requests to '"Network Algorithms".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 75467 strings out of 476024
- 1836859 string characters out of 5792395
- 3025664 words of memory out of 5000000
- 96330 multiletter control sequences out of 15000+600000
+ 75466 strings out of 476024
+ 1836791 string characters out of 5792395
+ 3025615 words of memory out of 5000000
+ 96328 multiletter control sequences out of 15000+600000
  593722 words of font info for 108 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  119i,20n,123p,1909b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "Network Algorithms.pdf" (60 pages, 3551692 bytes).
+Output written on "Network Algorithms.pdf" (60 pages, 3553438 bytes).
 PDF statistics:
- 939 PDF objects out of 1000 (max. 8388607)
- 769 compressed objects within 8 object streams
- 259 named destinations out of 1000 (max. 500000)
+ 941 PDF objects out of 1000 (max. 8388607)
+ 771 compressed objects within 8 object streams
+ 260 named destinations out of 1000 (max. 500000)
  368 words of extra memory for PDF output out of 10000 (max. 10000000)
 

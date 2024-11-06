@@ -1506,7 +1506,7 @@
     \end{framedlem}
 
     \begin{proof}
-        Consider a graph $G$, an MST $T$ of $G$, and an optimal TS tour $H^*$ on $G$. Clearly, if by removing and edge from $H*$, we obtain a path $P$, which has weight strictly less than $H^*$'s weight --- note that this is true because $w(i, j) \in \R^+$ for any $(i, j) \in E(G)$. Moreover, note that a path is a special case of a tree, therefore $P$'s weight must be at least $T$'s weight, by definition of MST. Thus, we have that $$w(T) \le w(P) \le w(H^*)$$
+        Consider a graph $G$, an MST $T$ of $G$, and an optimal TS tour $H^*$ on $G$. Clearly, if by removing and edge from $H^*$, we obtain a path $P$, which has weight strictly less than $H^*$'s weight --- note that this is true because $w(i, j) \in \R^+$ for any $(i, j) \in E(G)$. Moreover, note that a path is a special case of a tree, therefore $P$'s weight must be at least $T$'s weight, by definition of MST. Thus, we have that $$w(T) \le w(P) \le w(H^*)$$
     \end{proof}
 
     Consider the following special case of graphs.
@@ -1532,7 +1532,7 @@
                 \State $\texttt L' := \texttt{[]}$
                 \For{$v \in \texttt L$}
                     \If{$v \notin V$}
-                        \State $L'.\texttt{append}(v)$
+                        \State $\texttt L'.\texttt{append}(v)$
                         \State $V = V \cup \{v\}$
                     \EndIf
                 \EndFor
@@ -1565,6 +1565,14 @@
         Consider a graph $G$; for the handshaking lemma, we have that $$\sum_{v \in V(G)}{\deg(v)} = 2 m$$ Let $O: = \{v \in V(G) \mid \deg(v) \ \mathrm{odd}\}$ and $E := \{v \in V(G) \mid \deg(v) \ \mathrm{even}\}$ then, we have that $$\sum_{v \in O}{\deg(v)} + \sum_{v \in E}{\deg(v)} = \sum_{v \in V(G)} {\deg(v)} = 2m$$ because $O$ and $E$ describe a partition on $V(G)$. Therefore, because each degree of nodes in $E$ is even by definition, $\sum_{v \in E}{\deg(v)}$ is even, which means that the handshaking lemma is satisfied only if $\sum_{v \in O}{\deg(v)}$ is even as well. However, since each degree of nodes in $O$ is odd by definition, it must be that the entire sum is even.
     \end{proof}
 
+    \begin{frameddefn}{Eulerian circuit}
+        An \tbf{Eulerian circuit} is a walk through a graph, which uses every edge exactly once, and starts and ends at the same vertex.
+    \end{frameddefn}
+
+    \begin{framedthm}[label={eul circ}]{Eulerian circuits}
+        A graph has an Eulerian circuit if and only if the degree of every vertex is even.
+    \end{framedthm}
+
     \begin{framedalgo}{$\frac{3}{2}$-approximation TSP}
         Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(G)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le \frac{3}{2}w(H^*)$, where $H^*$ is an optimal TS tour. \\
         \hrule
@@ -1578,12 +1586,12 @@
                 \State $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{odd}\}$ \Comment{$\deg_T(v)$ is the degree of $v$ in $T$}
                 \State $M := \texttt{findMinWeightPM}(G^O)$ \Comment{$G^O$ is induced by $O$}
                 \State $U := M \cup T$ \Comment{$U$ is a multi-graph}
-                \State $L := \texttt{findEulerianCircuit}(U)$
+                \State $\texttt L := \texttt{findEulerianCircuit}(U)$
                 \State $V := \varnothing$
                 \State $\texttt L' := \texttt{[]}$
                 \For{$v \in \texttt L$}
                     \If{$v \notin V$}
-                        \State $L'.\texttt{append}(v)$
+                        \State $\texttt L'.\texttt{append}(v)$
                         \State $V = V \cup \{v\}$
                     \EndIf
                 \EndFor
@@ -1595,11 +1603,23 @@
     \begin{proof}
         We will prove that any solution $H$ of the algorithm is a $\frac{3}{2}$-approximation of an optimal solution $H^*$ for the TSP.
 
-    Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$. Clearly, the graph induced by the union $M \cup T$ is a multi-graph, and it is connected because $T$ is a spanning tree.
+        Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$.
 
-    Note that, because of \cref{odd even}, $\abs O$ is even, therefore $G^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $G^O$. Moreover, let $N^*$ be a TS tour on $G^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately --- note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Note that both $M_O$ and $M_E$ are perfect matchings $G^O$, but since $M$ is the perfect matching of $G^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$ where the last inequality TODO \todo{i'm tired boss}
+        Note that, because of \cref{odd even}, $\abs O$ is even, therefore $G^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $G^O$. Moreover, let $N^*$ be a TS tour on $G^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately. Note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Additionally, note that both $N_O$ and $N_E$ are perfect matchings $G^O$, but since $M$ is the perfect matching of $G^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2}$$ Consider a TS tour $A$, obtained from $H^*$, by skipping the even-degree nodes:
 
-        Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) = \dfrac{3}{2} w(H^*)$$
+        \begin{itemize}
+            \item clearly, this is a TS tour on $O$, because $O$ is derived from $T$, which is a spanning tree, therefore it will contain all the odd-degree vertices of $K_n$; by triangle inequality, this implies that $w(A) \le w(H^*)$
+            \item lastly, since $N^*$ is an optimal TS tour on $O$ by definition, we have that $w(N^*) \le w(A)$
+            \item this means that $w(N^*) \le w(A) \le w(H^*)$, therefore $$w(M) \le \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$
+        \end{itemize}
+
+        Now consider the multi-graph described by the edges in $U := M \cup T$, where the edges that appear both in $M$ and in $T$ are \tit{counted twice}:
+        
+        \begin{itemize}
+            \item clearly, the graph induced by $U$ is connected, because $T$ is a spanning tree
+            \item since $M$ is a minimum weight perfect matching of $G^O$, adding the edges from $M$ to $T$ into $U$ will turn the degree of the vertices that were in $O$ into even degrees, therefore all nodes in $U$ are of even degree; this means that, since $U$ is connected, it is always possible to find a Eulerian circuit by \cref{eul circ}
+            \item because $w(M) + w(T) = w(U)$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$, and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
+        \end{itemize}
     \end{proof}
 
     \textcite{christofides} originally developed his algorithm to solve the Euclidean TSP, a specific type of metric TSP. However, this algorithm is more general and can be applied to any metric TSP, not limited to Euclidean cases. Despite its general applicability, there are certain inputs that push the performance of this algorithm close to its worst-case approximation ratio of $\frac{3}{2}$.
