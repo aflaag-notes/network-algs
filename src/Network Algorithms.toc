@@ -21,6 +21,7 @@
 \contentsline {section}{\numberline {3.1}The vertex cover problem}{38}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{40}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{46}{subsection.3.1.2}%
-\contentsline {chapter}{\numberline {4}TODO}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{49}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{52}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {4}The data mule scheduling problem}{49}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{53}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{55}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}TODO}{61}{chapter.5}%

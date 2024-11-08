@@ -5,5 +5,12 @@ These are my [notes](<https://raw.githubusercontent.com/aflaag-notes/network-alg
 
 ## TODO list
 
-- lesson 0
-- first part of lesson 1
+- [x] 1
+- [ ] 2
+    - last part
+- [x] 3
+- [ ] 4
+- [ ] 5
+- [ ] 6
+    - last part?
+- [ ] TODOs here and there

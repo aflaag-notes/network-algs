@@ -1416,15 +1416,102 @@
         Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to design an attack strategy such that all the guards form a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
-    \chapter{TODO}
+    \chapter{The data mule scheduling problem}
 
-    TODO
+    A \tbf{sensor} is a device that detects and responds to specific \tit{environmental inputs}, such as light, heat, motion, moisture, or pressure, among many other physical phenomena. Upon sensing these inputs, the sensor generates an \tit{output signal}, which can either be displayed locally in a human-readable format or transmitted electronically over a network for further analysis or processing. This process allows sensors to play a crucial role in monitoring and interpreting real-world conditions across a wide range of applications.
 
-    \section{The Traveling Salesman Problem}
+    \tbf{Sensor networks} are wireless networks made up of numerous small sensors, often low-cost, designed to collect \tit{environmental data}. These networks are rapidly expanding due to their broad range of applications, enabling effective monitoring and data collection for diverse purposes across industries.
+
+    We assume that the type of networks discussed in this chapter are \tbf{fixed}, therefore the sensor cannot change position over time. Moreover, we assume that the sensors need to send all the gathered information to a \tbf{base station}.
+    
+    From an engineering standpoint, one of the most critical challenges in fixed sensor networks is \tbf{energy management}, for the following reasons:
+
+    \begin{itemize}
+        \item Sensor networks are often deployed in remote or inaccessible areas where direct access to power sources is impractical. As a result, sensors typically rely on \tit{batteries}, which are difficult to replace or recharge due to the network's location and density.
+        \item Many sensor network applications require \tit{continuous, long-term data collection} over extended periods, often months or even years, which demands \tit{efficient energy use} to prolong network operation without frequent maintenance.
+    \end{itemize}
+
+     Addressing this energy constraints is essential for maintaining reliable and cost-effective sensor network functionality in the field. In particular, since sensors remain \tit{stationary} in this setup, \tbf{wireless communication} becomes one of the most energy-intensive operations on each sensor node. To conserve energy, it's critical to \tbf{minimize communication} where possible.
+
+     A possible approach to the problem may be \tbf{multi-hop communication to the base station}, but this solution is less than ideal due to several potential drawbacks:
+
+    \begin{itemize}
+        \item \tbf{unstable communication infrastructure}: connections between nodes in a multi-hop setup can be prone to \tit{instability}, especially in changing environments where interference or physical obstructions disrupt communication paths
+        \item \tbf{high energy costs with sparse deployment}: in areas where nodes are \tit{sparsely} deployed, the distance to the nearest node or the base station can be considerable, hence nodes must increase their transmission range to maintain connectivity, consuming significantly more energy and reducing overall network lifespan
+        \item \tbf{energy depletion in dense networks}: in \tit{densely} packed networks, nodes near the base station bear a heavy communication load, often forwarding data from distant nodes, which can lead to rapid energy depletion for these nodes, creating bottlenecks in the network and reducing its effectiveness over time.
+    \end{itemize}
+
+    Another strategy, which is significantly more \tit{energy-efficient}, is to leverage \tbf{mobile data mules}. A \tit{data mule} is a mobile node equipped with:
+
+    \begin{itemize}
+        \item \tbf{wireless communication}, enabling data collection from stationary sensor nodes
+        \item \tbf{ample storage capacity}, allowing it to store data collected from multiple sensors
+    \end{itemize}
+
+    The data mule traverses the sensing area, collecting data as it comes within close range of each sensor node. Later, it returns to the base station to deposit all gathered data.
+
+    There are multiple advantages to this approach.
+
+    \begin{itemize}
+        \item \tbf{energy savings for sensor nodes}: each sensor only needs to transmit data over short distances, conserving substantial energy as it eliminates the need for long-range or multi-hop communication; additionally, sensor nodes avoid the energy cost of forwarding data from other nodes, reducing their workload
+        \item \tbf{reduced energy constraints for the data mule}: since data mules typically return to the base station to recharge, their energy limitations are less critical than those of stationary sensors, allowing for more flexible and longer collection periods
+        \item \tbf{simplified network management}: this approach reduces the need for complex routing among nodes, which minimizes processing demands on sensors and further extends their battery life
+    \end{itemize}
+
+    Although data mules offer greater flexibility in sensor networks, it remains important to ensure they traverse sensor nodes in an \tit{optimized manner}. Efficient traversal minimizes the data mule's battery usage, helping to extend its operational life and reducing associated costs.
+
+    To minimize the time required for a data mule to collect data from all sensor nodes, the problem can be framed as a \tbf{scheduling problem}, where each sensor node's communication represents a \tit{job}. The goal is to control both the movement (i.e. \tit{path} and \tit{speed}) of the data mule and its communication schedule with each node, similar to \href{https://en.wikipedia.org/wiki/Optimal_job_scheduling}{job allocation} in classical scheduling problems.
+
+    However, data mule scheduling presents additional complexity due to unique location and time constraints:
+
+    \begin{itemize}
+        \item \tbf{location constraints}: each data transfer becomes available only when the mule is within the \tit{wireless communication range} of a node, thus proximity to each node is essential, which imposes spatial constraints that affect when data can be collected
+        \item \tbf{time constraints}: given a fixed bandwidth and a continuously moving mule, each node requires a specific \tit{time window} to transmit its data successfully; note that the data mule \tit{cannot stop}, meaning the timing of its arrival and departure relative to each node must be precise to ensure successful data transfer
+    \end{itemize}
+
+    To address these constraints, optimization techniques can be applied to schedule the data mule's path and communication windows effectively:
+
+    \begin{itemize}
+        \item \tbf{path optimization}: plan a path that \tit{minimizes travel distance}, while ensuring each node is visited within its communication range
+        \item \tbf{speed control}: adjust the mule's speed dynamically based on \tit{node density} and \tit{transmission time} needs, allowing it to linger in areas where longer data transfer times are required
+        \item \tbf{adaptive scheduling}: incorporate \tit{adaptive scheduling algorithms} to allocate data transfer time based on each node's data volume and communication range requirements
+    \end{itemize}
+
+    More specifically, the problem of efficiently managing a data mule's traversal can be broken down into three interrelated subproblems.
+
+    \begin{itemize}
+        \item \tbf{Path selection}: This step involves determining the \tit{optimal trajectory} for the data mule within the sensor field. The goal is to ensure that the data mule comes within the \tit{communication range} of each sensor node at least once to collect data effectively. This subproblem can be approached using \tit{shortest-path algorithms} or \tit{traveling salesman-like} methods, ensuring that the mule visits each required location while minimizing travel distance.
+        \item \tbf{Speed control}: After selecting the path, the next challenge is to adjust the data mule's \tit{speed} along this trajectory. The mule must stay within each node's \tit{communication range} just long enough to complete data transfer without stopping. This requires fine-tuning speed based on the data volume and bandwidth limitations at each node, allowing efficient data collection while conserving battery life by avoiding unnecessary idling.
+        \item \tbf{Job scheduling}: When the data mule is within range of multiple sensors, it needs a strategy to \tit{decide} the sequence of data collection. This scheduling can be framed as a \tit{job allocation problem}, where each sensor's data transfer represents a \tit{job} with specific time intervals during which it can be completed. The task is to allocate time slots for each job to ensure all data is collected in the shortest possible time. This problem closely aligns with classical job scheduling, where the objective is to assign time slots efficiently to maximize throughput and minimize the overall collection time.
+    \end{itemize}
+
+    Since the \tbf{speed contro} subproblem is typically handled by engineers, and the \tbf{job scheduling} subproblem falls outside this chapter's scope, our focus here is on the first subproblem, the \tbf{path selection} for the data mule.
+
+    Consider a scenario where sensor nodes operate at \tit{varying sampling rates} (e.g., pollution sensors that adjust to real-time conditions). Each sensor has a \tit{limited buffer} for storing its data until a mobile data mule—serving as a mobile base station—arrives to offload this information. Once the data mule reaches a sensor node, it transfers the collected data to its own storage, freeing up the sensor's buffer for new data. This setup has several practical implications:
+
+    \begin{itemize}
+        \item \tbf{varying sampling rates}: sensors sampling data at different rates may fill their buffers at different speeds, impacting the urgency and frequency of data mule visits, in fact sensors with higher sampling rates (e.g., in highly polluted areas) might require more frequent visits to prevent data loss
+        \item \tbf{finite buffer constraints}: since each sensor has a limited data storage capacity, efficient scheduling and path planning for the data mule become crucial to avoid data overflow at any sensor, thus path selection must account for these storage limitations and prioritize nodes based on buffer status and sampling frequency
+    \end{itemize}
+
+    The problem of scheduling the visits of a mobile data mule to ensure that none of the sensor nodes' buffers overflow can be summarized as the \tbf{Mobile Element Scheduling (MES)} problem. This problem involves planning the optimal sequence and timing of visits by the data mule to collect data from sensor nodes, considering the limited buffer capacity of each sensor node and the varying data collection rates.
+
+    Now, consider the following well-known computational problem.
 
     \begin{frameddefn}{Traveling Salesman Problem}
         The Traveling Salesman Problem (TSP) is defined as follows: a salesman has to visit a given set of cities, such that his tour ends on the same city on which he started, while minimizing the total length of the trip.
     \end{frameddefn}
+
+    Note that the MES problem differs from the TSP in key ways:
+    
+    \begin{itemize}
+        \item \tbf{objective}: TSP searches for the shortest path visiting each city (i.e. node) exactly once, while in MES a node may need multiple visits due to varying sampling rate and buffer state
+        \item \tbf{deadlines}: in TSP the costs are fixed (the total length of the trip) and there are no time constraints, while in MES deadlines dynamically update after each visit, requiring the data mule to adjust its path in real time
+    \end{itemize}
+
+    Despite these differences, TSP-based approaches can still be useful for solving MES, particularly in path planning. In fact, TSP can serve as a useful approximation for MES, by considering the optimal route between nodes, and then adjusting that route dynamically to accommodate nodes that require more frequent visits.
+
+    \section{The Traveling Salesman Problem}
 
     The origins of the TSP are somewhat ambiguous:
 
@@ -1625,6 +1712,12 @@
     \textcite{christofides} originally developed his algorithm to solve the Euclidean TSP, a specific type of metric TSP. However, this algorithm is more general and can be applied to any metric TSP, not limited to Euclidean cases. Despite its general applicability, there are certain inputs that push the performance of this algorithm close to its worst-case approximation ratio of $\frac{3}{2}$.
 
     In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidian TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidian space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
+
+    placeholder \todo{dk if i'm doing this}
+
+    \chapter{TODO}
+
+
 
     \printbibliography
 \end{document}
