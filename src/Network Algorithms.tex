@@ -1559,7 +1559,7 @@
         \item let $w_{ij} = w(i, j)$
     \end{itemize}
 
-    Then, the TSP problem can be formulated as an ILP as follows:
+    Then, the TSP can be formulated as an ILP as follows:
 
     \[\begin{array}{ccc}
         \qquad\qquad\quad
@@ -1570,7 +1570,7 @@
         & x \in \{0,1\}^n
     \end{array}\]
 
-    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $j$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any proper subsets of vertices $S$ of $V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself; in fact, this constraint avoids the possibility of forming cycles in the solution because a cycle has the same number of edges and vertices.
+    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $j$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any \tit{proper subset} of vertices $S$ of $V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself; in fact, this constraint avoids the possibility of forming cycles in the solution because a cycle has the same number of edges and vertices. Note that, in reality, the last constraint hides $\abs{\powerset(V(K_n))} - 2 = 2^n - 2$ constraints, one for each possible \tit{proper subset} $S$ of $V(K_n)$.
 
     The next theorem shows that, in addition to being \NPComplete, the TSP is also non-approximable, making it an especially challenging problem.
 
@@ -1727,7 +1727,7 @@
         \item \tbf{Naive approach}: In this approach, each sensor node increases its transmission range to send data directly to the base station. While simple, this strategy leads to \tit{enormous energy consumption}, because nodes that are farther away from the base station require more power to transmit data. This reduces the network's overall lifetime, as nodes quickly deplete their energy reserves.
         \item \tbf{Multi-hop data routing}: In this method, sensor nodes send data to the nearest node on the shortest path toward the base station, using multiple hops for data transmission. This approach helps reduce the energy spent on long-distance transmissions. However, a significant issue arises near the base station, where nodes close to it end up handling a \tit{large volume of data} from other nodes, causing them to drain energy faster. This leads to an \tit{uneven load distribution} and may cause these nodes to fail prematurely, reducing the network lifetime.
         \item \tbf{Clustering}: Sensor nodes are grouped into \tit{clusters}, with each cluster having a \tit{cluster head} that aggregates the data from its members and forwards it to the base station. This helps in reducing the energy consumption of individual sensor nodes by localizing communication within clusters. However, minimizing both the intra-cluster and inter-cluster distances is critical, as energy dissipation is proportional to the distance a signal travels. This requires \tit{careful planning} of the cluster structure to ensure that energy consumption is evenly distributed and does not lead to premature failure of certain nodes.
-        \item \tbf{Duty cycle based mode}: In this strategy, sensor nodes alternate between \tit{active} and \tit{sleep} modes, only transmitting data during their active periods. This approach helps conserve energy by ensuring that sensors remain inactive during periods without significant events. The downside is that it introduces \tit{delays}, as the data sender must wait for a neighbor to wake up in order to transmit. The duty cycle mode increases transmission delay, which can affect network performance, particularly in time-sensitive applications.
+        \item \tbf{Duty cycle based mode}: In this strategy, sensor nodes alternate between \tit{active} and \tit{sleep} modes, only transmitting data during their active periods. This approach helps conserve energy by ensuring that sensors remain inactive during periods without significant events. The downside is that it introduces \tit{delays}, as the data sender must wait for a neighbour to wake up in order to transmit. The duty cycle mode increases transmission delay, which can affect network performance, particularly in time-sensitive applications.
     \end{itemize}
 
     Each of these approaches aims to balance energy consumption, transmission delay, and network lifetime, but each has its own limitations, which must be considered depending on the specific application and environment of the sensor network.
@@ -1800,6 +1800,90 @@
 
         \item additionally, \textcite{ueno} proved that, in graphs where $\Delta = 3$, both problems can be solved in polynomial time. 
     \end{itemize}
+
+    \subsection{Minimum Dominating set}
+
+    If we remove the requirement that the dominating set forms a connected subgraph, the problem becomes that of finding a \tbf{minimum dominating set} (min-DS). This problem has been a central topic in graph theory since the 1950s, with interest in its complexity, applications, and approximation approaches significantly increasing in the mid-1970s.
+
+    Now, consider the following computational problem.
+
+    \begin{frameddefn}{Set cover}
+        Given a \tit{universe} set $U = \{1, \ldots, n\}$, and a collection of sets $S \in \powerset(U)$ such that $\bigcup_{X \in S}{X} = U$, find the \tit{smallest} sub-collection of $S$ whose union still equals $U$.
+    \end{frameddefn}
+
+    In 1972 \textcite{karp} proved that the \tbf{set cover} problem is \NPComplete. The following theorem proves that finding a min-DS is \NPComplete as well, and will show a close relation between the set cover and the min-DS problem.
+
+    \begin{framedthm}{Equivalence of min-DS and set cover}
+        There is a bijection between the solutions of the min-DS and the set cover problem.
+    \end{framedthm}
+
+    \begin{proof}
+        Given an instance of the min-DS problem, we will construct an instance of the set cover problem, and vice versa.
+
+        Consider an instance of the min-DS, consisting of a graph $G = (V, E)$ with $V = \{1, \ldots, n \}$, and construct a set cover instance as follows:
+
+        \begin{itemize}
+            \item the universe is $U := V$
+            \item the collection of subsets is $S := \{S_1, \ldots, S_n\}$, where $$S_i := \{j \in V(G) \mid (i,j) \in E(G)\} \cup \{i\}$$
+        \end{itemize}
+
+        Consider a min-DS $D$ for $G$; clearly, $C := \{S_v \mid v \in D\}$ is a feasible set cover, since each set $S_v \in C$ will cover $v$ and all its neighbours. Conversely, if $C = \{S_v \mid v \in D\}$ is a set cover, is must be that $D$ is a min-DS for $G$. Note that $\abs C = \abs D$.
+
+        Now, consider a instance of the set cover problem, where $U$ is the \tit{universe} set, and $S = \{S_i \mid i \in I\}$ for some set of indices $I$ such that $U \cap I = \varnothing$; we can construct an instance of the min-DS problem as follows:
+
+        \begin{itemize}
+            \item construct a graph $G = (V, E)$ such that $V := I \cup U$
+            \item construct the set of edges as follows $$E := \{(i, j) \mid i, j \in I\} \cup \{(i, u) \mid i \in I, u \in S_i\}$$
+        \end{itemize}
+
+        For instance, consider the following instance of the set cover problem, where the \tit{universe} set is $U = \{a, b, c, d, e\}$, $I = \{1, 2, 3, 4\}$ and $S = \{S_1, S_2, S_3, S_4\}$, where $S_1 = \{a, b, c\}$, $S_2 =\{a, b\}$, $S_3 = \{b, c, d\}$ and $S_4 = \{c, d, e\}$. The graph $G$ that will be constructed from the reduction is the following: \todo{add pic}
+
+        Note that $G$ is a \href{https://en.wikipedia.org/wiki/Split_graph}{split graph}, a graph in which the vertices can be partitioned into a \tit{clique} and an \tit{independent set}. In fact, in this construction, the endpoints of the edges derived from $I$ form a clique, and the endpoints of the edges derived from $(i, u)$ with $i \in I$ and $u \in S_i$ must form an independent set, by construction.
+
+        Now, consider a set $D \subseteq I$ of indices; if $C := \{S_i \mid i \in D\}$ is a set cover for $U$, then for each $u \in U$ there is an $i \in D$ such that $u \in S_i$, and by construction, $(i, u) \in E(G)$, therefore $u$ is dominated by $i$. Additionally, since the endpoints of the edges constructed from $I$ form a clique, any non-empty subset $D$ of $I$ will dominate all the vertices of the clique, and $D$ cannot be empty otherwise $C$ would not be a solution to the set cover. This implies that $D$ is a min-DS for $G$.
+
+        Conversely, consider a DS $D$; a min-DS $X$ from $D$ can be constructed, such that $\abs X \le \abs D$ and $X \subseteq I$, by simply replaceing each $u \in D \cap U$ with a neighbour $i \in I$ of $u$, which must exist by construction because for any $u \in U$ there exists an $i \in I$ such that $S_i \in I$. Therefore $C = \{S_i \mid i \in X\}$ is a set cover for $U$, with $\abs C = \abs X \le \abs D$.
+    \end{proof}
+
+    Given the established equivalence between the min-DS and set cover problems, we conclude that:
+
+    \begin{itemize}
+        \item not only is the min-DS problem \NPComplete, but an efficient algorithm for finding a min-DS would yield an efficient algorithm for the set cover problem, and vice versa
+        \item the reductions between min-DS and the set cover problem preserve the \tbf{approximation ratio}, which means that any $\alpha$-approximation algorithm for the min-DS would also serve as an $\alpha$-approximation the set cover problem, and vice versa.
+    \end{itemize}
+
+    \subsection{Greedy approach for the min-CDS}
+
+    In 1998 \textcite{guha} provided a two-step greedy algorithm which is able to find a min-CDS of a graph with an approximation ratio of $3 + \ln \Delta$, where $\Delta$ is the maximum degree of $G$. In 2004 \textcite{ruan} proved that it is possible to design a single-step greedy algorithm and get a better approximation ratio of $2 + \ln \Delta$, but this is rarely used in practice because the implementation is much more complex. The following section will illustrate the two-step greedy approach.
+
+    Consider a graph $G = (V, E)$, and a subset $C \subseteq V(G)$ of its nodes; all the nodes in $V(G)$ can be divided into three classes:
+
+    \begin{itemize}
+        \item B (black) nodes, defined as $\mathrm B := C$
+        \item Gr (gray) nodes, defined as $\mathrm {Gr} := \{v \in V(G) \mid v \notin C \land \exists u \in C \mid (u, v) \in E(G)\}$, which is the set of nodes that are not in $C$ but are adjacent to $C$
+        \item W (white) noeds, defined as $\mathrm W := V(G) - \mathrm B - \mathrm{Gr}$, which is the set of nodes that are not in $C$ and are not adjacent to $C$
+    \end{itemize}
+
+    Clearly, $\mathrm B \cup \mathrm{Gr} \cup \mathrm W = V(G)$, and $C$ is a CDS if and only if there is no white node \tit{and} the subgraph induced by B is connected. Let CC be the number of connected components in the subgraph induced by B; we want to define a two-step algorithm based on the following \tbf{potential function}: $$\abs {\mathrm W} + \mathrm{CC} = 1$$
+
+    \begin{framedalgo}{Two-step greedy min-CDS}
+        Given a graph $G$, the algorithm returns a CDS for $G$ with an approximation ratio of $3 + \ln \Delta$, where $\Delta$ is the maximum degree of $G$. \\
+        \hrule
+
+        \quad
+        \label{alg:greedy_min-CDS}
+        \begin{algorithmic}[1]
+            \Function{greedyMinCDS}{$G$, B, Gr, W}
+                \State $M := \varnothing$
+                \If{there exists a node $v \in \mathrm W \cup \mathrm{Gr}$ such that coloring it in black, and its adjacent white nodes in gray, reduces the value of $\abs{\mathrm W} + \mathrm{CC}$}
+                    \State $M = M \cup \{v\}$
+                \EndIf
+                \Do
+                    \State Color either one or two gray nodes in black to reduce CC
+                \doWhile{$\mathrm{CC} = 1$}
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
 
     \printbibliography
 \end{document}

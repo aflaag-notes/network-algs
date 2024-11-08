@@ -565,6 +565,70 @@
     \field{year}{1959}
   \endentry
 
+  \entry{ruan}{article}{}
+    \name{author}{6}{}{%
+      {{hash=RL}{%
+         family={Ruan},
+         familyi={R\bibinitperiod},
+         given={Lu},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=DH}{%
+         family={Du},
+         familyi={D\bibinitperiod},
+         given={Hongwei},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=JX}{%
+         family={Jia},
+         familyi={J\bibinitperiod},
+         given={Xiaohua},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=WW}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Weili},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Yingshu},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=KKI}{%
+         family={Ko},
+         familyi={K\bibinitperiod},
+         given={Ker-I},
+         giveni={K\bibinithyphendelim I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{RL+1}
+    \strng{fullhash}{RLDHJXWWLYKKI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{doi}
+    \verb 10.1016/j.tcs.2004.08.013
+    \endverb
+    \field{issn}{0304-3975}
+    \field{number}{1–3}
+    \field{pages}{325–330}
+    \field{title}{A greedy approximation for minimum connected dominating sets}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.tcs.2004.08.013
+    \endverb
+    \field{volume}{329}
+    \field{journaltitle}{Theoretical Computer Science}
+    \field{month}{12}
+    \field{year}{2004}
+  \endentry
+
   \entry{sal19}{article}{}
     \name{author}{5}{}{%
       {{hash=SW}{%
