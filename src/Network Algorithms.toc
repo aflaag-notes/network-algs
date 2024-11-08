@@ -28,3 +28,4 @@
 \contentsline {section}{\numberline {5.1}The minimum connected dominating set problem}{63}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Minimum Dominating set}{64}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Greedy approach for the min-CDS}{66}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Unit Disk Graphs}{67}{subsection.5.1.3}%

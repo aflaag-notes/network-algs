@@ -1854,7 +1854,7 @@
 
     \subsection{Greedy approach for the min-CDS}
 
-    In 1998 \textcite{guha} provided a two-step greedy algorithm which is able to find a min-CDS of a graph with an approximation ratio of $3 + \ln \Delta$, where $\Delta$ is the maximum degree of $G$. In 2004 \textcite{ruan} proved that it is possible to design a single-step greedy algorithm and get a better approximation ratio of $2 + \ln \Delta$, but this is rarely used in practice because the implementation is much more complex. The following section will illustrate the two-step greedy approach.
+    In 1998 \textcite{guha} provided a two-step greedy algorithm which is able to find a min-CDS of a graph with an approximation ratio of $3 + \ln \Delta$, where $\Delta$ is the maximum degree of $G$. In 2004 \textcite{ruan} proved that it is possible to design a single-step greedy algorithm and get a better approximation ratio of $2 + \ln \Delta$, but its implementation is much more complex. The following section will illustrate the two-step greedy approach.
 
     Consider a graph $G = (V, E)$, and a subset $C \subseteq V(G)$ of its nodes; all the nodes in $V(G)$ can be divided into three classes:
 
@@ -1866,6 +1866,10 @@
 
     Clearly, $\mathrm B \cup \mathrm{Gr} \cup \mathrm W = V(G)$, and $C$ is a CDS if and only if there is no white node \tit{and} the subgraph induced by B is connected. Let CC be the number of connected components in the subgraph induced by B; we want to define a two-step algorithm based on the following \tbf{potential function}: $$\abs {\mathrm W} + \mathrm{CC} = 1$$
 
+    Additionally, let $R(v)$ be equal to 1 if and only if $v \in \mathrm W \cup \mathrm{Gr}$ is such that coloring it in black, and its adjacent white nodes in gray, reduces the value of the potential function, 0 otherwise.
+
+    The algorithm computes as follows.
+
     \begin{framedalgo}{Two-step greedy min-CDS}
         Given a graph $G$, the algorithm returns a CDS for $G$ with an approximation ratio of $3 + \ln \Delta$, where $\Delta$ is the maximum degree of $G$. \\
         \hrule
@@ -1874,16 +1878,77 @@
         \label{alg:greedy_min-CDS}
         \begin{algorithmic}[1]
             \Function{greedyMinCDS}{$G$, B, Gr, W}
-                \State $M := \varnothing$
-                \If{there exists a node $v \in \mathrm W \cup \mathrm{Gr}$ such that coloring it in black, and its adjacent white nodes in gray, reduces the value of $\abs{\mathrm W} + \mathrm{CC}$}
-                    \State $M = M \cup \{v\}$
-                \EndIf
+                \While{\texttt{True}}
+                    \If{$\exists v \in \mathrm W \cup \mathrm{Gr} \mid R(v) == 1$}
+                        \State Color $v$ in black and color its adjacent white nodes in gray
+                    \Else
+                        \State \textbf{break}
+                    \EndIf
+                \EndWhile
                 \Do
                     \State Color either one or two gray nodes in black to reduce CC
-                \doWhile{$\mathrm{CC} = 1$}
+                \doWhile{$\mathrm{CC} == 1$}
             \EndFunction
         \end{algorithmic}
     \end{framedalgo}
+
+    \idea{
+        The first step loop of the algorithm is the first step of the procedure, which removes any white node from $G$, which means that at the end of the first loop B is a DS for $G$. However, it may not be connected, therefore the second loop changes the coloring of the vertices such that B is forced to form a CDS.
+    }
+
+    \subsection{Unit Disk Graphs}
+
+    \begin{frameddefn}{Unit Disk graph}
+        Consider a set of $n$ circles of equal radius on the plane; the \tbf{unit disk graph} (UDG) of the circles if constructed as follows:
+
+        \begin{itemize}
+            \item the nodes are the centers of the circles
+            \item there is an edge between two nodes if the circles they are center of intersect --- note that tangent circles intersect
+        \end{itemize}
+
+        The set of the $n$ circles is called \tbf{intersection model}.
+    \end{frameddefn}
+
+    UDGs are useful for modeling \tbf{wireless networks}: each circle's center represents a \tit{transceiver}, and the radius represents its \tit{transmission range}. In a homogeneous network, all circles are approximately the same size, and, without loss of generality, we assume each radius is equal to 1.
+
+    In 1982, \textcite{lichtenstein} proved that, when restricing the min-CDS problem to UDGs, the problem is still \NPHard; moreover, in 1990 \textcite{clark} showed that the problem remains \NPHard even if restricted to \tit{grids}, a special type of UDGs. In 2003, \textcite{cheng} proposed a PTAS for the min-CDS problem in UDGs, which guarantees that for any arbitrarily small $\varepsilon > 0$, it provides a $(1 + \varepsilon)$-approximation. Importantly, while the algorithm's runtime remains polynomial in the input size for each fixed $\varepsilon$, the polynomial's degree depends on $\varepsilon$ itself, meaning the complexity may vary as $\varepsilon$ changes. Nevertheless, this algorithm is not used in practice because the implementation is fairly complex.
+
+    Finally, in 2010 \textcite{purohit} provided a simple and distributed algorithm for UDGs that effectively reduces any given, even trivial, CDS to a smaller, more efficient structure.
+
+    \begin{frameddefn}{Convex hull}
+        Given a set of points $X$ on a plane, the \tbf{convex hull} in the 2D space is the minimum convex set containing $X$.
+    \end{frameddefn}
+
+    \begin{example}[Convex hulls]
+        Given the following set of points \todo{add pic}
+
+        the following is its associated \tit{convex hull}. \todo{add pic}
+    \end{example}
+
+    Given an undirected graph $G$, let $\mathcal N(v) := \{u \in V(G) \mid (u, v) \in E(G)\}$ be the \tbf{neighbourhood} of $v$, and let $\mathcal N'(v) := \mathcal N (v) \cup \{v\}$ be the \tbf{closed neighbourhood} of $v$. The algorithm which employs convex hulls is defined as follows.
+
+    \begin{framedalgo}{Distributed reduction of CDS}
+        Given a UDG $G$, and a CDS of $G$, the algorithm reduces the CDS. \\
+        \hrule
+
+        \quad
+        \label{alg:distributed_reduce_CDS}
+        \begin{algorithmic}[1]
+            \Function{distributedReduceCDS}{$G$, $D$}
+                \State $V := D$
+                \Do
+                    \State Choose $u \in \argmax_{v \in V}{\deg(v)}$
+                    \If{$\texttt{CH}(\mathcal N'(u)) \subseteq \bigcup_{z \in \mathcal N(u)}{\texttt{CH}(\mathcal N'(z))}$} \Comment{\texttt{CH} computes the \tit{convex hull}}
+                        \State $D = D - \{u\}$
+                    \EndIf
+                    \State $V = V - \{u\}$
+                \doWhile{$V \neq \varnothing$}
+                \State \tbf{return} $D$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    This algorithm has several practical advantages, because it is able to reduce the size of an initial CDS, streamlining the structure without complex calculations, and it works without requiring global network knowledge, making it adaptable for \tit{decentralized environments}. However, it's worth noting that \tbf{no approximation ratio} is provided or guaranteed. This trade-off makes it a useful heuristic for practical scenarios but limits its theoretical guarantees.
 
     \printbibliography
 \end{document}

@@ -24,45 +24,45 @@ Warning--entry type for "konig" isn't style-file defined
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 27 entries,
+You've used 31 entries,
             6399 wiz_defined-function locations,
-            1436 strings with 14644 characters,
-and the built_in function-call counts, 183491 in all, are:
-= -- 13896
-> -- 3469
-< -- 1213
-+ -- 5174
-- -- 1369
-* -- 12040
-:= -- 18659
+            1472 strings with 15636 characters,
+and the built_in function-call counts, 221766 in all, are:
+= -- 17126
+> -- 4002
+< -- 1438
++ -- 6246
+- -- 1530
+* -- 14682
+:= -- 22719
 add.period$ -- 0
-call.type$ -- 27
-change.case$ -- 776
-chr.to.int$ -- 164
-cite$ -- 52
-duplicate$ -- 19733
-empty$ -- 16295
-format.name$ -- 1480
-if$ -- 37714
+call.type$ -- 31
+change.case$ -- 936
+chr.to.int$ -- 188
+cite$ -- 60
+duplicate$ -- 23686
+empty$ -- 19610
+format.name$ -- 1749
+if$ -- 45555
 int.to.chr$ -- 0
-int.to.str$ -- 79
+int.to.str$ -- 91
 missing$ -- 0
-newline$ -- 964
-num.names$ -- 1648
-pop$ -- 8993
+newline$ -- 1143
+num.names$ -- 1940
+pop$ -- 10426
 preamble$ -- 1
-purify$ -- 870
+purify$ -- 1052
 quote$ -- 0
-skip$ -- 5733
+skip$ -- 6728
 stack$ -- 0
-substring$ -- 23565
-swap$ -- 4654
-text.length$ -- 692
-text.prefix$ -- 26
+substring$ -- 29482
+swap$ -- 5507
+text.length$ -- 796
+text.prefix$ -- 30
 top$ -- 1
-type$ -- 905
+type$ -- 1041
 warning$ -- 0
-while$ -- 2361
+while$ -- 2857
 width$ -- 0
-write$ -- 938
+write$ -- 1113
 (There was 1 warning)
