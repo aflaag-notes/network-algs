@@ -1715,9 +1715,91 @@
 
     placeholder \todo{dk if i'm doing this}
 
-    \chapter{TODO}
+    \chapter{The data collection problem}
 
+    Consider the same setting discussed in the previous chapter. When a data mule is not actively used, sensor nodes operate in a \tbf{low-energy mode}, monitoring and sensing their environment with \tit{minimal energy consumption}. Therefore, the primary energy consumption occurs during data collection, which is the focus of the \tbf{data collection problem}.
 
+    In particular, the goal of this problem is to efficiently \tit{transfer} all the periodically sensed data from the sensor nodes to the \tbf{base station}, using one or more hops, while maximizing the overall network lifetime. This requires optimizing energy usage by minimizing communication costs (e.g., transmission power) and efficiently routing the data.
+
+    There are several approaches in literature to addressing this problem, each with its benefits and trade-offs.
+
+    \begin{itemize}
+        \item \tbf{Naive approach}: In this approach, each sensor node increases its transmission range to send data directly to the base station. While simple, this strategy leads to \tit{enormous energy consumption}, because nodes that are farther away from the base station require more power to transmit data. This reduces the network's overall lifetime, as nodes quickly deplete their energy reserves.
+        \item \tbf{Multi-hop data routing}: In this method, sensor nodes send data to the nearest node on the shortest path toward the base station, using multiple hops for data transmission. This approach helps reduce the energy spent on long-distance transmissions. However, a significant issue arises near the base station, where nodes close to it end up handling a \tit{large volume of data} from other nodes, causing them to drain energy faster. This leads to an \tit{uneven load distribution} and may cause these nodes to fail prematurely, reducing the network lifetime.
+        \item \tbf{Clustering}: Sensor nodes are grouped into \tit{clusters}, with each cluster having a \tit{cluster head} that aggregates the data from its members and forwards it to the base station. This helps in reducing the energy consumption of individual sensor nodes by localizing communication within clusters. However, minimizing both the intra-cluster and inter-cluster distances is critical, as energy dissipation is proportional to the distance a signal travels. This requires \tit{careful planning} of the cluster structure to ensure that energy consumption is evenly distributed and does not lead to premature failure of certain nodes.
+        \item \tbf{Duty cycle based mode}: In this strategy, sensor nodes alternate between \tit{active} and \tit{sleep} modes, only transmitting data during their active periods. This approach helps conserve energy by ensuring that sensors remain inactive during periods without significant events. The downside is that it introduces \tit{delays}, as the data sender must wait for a neighbor to wake up in order to transmit. The duty cycle mode increases transmission delay, which can affect network performance, particularly in time-sensitive applications.
+    \end{itemize}
+
+    Each of these approaches aims to balance energy consumption, transmission delay, and network lifetime, but each has its own limitations, which must be considered depending on the specific application and environment of the sensor network.
+
+    In 2019 \textcite{sal19} presented an approach that employs a \tbf{duty cycle mode} to improve energy efficiency in sensor networks. The method involves constructing a \tit{connected sub-network}, which will be referred to as \tbf{backbone}, from a selected subset of nodes, and the approach works as follows.
+
+    \begin{itemize}
+        \item \tbf{Backbone formation}: A part of the nodes forms a \tit{backbone}, where these nodes operate in a \tit{sleep/awake} mode at fixed intervals. These nodes only wake up periodically to transmit data, while the rest of the nodes in the network turn off their radios when not transmitting, conserving energy as they continue sensing the environment.
+        \item \tbf{Data transmission}: When a node needs to send data, it activates its radio and communicates directly with the backbone nodes. The data is then routed through the backbone network to the base station. The backbone nodes thus handle the more energy-consuming tasks of data forwarding.
+        \item \tbf{Energy conservation}: The majority of nodes in the network spend most of their time in \tit{sleep mode}, drastically reducing energy consumption. However, this results in higher energy use for the nodes in the backbone, as they are responsible for routing data. 
+        \item \tbf{Dynamic backbone reconstruction}: To balance the energy consumption across the network, after a certain period, the nodes with higher residual energy are selected to form a \tit{new backbone}. This ensures that no single node or group of nodes is overly taxed, thus extending the network's lifetime.
+    \end{itemize}
+
+    The \tbf{backbone} nodes must meet the following criteria:
+
+    \begin{itemize}
+        \item \tbf{minimal size}: the number of nodes in the backbone should be as small as possible to save energy while maintaining network efficiency
+        \item \tbf{connectivity}: every node in the backbone must be able to route data to the base station, ensuring that there is \tit{at least one path} from each backbone node to the base station
+        \item \tbf{dominating set}: every other node in the network must communicate directly with at least one node in the backbone, meaning the backbone forms a so called \tbf{minimum connected dominating set}, ensuring that all nodes in the network are covered by the backbone
+    \end{itemize}
+
+    \section{The minimum connected dominating set problem}
+
+    \begin{frameddefn}{Dominating set}
+        Given a graph $G = (V, E)$, a \tbf{dominating set} (DS) for $G$ is a subset $D \subseteq V(G)$ such that every node not in $D$ is adjacent to at least one member of $D$. Formally $$\forall v \in V(G) - D \quad \exists d \in D \mid (d, v) \in E(G)$$
+    \end{frameddefn}
+
+    \begin{example}[Dominating sets] \label{dom set}
+        The following are two examples of dominating sets. \todo{add pic}
+    \end{example}
+
+    To solve the data collection problem, we require that the backbone is \tbf{connected}, and we want to minimize the size of the backbone, therefore we are interested in finding the \tbf{minimum connected dominating set} (min-CDS).
+
+    \begin{frameddefn}{Min-CDS problem}
+        Given a graph $G$, find a dominating set $D$ with the smallest possible cardinality, such that $D$ still induces a connected graph in $G$.
+    \end{frameddefn}
+
+    \begin{example}[Min-CDSs]
+        The following is a min-CDS for the graph illustrated in \cref{dom set}. \todo{add pic}
+    \end{example}
+
+    Now, consider the following type of spanning trees.
+
+    \begin{frameddefn}{Max-leaf spanning tree}
+        Given a graph $G$, a \tbf{max-leaf spanning tree} (max-leaf ST) for $G$ is a spanning tree that has the largest possible number of leaves among all spanning trees of $G$.
+    \end{frameddefn}
+
+    The following result is crucial in order to solve the min-CDS problem.
+
+    \begin{framedthm}{Equivalence of min-CDSs and max-leaf STs}
+        Given a graph $G$, such that $n > 2$, a max-leaf ST $T$ for $G$ having $l$ leaves, and a min-CDS $D$ for $G$ of cardinality $d$. We have that $$n = l + d$$
+    \end{framedthm}
+
+    \begin{proof}
+        Consider a min-CDS $D$ for $G$; a ST $T'$ for $G$ can be constructed by starting from $D$, by simply considering $D$ itself with the nodes in $V(G) - D$ as leaves of $T'$. Note that $D$ cannot contain cycles, because $D$ is a min-CDS, and a CDS with cycles would not have the minimum possible cardinality because removing one vertex from a cycle would still yield a CDS, of lower cardinality. Moreover, $T'$ spans $G$ completely, because $D$ is a DS, which means that all the nodes in $V(G) - D$ are covered by definition of $D$. This proves that $T'$ is both connected, acyclic, and spans $G$ completely, therefore it is a spanning tree of $G$, and because $T$ is a max-leaf ST for $G$, it follows that $$l \ge l' = \abs{V(G)} - \abs D = n - d$$ where $l'$ is the number of leaves of $T'$, which is $n - d$ by construction.
+
+        Conversely, consider max-leaf ST $T$ of $G$; since $T$ spans $G$, and since $T$ is connected, it must be that the nodes $D'$ comprising the nodes in $T$ that are not leaves form a CDS for $G$. Moreover, since $D$ is a min-CDS, it follows that $$n - l = \abs{V(G)} - \abs T = d' \ge d$$ where $d'$ is the number of vertices of $D'$, which is $n - l$ by construction.
+
+        In particular, we have that $$n - l \ge d \iff -l \ge d - n \iff l \le n - d$$ which, combined with the previous inequality, it must imply that $$l = n - d \iff n = l + d$$
+    \end{proof}
+
+    Computationally, this theorem implies that determining the connected domination number is as difficult as finding the maximum leaf number in a graph. Specifically, the associated decision problem of finding the min-CDS in a graph is \NPComplete, which implies that the decision problem of finding the max-leaf ST is \NPComplete as well.
+
+    In terms of \tbf{approximation algorithms}, the connected domination number and the maximum leaf spanning tree problems differ significantly:
+
+    \begin{itemize}
+        \item for the min-CDS problem, \textcite{guha} proved that there exists an approximation algorithm that achieves a factor of $2 \ln \Delta + O(1)$, where $\Delta := \max_{v \in V(G)}{\deg(v)}$ for the graph $G$;
+
+        \item on the other hand, \textcite{solisoba} showed that the max-leaf ST problem can be approximated within a factor of 2;
+
+        \item additionally, \textcite{ueno} proved that, in graphs where $\Delta = 3$, both problems can be solved in polynomial time. 
+    \end{itemize}
 
     \printbibliography
 \end{document}

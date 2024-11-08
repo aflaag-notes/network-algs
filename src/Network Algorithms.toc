@@ -24,4 +24,5 @@
 \contentsline {chapter}{\numberline {4}The data mule scheduling problem}{49}{chapter.4}%
 \contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{53}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{55}{subsection.4.1.1}%
-\contentsline {chapter}{\numberline {5}TODO}{61}{chapter.5}%
+\contentsline {chapter}{\numberline {5}The data collection problem}{61}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The minimum connected dominating set problem}{63}{section.5.1}%

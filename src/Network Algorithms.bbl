@@ -437,6 +437,47 @@
     \field{year}{1956}
   \endentry
 
+  \entry{guha}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GS}{%
+         family={Guha},
+         familyi={G\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Khuller},
+         familyi={K\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{GS+1}
+    \strng{fullhash}{GSKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1007/pl00009201
+    \endverb
+    \field{issn}{1432-0541}
+    \field{number}{4}
+    \field{pages}{374–387}
+    \field{title}{Approximation Algorithms for Connected Dominating Sets}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/PL00009201
+    \endverb
+    \field{volume}{20}
+    \field{journaltitle}{Algorithmica}
+    \field{month}{04}
+    \field{year}{1998}
+  \endentry
+
   \entry{karp}{inbook}{}
     \name{author}{1}{}{%
       {{hash=KRM}{%
@@ -524,6 +565,95 @@
     \field{year}{1959}
   \endentry
 
+  \entry{sal19}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SW}{%
+         family={Shi},
+         familyi={S\bibinitperiod},
+         given={Weiwei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Tian},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Zhiwen},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZG}{%
+         family={Zhi},
+         familyi={Z\bibinitperiod},
+         given={Guoming},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronics Engineers (IEEE)}%
+    }
+    \strng{namehash}{SW+1}
+    \strng{fullhash}{SWLWWTZZZG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1109/access.2019.2937626
+    \endverb
+    \field{issn}{2169-3536}
+    \field{pages}{120475–120499}
+    \field{title}{Adding Duty Cycle Only in Connected Dominating Sets for Energy Efficient and Fast Data Collection}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/ACCESS.2019.2937626
+    \endverb
+    \field{volume}{7}
+    \field{journaltitle}{IEEE Access}
+    \field{year}{2019}
+  \endentry
+
+  \entry{solisoba}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=SOR}{%
+         family={Solis-Oba},
+         familyi={S\bibinithyphendelim O\bibinitperiod},
+         given={Roberto},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{SOR1}
+    \strng{fullhash}{SOR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Algorithms — ESA’ 98}
+    \verb{doi}
+    \verb 10.1007/3-540-68530-8_37
+    \endverb
+    \field{isbn}{9783540685302}
+    \field{issn}{0302-9743}
+    \field{pages}{441–452}
+    \field{title}{2-Approximation Algorithm for Finding a Spanning Tree with Maximum Number of Leaves}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/3-540-68530-8_37
+    \endverb
+    \field{year}{1998}
+  \endentry
+
   \entry{konig}{misc}{}
     \name{author}{1}{}{%
       {{hash=SG}{%
@@ -576,6 +706,52 @@
     \verb http://dx.doi.org/10.1145/800135.804401
     \endverb
     \field{year}{1979}
+  \endentry
+
+  \entry{ueno}{article}{}
+    \name{author}{3}{}{%
+      {{hash=US}{%
+         family={Ueno},
+         familyi={U\bibinitperiod},
+         given={Shuichi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kajitani},
+         familyi={K\bibinitperiod},
+         given={Yoji},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gotoh},
+         familyi={G\bibinitperiod},
+         given={Shin’ya},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{US+1}
+    \strng{fullhash}{USKYGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{U}
+    \field{sortinithash}{U}
+    \verb{doi}
+    \verb 10.1016/0012-365x(88)90226-9
+    \endverb
+    \field{issn}{0012-365X}
+    \field{number}{1–3}
+    \field{pages}{355–360}
+    \field{title}{On the nonseparating independent set problem and feedback set problem for graphs with no vertex degree exceeding three}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/0012-365X(88)90226-9
+    \endverb
+    \field{volume}{72}
+    \field{journaltitle}{Discrete Mathematics}
+    \field{month}{12}
+    \field{year}{1988}
   \endentry
 
   \entry{valiant}{article}{}
