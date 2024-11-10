@@ -1705,7 +1705,7 @@
         \begin{itemize}
             \item clearly, the graph induced by $U$ is connected, because $T$ is a spanning tree
             \item since $M$ is a minimum weight perfect matching of $G^O$, adding the edges from $M$ to $T$ into $U$ will turn the degree of the vertices that were in $O$ into even degrees, therefore all nodes in $U$ are of even degree; this means that, since $U$ is connected, it is always possible to find a Eulerian circuit by \cref{eul circ}
-            \item because $w(M) + w(T) = w(U)$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$, and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
+            \item because $w(M) + w(T) = w(U)$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$ --- $H$ is the solution provided by the algorithm --- and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
         \end{itemize}
     \end{proof}
 
@@ -1769,6 +1769,10 @@
         The following is a min-CDS for the graph illustrated in \cref{dom set}. \todo{add pic}
     \end{example}
 
+    \begin{framedobs}[label={acyclic min-CDSs}]{Acyclic min-CDSs}
+        Given a graph $G$, and a min-CDS $D$, by way of contradiction, assume that $D$ contains a cycle; then, removing one vertex from $D$'s cycle would still yield a CDS, of lower cardinality, therefore $D$ was not a min-CDS. This proves that any min-CDS must be acyclic.
+    \end{framedobs}
+
     Now, consider the following type of spanning trees.
 
     \begin{frameddefn}{Max-leaf spanning tree}
@@ -1782,7 +1786,7 @@
     \end{framedthm}
 
     \begin{proof}
-        Consider a min-CDS $D$ for $G$; a ST $T'$ for $G$ can be constructed by starting from $D$, by simply considering $D$ itself with the nodes in $V(G) - D$ as leaves of $T'$. Note that $D$ cannot contain cycles, because $D$ is a min-CDS, and a CDS with cycles would not have the minimum possible cardinality because removing one vertex from a cycle would still yield a CDS, of lower cardinality. Moreover, $T'$ spans $G$ completely, because $D$ is a DS, which means that all the nodes in $V(G) - D$ are covered by definition of $D$. This proves that $T'$ is both connected, acyclic, and spans $G$ completely, therefore it is a spanning tree of $G$, and because $T$ is a max-leaf ST for $G$, it follows that $$l \ge l' = \abs{V(G)} - \abs D = n - d$$ where $l'$ is the number of leaves of $T'$, which is $n - d$ by construction.
+        Consider a min-CDS $D$ for $G$; a ST $T'$ for $G$ can be constructed by starting from $D$, by simply considering $D$ itself with the nodes in $V(G) - D$ as leaves of $T'$. Moreover, $T'$ spans $G$ completely, because $D$ is a DS, which means that all the nodes in $V(G) - D$ are covered by definition of $D$. This proves that $T'$ is both connected, acyclic (because of \cref{acyclic min-CDSs}), and spans $G$ completely, therefore it is a spanning tree of $G$, and because $T$ is a max-leaf ST for $G$, it follows that $$l \ge l' = \abs{V(G)} - \abs D = n - d$$ where $l'$ is the number of leaves of $T'$, which is $n - d$ by construction.
 
         Conversely, consider max-leaf ST $T$ of $G$; since $T$ spans $G$, and since $T$ is connected, it must be that the nodes $D'$ comprising the nodes in $T$ that are not leaves form a CDS for $G$. Moreover, since $D$ is a min-CDS, it follows that $$n - l = \abs{V(G)} - \abs T = d' \ge d$$ where $d'$ is the number of vertices of $D'$, which is $n - l$ by construction.
 
