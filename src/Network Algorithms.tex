@@ -1941,7 +1941,7 @@
             \Function{distributedReduceCDS}{$G$, $D$}
                 \State $V := D$
                 \Do
-                    \State Choose $u \in \argmax_{v \in V}{\deg(v)}$
+                    \State Choose $u \in \argmin_{v \in V}{\deg(v)}$
                     \If{$\texttt{CH}(\mathcal N'(u)) \subseteq \bigcup_{z \in \mathcal N(u)}{\texttt{CH}(\mathcal N'(z))}$} \Comment{\texttt{CH} computes the \tit{convex hull}}
                         \State $D = D - \{u\}$
                     \EndIf
