@@ -1297,7 +1297,7 @@
         Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
     \end{frameddefn}
 
-    Note that every perfect matching is a \tit{maximum matching}. Additionally, note that a perfect matching exists only if the number of vertices of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices.
+    Note that every perfect matching is a \tit{maximum matching}. Additionally, note that a perfect matching exists only if the number of vertices $n$ of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices. In particular, the cardinality of a perfect matching is always $\frac{n}{2}$, since each node is adjacent to exactly one edge of the perfect matching.
 
     \begin{framedthm}[label={bounded_matching}]{}
         Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$; then $\abs M \le \abs C$.
@@ -1769,10 +1769,6 @@
         The following is a min-CDS for the graph illustrated in \cref{dom set}. \todo{add pic}
     \end{example}
 
-    \begin{framedobs}[label={acyclic min-CDSs}]{Acyclic min-CDSs}
-        Given a graph $G$, and a min-CDS $D$, by way of contradiction, assume that $D$ contains a cycle; then, removing one vertex from $D$'s cycle would still yield a CDS, of lower cardinality, therefore $D$ was not a min-CDS. This proves that any min-CDS must be acyclic.
-    \end{framedobs}
-
     Now, consider the following type of spanning trees.
 
     \begin{frameddefn}{Max-leaf spanning tree}
@@ -1786,7 +1782,7 @@
     \end{framedthm}
 
     \begin{proof}
-        Consider a min-CDS $D$ for $G$; a ST $T'$ for $G$ can be constructed by starting from $D$, by simply considering $D$ itself with the nodes in $V(G) - D$ as leaves of $T'$. Moreover, $T'$ spans $G$ completely, because $D$ is a DS, which means that all the nodes in $V(G) - D$ are covered by definition of $D$. This proves that $T'$ is both connected, acyclic (because of \cref{acyclic min-CDSs}), and spans $G$ completely, therefore it is a spanning tree of $G$, and because $T$ is a max-leaf ST for $G$, it follows that $$l \ge l' = \abs{V(G)} - \abs D = n - d$$ where $l'$ is the number of leaves of $T'$, which is $n - d$ by construction.
+        Consider a min-CDS $D$ for $G$; a ST $T'$ for $G$ can be constructed by starting from $D$, by simply considering $D$ itself with the nodes in $V(G) - D$ as leaves of $T'$. Moreover, $T'$ spans $G$ completely, because $D$ is a DS, which means that all the nodes in $V(G) - D$ are covered by definition of $D$. This proves that $T'$ is both connected, and spans $G$ completely. Moreover, we can assume that $T'$ is acyclic, since $D$ is a min-CDS, and in particular it is connected, hence it is always possible to remove cycles from $D$ such that the resulting graph $T'$ is still connected but acyclic. Therefore, $T'$ is a spanning tree of $G$, and because $T$ is a max-leaf ST for $G$, it follows that $$l \ge l' = \abs{V(G)} - \abs D = n - d$$ where $l'$ is the number of leaves of $T'$, which is $n - d$ by construction.
 
         Conversely, consider max-leaf ST $T$ of $G$; since $T$ spans $G$, and since $T$ is connected, it must be that the nodes $D'$ comprising the nodes in $T$ that are not leaves form a CDS for $G$. Moreover, since $D$ is a min-CDS, it follows that $$n - l = \abs{V(G)} - \abs T = d' \ge d$$ where $d'$ is the number of vertices of $D'$, which is $n - l$ by construction.
 
@@ -1953,6 +1949,46 @@
     \end{framedalgo}
 
     This algorithm has several practical advantages, because it is able to reduce the size of an initial CDS, streamlining the structure without complex calculations, and it works without requiring global network knowledge, making it adaptable for \tit{decentralized environments}. However, it's worth noting that \tbf{no approximation ratio} is provided or guaranteed. This trade-off makes it a useful heuristic for practical scenarios but limits its theoretical guarantees.
+
+    \chapter{TODO}
+
+    placeholder \todo{missing first part}
+
+    Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
+
+    \begin{frameddefn}{Maximal matching}
+        Given a graph $G = (V, E)$, and a matching $M$ of $G$, $M$ is a \tbf{maximal} matching if there exists no $e \in E(G) - M$ such that $M \cup \{e\}$ is still a matching.
+    \end{frameddefn}
+
+    \begin{frameddefn}{Maximum matching}
+        Given a graph $G$, and a matching $M$ of $G$, $M$ is a \tbf{maximum} matching if it has the maximum possible cardinality $\abs M$ for any matching of $G$.
+    \end{frameddefn}
+
+    \begin{example}[Maximal and maximum]
+        placeholder \todo{add pics}
+    \end{example}
+
+    These concepts of \tit{maximal} (or \tit{minimal}) and \tit{maximum} (or \tit{minimum}) will be applied accordingly to every other structure discussed.
+
+    Moreover, consider the following definition on bipartite graphs.
+
+    \begin{frameddefn}{$X$-perfect matching}
+        Given a bipartite graph $G$, bipartite into two sets $X$ and $Y$, an \tbf{$X$-perfect matching} is a matching which covers every vertex in $X$.
+    \end{frameddefn}
+
+    A \tit{maximal matching} can be found using a \tbf{greedy algorithm}, which is simple and efficient but does not necessarily yield the largest possible matching. Finding a \tit{maximum matching} is a \tit{polynomial-time problem}, but it requires more sophisticated algorithms and is more complex than finding a maximal matching.
+
+    As we already discussed, not all graphs have a \tit{perfect matching}, but when one exists, certain theorems for bipartite graphs --- like the following, proved by \href{https://en.wikipedia.org/wiki/Philip_Hall}{Philip Hall} in 1935 --- can help determine its existence and structure.
+
+    \begin{framedthm}{Hall's marriage theorem}
+        Given a bipartite graph $G$, bipartite into $V_1$ and $V_2$, where $\abs{V_1} \le \abs{V_2}$, $G$ has a $V_1$-perfect matching if and only if for each set $S$ of $k$ nodes in $V_1$ there are at least $k$ nodes in $V_2$ adjacent to some node in $S$. Using symbols $$\forall S \subseteq V_1 \quad \abs S \le \abs{\delta(S)}$$ where $\delta(S) := \{v \in V(G) \mid \exists x \in V(G) : (v, x) \in E(G)\}$ is called $S$'s \tbf{neighbourhood}.
+    \end{framedthm}
+
+    \proofiff{
+        Consider a $V_1$-perfect matching $M$ of $G$, and let $S \subseteq V_1$ be a set of vertices; by definition of $M$, each node $s \in S$ is matched through $M$ with a different node in $\delta(S)$, therefore $\abs S \le \abs{\delta(S)}$.
+    }{
+        asdf
+    }
 
     \printbibliography
 \end{document}
