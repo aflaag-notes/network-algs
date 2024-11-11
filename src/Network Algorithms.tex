@@ -1027,16 +1027,16 @@
 
     \section{The vertex cover problem}
 
-    The problem of finding the set $C$ of vertices discussed earlier, where each edge in the network is incident to at least one vertex in $C$, can be reduced to finding the \tbf{minimal vertex cover} of the network graph.
+    The problem of finding the set $C$ of vertices discussed earlier, where each edge in the network is incident to at least one vertex in $C$, can be reduced to finding the \tbf{minimum vertex cover} of the network graph.
     
     \begin{frameddefn}{Vertex cover}
         Given a graph $G$, a \tbf{vertex cover} for $G$ is a set of vertices $C \subseteq V(G)$ such that every edge in $G$ is incident to at least one vertex in $C$. Using symbols $$\forall (u, v) \in E(G) \quad u \in C \lor v \in C$$
     \end{frameddefn}
 
-    Note that the minimal vertex cover is not unique. Moreover, for any graph $G$, $V(G)$ is trivially a vertex cover for $G$. To find the minimal vertex cover is not trivial, because there are $\powerset(V(G)) = 2^{V(G)}$ possibile subsets of vertices to check.
+    Note that the minimum vertex cover is not unique. Moreover, for any graph $G$, $V(G)$ is trivially a vertex cover for $G$. To find the minimum vertex cover is not trivial, because there are $\powerset(V(G)) = 2^{V(G)}$ possibile subsets of vertices to check.
     
     \begin{example}[Vertex covers]
-        The following are two examples of minimal vertex covers for the given graph: \todo{this is wrong}
+        The following are two examples of minimum vertex covers for the given graph: \todo{this is wrong}
         \begin{figure}[H]
             \centering
             \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
@@ -1076,15 +1076,15 @@
                 (5b) edge (1b)
             ;
             \end{tikzpicture}
-            \caption{Two minimal vertex covers for a graph.}
+            \caption{Two minimum vertex covers for a graph.}
         \end{figure}
     \end{example}
 
-    For the reasons mentioned, every minimal vertex cover serves as an excellent starting point for a worm's propagation within a network. Protecting the computers corresponding to the nodes in the \tbf{minimal vertex cover} of the communication graph is crucial. This strategy ensures that every edge in the graph is monitored, thus preventing a worm from exploiting vulnerabilities in unprotected nodes.
+    For the reasons mentioned, every minimum vertex cover serves as an excellent starting point for a worm's propagation within a network. Protecting the computers corresponding to the nodes in the \tbf{minimum vertex cover} of the communication graph is crucial. This strategy ensures that every edge in the graph is monitored, thus preventing a worm from exploiting vulnerabilities in unprotected nodes.
 
     Moreover, if the graph has multiple minimum vertex covers, it is essential to identify and protect \tit{at least} the computers that lie in the \tbf{intersection} of all these covers. This intersection represents the most secure nodes, as they are critical in preventing the spread of the worm across all potential configurations of the network.
 
-    The following definition provides the \tbf{decisional version} of the minimal vertex cover problem.
+    The following definition provides the \tbf{decisional version} of the minimum vertex cover problem.
 
     \begin{frameddefn}{Minimal Vertex Cover (VC) problem}
         Given a graph $G$, and an integer $k \ge 0$, is there a vertex cover $C$ for $G$ such that $\abs C \le k$?
@@ -1115,7 +1115,7 @@
     There are multiple algorithms for finding approximated solutions for the VC problem. The first algorithm presented is a naïve solution, based on a \tbf{greedy} approach.
 
     \begin{framedalgo}[label={alg:first_greedy_avc}]{First greedy AVC}
-        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover for $G$. \\
+        Given an undirected graph $G$, the algorithm finds an approximated minimum vertex cover for $G$. \\
         \hrule
 
         \quad
@@ -1136,19 +1136,19 @@
     \end{framedalgo}
 
     \idea{
-        At each iteration of the algorithm, an edge $(i, j ) \in E'$ is chosen randomly, then $i$ is added to the vertex cover set $V'$, and any edge having $i$ as an endpoint is removed from $E'$. This ensures that $V'$ is a vertex cover, though it may not be minimal.
+        At each iteration of the algorithm, an edge $(i, j ) \in E'$ is chosen randomly, then $i$ is added to the vertex cover set $V'$, and any edge having $i$ as an endpoint is removed from $E'$. This ensures that $V'$ is a vertex cover, though it may not be minimum.
     }
 
     \cost{
         Each edge has to be either explored or removed by the algorithm, therefore the cost is $O(n + m)$.
     }
 
-    Consider a graph formed by two rows of nodes as follows: the upper row has $r$ nodes, and the lower row has $k > r$ nodes. Each node of the upper row is connected to each node on the lower row. Note that the upper row is a \tit{minimal} vertex cover for the graph.
+    Consider a graph formed by two rows of nodes as follows: the upper row has $r$ nodes, and the lower row has $k > r$ nodes. Each node of the upper row is connected to each node on the lower row. Note that the upper row is a \tit{minimum} vertex cover for the graph.
 
-    Suppose that the algorithm always chooses the nodes from the lower row, then the resulting set of nodes is a vertex cover made of $k$ nodes. Thus, the approximation ratio between this set of nodes and the minimal vertex cover is $$\dfrac{k}{r} = \dfrac{n - r}{r}$$
+    Suppose that the algorithm always chooses the nodes from the lower row, then the resulting set of nodes is a vertex cover made of $k$ nodes. Thus, the approximation ratio between this set of nodes and the minimum vertex cover is $$\dfrac{k}{r} = \dfrac{n - r}{r}$$
    
     \begin{framedalgo}{Second greedy AVC}
-        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover for $G$. \\
+        Given an undirected graph $G$, the algorithm finds an approximated minimum vertex cover for $G$. \\
         \hrule
 
         \quad
@@ -1169,7 +1169,7 @@
     \end{framedalgo}
 
     \idea{
-        At each step of the algorithm, the vertex with the highest degree $v$ is choosen from the current set of vertices $V(G)$, then $v$ is added to the vertex cover $V'$, and any edge having $v$ as an endpoint is removed from $G$. This ensures that $V'$ is a vertex cover, though it may not be minimal.
+        At each step of the algorithm, the vertex with the highest degree $v$ is choosen from the current set of vertices $V(G)$, then $v$ is added to the vertex cover $V'$, and any edge having $v$ as an endpoint is removed from $G$. This ensures that $V'$ is a vertex cover, though it may not be minimum.
     }
 
     \cost{
@@ -1186,14 +1186,14 @@
         \item in general, $\floor{\dfrac{r}{i}}$ nodes of degree $i$
     \end{itemize}
 
-    meaning that the total number of nodes is $$n = r + \sum_{i = 1}^r{\floor{\dfrac{r}{i}}} \le r + r \sum_{i = 1} ^r{\dfrac{1}{i}} = \Theta(r \log r)$$ (note that the \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{harmonic sum} can be approximated by $\Theta(\log r)$). Although the \tbf{optimal} minimal vertex cover is the \tit{upper row} itself, consisting of $r$ nodes, it may happen that the algorithm chooses the \tit{lower row} as vertex cover, as shown in the following figure \todo{add pic}
+    meaning that the total number of nodes is $$n = r + \sum_{i = 1}^r{\floor{\dfrac{r}{i}}} \le r + r \sum_{i = 1} ^r{\dfrac{1}{i}} = \Theta(r \log r)$$ (note that the \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{harmonic sum} can be approximated by $\Theta(\log r)$). Although the \tbf{optimal} minimum vertex cover is the \tit{upper row} itself, consisting of $r$ nodes, it may happen that the algorithm chooses the \tit{lower row} as vertex cover, as shown in the following figure \todo{add pic}
 
     This means that there is an approximation ratio of $$\dfrac{\Theta(r \log r)}{r} = \Theta(\log r)$$
 
-    However, there are better algorithms that can find approximated minimal covers  $V'$ for a given graph $G$ such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover.
+    However, there are better algorithms that can find approximated minimum covers $V'$ for a given graph $G$ such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover.
 
     \begin{framedalgo}{2-approximation VC}
-        Given an undirected graph $G$, the algorithm finds an approximated minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        Given an undirected graph $G$, the algorithm finds an approximated minimum vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover. \\
         \hrule
 
         \quad
@@ -1226,17 +1226,17 @@
     }
 
     \begin{proof}
-        We will prove that any $V'$ returned from the algorithm is such that $\abs{V'} \le 2 \abs {V^*}$ for some minimal vertex cover $V^*$. Note that, by construction, $V'$ is a vertex cover for $G$.
+        We will prove that any $V'$ returned from the algorithm is such that $\abs{V'} \le 2 \abs {V^*}$ for some minimum vertex cover $V^*$. Note that, by construction, $V'$ is a vertex cover for $G$.
 
         Let $A$ be the set of the edges \tit{choosen} from $E'$. For each edge $(i, j) \in A$, $i$ and $j$ are added to $V'$ by the algorithm, therefore $$\abs{V'} = 2 \abs A$$
 
-        Moreover, all the edges having either $i$ or $j$ as endpoint are removed from $E'$, thus edges in $A$ cannot be incident, which means that there exists a minimal vertex cover $V^*$ such that $$\abs A \le \abs{V^*}$$
+        Moreover, all the edges having either $i$ or $j$ as endpoint are removed from $E'$, thus edges in $A$ cannot be incident, which means that there exists a minimum vertex cover $V^*$ such that $$\abs A \le \abs{V^*}$$
 
         Finally, we have that $$\abs{V'} = 2 \abs A \le 2 \abs{V^*}$$
     \end{proof}
 
     \begin{framedalgo}{2-approximation VC (ILP)}
-        Given an undirected graph $G$, the algorithm returns a vector that represents an approximated minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        Given an undirected graph $G$, the algorithm returns a vector that represents an approximated minimum vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover. \\
         \hrule
 
         \quad
@@ -1286,7 +1286,7 @@
     }
 
     \begin{framedcor}{}
-        The number of nodes of a graph is equal to the size of its minimal vertex cover, plus the size of a maximal independent set.
+        The number of nodes of a graph is equal to the size of its minimum vertex cover, plus the size of a maximum independent set.
     \end{framedcor}
 
     \begin{frameddefn}{Matching}
@@ -1297,7 +1297,7 @@
         Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
     \end{frameddefn}
 
-    Note that every perfect matching is a \tit{maximal matching}. Additionally, note that a perfect matching exists only if the number of vertices of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices.
+    Note that every perfect matching is a \tit{maximum matching}. Additionally, note that a perfect matching exists only if the number of vertices of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices.
 
     \begin{framedthm}[label={bounded_matching}]{}
         Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$; then $\abs M \le \abs C$.
@@ -1308,13 +1308,13 @@
     \end{proof}
 
     \begin{framedcor}{}
-        Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$. If $\abs M = \abs C$ then $M$ is a maximal matching and $C$ is a minimal vertex cover.
+        Let $M$ be a matching of $G$ and $C$ a vertex cover for $G$. If $\abs M = \abs C$ then $M$ is a maximum matching and $C$ is a minimum vertex cover.
     \end{framedcor}
 
-    Note that, although a maximal matching can be found in polynomial time, the contrapositive of this corollary is not true in general, therefore it is not possible to try to solve the minimal vertex cover through the maximal matching problem.
+    Note that, although a maximum matching can be found in polynomial time, the contrapositive of this corollary is not true in general, therefore it is not possible to try to solve the minimum vertex cover through the maximum matching problem.
 
     \begin{framedalgo}{2-approximation VC (matching)}
-        Given an undirected graph $G$, the algorithm returns a minimal vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimal vertex cover. \\
+        Given an undirected graph $G$, the algorithm returns a minimum vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover. \\
         \hrule
 
         \quad
@@ -1332,27 +1332,27 @@
     \end{framedalgo}
 
     \idea{
-        By computing a maximal matching $M$ on $G$, all the endpoints of the edges in $M$ will form a vertex cover for $G$, by definition of matching.
+        By computing a maximum matching $M$ on $G$, all the endpoints of the edges in $M$ will form a vertex cover for $G$, by definition of matching.
     }
 
     \cost{
-        Note that the time complexity of the algorithm depends directly on the algorithm used to compute the maximal matching $M$ of $G$.
+        Note that the time complexity of the algorithm depends directly on the algorithm used to compute the maximum matching $M$ of $G$.
     }
 
     \begin{proof}
-        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been put into $M$, but this is not possible because $M$ is maximal. This proves that $V'$ is a vertex cover.
+        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been put into $M$, but this is not possible because $M$ is maximum. This proves that $V'$ is a vertex cover.
 
-        Let $V^*$ be a minimal vertex cover for $G$; to prove that $V'$ is a 2-approximation of the VC problem, note that by \cref{bounded_matching} we have that $\abs M \le \abs{V^*}$, therefore $$\abs{V'} = 2 \abs M \le 2 \abs{V^*}$$
+        Let $V^*$ be a minimum vertex cover for $G$; to prove that $V'$ is a 2-approximation of the VC problem, note that by \cref{bounded_matching} we have that $\abs M \le \abs{V^*}$, therefore $$\abs{V'} = 2 \abs M \le 2 \abs{V^*}$$
     \end{proof}
 
     \begin{frameddefn}{Bipartite graph}
         A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent sets.
     \end{frameddefn}
 
-    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a maximal VC on bipartite graphs in polynomial time.
+    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a maximum VC on bipartite graphs in polynomial time.
 
     \begin{framedthm}{König's theorem}
-        In any bipartite graph, the number of edges in a maximal matching is equal to the number of vertices in a minimal vertex cover.
+        In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
     \end{framedthm}
 
     \subsection{The eternal vertex cover problem}
@@ -1374,7 +1374,7 @@
 
     Given the set of nodes where guards are deployed at any moment, if these nodes do not form a \tbf{vertex cover}, the attacker can exploit any uncovered edge to bypass the defense and successfully breach the network. Therefore, to ensure continuous protection, the defender must \tit{dynamically reconfigure} the guard positions so that the current set of guarded nodes always forms a valid vertex cover. This reconfiguration is crucial after any attack, transforming \tit{one vertex cover into another} in response to the attack, ensuring that no edge remains exposed.
 
-    If $\alpha (G)$ is the cardinality of a minimal VC on a graph $G$, and $\alpha ^{\infty}(G)$ is the cardinality of a minimal eternal VC, then $$\alpha(G) \le \alpha^{\infty}(G)$$
+    If $\alpha (G)$ is the cardinality of a minimum VC on a graph $G$, and $\alpha ^{\infty}(G)$ is the cardinality of a minimum eternal VC, then $$\alpha(G) \le \alpha^{\infty}(G)$$
 
     \begin{framedthm}{Shadow guard}
         Let $G$ be a connected graph, and let $V'$ be a vertex cover for $G$ that induces a connected subgraph of $G$. Then $\alpha^{\infty}(G) \le \abs{V'} + 1$.
