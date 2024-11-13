@@ -1351,7 +1351,7 @@
         A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent sets.
     \end{frameddefn}
 
-    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a maximum VC on bipartite graphs in polynomial time.
+    Bipartite graphs are very important, because the following theorem, proved by König TODOADDCITE, allows to compute a maximum VC on bipartite graphs in polynomial time.
 
     \begin{framedthm}{König's theorem}
         In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
@@ -1952,10 +1952,78 @@
 
     This algorithm has several practical advantages, because it is able to reduce the size of an initial CDS, streamlining the structure without complex calculations, and it works without requiring global network knowledge, making it adaptable for \tit{decentralized environments}. However, it's worth noting that \tbf{no approximation ratio} is provided or guaranteed. This trade-off makes it a useful heuristic for practical scenarios but limits its theoretical guarantees.
 
+    % \chapter{The centralized deployment of mobile sensors problem}
     \chapter{TODO}
 
-    placeholder \todo{missing first part}
+    \tbf{Wireless sensor networks} (WSNs) are large-scale, multi-hop wireless systems composed of nodes with \tit{limited resources}, such as energy, bandwidth, storage, and processing power. Designed primarily for continuous monitoring and data collection, WSNs play a crucial role in various applications by providing low-level surveillance and data gathering within a designated \tit{area of interest} (AoI). 
 
+    To be effective, WSNs must ensure full coverage of the AoI, with no internal sensing gaps, to accurately monitor the environment. Due to factors like human inaccessibility and constrained deployment budgets, careful sensor positioning within the AoI is \tit{essential} to maximize coverage, extend network lifespan, and achieve operational goals. Therefore, \tbf{sensor mobility} is mandatory.
+
+    There are two main strategies for sensor deployment in wireless sensor networks using \tbf{mobility}, which are described below.
+
+    \begin{itemize}
+        \item \tbf{Carrier-Based Deployment}: In this method, \tit{mobile robots} carry static sensors as payloads and navigate through the AoI. As they travel, these robots strategically place sensors at \tit{designated points}, such as vertices of a geographic grid, to ensure optimal coverage. This approach allows precise, planned deployment in areas where direct human access might be limited.
+        \item \tbf{Self-Deployment by Autonomous Sensors}: Here, sensors have \tit{autonomous mobility} and can intelligently adjust their own geographic positions. This self-deployment allows sensors to actively modify their distribution, optimizing their positions to achieve a desired coverage pattern across the AoI. This method offers flexibility and adaptability, enabling dynamic responses to environmental changes and potential coverage gaps.
+    \end{itemize}
+
+    \tbf{Mobile sensors} are compact, low-cost units, capable of detecting and responding to changes in physical conditions. They are designed with several key components:
+
+    \begin{itemize}
+        \item \tbf{sensing unit}: detects and monitors environmental changes or specific conditions
+        \item \tbf{communication unit}: facilitates data transmission to other devices or a central system
+        \item \tbf{computing unit}: processes data and controls sensor operations
+        \item \tbf{power supply}: a small battery that powers the device, often designed for energy efficiency
+        \item \tbf{mobility system}: allows limited movement, enabling adjustments for optimal sensing or re-positioning
+    \end{itemize}
+
+    Mobile sensors collaborate to form an \tbf{ad-hoc network}, making them especially valuable in critical environments where rapid response and flexibility are essential, such as during pollutant leaks, gas plume detection, or fires. Each sensor operates under the following assumptions:
+
+    \begin{itemize}
+        \item \tbf{sensing range}: each sensor can monitor a circular area centered at its position, with a radius $r_s$, known as the \tit{sensing range}, which represents the region in which the sensor can effectively detect changes in environmental conditions
+        \item \tbf{communication range}: each sensor can communicate with nearby sensors within a circular area centered at its position, with a radius $r_c$, called the \tit{communication range}, which defines the area in which sensors can reliably exchange data to coordinate their activities
+    \end{itemize}
+
+    These capabilities enable mobile sensors to dynamically adjust positions and share information, ensuring comprehensive coverage and effective monitoring across the area of interest.
+
+    The sensing and communication units in mobile sensors are distinct components, so the \tit{ensing range} and \tit{communication range} are not inherently linked from a hardware standpoint. However, they must be integrated at the protocol level to ensure both \tbf{connectivity} and \tbf{coverage} within the network. In particular, research shows that if the $r_c \ge 2 r_s$, protocols can guarantee coverage while inherently satisfying the connectivity requirement as well. This relationship allows the network to achieve \tit{full monitoring} coverage of the area of interest while ensuring that all sensors remain connected, streamlining protocol design and enhancing network resilience.
+
+    \tbf{Coverage} is a critical consideration in environmental monitoring applications using WSNs. Broadly, coverage refers to the effectiveness and quality of the sensing function, measuring how well the sensor network can monitor and observe changes within a given area. High coverage ensures that the AoI is comprehensively monitored without gaps, allowing the WSN to detect and respond to environmental changes accurately.
+
+    To collect information from a target field, sensor nodes are strategically deployed at various locations throughout the area. Once deployed, these nodes form a wireless network, allowing them to transmit collected data to a \tbf{centralized sink node} for analysis. The quality and completeness of the information gathered are directly tied to the effectiveness of coverage across the AoI. \tit{Adequate coverage} ensures that sensor nodes capture a comprehensive view of the field, minimizing gaps in data and providing a reliable basis for environmental monitoring and other applications.
+
+    \tbf{Coverage requirements} for wireless sensor networks vary based on the monitoring goals of the AoI and can be broadly classified into three types:
+
+    \begin{itemize}
+        \item \tbf{Point Coverage}: This type targets specific, discrete points within the AoI that require continuous monitoring, often due to their critical importance. For example, in building security, each access point (such as doors and windows) is equipped with sensors to continuously monitor for unauthorized entry.
+        \item \tbf{Area Coverage}: This form ensures that every location within a defined region is monitored, achieving complete surveillance of the area. An example is forest monitoring, where each point in the forest must be within the sensing range of at least one sensor. This approach helps detect events like forest fires or poaching activities as soon as they occur.
+        \item \tbf{Barrier Coverage}: This type focuses on monitoring a specific path or the boundary of a region, creating a \curlyquotes{\tit{barrier}} that detects any movement across it. In forest protection, for instance, deploying sensors along the perimeter enables monitoring for poaching and unauthorized access at the boundary, allowing for immediate response.
+    \end{itemize}
+
+    For each of these coverage types, \tbf{continuous monitoring} using static sensors is essential to ensure reliable data collection and timely response to environmental changes or security breaches.
+
+    In certain applications, continuous monitoring of all points within an area is not essential. Instead, periodic \tit{inspections} --- referred to as \tbf{sweep coverage}, introduced by \textcite{cheng} --- are sufficient to monitor a specific set of points of interest. Unlike traditional coverage approaches that require constant sensor presence, sweep coverage employs sensors that move or are activated periodically to \curlyquotes{patrol} these areas. 
+
+    \begin{frameddefn}{Sweep coverage}
+        A \tit{point of interest} (PoI) $p$ is said to be \tbf{sweep covered} if and only if  at least one \tit{mobile sensor} visits $p$ every $t$ time periods, where $t$ is called \tbf{sweep period} of $p$.
+    \end{frameddefn}
+
+    For example, in agricultural monitoring, regular patrols can be used to check on specific crop health indicators, or in environmental monitoring, periodic sweeps can detect pollutant levels at known hotspots. This approach reduces energy consumption and resource usage, making it well-suited for scenarios where frequent, but not continuous, data collection is adequate.
+
+    \begin{frameddefn}{Sweep coverage problem}
+        Given a set of PoI $P$, find the minimum number of \tit{mobile sensors} to guarantee \tit{sweep coverage} for $P$.
+    \end{frameddefn}
+
+    In 2014 \textcite{gorain14} showed that, instead of using only mobile sensors, the use of both \tit{static} and \tit{mobile sensors} can be more effective in terms of total number of sensors used. Additionally, in 2015 \textcite{gorain15} showed an energy efficient sweep coverage problem, whose objective is to guarantee sweep coverage by employing both \tit{mobile} and \tit{static sensors}, such that the total energy consumption is minimized.
+
+    Moreover, the \tbf{location information} of sensors plays a crucial role in deployment protocols, as these protocols often rely on the \tit{precise positioning} of sensors. Depending on the environment and application, different techniques for obtaining and utilizing location information are employed:
+
+    \begin{itemize}
+        \item \tbf{Outdoor Applications}: For applications in outdoor environments, GPS is the most widely used solution, since it provides accurate global positioning data, enabling sensors to autonomously determine their location for deployment or operation.
+        \item \tbf{Indoor Centralized Applications}: For indoor environments where global positioning is needed but GPS may not be available, a \tit{grid-based approach} is commonly used. In this method, the area is divided into a grid of predefined locations, known as \tit{landmarks}, and sensors are deployed at specific grid points. In some cases, the sensors themselves may be used as \tit{landmarks}, enabling them to assist in positioning other sensors within the network.
+        \item \tbf{Indoor Distributed Applications}: In scenarios where sensors need to determine their location autonomously without a central system, techniques based on signal measurements are employed
+    \end{itemize}
+
+    % \section{The minimum weight perfect matching on bipartite graphs problem}
     \section{TODO}
 
     Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
@@ -2029,7 +2097,7 @@
         \item \tbf{conservation of flows}: the sum of the flows entering a node must equal the sum of the flows exiting that node (except for $s$ and $t$) $$\forall v \in V(G) - \{s, t\} \quad \sum_{\substack{u:(u, v) \in E(G) \\f(u, v) >0}}{f(u, v)} = \sum_{\substack{u(u, v)\in E(G) \\ f(u, v) >0}}{f(v, u)}$$
     \end{itemize}
 
-    The \tbf{value of flow} is defined as the amount of flow passing from $s$ to $t$ $$\abs f = \sum_{v : (s, v) \in E(G)}{f(s, v)} = \sum_{u:(u, t)\in E(G)}{f(u, t)}$$
+    The \tbf{value of flow} is defined as the amount of flow passing from $s$ to $t$ $$\abs f := \sum_{v : (s, v) \in E(G)}{f(s, v)} = \sum_{u:(u, t)\in E(G)}{f(u, t)}$$
 
     \begin{frameddefn}{Maximum flow problem}
         Given a flow network $G$, the \tbf{maximum flow problem} is to route as much flow as possible from $G$'s source to $G$'s sink, in other words find the flow $f$ with maximum value $\abs f$.
@@ -2063,6 +2131,10 @@
 
     The \href{https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm}{Ford-Fulkerson algorithm} for computing the \tit{maximum flow} in a flow network has a time complexity of $O(m \abs f)$; however, in our specific case, the maximum flow in $G'$ is bounded above by $\mu := \min(\abs X, \abs Y)$, where $V' = X \cup Y$ --- recall that this is a $X$-perfect matching, where $\abs X \le \abs Y$. Consequently, an algorithm that leverages the maximum flow to find a maximum matching has an overall complexity of $O(m \mu)$.
 
+    \subsection{Finding a maxmum matching}
+
+    In general, it is not trivial to find a \tbf{maximum matching} on a graph. First, we will discuss algorithms and theoretical results which can be leveraged in order to find a maximum matching on \tbf{bipartite graphs}.
+
     \begin{frameddefn}{Alternating path}
         Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{alternating path} w.r.t. $M$ is a path that alternates edges of $M$ and $E(G) - M$
     \end{frameddefn}
@@ -2090,7 +2162,7 @@
     }{
         Consider a bipartite graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t. $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
 
-        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $\deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 6 kinds:
+        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 6 kinds:
 
         \begin{enumerate}[label=\arabic*.]
             \item a cycle of length 2 (recall that $H$ is a multi-graph)
@@ -2105,12 +2177,11 @@
 
     This theorem can be leveraged in order to design an \tit{iterative algorithm} which can find a \tit{maximum matching} on a given bipartite graph. First, we need to define an algorithm to find an augmenting path on a bipartite graph.
 
-    \begin{framedalgo}{Augmenting paths}
+    \begin{framedalgo}[label={alg:augmenting_path}]{Augmenting paths}
         Given a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a matching $M$, the algorithm returns an augmenting path on $G$ w.r.t. $M$. \\
         \hrule
 
         \quad
-        \label{alg:augmenting_path}
         \begin{algorithmic}[1]
             \Function{findAugmentingPath}{$G$, $M$}
                 \State Construct a directed bipartite graph $G' = (V', E')$
@@ -2144,7 +2215,7 @@
         placeholder \todo{what?}
     }
 
-    From this, we can define an algorithm that is able to find a maximum matching on a bipartite graph.
+    From this, we can define the following algorithm, which is able to find a \tit{maximum matching} on a given bipartite graph.
 
     \begin{framedalgo}{Maximum matching}
         Given a bipartite graph $G = (V, E)$, the algorithm returns a maximum matching for $G$. \\
@@ -2153,12 +2224,12 @@
         \quad
         \label{alg:max_matching}
         \begin{algorithmic}[1]
-            \Function{maximumMatchingBipartiteGraphs}{$G$}
+            \Function{maximumMatchingBipGraphs}{$G$}
                 \State $M := \varnothing$
                 \State $P := \texttt{findAugmentingPath}(G)$
                 \While{$P \neq \texttt{None}$}
                     \State Swap the edges between $M$ and $E(G) - M$ in $P$
-                    \State $P := \texttt{findAugmentingPath}(G)$
+                    \State $P := \texttt{findAugmentingPath}(G)$ \Comment{defined in \cref{alg:augmenting_path}}
                 \EndWhile
                 \State \textbf{return} $M$
             \EndFunction
@@ -2166,7 +2237,7 @@
     \end{framedalgo}
 
     \idea{
-        The idea of the algorithm follows directly from \cref{aug paths}, since when the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$, therefore $M$ is a maximum matching.
+        When the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$ due to the \texttt{while} exiting condition, therefore $M$ is a maximum matching by the \cref{aug paths}.
     }
 
     \cost{

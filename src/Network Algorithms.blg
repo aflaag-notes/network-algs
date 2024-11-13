@@ -1,68 +1,75 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/nixos.org)
+This is BibTeX, Version 0.99d (TeX Live 2024/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Network Algorithms.aux
 The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
-Warning--entry type for "konig" isn't style-file defined
---line 208 of file ./references.bib
+You're missing a field name---line 209 of file ./references.bib
+ : 
+ : %     author = {Szárnyas, Gábor},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 418 of file ./references.bib
+ : @inproceedings{cheng
+ :                     ,
+I'm skipping whatever remains of this entry
 Biblatex version: 3.19
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 32 entries,
+Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+You've used 33 entries,
             6399 wiz_defined-function locations,
-            1482 strings with 15813 characters,
-and the built_in function-call counts, 227889 in all, are:
-= -- 17578
-> -- 4139
-< -- 1512
-+ -- 6388
-- -- 1561
-* -- 15010
-:= -- 23177
+            1497 strings with 16129 characters,
+and the built_in function-call counts, 239373 in all, are:
+= -- 18567
+> -- 4281
+< -- 1558
++ -- 6674
+- -- 1607
+* -- 15920
+:= -- 24430
 add.period$ -- 0
-call.type$ -- 32
-change.case$ -- 994
-chr.to.int$ -- 194
-cite$ -- 62
-duplicate$ -- 24365
-empty$ -- 20157
-format.name$ -- 1797
-if$ -- 46916
+call.type$ -- 33
+change.case$ -- 1029
+chr.to.int$ -- 200
+cite$ -- 64
+duplicate$ -- 25414
+empty$ -- 21189
+format.name$ -- 1875
+if$ -- 49272
 int.to.chr$ -- 0
-int.to.str$ -- 94
+int.to.str$ -- 100
 missing$ -- 0
-newline$ -- 1177
-num.names$ -- 2031
-pop$ -- 10749
+newline$ -- 1233
+num.names$ -- 2106
+pop$ -- 11100
 preamble$ -- 1
-purify$ -- 1112
+purify$ -- 1153
 quote$ -- 0
-skip$ -- 7029
+skip$ -- 7262
 stack$ -- 0
-substring$ -- 30110
-swap$ -- 5713
-text.length$ -- 820
-text.prefix$ -- 31
+substring$ -- 32108
+swap$ -- 5954
+text.length$ -- 843
+text.prefix$ -- 32
 top$ -- 1
-type$ -- 1075
+type$ -- 1110
 warning$ -- 0
-while$ -- 2918
+while$ -- 3056
 width$ -- 0
-write$ -- 1146
-(There was 1 warning)
+write$ -- 1201
+(There were 2 error messages)

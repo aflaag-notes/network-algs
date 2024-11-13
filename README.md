@@ -12,4 +12,6 @@ These are my [notes](<https://raw.githubusercontent.com/aflaag-notes/network-alg
 - [ ] 5
 - [ ] 6
     - last part?
+- [x] 7
+- [ ] 8
 - [ ] TODOs here and there
