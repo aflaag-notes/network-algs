@@ -1351,7 +1351,7 @@
         A graph $G$ is said to be \tbf{bipartite} if and only if there is a partition $U, W$ of $V(G)$ such that both $U$ and $V$ are independent sets.
     \end{frameddefn}
 
-    Bipartite graphs are very important, because the following theorem, proved by König TODOADDCITE, allows to compute a maximum VC on bipartite graphs in polynomial time.
+    Bipartite graphs are very important, because the following theorem, proved by König \cite{konig}, allows to compute a maximum VC on bipartite graphs in polynomial time.
 
     \begin{framedthm}{König's theorem}
         In any bipartite graph, the number of edges in a maximum matching is equal to the number of vertices in a minimum vertex cover.
@@ -1952,8 +1952,7 @@
 
     This algorithm has several practical advantages, because it is able to reduce the size of an initial CDS, streamlining the structure without complex calculations, and it works without requiring global network knowledge, making it adaptable for \tit{decentralized environments}. However, it's worth noting that \tbf{no approximation ratio} is provided or guaranteed. This trade-off makes it a useful heuristic for practical scenarios but limits its theoretical guarantees.
 
-    % \chapter{The centralized deployment of mobile sensors problem}
-    \chapter{TODO}
+    \chapter{The centralized deployment of mobile sensors problem}
 
     \tbf{Wireless sensor networks} (WSNs) are large-scale, multi-hop wireless systems composed of nodes with \tit{limited resources}, such as energy, bandwidth, storage, and processing power. Designed primarily for continuous monitoring and data collection, WSNs play a crucial role in various applications by providing low-level surveillance and data gathering within a designated \tit{area of interest} (AoI). 
 
@@ -2001,7 +2000,7 @@
 
     For each of these coverage types, \tbf{continuous monitoring} using static sensors is essential to ensure reliable data collection and timely response to environmental changes or security breaches.
 
-    In certain applications, continuous monitoring of all points within an area is not essential. Instead, periodic \tit{inspections} --- referred to as \tbf{sweep coverage}, introduced by \textcite{cheng} --- are sufficient to monitor a specific set of points of interest. Unlike traditional coverage approaches that require constant sensor presence, sweep coverage employs sensors that move or are activated periodically to \curlyquotes{patrol} these areas. 
+    In certain applications, continuous monitoring of all points within an area is not essential. Instead, periodic \tit{inspections} --- referred to as \tbf{sweep coverage}, introduced by \textcite{cheng2} --- are sufficient to monitor a specific set of points of interest. Unlike traditional coverage approaches that require constant sensor presence, sweep coverage employs sensors that move or are activated periodically to \curlyquotes{patrol} these areas. 
 
     \begin{frameddefn}{Sweep coverage}
         A \tit{point of interest} (PoI) $p$ is said to be \tbf{sweep covered} if and only if  at least one \tit{mobile sensor} visits $p$ every $t$ time periods, where $t$ is called \tbf{sweep period} of $p$.
@@ -2023,8 +2022,7 @@
         \item \tbf{Indoor Distributed Applications}: In scenarios where sensors need to determine their location autonomously without a central system, techniques based on signal measurements are employed
     \end{itemize}
 
-    % \section{The minimum weight perfect matching on bipartite graphs problem}
-    \section{TODO}
+    \section{The minimum weight perfect matching on bipartite graphs problem}
 
     Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
 

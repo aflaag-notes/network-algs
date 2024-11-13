@@ -195,6 +195,68 @@
     \field{year}{1980}
   \endentry
 
+  \entry{cheng2}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=CW}{%
+         family={Cheng},
+         familyi={C\bibinitperiod},
+         given={Weifang},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Mo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Kebin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Yunhao},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Xiangyang},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Liao},
+         familyi={L\bibinitperiod},
+         given={Xiangke},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{CW+1}
+    \strng{fullhash}{CWLMLKLYLXLX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{2008 IEEE International Symposium on Parallel and Distributed Processing}
+    \verb{doi}
+    \verb 10.1109/ipdps.2008.4536245
+    \endverb
+    \field{issn}{1530-2075}
+    \field{pages}{1–9}
+    \field{title}{Sweep coverage with mobile sensors}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/IPDPS.2008.4536245
+    \endverb
+    \field{month}{04}
+    \field{year}{2008}
+  \endentry
+
   \entry{cheng}{article}{}
     \name{author}{5}{}{%
       {{hash=CX}{%
@@ -1008,6 +1070,29 @@
     \verb http://dx.doi.org/10.1007/3-540-68530-8_37
     \endverb
     \field{year}{1998}
+  \endentry
+
+  \entry{konig}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SG}{%
+         family={Szárnyas},
+         familyi={S\bibinitperiod},
+         given={Gábor},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SG1}
+    \strng{fullhash}{SG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.48550/arXiv.2009.03780
+    \endverb
+    \field{title}{Graphs and matrices: A translation of "Graphok '{e}s matrixok" by D'{e}nes K\H{o}nig (1931)}
+    \field{month}{09}
+    \field{year}{2020}
   \endentry
 
   \entry{thompson}{inproceedings}{}

@@ -19,57 +19,50 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
-You're missing a field name---line 209 of file ./references.bib
- : 
- : %     author = {Szárnyas, Gábor},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Repeated entry---line 418 of file ./references.bib
- : @inproceedings{cheng
- :                     ,
-I'm skipping whatever remains of this entry
+Warning--entry type for "konig" isn't style-file defined
+--line 208 of file ./references.bib
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 33 entries,
+You've used 35 entries,
             6399 wiz_defined-function locations,
-            1497 strings with 16129 characters,
-and the built_in function-call counts, 239373 in all, are:
-= -- 18567
-> -- 4281
-< -- 1558
-+ -- 6674
-- -- 1607
-* -- 15920
-:= -- 24430
+            1511 strings with 16557 characters,
+and the built_in function-call counts, 256561 in all, are:
+= -- 19965
+> -- 4504
+< -- 1620
++ -- 7273
+- -- 1692
+* -- 17076
+:= -- 26523
 add.period$ -- 0
-call.type$ -- 33
-change.case$ -- 1029
-chr.to.int$ -- 200
-cite$ -- 64
-duplicate$ -- 25414
-empty$ -- 21189
-format.name$ -- 1875
-if$ -- 49272
+call.type$ -- 35
+change.case$ -- 1052
+chr.to.int$ -- 212
+cite$ -- 68
+duplicate$ -- 27503
+empty$ -- 22605
+format.name$ -- 2025
+if$ -- 52574
 int.to.chr$ -- 0
-int.to.str$ -- 100
+int.to.str$ -- 105
 missing$ -- 0
-newline$ -- 1233
-num.names$ -- 2106
-pop$ -- 11100
+newline$ -- 1318
+num.names$ -- 2195
+pop$ -- 11868
 preamble$ -- 1
-purify$ -- 1153
+purify$ -- 1190
 quote$ -- 0
-skip$ -- 7262
+skip$ -- 7604
 stack$ -- 0
-substring$ -- 32108
-swap$ -- 5954
-text.length$ -- 843
-text.prefix$ -- 32
+substring$ -- 34505
+swap$ -- 6297
+text.length$ -- 900
+text.prefix$ -- 34
 top$ -- 1
-type$ -- 1110
+type$ -- 1177
 warning$ -- 0
-while$ -- 3056
+while$ -- 3355
 width$ -- 0
-write$ -- 1201
-(There were 2 error messages)
+write$ -- 1284
+(There was 1 warning)
