@@ -1293,6 +1293,8 @@
         Given a graph $G$, $M \subseteq E(G)$ is a \tbf{matching} of $G$ if and only if $$\forall (x, y), (u, v) \in M \quad x , y\neq u,v$$
     \end{frameddefn}
 
+    The nodes that are not covered by a matching are called \tbf{free nodes}.
+
     \begin{frameddefn}{Perfect matching}
         Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
     \end{frameddefn}
@@ -2060,6 +2062,49 @@
     \end{framedcor}
 
     The \href{https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm}{Ford-Fulkerson algorithm} for computing the \tit{maximum flow} in a flow network has a time complexity of $O(m \abs f)$; however, in our specific case, the maximum flow in $G'$ is bounded above by $\mu := \min(\abs X, \abs Y)$, where $V' = X \cup Y$ --- recall that this is a $X$-perfect matching, where $\abs X \le \abs Y$. Consequently, an algorithm that leverages the maximum flow to find a maximum matching has an overall complexity of $O(m \mu)$.
+
+    \begin{frameddefn}{Alternating path}
+        Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{alternating path} w.r.t $M$ is a path that alternates edges of $M$ and $E(G) - M$
+    \end{frameddefn}
+
+    \begin{example}[Alternating paths]
+        placeholder \todo{add pic}
+    \end{example}
+
+    \begin{frameddefn}{Aumenting path}
+        Given a bipartite graph $G$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t $M$ is an alternating path starting and ending in two free nodes w.r.t $M$.
+    \end{frameddefn}
+
+    \begin{example}[Augmenting paths]
+        placeholder \todo{add pic}
+    \end{example}
+
+    In 1957, \textcite{berge} proved two important theorems in graph theory, one of which is discussed below.
+
+    \begin{framedthm}{Augmenting paths}
+        Given a bipartite graph $G$, $M$ is a maximum matching of $G$ if and only if there are no augmenting paths w.r.t $M$.
+    \end{framedthm}
+
+    \proofiff{
+        Consider the contrapositive: if there exists an augmenting path w.r.t $M$, then $M$ is not a maximum matching of $G$. Consider the edges of an augmenting path $A$ w.r.t $M$, and construct a new matching $M'$ of $G$ as follows: $$M' := (M - A) \cup (A \cap (E(G) - M))$$ therefore, $M'$ still contains the edges that were in $M$ not considering the augmenting path, but it also contains the edges that were in $A$ and were \tit{not} in $M$; in other words, $M'$ is $M$ that includes a swapped version of the augmenting path. Note that, by definition, $A$ starts and ends on free nodes w.r.t $M$, which means that the first and last edges of $A$ are not in $M$, which in turn implies that these two edges will appear in $M$', by construction. Moreover, note that $M'$ is still a matching, by construction. This implies that $\abs M < \abs{M'}$, therefore $M'$ is still a matching but of greater cardinality, hence $M$ cannot be a maximum matching.
+    }{
+        Consider a bipartite graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
+
+        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $\deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 6 kinds:
+
+        \begin{enumerate}
+            \item an isolated node \todo{how???}
+            \item a cycle of length 2 (recall that $H$ is a multi-graph)
+            \item a cycle of length $2k$, for some $k > 1$
+            \item a path of length $2k$, for some $k > 1$
+            \item a path of length $2k + 1$, for some $k > 1$, whose endpoints are incident to $M$
+            \item a path of length $2k + 1$, for some $k > 1$, whose endpoints are incident to $M'$
+        \end{enumerate}
+
+        Among all of these types of possible components, the last is the only type that has more edges that belong to $M'$ than to $M$, and recall that we assumed, by way of contradiction, that $\abs M < \abs{M'}$; this implies that there must be at least one component of the last type, but this component is an augmenting path w.r.t $M$, which is a contradiction.
+    }
+
+    This theorem can be leveraged in order to design an \tit{iterative algorithm} which can find a \tit{maximum matching} on a given bipartite graph.
 
     \printbibliography
 \end{document}

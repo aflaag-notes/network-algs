@@ -1,68 +1,68 @@
-This is BibTeX, Version 0.99d (TeX Live 2024/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2022/nixos.org)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Network Algorithms.aux
 The style file: biblatex.bst
-Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=8) to 20 items from 10.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
 Warning--entry type for "konig" isn't style-file defined
 --line 208 of file ./references.bib
 Biblatex version: 3.19
-Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 31 entries,
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 32 entries,
             6399 wiz_defined-function locations,
-            1472 strings with 15636 characters,
-and the built_in function-call counts, 221766 in all, are:
-= -- 17126
-> -- 4002
-< -- 1438
-+ -- 6246
-- -- 1530
-* -- 14682
-:= -- 22719
+            1482 strings with 15813 characters,
+and the built_in function-call counts, 227889 in all, are:
+= -- 17578
+> -- 4139
+< -- 1512
++ -- 6388
+- -- 1561
+* -- 15010
+:= -- 23177
 add.period$ -- 0
-call.type$ -- 31
-change.case$ -- 936
-chr.to.int$ -- 188
-cite$ -- 60
-duplicate$ -- 23686
-empty$ -- 19610
-format.name$ -- 1749
-if$ -- 45555
+call.type$ -- 32
+change.case$ -- 994
+chr.to.int$ -- 194
+cite$ -- 62
+duplicate$ -- 24365
+empty$ -- 20157
+format.name$ -- 1797
+if$ -- 46916
 int.to.chr$ -- 0
-int.to.str$ -- 91
+int.to.str$ -- 94
 missing$ -- 0
-newline$ -- 1143
-num.names$ -- 1940
-pop$ -- 10426
+newline$ -- 1177
+num.names$ -- 2031
+pop$ -- 10749
 preamble$ -- 1
-purify$ -- 1052
+purify$ -- 1112
 quote$ -- 0
-skip$ -- 6728
+skip$ -- 7029
 stack$ -- 0
-substring$ -- 29482
-swap$ -- 5507
-text.length$ -- 796
-text.prefix$ -- 30
+substring$ -- 30110
+swap$ -- 5713
+text.length$ -- 820
+text.prefix$ -- 31
 top$ -- 1
-type$ -- 1041
+type$ -- 1075
 warning$ -- 0
-while$ -- 2857
+while$ -- 2918
 width$ -- 0
-write$ -- 1113
+write$ -- 1146
 (There was 1 warning)
