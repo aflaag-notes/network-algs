@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/nixos.org) (preloaded format=pdflatex 1980.1.1)  13 NOV 2024 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/nixos.org) (preloaded format=pdflatex 1980.1.1)  13 NOV 2024 16:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3445,7 +3445,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package cleveref Info: loaded `english' language definitions on input line 2065.
 [73]
-Package cleveref Info: loaded `english' language definitions on input line 2105.
+Package cleveref Info: loaded `english' language definitions on input line 2104.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3454,9 +3454,84 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2105.
+Package cleveref Info: loaded `english' language definitions on input line 2104.
 [74]
-Package cleveref Info: loaded `english' language definitions on input line 2109.
+Underfull \hbox (badness 10000) in paragraph at lines 2108--2110
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2115             \Function
+                            {findAugmentingPath}{$G$, $M$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2116                 \State
+                              Construct a directed bipartite graph $G' = (V'...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2117                 \State
+                              $V_1' := V_1$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2118                 \State
+                              $V_2' := V_2$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2119                 \State
+                              $V' := V_1' \cup V_2'$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2120                 \State
+                              $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cu...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2121                 \State
+                              $F := \{v \in V_1' \mid v \mathrm{\ free \ w.r...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2122                 \While
+                             {$F \neq \varnothing$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2123                     \State
+                                  Choose $v \in F$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2124                     \State
+                                  Run a DFS starting on $v$ on $G'$, and if ...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2125                     \State
+                                  $F = F - \{v\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2126                 \EndWhile
+                                
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2127                 \State
+                              \textbf{return} \texttt{None}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2128             \EndFunction
+                               
+Package cleveref Info: loaded `english' language definitions on input line 2131.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3465,13 +3540,85 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2109.
+Package cleveref Info: loaded `english' language definitions on input line 2131.
 [75]
-Package cleveref Info: loaded `english' language definitions on input line 2109.
- [76
+Underfull \hbox (badness 10000) in paragraph at lines 2149--2151
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2156             \Function
+                            {maximumMatchingBipartiteGraphs}{$G$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2157                 \State
+                              $M := \varnothing$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2158                 \State
+                              $P := \texttt{findAugmentingPath}(G)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2159                 \While
+                             {$P \neq \texttt{None}$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2160                     \State
+                                  Swap the edges between $M$ and $E(G) - M$ ...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2161                     \State
+                                  $P := \texttt{findAugmentingPath}(G)$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2162                 \EndWhile
+                                
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2163                 \State
+                              \textbf{return} $M$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2164             \EndFunction
+                               
+Package cleveref Info: loaded `english' language definitions on input line 2167.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2167.
+[76]
+Package cleveref Info: loaded `english' language definitions on input line 2176.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2176.
+[77]
+Package cleveref Info: loaded `english' language definitions on input line 2176.
+ [78
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 2109.
+Package cleveref Info: loaded `english' language definitions on input line 2176.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3480,9 +3627,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2109.
-[77]
-Package cleveref Info: loaded `english' language definitions on input line 2110.
+Package cleveref Info: loaded `english' language definitions on input line 2176.
+[79]
+Package cleveref Info: loaded `english' language definitions on input line 2177.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3491,8 +3638,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2110.
-[78] (./Network Algorithms.aux
+Package cleveref Info: loaded `english' language definitions on input line 2177.
+[80] (./Network Algorithms.aux
 Package cleveref Info: loaded `english' language definitions on input line 23.
 )
 
@@ -3505,19 +3652,19 @@ Package logreq Info: Writing requests to '"Network Algorithms".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 75290 strings out of 477984
- 1870843 string characters out of 5835600
- 2974706 words of memory out of 5000000
- 94098 multiletter control sequences out of 15000+600000
+ 75313 strings out of 477984
+ 1871299 string characters out of 5835600
+ 2976142 words of memory out of 5000000
+ 94117 multiletter control sequences out of 15000+600000
  547940 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  119i,20n,116p,1909b,2229s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmr12.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmr6.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmr8.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/tex-gyre/qtmr.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfbx1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfbx1440
 .pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfbx1728.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfbx2488.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfcc1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfcc1440.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfcc1728.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfcc2074.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfrm0600.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfrm1000.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfrm1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfrm1440.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfss1095.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfss1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfsx1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfti1200.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sfti1440.pfb></nix/store/b7digbmvshajdsbww3qa3xql98b3w1hq-texlive-combined-2022-texmfdist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "Network Algorithms.pdf" (81 pages, 3647074 bytes).
+Output written on "Network Algorithms.pdf" (83 pages, 3653779 bytes).
 PDF statistics:
- 1204 PDF objects out of 1440 (max. 8388607)
- 1010 compressed objects within 11 object streams
- 353 named destinations out of 1000 (max. 500000)
+ 1216 PDF objects out of 1440 (max. 8388607)
+ 1020 compressed objects within 11 object streams
+ 357 named destinations out of 1000 (max. 500000)
  432 words of extra memory for PDF output out of 10000 (max. 10000000)
 
