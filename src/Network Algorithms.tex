@@ -2022,7 +2022,40 @@
         \item \tbf{Indoor Distributed Applications}: In scenarios where sensors need to determine their location autonomously without a central system, techniques based on signal measurements are employed
     \end{itemize}
 
-    \section{The minimum weight perfect matching on bipartite graphs problem}
+    \begin{frameddefn}{Deployment problem (for area coverage)}
+        Given an AoI to cover, cover the AoI entirely while minimizing the number of used sensors, and maximize the covered area.
+    \end{frameddefn}
+
+    In order to design a \tbf{coordination algorithm} for this problem, given an initial configuration starting from either a \tit{random configuration} or from a \tit{safe location}, the goal is to achieve a configuration that ensures full coverage of the AoI, which may be defined through \tit{regular tessellation} --- where sensors are arranged in a structured pattern --- or any other configuration that covers the AoI effectively, tailored to the specific coverage requirements, which may include:
+
+    \begin{itemize}
+        \item \tbf{traversed distance}: the distance traveled by sensors is the primary cost factor, as longer distances increase \tit{energy} and \tit{time requirements}
+        \item \tbf{start/stop movements}: initiating or stopping sensor movement is \tit{more costly} than continuous motion, so minimizing the number of start/stop actions can significantly reduce costs
+        \item \tbf{communication cost}: this cost depends on the frequency of message exchanges and the size of each data packet transmitted
+        \item \tbf{computation cost}: typically negligible, unless the sensors use highly sophisticated processors that require significant computational resources
+    \end{itemize}
+
+    \tbf{Random deployment} is the simplest method for placing sensors. It provides relatively satisfactory coverage, especially in situations where the target area undergoes rapid or unpredictable changes in conditions, or there is limited or no prior knowledge about the environment. It is particularly useful in \tit{military applications}, where WSNs are often established by dropping or scattering sensors over the area. However, random deployment may result in \tit{uneven sensor distribution}, which can reduce the system's overall coverage efficiency and shorten the AoI lifetime. Therefore, random deployment is often used as an initial phase, followed by a \tit{more strategic deployment} to optimize sensor placement and ensure uniform coverage.
+
+    It is well known that \tit{optimal coverage} with \tit{equally sized circles} is achieved by positioning sensor's centers at the vertices of a triangular grid, with an appropriately chosen grid size.
+
+    placeholder \todo{add pic}
+
+    This configuration is used in the \tbf{carrier-based method}. Moreover, note that
+
+    \begin{itemize}
+        \item since physical movement consumes significant energy, the algorithm aims to minimze the number of robot movements
+        \item to conserve bandwidth and energy, communication must be limited, therefore the approach relies on localized solutions, using only available local information rather than global network data
+    \end{itemize}
+
+    In the \tbf{self-deployment} method, two main approaches are used:
+
+    \begin{itemize}
+        \item \tbf{centralized (or global) approach}: this approach relies on global information about the network; while it can be effective, it is typically not scalable for large networks
+        \item \tbf{distributed (or local) approach}: in this approach, sensors use only local information, with iterative exchanges between neighboring sensors; this method is more scalable and better suited for large, dynamic networks
+    \end{itemize}
+
+    \section{The minimum weight perfect matching problem}
 
     Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
 
@@ -2141,7 +2174,7 @@
         placeholder \todo{add pic}
     \end{example}
 
-    \begin{frameddefn}{Aumenting path}
+    \begin{frameddefn}{Augmenting path}
         Given a bipartite graph $G$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t. $M$ is an alternating path starting and ending in two free nodes w.r.t. $M$.
     \end{frameddefn}
 
@@ -2236,6 +2269,8 @@
 
     \idea{
         When the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$ due to the \texttt{while} exiting condition, therefore $M$ is a maximum matching by the \cref{aug paths}.
+
+        Note that the algorithm can start from any matching for $G$, even an empty one $M := \varnothing$, since the first iteration of the algorithm will find any edge in $E(G)$ as augmenting path.
     }
 
     \cost{

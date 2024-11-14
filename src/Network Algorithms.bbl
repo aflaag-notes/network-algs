@@ -35,13 +35,15 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{A}
     \field{sortinithash}{A}
-    \field{booktitle}{Proceedings of 37th Conference on Foundations of Computer Science}
+    \field{booktitle}{Proceedings of 37th Conference on Foundations of Computer
+  Science}
     \verb{doi}
     \verb 10.1109/sfcs.1996.548458
     \endverb
     \field{pages}{2–11}
     \field{series}{SFCS-96}
-    \field{title}{Polynomial time approximation schemes for Euclidean TSP and other geometric problems}
+    \field{title}{Polynomial time approximation schemes for Euclidean TSP and
+  other geometric problems}
     \verb{url}
     \verb http://dx.doi.org/10.1109/SFCS.1996.548458
     \endverb
@@ -77,13 +79,15 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{B}
     \field{sortinithash}{B}
-    \field{booktitle}{Proceedings of the forty-fourth annual ACM symposium on Theory of computing}
+    \field{booktitle}{Proceedings of the forty-fourth annual ACM symposium on
+  Theory of computing}
     \verb{doi}
     \verb 10.1145/2213977.2214038
     \endverb
     \field{pages}{663–672}
     \field{series}{STOC’12}
-    \field{title}{The traveling salesman problem: low-dimensionality implies a polynomial time approximation scheme}
+    \field{title}{The traveling salesman problem: low-dimensionality implies a
+  polynomial time approximation scheme}
     \verb{url}
     \verb http://dx.doi.org/10.1145/2213977.2214038
     \endverb
@@ -243,7 +247,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
     \field{sortinithash}{C}
-    \field{booktitle}{2008 IEEE International Symposium on Parallel and Distributed Processing}
+    \field{booktitle}{2008 IEEE International Symposium on Parallel and
+  Distributed Processing}
     \verb{doi}
     \verb 10.1109/ipdps.2008.4536245
     \endverb
@@ -305,7 +310,8 @@
     \field{issn}{1097-0037}
     \field{number}{4}
     \field{pages}{202–208}
-    \field{title}{A polynomial‐time approximation scheme for the minimum‐connected dominating set in ad hoc wireless networks}
+    \field{title}{A polynomial‐time approximation scheme for the
+  minimum‐connected dominating set in ad hoc wireless networks}
     \verb{url}
     \verb http://dx.doi.org/10.1002/net.10097
     \endverb
@@ -339,7 +345,8 @@
     \endverb
     \field{issn}{2662-2556}
     \field{number}{1}
-    \field{title}{Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem}
+    \field{title}{Worst-Case Analysis of a New Heuristic for the Travelling
+  Salesman Problem}
     \verb{url}
     \verb http://dx.doi.org/10.1007/s43069-021-00101-z
     \endverb
@@ -413,7 +420,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{C}
     \field{sortinithash}{C}
-    \field{booktitle}{Proceedings of the third annual ACM symposium on Theory of computing - STOC ’71}
+    \field{booktitle}{Proceedings of the third annual ACM symposium on Theory
+  of computing - STOC ’71}
     \verb{doi}
     \verb 10.1145/800157.805047
     \endverb
@@ -457,7 +465,8 @@
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{abstract}{%
-    It is shown that a certain tour of 49 cities, one in each of the 48 states and Washington, D. C., has the shortest road distance.%
+    It is shown that a certain tour of 49 cities, one in each of the 48 states
+  and Washington, D. C., has the shortest road distance.%
     }
     \field{issn}{00963984}
     \field{number}{4}
@@ -527,7 +536,8 @@
     \field{issn}{1097-0037}
     \field{number}{2}
     \field{pages}{91–95}
-    \field{title}{Embedding interconnection networks in grids via the layered cross product}
+    \field{title}{Embedding interconnection networks in grids via the layered
+  cross product}
     \verb{url}
     \verb http://dx.doi.org/10.1002/1097-0037(200009)36:2<91::AID-NET3>3.0.CO;2
     \verb -4
@@ -567,7 +577,8 @@
     \field{issn}{1097-0037}
     \field{number}{4}
     \field{pages}{219–223}
-    \field{title}{Layered cross product - A technique to construct interconnection networks}
+    \field{title}{Layered cross product - A technique to construct
+  interconnection networks}
     \verb{url}
     \verb http://dx.doi.org/10.1002/(SICI)1097-0037(199707)29:4<219::AID-NET5>3
     \verb .0.CO;2-I
@@ -667,7 +678,8 @@
     \field{issn}{0743-7315}
     \field{number}{8}
     \field{pages}{2699–2707}
-    \field{title}{Approximation algorithms for sweep coverage in wireless sensor networks}
+    \field{title}{Approximation algorithms for sweep coverage in wireless
+  sensor networks}
     \verb{url}
     \verb http://dx.doi.org/10.1016/j.jpdc.2014.02.009
     \endverb
@@ -706,7 +718,8 @@
     \endverb
     \field{issn}{0166-218X}
     \field{pages}{130–139}
-    \field{title}{Solving energy issues for sweep coverage in wireless sensor networks}
+    \field{title}{Solving energy issues for sweep coverage in wireless sensor
+  networks}
     \verb{url}
     \verb http://dx.doi.org/10.1016/j.dam.2016.09.028
     \endverb
@@ -806,7 +819,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{L}
     \field{sortinithash}{L}
-    \field{booktitle}{21st Annual Symposium on Foundations of Computer Science (sfcs 1980)}
+    \field{booktitle}{21st Annual Symposium on Foundations of Computer Science
+  (sfcs 1980)}
     \verb{doi}
     \verb 10.1109/sfcs.1980.13
     \endverb
@@ -909,12 +923,14 @@
     \field{issn}{0975-7260}
     \field{number}{3}
     \field{pages}{59–66}
-    \field{title}{Constructing Minimum Connected Dominating Set: Algorithmic Approach}
+    \field{title}{Constructing Minimum Connected Dominating Set: Algorithmic
+  Approach}
     \verb{url}
     \verb http://dx.doi.org/10.5121/jgraphoc.2010.2305
     \endverb
     \field{volume}{2}
-    \field{journaltitle}{International Journal on Applications of Graph Theory In wireless Ad Hoc Networks And sensor Networks}
+    \field{journaltitle}{International Journal on Applications of Graph Theory
+  In wireless Ad Hoc Networks And sensor Networks}
     \field{month}{09}
     \field{year}{2010}
   \endentry
@@ -1031,7 +1047,8 @@
     \endverb
     \field{issn}{2169-3536}
     \field{pages}{120475–120499}
-    \field{title}{Adding Duty Cycle Only in Connected Dominating Sets for Energy Efficient and Fast Data Collection}
+    \field{title}{Adding Duty Cycle Only in Connected Dominating Sets for
+  Energy Efficient and Fast Data Collection}
     \verb{url}
     \verb http://dx.doi.org/10.1109/ACCESS.2019.2937626
     \endverb
@@ -1065,7 +1082,8 @@
     \field{isbn}{9783540685302}
     \field{issn}{0302-9743}
     \field{pages}{441–452}
-    \field{title}{2-Approximation Algorithm for Finding a Spanning Tree with Maximum Number of Leaves}
+    \field{title}{2-Approximation Algorithm for Finding a Spanning Tree with
+  Maximum Number of Leaves}
     \verb{url}
     \verb http://dx.doi.org/10.1007/3-540-68530-8_37
     \endverb
@@ -1090,7 +1108,8 @@
     \verb{doi}
     \verb 10.48550/arXiv.2009.03780
     \endverb
-    \field{title}{Graphs and matrices: A translation of "Graphok '{e}s matrixok" by D'{e}nes K\H{o}nig (1931)}
+    \field{title}{Graphs and matrices: A translation of "Graphok '{e}s
+  matrixok" by D'{e}nes K\H{o}nig (1931)}
     \field{month}{09}
     \field{year}{2020}
   \endentry
@@ -1113,7 +1132,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{T}
     \field{sortinithash}{T}
-    \field{booktitle}{Proceedings of the eleventh annual ACM symposium on Theory of computing - STOC ’79}
+    \field{booktitle}{Proceedings of the eleventh annual ACM symposium on
+  Theory of computing - STOC ’79}
     \verb{doi}
     \verb 10.1145/800135.804401
     \endverb
@@ -1162,7 +1182,8 @@
     \field{issn}{0012-365X}
     \field{number}{1–3}
     \field{pages}{355–360}
-    \field{title}{On the nonseparating independent set problem and feedback set problem for graphs with no vertex degree exceeding three}
+    \field{title}{On the nonseparating independent set problem and feedback set
+  problem for graphs with no vertex degree exceeding three}
     \verb{url}
     \verb http://dx.doi.org/10.1016/0012-365X(88)90226-9
     \endverb
@@ -1302,7 +1323,8 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{Y}
     \field{sortinithash}{Y}
-    \field{booktitle}{Proceedings. Frontiers ’99. Seventh Symposium on the Frontiers of Massively Parallel Computation}
+    \field{booktitle}{Proceedings. Frontiers ’99. Seventh Symposium on the
+  Frontiers of Massively Parallel Computation}
     \verb{doi}
     \verb 10.1109/fmpc.1999.750589
     \endverb
