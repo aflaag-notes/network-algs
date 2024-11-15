@@ -14,4 +14,6 @@ These are my [notes](<https://raw.githubusercontent.com/aflaag-notes/network-alg
     - last part?
 - [x] 7
 - [ ] 8
+    - blossom algorithm "explaination"?
+    - last part?
 - [ ] TODOs here and there

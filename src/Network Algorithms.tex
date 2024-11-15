@@ -12,7 +12,7 @@
 
 \def\coursePrerequisites{
     \begin{itemize}
-        \item Progettazione di Algorithmi
+        \item Progettazione di Algoritmi
     \end{itemize}
 }
 
@@ -582,7 +582,7 @@
     Another important and widely used interconnection topology is the \tbf{mesh network}, which is described as follows.
 
     \begin{frameddefn}{Mesh network}
-        Given two integers $m, n \ge 1$, an $m \times n$ \tbf{mesh network} $M_{m, n}$ is defines as follows:
+        Given two integers $m, n \ge 1$, an $m \times n$ \tbf{mesh network} $M_{m, n}$ is defined as follows:
 
         \begin{itemize}
             \item the nodes of the network are labeled by the following cartesian product $$\{1, \ldots, m\} \times \{1, \ldots, n\}$$
@@ -2186,13 +2186,13 @@
     In 1957, \textcite{berge} proved two important theorems in graph theory, one of which is discussed below.
 
     \begin{framedthm}[label={aug paths}]{Augmenting paths}
-        Given a bipartite graph $G$, $M$ is a maximum matching of $G$ if and only if there are no augmenting paths w.r.t. $M$.
+        Given a graph $G$, $M$ is a maximum matching of $G$ if and only if there are no augmenting paths w.r.t. $M$.
     \end{framedthm}
 
     \proofiff{
         Consider the contrapositive: if there exists an augmenting path w.r.t. $M$, then $M$ is not a maximum matching of $G$. Consider the edges of an augmenting path $A$ w.r.t. $M$, and construct a new matching $M'$ of $G$ as follows: $$M' := (M - A) \cup (A \cap (E(G) - M))$$ therefore, $M'$ still contains the edges that were in $M$ not considering the augmenting path, but it also contains the edges that were in $A$ and were \tit{not} in $M$; in other words, $M'$ is $M$ that includes a swapped version of the augmenting path. Note that, by definition, $A$ starts and ends on free nodes w.r.t. $M$, which means that the first and last edges of $A$ are not in $M$, which in turn implies that these two edges will appear in $M$', by construction. Moreover, note that $M'$ is still a matching, by construction. This implies that $\abs M < \abs{M'}$, therefore $M'$ is still a matching but of greater cardinality, hence $M$ cannot be a maximum matching.
     }{
-        Consider a bipartite graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t. $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
+        Consider a graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t. $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
 
         Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 6 kinds:
 
@@ -2407,6 +2407,93 @@
     \end{array}\]
 
     \section{Maximum matchings in the general case}
+
+    The previous section explored various algorithms capable of finding maximum matchings in \tit{bipartite graphs}. However, all the algorithms and theorems discussed were based on the following \tit{structural property} of bipartite graphs, which ensures the algorithms achieve favorable time complexity.
+
+    \begin{framedthm}{Bipartite graphs}
+        A graph is bipartite if and only if it does not contain cycles of odd length.
+    \end{framedthm}
+
+    In fact, the algorithm for finding augmenting paths --- in the unweighted version --- \cref{aug paths} works by relying on the fact that the given graph \tit{cannot} contain odd-legth cycles. For instance, consider the following scenario:
+
+    \todo{add pic pag 31}
+
+    Any matching over this odd-length cycle will not cover every vertex of the cycle, by definition of matching, otherwise there would be two edges of the matching sharing one vertex. This means that in any odd-length cycle there must be a vertex adjacent to two edges which cannot be part of the matching considered. In the situation illustrated in the figure, if the algorithm starts from 1 and tries to search for an augmenting path in the \curlyquotes{wrong} direction (i.e. counterclockwise), the augmenting path that goes from 1 and ends in 6 going clockwise through the cycle will not be found.
+
+    In summary, problems arise when there are \tbf{blossoms} in the given graph, which are defined below.
+
+    \begin{frameddefn}[label={blossom}]{Blossom}
+        Given a graph $G$, and a matching $M$ of $G$, a \tbf{blossom} w.r.t. $M$ is a cycle of odd length which contains a maximal number of edges in $M$.
+    \end{frameddefn}
+
+    \begin{example}[Blossoms]
+        placeholder \todo{add pic}
+    \end{example}
+
+    Although the presence of \tit{blossoms} do not allow the use of the algorithms discussed earlier, the following lemma enables us to define an algorithm capable of solving the problem, which will be discussed later.
+
+    \begin{framedlem}[label={blossom lemma}]{Cycle contraction}
+        Let $G$ be a graph, let $M$ be a matching of $G$, and let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$. Let $G'$ be the graph obtained by contracting $B$ over its uncovered vertex w.r.t. $M$, and let $M'$ be the matching induced by $M$ on $G'$. Then $M$ is a maximum matching of $G$ if and only if $M'$ is a maximum matching of $G'$.
+    \end{framedlem}
+
+    \proofiff{
+        By way of contradiction, assume that $M$ is maximum in $G$, but $M'$ is not maximum in $G'$; therefore, by \cref{aug paths}, there must exist an augmenting path $P$ in $G'$ w.r.t. $M'$.
+
+        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G'$. In particular, note that the following situation cannot occur
+
+        placeholder \todo{add pic}
+
+        since $B$ is \tit{node-disjoint} from $M$ by hypothesis. Therefore, in $G'$, two cases may occur.
+
+        \begin{itemize}
+            \item The first case occurs when $P$ does not cross $b$. This implies that $P$ is an augmenting path for both $G'$ w.r.t. $M'$ and $G$ w.r.t. $M$, which would imply that $M$ is not a maximum matching by \cref{aug paths}, raising a contradiction
+            \item Consider the case in which $P$ crosses $b$. Note that $b$ must be free w.r.t. $M'$, since $B$ was contracted over its uncovered vertex w.r.t. $M$, which is free w.r.t. $M$ in $G$. Hence, since we are assuming that $B$ is \tit{node-disjoint}, this condition implies that $b$ must be an endpoint of $P$. Now, consider $B$: clearly, we can define in $G$ a path $P'$ formed by $P' := P \cup P''$, since $P$ must exist in $G$ as well, and $P''$ is the portion of $B$ which can \tit{extend} $P$ as augmenting path. This means that $P'$ is an augmenting path in $G$ w.r.t. $M$, which raises a contradiction by \cref{aug paths} as the previous case. \end{itemize}
+    }{
+        By way of contradiction, assume that $M'$ is maximum in $G'$, but $M$  is not maximum in $G$; therefore, by \cref{aug paths}, there must exist an augmenting path $P$ in $G$ w.r.t. $M$.
+
+        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G$. Moreover, let $v$ be the uncovered node of $B$ w.r.t. $M$. Thus, in $G$ two cases may occur.
+
+        \begin{itemize}
+            \item The first case occurs when $P$ does not cross $v$. Trivially, this implies that $P$ is an augmenting path both for $G$ and $G'$, which would raise a contradiction by \cref{aug paths}.
+            \item The second case occurs when $P$ crosses $v$. Note that, since $B$ contains only 1 single free node w.r.t. $M$, namely $v$, at least one of the endpoints of $P$ must lie outside $B$, and let it be $w$. Let $P'$ be the portion of $P$ which joints $v$ and $w$; note that, when contracting $B$ on $v$, obtaining $b$, we obtain a path $P'$ that an augmenting path in $G'$ that starts in $b$ and ends in $w$, which raises a contradiction by \cref{aug paths}.
+        \end{itemize}
+    }
+
+    Thanks to this lemma, in 1965 \textcite{edmonds} designed the following algorithm, also known as \href{https://en.wikipedia.org/wiki/Blossom_algorithm}{Blossom algorithm}.
+
+    \begin{framedalgo}{Blossom algorithm}
+        Given a graph $G$, the algorithm returns a maximum matching of $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{blossomAlgorithm}{$G$}
+                \State $M := \varnothing$
+                \State $\mathcal B := \texttt{findBlossoms}(B)$ \Comment{omitted}
+                \For{$B \in \mathcal B$}
+                    \State Contract $B$ over its uncovered node w.r.t. $M$
+                \EndFor
+                \State $M := \texttt{maximumMatchingBipGraphs}(G, M)$ \Comment{defined in \cref{alg:max_matching_bip}}
+                \For{$B \in \mathcal B$}
+                    \State Expand $B$ into $G$
+                \EndFor
+                \State Update $M$ according to the new edges
+                \State \textbf{return} $M$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        The algorithm is simply an extension of \cref{alg:max_matching_bip}, and it is guaranteed that it returns a maximum matching of the original graph $G$ by \cref{blossom lemma}.
+
+        Note that, without loss of generality, we can assume that the function in line 7 can take as input any matching $M$ and work as intended, since \cref{alg:max_matching_bip} can start from any given matching $M$, even empty ones.
+    }
+
+    \cost{
+        The time complexity of the algorithm depends on how blossoms are handled; in particular, depending on the data structure emplyoed, the cost of the algorithm can be either $O(n^3)$ or $O(m n^2)$.
+
+        As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
+    }
 
     \printbibliography
 \end{document}
