@@ -545,7 +545,7 @@
 
         Note that each \tit{starting node} --- those in layer 0 --- has degree 4, and 2 of the links connect each starting node to the inputs, external to the Beneš network. Therefore, by definition of the Beneš network, the remaining two edges must connect each starting node to the two separate $(n - 1)$-dimensional Beneš networks. Formally, each input $2i -1$ and $2i$ must use different Beneš subnetworks, for each $1 \le i \le 2n$.
 
-        The proof is constructive, and involves a so called \tbf{looping algorithm}, which proceeds as follows:
+        The proof is constructive, and involves a so-called \tbf{looping algorithm}, which proceeds as follows:
 
         \begin{itemize}
             \item let two inupts connected to the same starting node be referred to as \tit{mates};
@@ -1099,6 +1099,7 @@
     \end{itemize}
 
     Therefore, we get the following ILP:
+
     \[\begin{array}{ccc}
         \qquad\qquad\quad
         & \min \; \sum\limits_{i = 1}^n x_i \\\\
@@ -1565,10 +1566,10 @@
 
     \[\begin{array}{ccc}
         \qquad\qquad\quad
-        & \min \; \sum\limits_{i = 1}^n {\sum\limits_{j = 1}^n {w_{ij}x_{ij}}} \\\\
-        & \sum\limits_{i = 1}^n {x_{ij}} = 1, \quad j \in V(K_n) \\
-        & \sum\limits_{j = 1}^n {x_{ij}} = 1, \quad i \in V(K_n) \\
-        & \sum\limits_{i, j \in S} {x_{ij}} < \abs S, \quad S \subsetneq V(K_n), S \neq \varnothing \\
+        & \min \; \sum\limits_{(i, j) \in E(G)} {w_{ij}x_{ij}} \\\\
+        & \sum\limits_{i = 1}^n {x_{ij}} = 1 & \forall j \in V(K_n) \\
+        & \sum\limits_{j = 1}^n {x_{ij}} = 1 & \forall i \in V(K_n) \\
+        & \sum\limits_{i, j \in S} {x_{ij}} < \abs S & \forall S \subsetneq V(K_n), S \neq \varnothing \\
         & x \in \{0,1\}^n
     \end{array}\]
 
@@ -1748,7 +1749,7 @@
     \begin{itemize}
         \item \tbf{minimal size}: the number of nodes in the backbone should be as small as possible to save energy while maintaining network efficiency
         \item \tbf{connectivity}: every node in the backbone must be able to route data to the base station, ensuring that there is \tit{at least one path} from each backbone node to the base station
-        \item \tbf{dominating set}: every other node in the network must communicate directly with at least one node in the backbone, meaning the backbone forms a so called \tbf{minimum connected dominating set}, ensuring that all nodes in the network are covered by the backbone
+        \item \tbf{dominating set}: every other node in the network must communicate directly with at least one node in the backbone, meaning the backbone forms a so-called \tbf{minimum connected dominating set}, ensuring that all nodes in the network are covered by the backbone
     \end{itemize}
 
     \section{The minimum connected dominating set problem}
@@ -2055,7 +2056,7 @@
         \item \tbf{distributed (or local) approach}: in this approach, sensors use only local information, with iterative exchanges between neighboring sensors; this method is more scalable and better suited for large, dynamic networks
     \end{itemize}
 
-    \section{The minimum weight perfect matching problem}
+    \section{Matchings on bipartite graphs}
 
     Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
 
@@ -2135,7 +2136,7 @@
     \end{frameddefn}
 
     \begin{framedthm}{}
-        The perfect matching problem on bipartite graphs is equivalent to the maximum flow problem on flow networks.
+        The perfect matching problem on bipartite graphs is reducible to the maximum flow problem on flow networks.
     \end{framedthm}
 
     \begin{proof}
@@ -2162,7 +2163,7 @@
 
     The \href{https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm}{Ford-Fulkerson algorithm} for computing the \tit{maximum flow} in a flow network has a time complexity of $O(m \abs f)$; however, in our specific case, the maximum flow in $G'$ is bounded above by $\mu := \min(\abs X, \abs Y)$, where $V' = X \cup Y$ --- recall that this is a $X$-perfect matching, where $\abs X \le \abs Y$. Consequently, an algorithm that leverages the maximum flow to find a maximum matching has an overall complexity of $O(m \mu)$.
 
-    \subsection{Finding a maxmum matching}
+    \subsection{Finding a maximum matching}
 
     In general, it is not trivial to find a \tbf{maximum matching} on a graph. First, we will discuss algorithms and theoretical results which can be leveraged in order to find a maximum matching on \tbf{bipartite graphs}.
 
@@ -2174,7 +2175,7 @@
         placeholder \todo{add pic}
     \end{example}
 
-    \begin{frameddefn}{Augmenting path}
+    \begin{frameddefn}[label={aug path}]{Augmenting path (unweighted case)}
         Given a bipartite graph $G$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t. $M$ is an alternating path starting and ending in two free nodes w.r.t. $M$.
     \end{frameddefn}
 
@@ -2223,7 +2224,7 @@
                 \State $F := \{v \in V_1' \mid v \mathrm{\ free \ w.r.t. \ } M\}$
                 \While{$F \neq \varnothing$}
                     \State Choose $v \in F$
-                    \State Run a DFS starting on $v$ on $G'$, and if the DFS finds a node in $u \in V_2$ free w.r.t. $M$, return the path $v \to u$
+                    \State Continue a DFS starting on $v$ on $G'$, and if the DFS finds a node in $u \in V_2$ free w.r.t. $M$, return the path $v \to u$
                     \State $F = F - \{v\}$
                 \EndWhile
                 \State \textbf{return} \texttt{None}
@@ -2243,39 +2244,169 @@
     }
 
     \cost{
-        placeholder \todo{what?}
+        Assuming that the various DFS visits on $G'$ will not visit any edge more than once, the cost of the algorithm is the cost of performing 1 single DFS, which is precisely $O(n + m)$.
     }
 
     From this, we can define the following algorithm, which is able to find a \tit{maximum matching} on a given bipartite graph.
 
-    \begin{framedalgo}{Maximum matching}
+    \begin{framedalgo}[label={alg:max_matching_bip}]{Maximum matching (bipartite graphs)}
         Given a bipartite graph $G = (V, E)$, the algorithm returns a maximum matching for $G$. \\
         \hrule
 
         \quad
-        \label{alg:max_matching}
         \begin{algorithmic}[1]
             \Function{maximumMatchingBipGraphs}{$G$}
                 \State $M := \varnothing$
-                \State $P := \texttt{findAugmentingPath}(G)$
-                \While{$P \neq \texttt{None}$}
-                    \State Swap the edges between $M$ and $E(G) - M$ in $P$
-                    \State $P := \texttt{findAugmentingPath}(G)$ \Comment{defined in \cref{alg:augmenting_path}}
-                \EndWhile
+                \Do
+                    \State $p := \texttt{findAugmentingPath}(G)$ \Comment{defined in \cref{alg:augmenting_path}}
+                    \State Swap the edges between $M$ and $E(G) - M$ in $p$
+                \doWhile{$p \neq \varnothing$}
                 \State \textbf{return} $M$
             \EndFunction
         \end{algorithmic}
     \end{framedalgo}
 
     \idea{
-        When the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$ due to the \texttt{while} exiting condition, therefore $M$ is a maximum matching by the \cref{aug paths}.
+        When the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$ due to the \texttt{do-while} exiting condition, therefore $M$ is a maximum matching by the \cref{aug paths}.
 
         Note that the algorithm can start from any matching for $G$, even an empty one $M := \varnothing$, since the first iteration of the algorithm will find any edge in $E(G)$ as augmenting path.
     }
 
     \cost{
-        placeholder \todo{what?}
+        placeholder \todo{i forgot why}
     }
+
+    Although this naïve solution still yields a polynomial time algorithm, in 1973 \textcite{hopcroft} developed the so-called \href{https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm}{Hopcroft-Karp algorithm}, which is able to find a maximum matching on a bipartite graphs in $O(m \sqrt n)$ time, which is better than what this algorithm can achieve.
+
+    \begin{framedalgo}{Hopcroft-Karp algorithm}
+        Given a bipartite graph $G = (V = V_1 \cup V_2, E)$, the algorithm returns a maximum matching for $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{hopcroftKarp}{$G$}
+                \State $M := \varnothing$
+                \State Construct a directed bipartite graph $G' = (V', E')$
+                \State $V_1' := V_1$
+                \State $V_2' := V_2$
+                \State $V' := V_1' \cup V_2'$
+                \State $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cup \{(u, v) \mid (u, v) \in M\}$ \Comment{$E'$ is directed}
+                \State $F_1 := \{v \in V_1' \mid v \mathrm{\ free \ w.r.t. \ } M\}$
+                \Do
+                    \State Run a simultaneous BFS starting from all the vertices in $F_1$, until at least one free node in $V_2'$ is found; let the set of free nodes in $V_2'$ be $F_2$
+                    \State Run a DFS starting from the nodes in $F_2$ and climb the BFS trees up towards $F_1$; let $P$ the set of all the paths found
+                    \For{$p \in P$}
+                        \State Swap the edges between $M$ and $E(G) - M$ in $p$
+                    \EndFor
+                \doWhile{$P \neq \varnothing$}
+                \State \textbf{return} $M$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        The algorithm starts from a matching $M$ of $G$, possibly empty, and then defines a graph $G'$, which is constructed as we did in \cref{alg:augmenting_path}. Moreover, it defines $F_1$ to be the set of free nodes in $V_1'$ w.r.t. $M$.
+
+        Then, a \texttt{do-while} is initialized, in which the algorithm runs a \tit{simultaneous} BFS, starting from all the vertices that are in $F_1$, which termintes when at least one free node in $V_2$ w.r.t. $M$ is found; all the free nodes that were found (multiple free nodes can be found simultaneously) are put into $F_2$. Assume that the algorithm is at the $k$-th iteration of the \texttt{do-while}; inductively, we know that this procedure will reach the $(2k-1)$-th layer in the BFS tree, because all the previous layers must have been found in the previous iterations of the \texttt{do-while}. Moreover, note that every path starting from any root in $F_2$ of the BFS forest that ends in $F_2$ is
+
+        \begin{itemize}
+            \item an augmenting path, since it starts and ends on two free nodes w.r.t. $M$, by construction of $G'$
+            \item node-disjoint, by definition of matching, since they are alternating paths w.r.t. $M$
+        \end{itemize}
+
+        This means that, by performing a DFS which starts from $F_2$ and climbs the various trees of the BFS forest towards $F_1$, the set of paths $P$ encountered will contain \tit{all} the augmenting paths of length $2k - 1$. Therefore, updating $M$ w.r.t. $P$, the algorithm is able to perfomrm the same idea of \cref{alg:max_matching_bip} but with fewer iterations of the \texttt{do-while}.
+    }
+    
+    \cost{
+        Assuming that $m > n$, the cost of the \texttt{do-while} is simply the cost of performing a BFS and a DFS, which has cost $$O(n + m) + O(n + m) = O(n + m) = O(m)$$
+
+        Consider the first $\sqrt n$ steps of the algorithm; clearly, they take $O(m \sqrt n)$ time. Note that, at each iteration of the \texttt{do-while}, the length of the augmenting paths found keeps increasing, since at the $k$-th iteration \tit{all} the augmenting paths of length $2k - 1$ are found. This means that, after the first $\sqrt n$ steps, the shortest augmenting path is at least $2\sqrt n - 1 + 1 = 2\sqrt n$ long.
+
+        Moreover, note that the symmetric difference between a maximum matching $M'$ and the partial matching $M$ found after the first $\sqrt n$ steps is a set of
+        
+        \begin{itemize}
+            \item vertex-disjoint alternating cycles
+            \item alternating paths
+            \item augmenting paths
+        \end{itemize}
+
+        Consider the augmenting paths: each of them bust be at least $2 \sqrt n$ long, therefore there must be at most $$\dfrac{n}{2 \sqrt n} = O(\sqrt n)$$ such paths. This means that the maximum matching $M'$ considered can be larger than $M$ by at most $O(\sqrt n)$ edges. In the worst case, each step of the algorithm augments the size of $M$ by one, therefore at most $O(\sqrt n)$ steps are required after the first $\sqrt n$ steps.
+
+        This shows that the algorithm runs in at most $O(\sqrt n) + O(\sqrt n) = O(\sqrt n)$ iterations of the \texttt{do-while}, and since the cost of a single iteration is $O(m)$, we have that the total cost of the algorithm is $$O(m) \cdot O(\sqrt n) = O(m \sqrt n)$$
+    }
+
+    \subsection{Finding a minimum-weight perfect matching}
+
+    If the bipartite graph $G = (V, E)$ we are considering has a strictly-positive edge-assigning weight function associated, it is possible to define the following problem.
+
+    \begin{frameddefn}{Minimum-weight perfect matching problem}
+        Given a bipartite graph $G = (V, E)$, and a weight function $\func{w}{E(G)}{\R_{> 0}}$, find the perfect matching which minimizes the total weight.
+    \end{frameddefn}
+
+    Solving this problem might seem counterintuitive at first: a perfect matching is typically defined as \tit{maximizing} the number of covered vertices, but at the same time this problem aims at \tit{minimizing} the total weight of the edges included in the matching. To address this, it is often more practical to reformulate the problem as follows:
+
+    \begin{itemize}
+        \item swap sign of the weights assigned by $w$ (therefore, all the weights are now strictly negative)
+        \item find a \tbf{maximum weight perfect matching}
+    \end{itemize}
+
+    With this reduction, we can aim at maximizing both the weight and the number of covered vertices, simultaneously.
+
+    \begin{example}[Max-weight PM]
+        placeholder \todo{add pic}
+    \end{example}
+
+    In order to develop an algorithm which is able to find a maximum weight perfect matching, we need to provide a new definition for \tit{augmenting paths} --- different from the \cref{aug path}.
+
+    \begin{frameddefn}{Augmenting path (weighted case)}
+        Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t. $M$ is an alternating path such that the total weight of the edges in $E(G) - M$ is greater than the total weight of the edges in $M$.
+
+        The \tbf{weight} of such an augmenting path is defined as follows: $$w(A) := \sum_{e \in E(G) - M}{w(e)} - \sum_{e \in M}{w(e)}$$
+    \end{frameddefn}
+
+    Note that, differently from the previous definition, this type of augmenting path does not need to end on a free node.
+
+    Using this definition, we can construct the following algorithm, though its proof will be omitted due to its complexity.
+
+    \begin{framedalgo}{Maximum weight perfect matching}
+        Given a bipartite graph $G = (V, E)$, the algorithm returns a maximum weight perfect matching for $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{maxWeightPerfectMatchingBipGraphs}{$G$}
+                \State $M := \varnothing$
+                \Do
+                    \State $p := \texttt{findMaxWeightAugPath}(G)$ \Comment{algorithm omitted}
+                    \If{$w(p) \ge 0$}
+                        \State Swap the edges between $M$ and $E(G) - M$ in $p$
+                    \Else
+                        \State \textbf{break}
+                    \EndIf
+                \doWhile{$p \neq \varnothing$}
+                \State \textbf{return} $M$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    Note that the cost of this algorithm is at least $O(n m)$, but in 1955 \textcite{kuhn} presented the so-called \href{https://en.wikipedia.org/wiki/Hungarian_algorithm}{Hungarian method}, through which it possible to transform the minimum weight perfect matching problem into an ILP, which can be solved in $O(n^3)$ time. Given a matching $M$ of a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a weight function $\func{w}{E(G)}{\R_{>0}}$, define the following variables:
+
+    \begin{itemize}
+        \item let $x_{ij}$ be a variable for each $(i, j) \in E(G)$, such that $x_{ij} = 1$ if and only if $(i, j) \in M$
+        \item let $c_{ij}$ be the weight $w(i, j)$ of the edge $(i, j) \in E(G)$
+    \end{itemize}
+
+    We define the following ILP:
+
+    \[\begin{array}{ccc}
+        \qquad\qquad\quad
+        & \min \; \sum\limits_{(i, j) \in E(G)} {c_{ij}x_{ij}} \\\\
+        & \sum\limits_{j \in V_2} {x_{ij}} = 1 & \forall i \in V_1 \\
+        & \sum\limits_{i \in V_1} {x_{ij}} = 1 & \forall j \in V_2 \\
+        & x \in \{0,1\}^n
+    \end{array}\]
+
+    \section{Maximum matchings in the general case}
 
     \printbibliography
 \end{document}

@@ -5,17 +5,6 @@
 \citation{biblatex-control}
 \abx@aux@refcontext{anyt/global//global/global}
 \providecommand\hyper@newdestlabel[2]{}
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \providecommand\babel@aux[2]{}
@@ -429,7 +418,7 @@
 \pgfsyspdfmark {pgfid236}{8724848}{34543125}
 \pgfsyspdfmark {pgfid239}{36282433}{34422758}
 \pgfsyspdfmark {pgfid240}{37412929}{34289235}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}The minimum weight perfect matching problem}{74}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Matchings on bipartite graphs}{74}{section.6.1}\protected@file@percent }
 \@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ add pics}{75}{section*.23}\protected@file@percent }
 \pgfsyspdfmark {pgfid245}{23012559}{43298391}
 \pgfsyspdfmark {pgfid248}{36282433}{43178024}
@@ -457,30 +446,46 @@
 \citation{berge}
 \abx@aux@cite{0}{berge}
 \abx@aux@segm{0}{0}{berge}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Finding a maxmum matching}{78}{subsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Finding a maximum matching}{78}{subsection.6.1.2}\protected@file@percent }
 \@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ add pic}{78}{section*.28}\protected@file@percent }
 \pgfsyspdfmark {pgfid286}{20942494}{20686762}
 \pgfsyspdfmark {pgfid289}{36282433}{20566395}
 \pgfsyspdfmark {pgfid290}{37412929}{20432872}
+\newlabel{aug path}{{6.10}{78}{Augmenting path (unweighted case)}{tcb@cnt@frameddefn.6.10}{}}
+\newlabel{aug path@cref}{{[frameddefn][10][6]6.10}{[1][78][]78}}
 \@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ add pic}{78}{section*.29}\protected@file@percent }
-\pgfsyspdfmark {pgfid293}{21177730}{13702957}
-\pgfsyspdfmark {pgfid296}{36282433}{13582590}
-\pgfsyspdfmark {pgfid297}{37412929}{13449067}
+\pgfsyspdfmark {pgfid293}{21177730}{13612321}
+\pgfsyspdfmark {pgfid296}{36282433}{13491954}
+\pgfsyspdfmark {pgfid297}{37412929}{13358431}
 \newlabel{aug paths}{{6.4}{78}{Augmenting paths}{tcb@cnt@framedthm.6.4}{}}
 \newlabel{aug paths@cref}{{[framedthm][4][6]6.4}{[1][78][]78}}
 \newlabel{alg:augmenting_path}{{6.1}{80}{Augmenting paths}{tcb@cnt@framedalgo.6.1}{}}
 \newlabel{alg:augmenting_path@cref}{{[framedalgo][1][6]6.1}{[1][79][]80}}
-\@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ what?}{80}{section*.30}\protected@file@percent }
-\pgfsyspdfmark {pgfid302}{13787996}{19656823}
-\pgfsyspdfmark {pgfid305}{36282433}{19536456}
-\pgfsyspdfmark {pgfid306}{37412929}{19402933}
-\newlabel{alg:max_matching}{{6.1.2}{81}{Maximum matching}{tcb@cnt@framedalgo.6.2}{}}
-\newlabel{alg:max_matching@cref}{{[subsection][2][6,1]6.1.2}{[1][80][]81}}
-\@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ what?}{81}{section*.31}\protected@file@percent }
-\pgfsyspdfmark {pgfid309}{13787996}{28209271}
-\pgfsyspdfmark {pgfid312}{36282433}{28088904}
-\pgfsyspdfmark {pgfid313}{37412929}{27955381}
-\abx@aux@read@bbl@mdfivesum{F1365A30F18F0F9EF2AC98A9E48A4770}
+\citation{hopcroft}
+\abx@aux@cite{0}{hopcroft}
+\abx@aux@segm{0}{0}{hopcroft}
+\citation{hopcroft}
+\abx@aux@cite{0}{hopcroft}
+\abx@aux@segm{0}{0}{hopcroft}
+\newlabel{alg:max_matching_bip}{{6.2}{81}{Maximum matching (bipartite graphs)}{tcb@cnt@framedalgo.6.2}{}}
+\newlabel{alg:max_matching_bip@cref}{{[framedalgo][2][6]6.2}{[1][80][]81}}
+\@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ i forgot why}{81}{section*.30}\protected@file@percent }
+\pgfsyspdfmark {pgfid304}{13787996}{29068907}
+\pgfsyspdfmark {pgfid307}{36282433}{28948540}
+\pgfsyspdfmark {pgfid308}{37412929}{28815017}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Finding a minimum-weight perfect matching}{83}{subsection.6.1.3}\protected@file@percent }
+\citation{kuhn}
+\abx@aux@cite{0}{kuhn}
+\abx@aux@segm{0}{0}{kuhn}
+\citation{kuhn}
+\abx@aux@cite{0}{kuhn}
+\abx@aux@segm{0}{0}{kuhn}
+\@writefile{tdo}{\contentsline {todo}{\fcolorbox {black}{orange}{\textcolor {orange}{o}}\ add pic}{84}{section*.31}\protected@file@percent }
+\pgfsyspdfmark {pgfid313}{20392491}{44520981}
+\pgfsyspdfmark {pgfid316}{36282433}{44400614}
+\pgfsyspdfmark {pgfid317}{37412929}{44267091}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Maximum matchings in the general case}{85}{section.6.2}\protected@file@percent }
+\abx@aux@read@bbl@mdfivesum{222EFE2A313B753706762380BA022D30}
 \abx@aux@defaultrefcontext{0}{arora}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{bartal}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{bellman}{anyt/global//global/global}
@@ -500,7 +505,9 @@
 \abx@aux@defaultrefcontext{0}{gorain14}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{gorain15}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{guha}{anyt/global//global/global}
+\abx@aux@defaultrefcontext{0}{hopcroft}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{karp}{anyt/global//global/global}
+\abx@aux@defaultrefcontext{0}{kuhn}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{leiserson}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{lichtenstein}{anyt/global//global/global}
 \abx@aux@defaultrefcontext{0}{moore}{anyt/global//global/global}
@@ -534,7 +541,9 @@
 \abx@aux@defaultlabelprefix{0}{gorain14}{}
 \abx@aux@defaultlabelprefix{0}{gorain15}{}
 \abx@aux@defaultlabelprefix{0}{guha}{}
+\abx@aux@defaultlabelprefix{0}{hopcroft}{}
 \abx@aux@defaultlabelprefix{0}{karp}{}
+\abx@aux@defaultlabelprefix{0}{kuhn}{}
 \abx@aux@defaultlabelprefix{0}{leiserson}{}
 \abx@aux@defaultlabelprefix{0}{lichtenstein}{}
 \abx@aux@defaultlabelprefix{0}{moore}{}
@@ -549,4 +558,4 @@
 \abx@aux@defaultlabelprefix{0}{warshall}{}
 \abx@aux@defaultlabelprefix{0}{butterwise}{}
 \abx@aux@defaultlabelprefix{0}{yeh}{}
-\gdef \@abspage@last{87}
+\gdef \@abspage@last{91}
