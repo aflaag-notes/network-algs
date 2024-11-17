@@ -2126,7 +2126,7 @@
     \begin{itemize}
         \item \tbf{skew symmetry} the flow on an arc from $u$ to $v$ is equivalent to the negation of the flow on the arc from $v$ to $u$; the sign of the flow indicates the flow's direction $$f(u,v) = -f(v, u)$$
         \item \tbf{capacity constraint}: the flow of an edge cannot exceed its capacity $$\forall (u, v) \in E(G) \quad f(u, v) \le c(u, v)$$
-        \item \tbf{conservation of flows}: the sum of the flows entering a node must equal the sum of the flows exiting that node (except for $s$ and $t$) $$\forall v \in V(G) - \{s, t\} \quad \sum_{\substack{u:(u, v) \in E(G) \\f(u, v) >0}}{f(u, v)} = \sum_{\substack{u(u, v)\in E(G) \\ f(u, v) >0}}{f(v, u)}$$
+        \item \tbf{conservation of flows}: the sum of the flows entering a node must equal the sum of the flows exiting that node (except for $s$ and $t$) $$\forall v \in V(G) - \{s, t\} \quad \sum_{\substack{u:(u, v) \in E(G) \\f(u, v) >0}}{f(u, v)} = \sum_{\substack{u:(v, u)\in E(G) \\ f(v, u) >0}}{f(v, u)}$$
     \end{itemize}
 
     The \tbf{value of flow} is defined as the amount of flow passing from $s$ to $t$ $$\abs f := \sum_{v : (s, v) \in E(G)}{f(s, v)} = \sum_{u:(u, t)\in E(G)}{f(u, t)}$$
@@ -2461,39 +2461,39 @@
 
     Thanks to this lemma, in 1965 \textcite{edmonds} designed the following algorithm, also known as \href{https://en.wikipedia.org/wiki/Blossom_algorithm}{Blossom algorithm}.
 
-    \begin{framedalgo}{Blossom algorithm}
-        Given a graph $G$, the algorithm returns a maximum matching of $G$. \\
-        \hrule
-
-        \quad
-        \begin{algorithmic}[1]
-            \Function{blossomAlgorithm}{$G$}
-                \State $M := \varnothing$
-                \State $\mathcal B := \texttt{findBlossoms}(B)$ \Comment{omitted}
-                \For{$B \in \mathcal B$}
-                    \State Contract $B$ over its uncovered node w.r.t. $M$
-                \EndFor
-                \State $M := \texttt{maximumMatchingBipGraphs}(G, M)$ \Comment{defined in \cref{alg:max_matching_bip}}
-                \For{$B \in \mathcal B$}
-                    \State Expand $B$ into $G$
-                \EndFor
-                \State Update $M$ according to the new edges
-                \State \textbf{return} $M$
-            \EndFunction
-        \end{algorithmic}
-    \end{framedalgo}
-
-    \idea{
-        The algorithm is simply an extension of \cref{alg:max_matching_bip}, and it is guaranteed that it returns a maximum matching of the original graph $G$ by \cref{blossom lemma}.
-
-        Note that, without loss of generality, we can assume that the function in line 7 can take as input any matching $M$ and work as intended, since \cref{alg:max_matching_bip} can start from any given matching $M$, even empty ones.
-    }
-
-    \cost{
-        The time complexity of the algorithm depends on how blossoms are handled; in particular, depending on the data structure emplyoed, the cost of the algorithm can be either $O(n^3)$ or $O(m n^2)$.
-
-        As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
-    }
+    % \begin{framedalgo}{Blossom algorithm}
+    %     Given a graph $G$, the algorithm returns a maximum matching of $G$. \\
+    %     \hrule
+    %
+    %     \quad
+    %     \begin{algorithmic}[1]
+    %         \Function{blossomAlgorithm}{$G$}
+    %             \State $M := \varnothing$
+    %             \State $\mathcal B := \texttt{findBlossoms}(B)$ \Comment{omitted}
+    %             \For{$B \in \mathcal B$}
+    %                 \State Contract $B$ over its uncovered node w.r.t. $M$
+    %             \EndFor
+    %             \State $M := \texttt{maximumMatchingBipGraphs}(G, M)$ \Comment{defined in \cref{alg:max_matching_bip}}
+    %             \For{$B \in \mathcal B$}
+    %                 \State Expand $B$ into $G$
+    %             \EndFor
+    %             \State Update $M$ according to the new edges
+    %             \State \textbf{return} $M$
+    %         \EndFunction
+    %     \end{algorithmic}
+    % \end{framedalgo}
+    %
+    % \idea{
+    %     The algorithm is simply an extension of \cref{alg:max_matching_bip}, and it is guaranteed that it returns a maximum matching of the original graph $G$ by \cref{blossom lemma}.
+    %
+    %     Note that, without loss of generality, we can assume that the function in line 7 can take as input any matching $M$ and work as intended, since \cref{alg:max_matching_bip} can start from any given matching $M$, even empty ones.
+    % }
+    %
+    % \cost{
+    %     The time complexity of the algorithm depends on how blossoms are handled; in particular, depending on the data structure emplyoed, the cost of the algorithm can be either $O(n^3)$ or $O(m n^2)$.
+    %
+    %     As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
+    % }
 
     \printbibliography
 \end{document}

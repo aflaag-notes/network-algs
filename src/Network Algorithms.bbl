@@ -958,43 +958,6 @@
     \field{year}{1982}
   \endentry
 
-  \entry{micali}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=MS}{%
-         family={Micali},
-         familyi={M\bibinitperiod},
-         given={Silvio},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=VVV}{%
-         family={Vazirani},
-         familyi={V\bibinitperiod},
-         given={Vijay\bibnamedelima V.},
-         giveni={V\bibinitperiod\bibinitdelim V\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{MS+1}
-    \strng{fullhash}{MSVVV1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{booktitle}{21st Annual Symposium on Foundations of Computer Science (sfcs 1980)}
-    \verb{doi}
-    \verb 10.1109/sfcs.1980.12
-    \endverb
-    \field{pages}{17–27}
-    \field{title}{An O(v|v| c |E|) algoithm for finding maximum matching in general graphs}
-    \verb{url}
-    \verb http://dx.doi.org/10.1109/SFCS.1980.12
-    \endverb
-    \field{month}{10}
-    \field{year}{1980}
-  \endentry
-
   \entry{moore}{book}{}
     \name{author}{1}{}{%
       {{hash=ME}{%
