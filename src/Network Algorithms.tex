@@ -2495,5 +2495,98 @@
     %     As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
     % }
 
+    \chapter{UAVs monitoring problem}
+    
+    \tbf{Unmanned Aerial Vehicles (UAVs)} are advanced flying vehicles capable of \tit{autonomously} determining their flight path, distinguishing them from drones, which are typically operated via remote control.
+
+    Initially, UAVs were predominantly employed in military applications. They were primarily deployed in hostile or high-risk areas to minimize the risk to human pilots. In recent years, UAVs have found innovative uses in civilian and commercial domains, including:
+
+    \begin{itemize}
+        \item \tbf{weather monitoring}: gathering meteorological data in real-time
+        \item \tbf{forest fire detection}: identifying and tracking wildfires to aid rapid response
+        \item \tbf{traffic control}: monitoring and managing traffic flow for urban planning and safety
+        \item \tbf{emergency search and rescue}: locating and assisting individuals in distress in hard-to-reach areas
+    \end{itemize}
+
+    Suppose an AoI is provided, and assume that in the AoI there is a set $S = \{v_1, \ldots, v_n\}$ of sites that must be examined, and each site $v_i$ requires a time $t_i$ to be inspected. Moreover, consider a fleet of $m$ UAVs that start from a \tbf{safe location} $v_0$, each of which have a battery capacity $B$. Each UAV must periodically fly back to $v_0$ in order to recharge its battery, which requires time $R$ (which is often assumed to be from 2.5 to 5 times the value of $B$). It is crucial to determine the best strategy in order to overfly the sites in $S$ \tit{as efficiently as possible}. In a real-world scenario, this could make the difference between saving a life and not being able to.
+
+    We can model this problem as a graph, as follows. \todo{add pic}
+
+    In the image shown we have:
+
+    \begin{itemize}
+        \item the \tit{AoI}, which is the rectangle enclosing the area
+        \item the \tit{safe location}, which is the red dot in the bottom-left corner
+        \item the \tit{sites}, which are the set of dots in the AoI different from the \tit{safe location}
+    \end{itemize}
+
+    It must be possible to go from each node to every other node, therefore we assume there is an edge between each pair of nodes; therefore, if $n := \abs S$, then the graph can be thought of a clique graph $K_{n + 1}$, where $n + 1$ is for the \tit{safe location}.
+
+    Each UAV has a \tbf{flying-and-inspection} time that is bounded by $B$, the capacity of its own battery. We can assume that the graph is edge-weighted, for each pair of sites $(v_i,v_j)$, the weight $w(v_i, v_j)$ represents the time a UAV needs to fly from $u_i$ to $u_j$.
+
+    To distinguish between the UAVs, we will color each path a UAV traverses differently in the graph. In particular, each UAV flies along a \tbf{cycle}, and visits as many sites as it can w.r.t. its battery capacity $B$, passing through the \tit{safe location} $v_0$ every time it has to recharge its battery (which requires time $R$).
+
+    But what does it mean to overfly the sites in $S$ \tit{as efficiently as possible}? In fact, we may have multiple optimization functions:
+
+    \begin{itemize}
+        \item minimize the \tbf{total completion time}
+        \item minimize the \tbf{average waiting time}
+        \item minimize the \tbf{number of cycles}
+    \end{itemize}
+
+    Let's try to find a problem which satisfies all the constraints of the \tbf{UAVs monitoring problem}.
+
+    \begin{frameddefn}{mTSP}
+        The \tbf{multiple Traveling Salesmen} (mTSP) problem is formulated as follows: given a set of $n$ cities, 1 depot, a \tit{cost metric}, and $m$ salesmen must collectively cover all the cities, determine one tour for each of the $m$ salesmen that minimize the total length w.r.t. the \tit{cost metric}.
+    \end{frameddefn}
+
+    This problem does not model the UAVs monitoring problem appropriately because it has no visiting time nor \curlyquotes{battery capacity} constraint.
+
+    \begin{frameddefn}{kTRPR}
+        The \tbf{k-Traveling Repairperson Problem with Repairtimes} (kTRPR) is formulated as follows: given $n$ customers, each with a repairtime, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, let the \tit{latency} of a site be the time elapsed before that site is visited by any repairperson; the problem asks to determine $k$ cycles for each of the $k$ repairperson that minimize the sum of all the latencies of the sites.
+    \end{frameddefn}
+
+    This problem is a bit more similar to our problem, but it still does not model the UAVs monitoring problem appropriately because it has no battery constraint.
+
+    \begin{frameddefn}{mTRPD}
+        The \tbf{multiple Traveling Repairperson Problem with Distance constraints} (mTRPD) is formulated as follows: given $n$ customers, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, but that are not allowed to travel a distance longer than a fixed limit, determine $k$ cycles for each of the $k$ repairperson that minimze the total waiting time for the customers.
+    \end{frameddefn}
+
+    This problem does not model our problem either, since it does not include repairtimes, and it is not trivial to extend a solution of the mTRPD to include repairtimes.
+
+    \begin{frameddefn}{VRP class}
+        The \tbf{Vehicle Routing Problem} (VRP) is a generic term for a class of problems focused on optimizing routes for a fleet of vehicles to efficiently serve a set of customers.
+    \end{frameddefn}
+
+    This class of problems do not model our problem correctly because there is usually a constraing on the number of visited customers per vehicle, which is not a constraint present in our problem.
+
+    \begin{frameddefn}{TOP}
+        The \tbf{Team Orienteering Problem} (TOP) is defined as follows: given $n$ sites each with a profit, 1 depot, $m$ vehicles each with a limited total duration for their routes, determine the cycles for each of the $m$ vehicles that maximize the total profit.
+    \end{frameddefn}
+
+    Although the first round of this problem is equivalent to our problem, a solution to this problem may be not be best solution to our problem because it may be possible to take advantage of the capacities of the batteries of the UAVs and distributing the problem of covering all the sites throughout multple rounds.
+
+    No previously studied problem seems to model the UAVs monitoring problem appropriately, which implies that we cannot exploit any know result.
+
+    \section{Connection with the RMCCP}
+    
+    Given a set of locations $V$, a \tbf{cycle cover} $\mathcal C := \{C_1, \ldots, C_k\}$ for $V$ is a set of cycles such that each location in $V$ belongs to at least one cycle of $\mathcal C$. The \tbf{completion time} of a cycle cover is defined as the maximum \tit{cost} among all the cycles of the cycle cover.
+
+    Given a fixed value $x \ge 0$, and a \tit{cost} function, an $x$-bounded cycle cover is a cycle cover in which each cycle of $\mathcal C$ has \tit{cost} at most $x$. Finally, given a \tit{safe location} $v_0$, a cycle $C$ will be said to be \tbf{rooted} in $v_0$ if $v_0 \in C$, and a \tbf{rooted cycle cover} is a cycle cover made of cycles rooted on some shared vertex.
+
+    From these definitions, we can introduce the RMCCP, which is described as follows.
+
+    \begin{frameddefn}{RMCCP}
+        The \tbf{Rooted Minimum Cycle Cover Problem} (RMCCP) is defined as follows: given a graph $G = (V, E)$, where $V$ is a set of locations, a root $v_0 \in V$, a distance function $d$ defined on $E$, and a positive number $x \ge 0$, determine an $x$-bounded cycle cover, rooted in $v_0$, of minimum cardinality, if exists.
+    \end{frameddefn}
+
+    placeholder \todo{slide 21 papers}
+
+    It can be shown that the RMCCP and the UAVs monitoring problem are \tit{tightly connected}.
+
+    \begin{framedthm}{}
+        If the RMCCP can be approximated with an approximation ratio of $\alpha$, the UAVs monitoring problem can be approximated with an approximation ratio of $5 \alpha + 1$. Moreover, if the UAVs monitoring problem can be approximated with an approximation ratio of $\gamma$, the RMCCP can be approximated with an approximation ratio of $2 \gamma + 1$.
+    \end{framedthm}
+
     \printbibliography
 \end{document}
