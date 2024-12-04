@@ -20,25 +20,25 @@
 \contentsline {chapter}{\numberline {3}The worm propagation prevention problem}{37}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The vertex cover problem}{38}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{40}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{46}{subsection.3.1.2}%
-\contentsline {chapter}{\numberline {4}The data mule scheduling problem}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{53}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{55}{subsection.4.1.1}%
-\contentsline {chapter}{\numberline {5}The data collection problem}{61}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The minimum connected dominating set problem}{63}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Minimum Dominating set}{64}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Greedy approach for the min-CDS}{66}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Unit Disk Graphs}{67}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}The centralized deployment of mobile sensors problem}{70}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Matchings on bipartite graphs}{74}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Flow networks}{76}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Finding a maximum matching}{78}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Finding a minimum-weight perfect matching}{83}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Maximum matchings in the general case}{85}{section.6.2}%
-\contentsline {chapter}{\numberline {7}The UAV monitoring problem}{88}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Connection with the RMCCP}{90}{section.7.1}%
-\contentsline {section}{\numberline {7.2}A new graph model}{91}{section.7.2}%
-\contentsline {chapter}{\numberline {8}TODO}{94}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Reconciliation between phylogenetic trees}{95}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Reducing the number of optimal reconciliations}{96}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Visualizing reconciliations}{97}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{47}{subsection.3.1.2}%
+\contentsline {chapter}{\numberline {4}The data mule scheduling problem}{50}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Traveling Salesman Problem}{54}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Special cases for the TSP}{56}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}The data collection problem}{62}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The minimum connected dominating set problem}{64}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Minimum Dominating set}{66}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Greedy approach for the min-CDS}{68}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Unit Disk Graphs}{69}{subsection.5.1.3}%
+\contentsline {chapter}{\numberline {6}The centralized deployment of mobile sensors problem}{71}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Matchings on bipartite graphs}{75}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Flow networks}{77}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Finding a maximum matching}{80}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Finding a minimum-weight perfect matching}{85}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Maximum matchings in the general case}{87}{section.6.2}%
+\contentsline {chapter}{\numberline {7}The UAV monitoring problem}{90}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Connection with the RMCCP}{93}{section.7.1}%
+\contentsline {section}{\numberline {7.2}A new graph model}{94}{section.7.2}%
+\contentsline {chapter}{\numberline {8}TODO}{97}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Reconciliation between phylogenetic trees}{98}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Reducing the number of optimal reconciliations}{100}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Visualizing reconciliations}{102}{subsection.8.1.2}%

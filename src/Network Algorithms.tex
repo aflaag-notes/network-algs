@@ -858,8 +858,7 @@
     
     \begin{itemize}
         \item All the wires in the same layer have \tbf{equal length}. Note that this is \tit{not true} for every layout; for instance, in the \tit{classical drawing} of the butterfly network, the \tit{straight edges} in the last layer have \tbf{unit length}, while the \tit{cross-edges} in the same layer have lengths that \tbf{scale} linearly with the input size $N$. This disparity is problematic, as it causes a \tit{loss of synchronization} in the information flow. Nevertheless, this length grows exponentially.
-        \item The length of the \tbf{longest path} from any input to any output is linear in $N$, namely $2(N - 1)$, and it can be computed by evaluating the diagonal of the square having side length equal to $\sqrt 2 (N - 1)$, shown in figure \todo{add pic}
-            which is$$\sqrt{2 \cdot \rbk{\sqrt{2}(N - 1)}^2} = \sqrt{2 \cdot 2 \rbk{N - 1}^2} = \sqrt{4 \cdot \rbk{N - 1}^2} = 2( N - 1)$$
+        \item The length of the \tbf{longest path} from any input to any output is linear in $N$, namely $2(N - 1)$, and it can be computed by evaluating the diagonal of the square having side length equal to $\sqrt 2 (N - 1)$, which is $$\sqrt{2 \cdot \rbk{\sqrt{2}(N - 1)}^2} = \sqrt{2 \cdot 2 \rbk{N - 1}^2} = \sqrt{4 \cdot \rbk{N - 1}^2} = 2( N - 1)$$
         \item placeholder \todo{pag 20 slide?}
         \item The value of the \tbf{area} of this layout is good, which is $$\rbk{\sqrt 2(N - 1)}^2 = 2N^2 + o(N^2)$$
     \end{itemize}
@@ -1036,48 +1035,31 @@
     Note that the minimum vertex cover is not unique. Moreover, for any graph $G$, $V(G)$ is trivially a vertex cover for $G$. To find the minimum vertex cover is not trivial, because there are $\powerset(V(G)) = 2^{V(G)}$ possibile subsets of vertices to check.
     
     \begin{example}[Vertex covers]
-        The following are two examples of minimum vertex covers for the given graph: \todo{this is wrong}
+        The following is an example of minimum vertex cover:
+
         \begin{figure}[H]
             \centering
-            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
+            \begin{tikzpicture}[node distance={16mm}, thick, main/.style = {draw, circle}] 
 
-                \node[circle, draw]  (1) []{};
-                \node[circle, draw, fill=red]  (2) [right of = 1]{};
-                \node[circle, draw]  (3) [below right of = 2]{};
-                \node[circle, draw]  (4) [below left of = 3]{};
-                \node[circle, draw, fill=red]  (5) [left of = 4]{};
-                \node[circle, draw]  (6) [above left of = 5]{};
-
-                \node[circle, draw]  (1b) [above right of = 3, xshift=50]{};
-                \node[circle, draw]  (2b) [right of = 1b]{};
-                \node[circle, draw, fill=red]  (3b) [below right of = 2b]{};
-                \node[circle, draw]  (4b) [below left of = 3b]{};
-                \node[circle, draw, fill=red]  (5b) [left of = 4b]{};
-                \node[circle, draw]  (6b) [above left of = 5b]{};
-
-                \path[every node/.style={font=\sffamily\small}]
-
-                (1) edge (2)
-                (2) edge (3)
-                (3) edge (4)
-                (4) edge (5)
-                (5) edge (6)
-                (6) edge (1)
-                (6) edge (3)
-                (5) edge (1)
-
-                (1b) edge (2b)
-                (2b) edge (3b)
-                (3b) edge (4b)
-                (4b) edge (5b)
-                (5b) edge (6b)
-                (6b) edge (1b)
-                (6b) edge (3b)
-                (5b) edge (1b)
-            ;
+                \node[main] (1)  {};
+                \node[main, fill=red!50!blue!50!white] (2) [above right of = 1] {};
+                \node[main, fill=red!50!blue!50!white] (3) [below right of = 1] {};
+                \node[main] (4) [right of =2 ] {};
+                \node[main] (5) [right of =3 ] {};
+                \node[main, fill=red!50!blue!50!white] (6) [below right of =4] {}; 
+               
+                \draw[-] (1) to (6);
+                \draw[-] (1) to (2);
+                \draw[-] (1) to (3);
+                \draw[-] (2) to (3);
+                \draw[-] (3) to (5);
+                \draw[-] (4) to (6);
+                \draw[-] (5) to (6);
+                \draw[-] (2) to (4);
             \end{tikzpicture}
-            \caption{Two minimum vertex covers for a graph.}
+            \caption{A vertex cover.}
         \end{figure}
+
     \end{example}
 
     For the reasons mentioned, every minimum vertex cover serves as an excellent starting point for a worm's propagation within a network. Protecting the computers corresponding to the nodes in the \tbf{minimum vertex cover} of the communication graph is crucial. This strategy ensures that every edge in the graph is monitored, thus preventing a worm from exploiting vulnerabilities in unprotected nodes.
@@ -1177,7 +1159,9 @@
         At each iteration, the cost of finding $v$ is $O(m)$, and because the cost of removing an edge from $G$ is $O(n + m)$, we have that the cost of the algorithm is $O(m (n + m))$.
     }
 
-    Note that algorithm can produce a vertex cover $V'$ whose cardinality is \tit{vary far} from optimum. In fact, consider the following graph: \todo{add pic}
+    Note that algorithm can produce a vertex cover $V'$ whose cardinality is \tit{vary far} from optimum. In fact, consider the following graph:
+
+    \centeredimage[]{0.3}{../assets/harmonic.png}
 
     The upper row of nodes consists of $r$ nodes, and the lower row consists of
 
@@ -1187,7 +1171,9 @@
         \item in general, $\floor{\dfrac{r}{i}}$ nodes of degree $i$
     \end{itemize}
 
-    meaning that the total number of nodes is $$n = r + \sum_{i = 1}^r{\floor{\dfrac{r}{i}}} \le r + r \sum_{i = 1} ^r{\dfrac{1}{i}} = \Theta(r \log r)$$ (note that the \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{harmonic sum} can be approximated by $\Theta(\log r)$). Although the \tbf{optimal} minimum vertex cover is the \tit{upper row} itself, consisting of $r$ nodes, it may happen that the algorithm chooses the \tit{lower row} as vertex cover, as shown in the following figure \todo{add pic}
+    meaning that the total number of nodes is $$n = r + \sum_{i = 1}^r{\floor{\dfrac{r}{i}}} \le r + r \sum_{i = 1} ^r{\dfrac{1}{i}} = \Theta(r \log r)$$ (note that the \href{https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)}{harmonic sum} can be approximated by $\Theta(\log r)$). Although the \tbf{optimal} minimum vertex cover is the \tit{upper row} itself, consisting of $r$ nodes, it may happen that the algorithm chooses the \tit{lower row} as vertex cover, as shown in the following figure 
+
+    \centeredimage[]{0.25}{../assets/harmonic2.png}
 
     This means that there is an approximation ratio of $$\dfrac{\Theta(r \log r)}{r} = \Theta(\log r)$$
 
@@ -1267,7 +1253,7 @@
     \begin{proof}
         Let $V'$ be the set of vertices described by $y^*$. It is easy to see that $V'$ is a vertex cover for $G$, because the constraint of the ILP $$x^*_i + x^*_j \ge 1$$ forces at least one between $x^*_i$ and $x^*_j$ to be greater or equal than $\frac{1}{2}$, therefore at least one between $y^*_i$ and $y_j^*$ will be set to 1.
 
-        Now we will prove that the algorithm returns a 2-approximation of an optimal solution $V^*$. Let $$Z := \sum_{i = 1}^n{x^*_i}$$ Since $x^*_i \le 1$ for each $i \in [1, n]$, it must be that $Z \le \abs{V^*}$ \todo{what?}. Let $y^* \in \{0, 1\}^n$ be the integer solution obtained from $x^* \in [0, 1]^n$ by the rounding procedure; clearly, for each $i \in [1, n]$, we have that $y^*_i \le 2x^*_i$, therefore $$\abs{V'} = y^*_1 + \ldots + y^*_n \le 2 (x^*_1 + \ldots + x^*_n) = 2Z \le 2 \abs{V^*}$$
+        Now we will prove that the algorithm returns a 2-approximation of an optimal solution $V^*$. Let $$Z := \sum_{i = 1}^n{x^*_i}$$ Since $x^*_i \le 1$ for each $i \in [1, n]$, it must be that $Z \le \abs{V^*}$. Let $y^* \in \{0, 1\}^n$ be the integer solution obtained from $x^* \in [0, 1]^n$ by the rounding procedure; clearly, for each $i \in [1, n]$, we have that $y^*_i \le 2x^*_i$, therefore $$\abs{V'} = y^*_1 + \ldots + y^*_n \le 2 (x^*_1 + \ldots + x^*_n) = 2Z \le 2 \abs{V^*}$$
     \end{proof}
 
     The vertex cover problem is related to many other graph theory problems.
@@ -1716,7 +1702,7 @@
 
     In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidian TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidian space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
 
-    placeholder \todo{dk if i'm doing this}
+    placeholder \todo{last part?}
 
     \chapter{The data collection problem}
 
@@ -1759,7 +1745,34 @@
     \end{frameddefn}
 
     \begin{example}[Dominating sets] \label{dom set}
-        The following are two examples of dominating sets. \todo{add pic}
+        The following is an example of dominating set.
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
+
+                \node[circle, draw]  (1) []{};
+                \node[circle, draw, fill=red]  (2) [right of = 1]{};
+                \node[circle, draw]  (3) [below right of = 2]{};
+                \node[circle, draw]  (4) [below left of = 3]{};
+                \node[circle, draw, fill=red]  (5) [left of = 4]{};
+                \node[circle, draw]  (6) [above left of = 5]{};
+
+                \path[every node/.style={font=\sffamily\small}]
+
+                (1) edge (2)
+                (2) edge (3)
+                (3) edge (4)
+                (4) edge (5)
+                (5) edge (6)
+                (6) edge (1)
+                (6) edge (3)
+                (5) edge (1)
+
+                ;
+            \end{tikzpicture}
+            \caption{A dominating set.}
+        \end{figure}
     \end{example}
 
     To solve the data collection problem, we require that the backbone is \tbf{connected}, and we want to minimize the size of the backbone, therefore we are interested in finding the \tbf{minimum connected dominating set} (min-CDS).
@@ -1769,7 +1782,34 @@
     \end{frameddefn}
 
     \begin{example}[Min-CDSs]
-        The following is a min-CDS for the graph illustrated in \cref{dom set}. \todo{add pic}
+        The following is a min-CDS for the graph illustrated in \cref{dom set}.
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.3cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
+
+                \node[circle, draw]  (1) []{};
+                \node[circle, draw]  (2) [right of = 1]{};
+                \node[circle, draw, fill=red]  (3) [below right of = 2]{};
+                \node[circle, draw]  (4) [below left of = 3]{};
+                \node[circle, draw]  (5) [left of = 4]{};
+                \node[circle, draw, fill=red]  (6) [above left of = 5]{};
+
+                \path[every node/.style={font=\sffamily\small}]
+
+                (1) edge (2)
+                (2) edge (3)
+                (3) edge (4)
+                (4) edge (5)
+                (5) edge (6)
+                (6) edge (1)
+                (6) edge (3)
+                (5) edge (1)
+
+                ;
+            \end{tikzpicture}
+            \caption{A min-CDS for the same graph as before.}
+        \end{figure}
     \end{example}
 
     Now, consider the following type of spanning trees.
@@ -1839,7 +1879,48 @@
             \item construct the set of edges as follows $$E := \{(i, j) \mid i, j \in I\} \cup \{(i, u) \mid i \in I, u \in S_i\}$$
         \end{itemize}
 
-        For instance, consider the following instance of the set cover problem, where the \tit{universe} set is $U = \{a, b, c, d, e\}$, $I = \{1, 2, 3, 4\}$ and $S = \{S_1, S_2, S_3, S_4\}$, where $S_1 = \{a, b, c\}$, $S_2 =\{a, b\}$, $S_3 = \{b, c, d\}$ and $S_4 = \{c, d, e\}$. The graph $G$ that will be constructed from the reduction is the following: \todo{add pic}
+        For instance, consider the following instance of the set cover problem, where the \tit{universe} set is $U = \{a, b, c, d, e\}$, $I = \{1, 2, 3, 4\}$ and $S = \{S_1, S_2, S_3, S_4\}$, where $S_1 = \{a, b, c\}$, $S_2 =\{a, b\}$, $S_3 = \{b, c, d\}$ and $S_4 = \{c, d, e\}$. The graph $G$ that will be constructed from the reduction is the following:
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[node distance={20mm}, thick, main/.style = {draw, circle}, minimum size = 7mm] 
+
+                \node[main] (1)  {1};
+                \node[main] (2) at(1.5,1) {2};
+                \node[main] (3) at(3,0) {3};
+                \node[main] (4) at(4.5,1) {4};
+
+                \node[main] (a)  at(-.5,-2) {$a$};
+                \node[main] (b)  at(1,-2) {$b$};
+                \node[main] (c)  at(2.5,-2) {$c$};
+                \node[main] (d)  at(4,-2) {$d$};
+                \node[main] (e)  at(5.5,-2) {$e$};
+                
+
+                \draw[-] (a)[red] to (1);
+                \draw[-] (a)[red] to (2);
+
+                \draw[-] (b)[red] to (1);
+                \draw[-] (b)[red] to (2);
+                \draw[-] (b)[red] to (3);
+
+                \draw[-] (c)[red] to (1);
+                \draw[-] (c)[red] to (3);
+                \draw[-] (c)[red] to (4);
+
+                \draw[-] (d)[red] to (3);
+                \draw[-] (d)[red] to (4);
+
+                \draw[-] (e)[red] to (4);
+
+                \draw[-] (1)[blue] to (2);
+                \draw[-] (1)[blue] to (3);
+                \draw[-] (4)[blue] to (3);
+                \draw[-] (2)[blue] to (4);
+                \draw[-] (4)[blue] to (1);
+                \draw[-] (2)[blue] to (3);
+            \end{tikzpicture}
+        \end{figure}
 
         Note that $G$ is a \href{https://en.wikipedia.org/wiki/Split_graph}{split graph}, a graph in which the vertices can be partitioned into a \tit{clique} and an \tit{independent set}. In fact, in this construction, the endpoints of the edges derived from $I$ form a clique, and the endpoints of the edges derived from $(i, u)$ with $i \in I$ and $u \in S_i$ must form an independent set, by construction.
 
@@ -1923,9 +2004,13 @@
     \end{frameddefn}
 
     \begin{example}[Convex hulls]
-        Given the following set of points \todo{add pic}
+        Given the following set of points
 
-        the following is its associated \tit{convex hull}. \todo{add pic}
+        \centeredimage[]{0.3}{../assets/points.png}
+
+        the following is its associated \tit{convex hull}.
+
+        \centeredimage[]{0.3}{../assets/convex_hull.png}
     \end{example}
 
     Given an undirected graph $G$, let $\mathcal N(v) := \{u \in V(G) \mid (u, v) \in E(G)\}$ be the \tbf{neighbourhood} of $v$, and let $\mathcal N'(v) := \mathcal N (v) \cup \{v\}$ be the \tbf{closed neighbourhood} of $v$. The algorithm which employs convex hulls is defined as follows.
@@ -2056,6 +2141,8 @@
         \item \tbf{distributed (or local) approach}: in this approach, sensors use only local information, with iterative exchanges between neighboring sensors; this method is more scalable and better suited for large, dynamic networks
     \end{itemize}
 
+    placeholder \todo{from pag 26}
+
     \section{Matchings on bipartite graphs}
 
     Recalling the definition discussed in previous chapters, given a graph $G = (V, E)$, a \tbf{matching} is a set of edges $M \subseteq E(G)$ such that every node in $V(G)$ is adjacent to at most one edge in $M$, thus no two edges in $M$ share common vertices. We will now use the following definitions.
@@ -2118,7 +2205,66 @@
     \end{frameddefn}
 
     \begin{example}[Flow networks]
-        The following is an example of a \tit{flow network}. placeholder \todo{add pic}
+        The following is an example of a \tit{flow network}.
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[node distance={20mm}, thick , main/.style = {draw, circle}] 
+                \node[main] (s) {$s$};
+                \node[main] (1) at(2,1) {1};
+                \node[main] (2) at(2,-1)  {2};
+                \node[main] (3) [below of = 2] {3};
+                \node[main] (4) [above of = 1] {4};
+
+                \node[main] (5) [right of = 1] {5};
+                \node[main] (6) [right of = 2] {6};
+                \node[main] (7) [right of = 3] {7};
+                \node[main] (8) [right of = 4] {8};
+
+                \node[main] (t) at(6,0) {$t$};
+
+                % \draw[->] (s) to (1);
+                % \draw[->] (s) to (2);
+                % \draw[->] (s) to (3);
+                % \draw[->] (s) to (4);
+                
+                % \draw[->] (5) to (t);
+                % \draw[->] (6) to (t);
+                % \draw[->] (7) to (t);
+                % \draw[->] (8) to (t);
+
+                \draw[->] (1) to (5);
+                % \draw[->] (1) to (7);
+                \draw[->] (3) to (5);
+                % \draw[->] (3) to (6);
+                % \draw[->] (2) to (5);
+                \draw[->] (2) to (8);
+                % \draw[->] (4) to (8);
+                \draw[->] (4) to (7);
+
+                % red
+                \draw[->] (s) [red, line width = 2] to (3);
+                \draw[->] (3) [red, line width = 2] to (6);
+                \draw[->] (6) [red, line width = 2] to (t);
+
+                %blue
+                \draw[->] (s) [blue, line width = 2] to (2);
+                \draw[->] (2) [blue, line width = 2] to (5);
+                \draw[->] (5) [blue, line width = 2] to (t);
+
+                %green
+                \draw[->] (s) [green!50!black, line width = 2] to (1);
+                \draw[->] (1) [green!50!black, line width = 2] to (7);
+                \draw[->] (7) [green!50!black, line width = 2] to (t);
+                
+                %magenta
+                \draw[->] (s) [magenta, line width = 2] to (4);
+                \draw[->] (4) [magenta, line width = 2] to (8);
+                \draw[->] (8) [magenta, line width = 2] to (t);
+
+            \end{tikzpicture}
+            \caption{A flow network.}
+        \end{figure}
     \end{example}
 
     A \tbf{flow} is a map $\func{f}{E(G)}{\R}$ that satisfies the following two constraints:
@@ -2148,7 +2294,7 @@
             \item let the capacity be a function $\func{c}{E(G)}{\R^+}$ such that $$\forall u, v \in V'(G') \quad c(u, v) = 1$$
         \end{itemize}
 
-        placeholder \todo{add pic}
+        \centeredimage[]{0.3}{../assets/match2flow.png} \todo{this should be done better}
 
         Consider a perfect matching $M$ on the bipartite graph $G$, by defining an integer-valued flow $f$ on the flow network $G'$, it is easy to see that $f$ is a maximum flow, since the capacity of each edge is 1; the other implication can be proved with a similar reasoning.
     \end{proof}
@@ -2168,7 +2314,7 @@
     In general, it is not trivial to find a \tbf{maximum matching} on a graph. First, we will discuss algorithms and theoretical results which can be leveraged in order to find a maximum matching on \tbf{bipartite graphs}.
 
     \begin{frameddefn}{Alternating path}
-        Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{alternating path} w.r.t. $M$ is a path that alternates edges of $M$ and $E(G) - M$
+        Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{alternating path} w.r.t. $M$ is a path that alternates the edges of $M$ and $E(G) - M$.
     \end{frameddefn}
 
     \begin{example}[Alternating paths]
@@ -2194,7 +2340,7 @@
     }{
         Consider a graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t. $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
 
-        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 6 kinds:
+        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 5 kinds:
 
         \begin{enumerate}[label=\arabic*.]
             \item a cycle of length 2 (recall that $H$ is a multi-graph)
@@ -2416,7 +2562,7 @@
 
     In fact, the algorithm for finding augmenting paths --- in the unweighted version --- \cref{aug paths} works by relying on the fact that the given graph \tit{cannot} contain odd-legth cycles. For instance, consider the following scenario:
 
-    \todo{add pic pag 31}
+    \centeredimage[A cycle of odd length.]{0.3}{../assets/oddcycle.png}
 
     Any matching over this odd-length cycle will not cover every vertex of the cycle, by definition of matching, otherwise there would be two edges of the matching sharing one vertex. This means that in any odd-length cycle there must be a vertex adjacent to two edges which cannot be part of the matching considered. In the situation illustrated in the figure, if the algorithm starts from 1 and tries to search for an augmenting path in the \curlyquotes{wrong} direction (i.e. counterclockwise), the augmenting path that goes from 1 and ends in 6 going clockwise through the cycle will not be found.
 
@@ -2427,10 +2573,12 @@
     \end{frameddefn}
 
     \begin{example}[Blossoms]
-        placeholder \todo{add pic}
+        The following is an example of a blossom.
+
+        \centeredimage[A blossom.]{0.25}{../assets/blossom.png}
     \end{example}
 
-    Although the presence of \tit{blossoms} do not allow the use of the algorithms discussed earlier, the following lemma enables us to define an algorithm capable of solving the problem, which will be discussed later.
+    Although the presence of \tit{blossoms} does not allow the use of the algorithms discussed earlier, the following lemma enables us to define an algorithm capable of solving the problem, which will be discussed later.
 
     \begin{framedlem}[label={blossom lemma}]{Cycle contraction}
         Let $G$ be a graph, let $M$ be a matching of $G$, and let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$. Let $G'$ be the graph obtained by contracting $B$, and let $M'$ be the matching induced by $M$ on $G'$. Then $M$ is a maximum matching of $G$ if and only if $M'$ is a maximum matching of $G'$.
@@ -2510,7 +2658,9 @@
 
     Suppose an AoI is provided, and assume that in the AoI there is a set $S = \{v_1, \ldots, v_n\}$ of sites that must be examined, and each site $v_i$ requires a time $t_i$ to be inspected. Moreover, consider a fleet of $m$ UAVs that start from a \tbf{safe location} $v_0$, each of which have a battery capacity $B$. Each UAV must periodically fly back to $v_0$ in order to recharge its battery, which requires time $R$ (which is often assumed to be from 2.5 to 5 times the value of $B$). It is crucial to determine the best strategy in order to overfly the sites in $S$ \tit{as efficiently as possible}. In a real-world scenario, this could make the difference between saving a life and not being able to.
 
-    We can model this problem as a graph, as follows. \todo{add pic}
+    We can model this problem as a graph, as follows.
+
+    \centeredimage[The graph model of the UAV monitoring problem.]{0.3}{../assets/uav_graph.png}
 
     In the image shown we have:
 
@@ -2520,7 +2670,7 @@
         \item the \tit{sites}, which are the set of dots in the AoI different from the \tit{safe location}
     \end{itemize}
 
-    It must be possible to go from each node to every other node, therefore we assume there is an edge between each pair of nodes; therefore, if $n := \abs S$, then the graph can be thought of a clique graph $K_{n + 1}$, where $n + 1$ is for the \tit{safe location}.
+    It must be possible to go from each node to every other node, therefore we assume there is an edge between each pair of nodes; therefore, if $n := \abs S$, then the graph can be thought of a clique graph $K_{n + 1}$, where $n + 1$ comes from the \tit{safe location}.
 
     Each UAV has a \tbf{flying-and-inspection} time that is bounded by $B$, the capacity of its own battery. We can assume that the graph is edge-weighted, for each pair of sites $(v_i,v_j)$, the weight $w(v_i, v_j)$ represents the time a UAV needs to fly from $u_i$ to $u_j$.
 
@@ -2604,13 +2754,13 @@
 
     Note that, in a multi-depot context, minimizing the \tit{completion time} and the total traversed distance is \tbf{different}, as shown in the following example.
 
-    placeholder \todo{add pic}
+    \centeredimage[]{0.3}{../assets/uav_cases.png}
 
     Given the setting described in (a), where there are 2 UAVs, 2 depots and 2 sites, the figure in (b) describes a feasible solution for a \tit{completion time minimization} problem, which clearly does not minimize the total traversed distance. In fact, in figure (c) there is an example which shows a feasible solution for a \tit{total traversed distance minimization} problem.
 
     Moreover, note that in a multi-depot context, we cannot try to solve the problem by partitioning the area into as many portions as the number of depots, since the sites that fall inside a region are automatically assigned to the UAV of the region, which may lead to suboptimal solutions, as shown in the following picture.
 
-    placeholder \todo{add pic}
+    \centeredimage[]{0.3}{../assets/split_uavs.png}
 
     Additionally, the MDMT-VRP-TCT can be formulated as an ILP, by employing the following definitions:
 
@@ -2655,11 +2805,9 @@
         \item \tbf{cultural traditions and populations}: cultures and the populations that uphold them coevolve, with traditions influencing societal behavior and values, while societal changes drive the adaptation and evolution of cultural practices
     \end{itemize}
 
-    This dynamic interplay illustrates how diverse systems are deeply interconnected, shaping and reshaping each other through mutual influence.
+    \centeredimage[]{0.35}{../assets/h_p.png}
 
-    placeholder \todo{add pic pag 5}
-
-    The two trees $H$ and $P$ present in this image are \tbf{phylogenetic trees}, which describe the evolution stages of \href{https://en.wikipedia.org/wiki/Gopher}{ghopers} --- a family of rodents --- and the ones of the \href{https://en.wikipedia.org/wiki/Louse}{lice} --- a family of parasites, respectively. The leaves of the tree are the set of species that currently exist, and the mapping between the leaves of $H$ and $P$ is called a \tbf{leaf mapping function} which maps each parasite to the gopher they attack.
+    Let $H$ (\tit{host}) be the tree on the left, and $P$ (\tit{parasite}) be the tree on the right; these trees are called \tbf{phylogenetic trees}, and describe the evolution stages of \href{https://en.wikipedia.org/wiki/Gopher}{ghopers} --- a family of rodents --- and the ones of \href{https://en.wikipedia.org/wiki/Louse}{lice} --- a family of parasites --- respectively. The leaves of the tree are the set of species that currently exist, and the mapping between the leaves of $H$ and $P$ is called a \tbf{leaf mapping function} which maps each parasite to the gopher they attack.
 
     In biology, understanding the feasibility of mappings between phylogenetic trees is crucial for determining which parasite species may have attacked which hosts. To achieve this, biologists use a technique known as \tbf{reconciliation} of evolutionary trees. In particular, while computing the reconciliation of two trees it is important to follow the \tit{leaf mapping function}, since those are the mappings that actually occur in nature.
 
@@ -2675,11 +2823,11 @@
 
     Informally, a \tbf{reconciliation} is a mapping from the nodes of the parasite tree $P$, toe the nodes of the host tree $H$, such that the leaf mapping function betwen $H$ and $P$ is respected.
 
-    placeholder \todo{add pic pag 6}
+    \centeredimage[]{0.25}{../assets/h_p_f.png}
 
     There are multiple ways to visualize the reconciliation between two trees, for example consider the following in which the host tree is represented by \curlyquotes{tubes}, and the parasite tree is contained by such tubes, as whosn in the following picture.
 
-    placeholder \todo{add pic pag 7}
+    \centeredimage[]{0.3}{../assets/recon_cases.png}
 
     From this visualization, it is apparent that it is not straightforward to perform a mapping between the trees, and some phenomena may occur:
 
@@ -2692,7 +2840,7 @@
 
     Another constraint that is important while computing reconciliations is the \tbf{time consistency} constraint, which ensures that the evolutionary events depicted in the reconciliation are temporally plausible. This means that the timing of these events must be consistent with the known or inferred evolutionary timelines of the species involved.
 
-    placeholder \todo{add pic pag 13}
+    \centeredimage[]{0.3}{../assets/time_consistency.png}
 
     It turns out that computing time consistent reconciliations is \NPHard, but if we drop this constraint we can compute \tbf{time inconsistent reconciliations} in polynomial time by employing a dynamic programming approach. \todo{i skipped pag 16}
 
@@ -2710,21 +2858,24 @@
     In order to reduce the number of optimal reconciliations two main approaches are employed:
 
     \begin{itemize}
-        \item \tbf{similarity measure}: we can reduce the number by defining a \tit{similarity measure} between reconciliations, i.e. by finding a subset $S$ of all the reconciliations that represent the whole set, such that each of the optimal reconciliations is at a bounded distance from at least one of the reconciliations in $S$; a common \tit{similarity measure} employed is the smallest number of operations needed to change one reconciliation into another, but this may not represent the concept of \curlyquotes{similarity} well enough, as similar reconciliationsmay need a large number of operations to be changed from one to another, as shown in the following picture \todo{add pic pag 22}
-        \item \tbf{equivalence classes}: alternatively, the number may be reduced by using the definition of \tit{equivalence classes} to group the reconciliations that may be considered biologically equivalent, and providing as output just one representative of the whole equivalence class; a commont \tit{equivalence relation} employed is the event vector, which seems to be a good alternative since the number of event vectors is polynomial, but reconciliations with the same event vector may be every different from each other \todo{add pic pag 24}
+        \item \tbf{similarity measure}: we can reduce the number by defining a \tit{similarity measure} between reconciliations, i.e. by finding a subset $S$ of all the reconciliations that represent the whole set, such that each of the optimal reconciliations is at a bounded distance from at least one of the reconciliations in $S$; a common \tit{similarity measure} employed is the smallest number of operations needed to change one reconciliation into another, but this may not represent the concept of \curlyquotes{similarity} well enough, as similar reconciliationsmay need a large number of operations to be changed from one to another, as shown in the following picture
+            \centeredimage[]{0.3}{../assets/recon_conv.png}
+
+        \item \tbf{equivalence classes}: alternatively, the number may be reduced by using the definition of \tit{equivalence classes} to group the reconciliations that may be considered biologically equivalent, and providing as output just one representative of the whole equivalence class; a commont \tit{equivalence relation} employed is the event vector, which seems to be a good alternative since the number of event vectors is polynomial, but reconciliations with the same event vector may be every different from each other
+            \centeredimage[]{0.3}{../assets/recon_equiv.png}
     \end{itemize}
 
     In 2017 \textcite{gastaldello} proved that, if the set of vertices of the parasite tree $P$ that are associated to host switches is fixed, an optimal reconciliation can be easily identified by using the LCA mapping. This theoretical result lead to the following theorem.
 
     \begin{framedthm}{Equivalence of reconciliations}
-        Two reconciliations are identical if and only if they have the same host switches
+        Two reconciliations are identical if and only if they have the same host switches.
     \end{framedthm}
 
-    placeholder \todo{add pic pag 26}
+    \centeredimage[]{0.25}{../assets/recon_equiv2.png}
 
     Although this is a good \tit{similarity measure}, the problem is that establishing whether two reconciliations are equivalent requires to enumerate all the optimal solutions, and then cluster them according to this equivalence relation, which is unfeasible when the number of reconciliations is too large.
 
-    Is it possible to enumerate only 1 representative for each equivalence class, without the need of considering all of its elements? It has been proven to be possible for 3 distinct definitions of equivalence relations by \textcite{wang}, but the relations were rather artificial and they are not applicable in real-world contexts.
+    Is it possible to enumerate only one representative for each equivalence class, without the need of considering all of its elements? It has been proven to be possible for 3 distinct definitions of equivalence relations by \textcite{wang}, but the relations were rather artificial and they are not applicable in real-world contexts.
 
     \subsection{Visualizing reconciliations}
 
