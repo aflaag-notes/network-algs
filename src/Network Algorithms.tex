@@ -1543,7 +1543,7 @@
     \begin{proof}
         It can be easily proved that TSP is in \NPclass: given a complete graph $K_n =(V, E)$, and a walk over $K_n$, it can be checked in polynomial time if the walk is a Hamiltonian cycle, and its total weight is bounded by $t$.
 
-        Now it will be proven that TSP is \NPHard, by reducing HC to TSP as follows:
+        Now we will prove that TSP is \NPHard, by reducing HC to TSP as follows:
 
         \begin{itemize}
             \item consider a graph $G = (V, E)$, and construct the complete graph $K_n = (V, E')$, where $E(G) \subseteq E'(K_n)$ and the remaining edges are the ones added to make $K_n$ a complete graph --- note that $n := \abs{V(G)}$
@@ -2495,7 +2495,7 @@
     %     As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
     % }
 
-    \chapter{UAVs monitoring problem}
+    \chapter{The UAV monitoring problem}
     
     \tbf{Unmanned Aerial Vehicles (UAVs)} are advanced flying vehicles capable of \tit{autonomously} determining their flight path, distinguishing them from drones, which are typically operated via remote control.
 
@@ -2534,19 +2534,19 @@
         \item minimize the \tbf{number of cycles}
     \end{itemize}
 
-    Let's try to find a problem which satisfies all the constraints of the \tbf{UAVs monitoring problem}.
+    Let's try to find a problem which satisfies all the constraints of the \tbf{UAV monitoring problem}.
 
     \begin{frameddefn}{mTSP}
         The \tbf{multiple Traveling Salesmen} (mTSP) problem is formulated as follows: given a set of $n$ cities, 1 depot, a \tit{cost metric}, and $m$ salesmen must collectively cover all the cities, determine one tour for each of the $m$ salesmen that minimize the total length w.r.t. the \tit{cost metric}.
     \end{frameddefn}
 
-    This problem does not model the UAVs monitoring problem appropriately because it has no visiting time nor \curlyquotes{battery capacity} constraint.
+    This problem does not model the UAV monitoring problem appropriately because it has no visiting time nor \curlyquotes{battery capacity} constraint.
 
     \begin{frameddefn}{kTRPR}
         The \tbf{k-Traveling Repairperson Problem with Repairtimes} (kTRPR) is formulated as follows: given $n$ customers, each with a repairtime, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, let the \tit{latency} of a site be the time elapsed before that site is visited by any repairperson; the problem asks to determine $k$ cycles for each of the $k$ repairperson that minimize the sum of all the latencies of the sites.
     \end{frameddefn}
 
-    This problem is a bit more similar to our problem, but it still does not model the UAVs monitoring problem appropriately because it has no battery constraint.
+    This problem is a bit more similar to our problem, but it still does not model the UAV monitoring problem appropriately because it has no battery constraint.
 
     \begin{frameddefn}{mTRPD}
         The \tbf{multiple Traveling Repairperson Problem with Distance constraints} (mTRPD) is formulated as follows: given $n$ customers, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, but that are not allowed to travel a distance longer than a fixed limit, determine $k$ cycles for each of the $k$ repairperson that minimze the total waiting time for the customers.
@@ -2566,11 +2566,11 @@
 
     Although the first round of this problem is equivalent to our problem, a solution to this problem may be not be best solution to our problem because it may be possible to take advantage of the capacities of the batteries of the UAVs and distributing the problem of covering all the sites throughout multple rounds.
 
-    No previously studied problem seems to model the UAVs monitoring problem appropriately, which implies that we cannot exploit any know result.
+    No previously studied problem seems to model the UAV monitoring problem appropriately, which implies that we cannot exploit any know result.
 
     \section{Connection with the RMCCP}
     
-    Given a set of locations $V$, a \tbf{cycle cover} $\mathcal C := \{C_1, \ldots, C_k\}$ for $V$ is a set of cycles such that each location in $V$ belongs to at least one cycle of $\mathcal C$. The \tbf{completion time} of a cycle cover is defined as the maximum \tit{cost} among all the cycles of the cycle cover.
+    Given a set of locations $V$, a \tbf{cycle cover} $\mathcal C := \{C_1, \ldots, C_k\}$ for $V$ is a set of cycles such that each location in $V$ belongs to at least one cycle of $\mathcal C$. The \tbf{completion time} of a cycle cover is defined as the maximum \tit{cost} among all the cycles of the cycle cover (for some given \tit{cost} function).
 
     Given a fixed value $x \ge 0$, and a \tit{cost} function, an $x$-bounded cycle cover is a cycle cover in which each cycle of $\mathcal C$ has \tit{cost} at most $x$. Finally, given a \tit{safe location} $v_0$, a cycle $C$ will be said to be \tbf{rooted} in $v_0$ if $v_0 \in C$, and a \tbf{rooted cycle cover} is a cycle cover made of cycles rooted on some shared vertex.
 
@@ -2580,13 +2580,69 @@
         The \tbf{Rooted Minimum Cycle Cover Problem} (RMCCP) is defined as follows: given a graph $G = (V, E)$, where $V$ is a set of locations, a root $v_0 \in V$, a distance function $d$ defined on $E$, and a positive number $x \ge 0$, determine an $x$-bounded cycle cover, rooted in $v_0$, of minimum cardinality, if exists.
     \end{frameddefn}
 
-    placeholder \todo{slide 21 papers}
+    The RMCCP has been proved to be approximable, first by \textcite{nagarajan} in 2012 within a factor of $O(\log n)$, then by \textcite{friggstad} in 2014 within $O\rbk{\frac{\log x}{\log \log x}}$.
 
-    It can be shown that the RMCCP and the UAVs monitoring problem are \tit{tightly connected}.
+    It can be shown that the RMCCP and the UAV monitoring problem are \tit{tightly connected}.
 
     \begin{framedthm}{}
-        If the RMCCP can be approximated with an approximation ratio of $\alpha$, the UAVs monitoring problem can be approximated with an approximation ratio of $5 \alpha + 1$. Moreover, if the UAVs monitoring problem can be approximated with an approximation ratio of $\gamma$, the RMCCP can be approximated with an approximation ratio of $2 \gamma + 1$.
+        If the RMCCP can be approximated with an approximation ratio of $\alpha$, the UAV monitoring problem can be approximated with an approximation ratio of $5 \alpha + 1$. Moreover, if the UAV monitoring problem can be approximated with an approximation ratio of $\gamma$, the RMCCP can be approximated with an approximation ratio of $2 \gamma + 1$.
     \end{framedthm}
+
+    This theorem implies that our problem \tit{inherits} the hardness of the RMCCP. Nevertheless, it is not known whether the RMCCP admits a \tit{constant} approximation algorithm.
+
+    Since previously known results do not appear to be exploitable, our problem must be approached as a \tbf{new problem}, specifically tailored to the unique requirements of the UAV monitoring context.
+
+    \section{A new graph model}
+
+    In 2023 \textcite{calamoneri} introduced the following problem, aimed at modeling and extending the UAV monitoring problem.
+
+    \begin{frameddefn}{MDMT-VRP-TCT}
+        The \tbf{Multi-Depot Multi-Trip Vehicle Routing Problem with Total Completion Time minimization} (MDMT-VRP-TCT) is defined as follows: given the UAV monitoring problem, extended with multiple depots, determine the cycles for the UAVs that \tit{minimize the total completion time}, subject to the constraints of battery capacity and flying-and-inspection time
+    \end{frameddefn}
+    
+    Note that in the formulation we described earlier the UAV monitoring problem had 1 safe location, but the MDMT-VRP-TCT generalizes this formulation by allowing the considered setting to admit multiple depots for the UAVs --- note that 1 UAV is \tit{tied} to 1 depot, in the context of this problem. This is particularly useful in real-world scenarios, such as natural disasters, where UAVs are deployed to scan affected areas and prioritize rescue efforts. In such cases, there may also be multiple depots coordinating multiple UAVs.
+
+    Note that, in a multi-depot context, minimizing the \tit{completion time} and the total traversed distance is \tbf{different}, as shown in the following example.
+
+    placeholder \todo{add pic}
+
+    Given the setting described in (a), where there are 2 UAVs, 2 depots and 2 sites, the figure in (b) describes a feasible solution for a \tit{completion time minimization} problem, which clearly does not minimize the total traversed distance. In fact, in figure (c) there is an example which shows a feasible solution for a \tit{total traversed distance minimization} problem.
+
+    Moreover, note that in a multi-depot context, we cannot try to solve the problem by partitioning the area into as many portions as the number of depots, since the sites that fall inside a region are automatically assigned to the UAV of the region, which may lead to suboptimal solutions, as shown in the following picture.
+
+    placeholder \todo{add pic}
+
+    Additionally, the MDMT-VRP-TCT can be formulated as an ILP, by employing the following definitions:
+
+    \begin{itemize}
+        \item let a \tbf{sequence} be a ordered set of $k$ target nodes (i.e. sites), and let the \tbf{duration} $d_k$ of a $k$-long sequence be the sum between
+            \begin{itemize}
+                \item all the traveling times between consecutive target nodes of the sequence
+                \item the service times of all the target nodes of the sequence
+            \end{itemize}
+        \item given a UAV $u$, and its depot $o_u$, let a \tbf{trip} assigned to $u$ be a $k$-long sequence that passes through $o_u$; the duration $d_{k,u}$ of such a $k + 1$-long trip is defined as the sum between
+            \begin{itemize}
+                \item the duration of the $k$-long sequence of the trip
+                \item the traveling distance between $o_u$ and the first node of the sequence of the trip
+                \item the traveling distance between the last node of the sequence of the trip and $o_u$
+            \end{itemize}
+    \end{itemize}
+
+    \begin{frameddefn}{Compatibility}
+        Given a UAV $u$ with a battery capacity of $B$, a $k$-long sequence is said to be \tbf{compatible} $u$ if the duration of its associated trip is upper bounded by $B$.
+    \end{frameddefn}
+
+    The core concept of such an ILP involves generating \tit{all possible sequences} that are compatible with at least one UAV, and selecting the optimal solution. However, this approach may result in an \tit{unmanageably large} number of sequences. To address this, a \tbf{matheuristic approach} may be employed, by generating only a \tit{subset} of feasible cycles to input into the model. Notably, determining which sequences to generate becomes a critically important aspect of this method.
+
+    Finally, this problem may me extended in multiple ways:
+
+    \begin{itemize}
+        \item \tbf{priorities} for target locations may be introduced, for example hospitals and other important sites should be served first; this variant was discussed by \textcite{calamoneri2}
+        \item if we assume that UAVs may be able to capture videos and other type of data, it could be possible to consider the problem with a additional constraints for the \tbf{memory capacity} of the UAVs; this variant was explored by \textcite{sorbelli}
+        \item \tbf{cooperation} between UAVs may be introduced
+        \item it could be possilbe to study the problem in the situation in which the UAVs are allowed to recharge the battery (and the memory, optionally) in different depots, which is not allowed by the setting described by the MDMT-VRP-TCT
+        \item the behaviour of the UAVs may be allowed to change dynamically w.r.t. some \tit{emergency} situation
+    \end{itemize}
 
     \printbibliography
 \end{document}
