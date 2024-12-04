@@ -789,6 +789,50 @@
     \field{year}{2014}
   \endentry
 
+  \entry{gastaldello}{inbook}{}
+    \name{author}{3}{}{%
+      {{hash=GM}{%
+         family={Gastaldello},
+         familyi={G\bibinitperiod},
+         given={Mattia},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Calamoneri},
+         familyi={C\bibinitperiod},
+         given={Tiziana},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SMF}{%
+         family={Sagot},
+         familyi={S\bibinitperiod},
+         given={Marie-France},
+         giveni={M\bibinithyphendelim F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{GM+1}
+    \strng{fullhash}{GMCTSMF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{Computational Intelligence Methods for Bioinformatics and Biostatistics}
+    \verb{doi}
+    \verb 10.1007/978-3-030-14160-8_2
+    \endverb
+    \field{isbn}{9783030141608}
+    \field{issn}{1611-3349}
+    \field{pages}{9–18}
+    \field{title}{Extracting Few Representative Reconciliations with Host Switches}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-030-14160-8_2
+    \endverb
+    \field{year}{2019}
+  \endentry
+
   \entry{gorain14}{article}{}
     \name{author}{2}{}{%
       {{hash=GB}{%
@@ -1298,6 +1342,42 @@
     \field{year}{2019}
   \endentry
 
+  \entry{sinaimeri}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SB}{%
+         family={Sinaimeri},
+         familyi={S\bibinitperiod},
+         given={Blerina},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=UL}{%
+         family={Urbini},
+         familyi={U\bibinitperiod},
+         given={Laura},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SMF}{%
+         family={Sagot},
+         familyi={S\bibinitperiod},
+         given={Marie-France},
+         giveni={M\bibinithyphendelim F\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Matias},
+         familyi={M\bibinitperiod},
+         given={Catherine},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB+1}
+    \strng{fullhash}{SBULSMFMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{1 The event-based model}
+  \endentry
+
   \entry{solisoba}{inbook}{}
     \name{author}{1}{}{%
       {{hash=SOR}{%
@@ -1399,6 +1479,44 @@
     \endverb
     \field{title}{Graphs and matrices: A translation of "Graphok '{e}s matrixok" by D'{e}nes K\H{o}nig (1931)}
     \field{month}{09}
+    \field{year}{2020}
+  \endentry
+
+  \entry{tavernelli}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TD}{%
+         family={Tavernelli},
+         familyi={T\bibinitperiod},
+         given={Daniele},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Calamoneri},
+         familyi={C\bibinitperiod},
+         given={Tiziana},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=VP}{%
+         family={Vocca},
+         familyi={V\bibinitperiod},
+         given={Paola},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{TD+1}
+    \strng{fullhash}{TDCTVP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{number}{2}
+    \field{pages}{1009\bibrangedash 1017}
+    \field{title}{Linear Time Reconciliation With Bounded Transfers of Genes}
+    \field{volume}{19}
+    \field{journaltitle}{IEEE/ACM Transactions on Computational Biology and Bioinformatics}
     \field{year}{2020}
   \endentry
 
@@ -1512,6 +1630,57 @@
     \field{journaltitle}{IEEE Transactions on Computers}
     \field{month}{02}
     \field{year}{1981}
+  \endentry
+
+  \entry{wang}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=WY}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Yishu},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mary},
+         familyi={M\bibinitperiod},
+         given={Arnaud},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SMF}{%
+         family={Sagot},
+         familyi={S\bibinitperiod},
+         given={Marie-France},
+         giveni={M\bibinithyphendelim F\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sinaimeri},
+         familyi={S\bibinitperiod},
+         given={Blerina},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Schloss Dagstuhl – Leibniz-Zentrum f\"{u}r Informatik}%
+    }
+    \keyw{Cophylogeny, Enumeration, Equivalence relation, Dynamic programming, Theory of computation → Dynamic programming, Mathematics of computing → Graph enumeration, Theory of computation → Backtracking}
+    \strng{namehash}{WY+1}
+    \strng{fullhash}{WYMASMFSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.4230/LIPICS.WABI.2021.3
+    \endverb
+    \field{title}{Making Sense of a Cophylogeny Output: Efficient Listing of Representative Reconciliations}
+    \verb{url}
+    \verb https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.WABI.2021.
+    \verb 3
+    \endverb
+    \field{year}{2021}
   \endentry
 
   \entry{warshall}{article}{}

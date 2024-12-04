@@ -2644,5 +2644,89 @@
         \item the behaviour of the UAVs may be allowed to change dynamically w.r.t. some \tit{emergency} situation
     \end{itemize}
 
+    \chapter{TODO}
+
+    Various systems undergo a process called \tbf{coevolution}, where they evolve in response to one another's changes over time. This interconnected evolution is observed in multiple contexts:
+
+    \begin{itemize}
+        \item \tbf{hosts and their parasites or pathogens}: as hosts develop immune defenses, parasites and pathogens adapt to overcome these defenses, resulting in an ongoing evolutionary arms race
+        \item \tbf{organisms and their genes}: genes within organisms coevolve, influencing traits and behaviors to ensure survival and reproduction, shaping the organism's overall fitness
+        \item \tbf{geographical regions and their species}: ecosystems coevolve with the species they support, as environmental changes drive adaptations in species, which in turn impact the landscape and ecological balance
+        \item \tbf{cultural traditions and populations}: cultures and the populations that uphold them coevolve, with traditions influencing societal behavior and values, while societal changes drive the adaptation and evolution of cultural practices
+    \end{itemize}
+
+    This dynamic interplay illustrates how diverse systems are deeply interconnected, shaping and reshaping each other through mutual influence.
+
+    placeholder \todo{add pic pag 5}
+
+    The two trees $H$ and $P$ present in this image are \tbf{phylogenetic trees}, which describe the evolution stages of \href{https://en.wikipedia.org/wiki/Gopher}{ghopers} --- a family of rodents --- and the ones of the \href{https://en.wikipedia.org/wiki/Louse}{lice} --- a family of parasites, respectively. The leaves of the tree are the set of species that currently exist, and the mapping between the leaves of $H$ and $P$ is called a \tbf{leaf mapping function} which maps each parasite to the gopher they attack.
+
+    In biology, understanding the feasibility of mappings between phylogenetic trees is crucial for determining which parasite species may have attacked which hosts. To achieve this, biologists use a technique known as \tbf{reconciliation} of evolutionary trees. In particular, while computing the reconciliation of two trees it is important to follow the \tit{leaf mapping function}, since those are the mappings that actually occur in nature.
+
+    Biologists aim to examine \tit{all possible reconciliations} to determine which align with biological feasibility and which do not. Unfortunately, this requires to enumerate all optimal (according to some \tit{cost} function) reconciliations, which could be enormous since it is exponential w.r.t. the size of the input trees. To circumvent this problem, we can either try to reduce the number of optimal reconciliation, or develop a strategy to visualize reconciliations cleverly.
+
+    Additionally, some modern computational methods used to reconstruct phylogenetic trees produce \tbf{unrooted trees}, which represents the relationships between species without specifying the direction of evolutionary ancestry --- i.e. it doesn't indicate which species is the \curlyquotes{ancestor} and which are the \curlyquotes{descendants}.
+
+    To transform an unrooted tree into a \tbf{rooted tree} (which does indicate ancestry), scientists can employ \tbf{reconciliation} techniques, which leverage additional information to infer where the \curlyquotes{root} --- i.e. the \tit{Least Common Ancestor} (LCA) --- of the tree should be placed. By aligning the evolutionary histories of related systems, like hosts and parasites, reconciliations help establish a biologically consistent direction of evolution.
+
+    This shows how crucial it is to develop techniques in order to evaluate the feasibility of reconciliations, and to visualize them cleverly.
+
+    \section{Reconciliation between phylogenetic trees}
+
+    Informally, a \tbf{reconciliation} is a mapping from the nodes of the parasite tree $P$, toe the nodes of the host tree $H$, such that the leaf mapping function betwen $H$ and $P$ is respected.
+
+    placeholder \todo{add pic pag 6}
+
+    There are multiple ways to visualize the reconciliation between two trees, for example consider the following in which the host tree is represented by \curlyquotes{tubes}, and the parasite tree is contained by such tubes, as whosn in the following picture.
+
+    placeholder \todo{add pic pag 7}
+
+    From this visualization, it is apparent that it is not straightforward to perform a mapping between the trees, and some phenomena may occur:
+
+    \begin{itemize}
+        \item \tbf{cospeciation}: in the case of cospeciation, the two trees match perfectly and both the host and the parasite speciated in the same fashion
+        \item \tbf{duplication}: this occurs when the parasite speciated but the host did not, which graphically implies that one host tube will contain multiple branches of parasite species
+        \item \tbf{loss}: this occurs when a species goes extinct, which graphically implies that there will be a truncated branch in the parasite tree
+        \item \tbf{host switch} or \tbf{gene transfer}: this occurs when a parasite changed host, which graphically implies that a branch of the parasite tree changes host tube
+    \end{itemize}
+
+    Another constraint that is important while computing reconciliations is the \tbf{time consistency} constraint, which ensures that the evolutionary events depicted in the reconciliation are temporally plausible. This means that the timing of these events must be consistent with the known or inferred evolutionary timelines of the species involved.
+
+    placeholder \todo{add pic pag 13}
+
+    It turns out that computing time consistent reconciliations is \NPHard, but if we drop this constraint we can compute \tbf{time inconsistent reconciliations} in polynomial time by employing a dynamic programming approach. \todo{i skipped pag 16}
+
+    There are multiple \tit{open problems} related to tree reconciliations:
+
+    \begin{itemize}
+        \item phylogenetic trees are generally assumed to be correct, but this may not be the case; this problem was explored by \textcite{sinaimeri}
+        \item if the \tit{leaf mapping function} is \tit{not a function} --- which represents the general case and it is a more realistic model --- the problem becomes much harder to solve
+        \item is it possible to compute an optimal reconciliation in polynomial time if the distance of the host switches is bounded? (discussed by \textcite{tavernelli})
+        \item is it possible to compute an optimal time-consistent reconciliation in polynomial time for some particular topologies of the input trees?
+    \end{itemize}
+
+    \subsection{Reducing the number of optimal reconciliations}
+    
+    In order to reduce the number of optimal reconciliations two main approaches are employed:
+
+    \begin{itemize}
+        \item \tbf{similarity measure}: we can reduce the number by defining a \tit{similarity measure} between reconciliations, i.e. by finding a subset $S$ of all the reconciliations that represent the whole set, such that each of the optimal reconciliations is at a bounded distance from at least one of the reconciliations in $S$; a common \tit{similarity measure} employed is the smallest number of operations needed to change one reconciliation into another, but this may not represent the concept of \curlyquotes{similarity} well enough, as similar reconciliationsmay need a large number of operations to be changed from one to another, as shown in the following picture \todo{add pic pag 22}
+        \item \tbf{equivalence classes}: alternatively, the number may be reduced by using the definition of \tit{equivalence classes} to group the reconciliations that may be considered biologically equivalent, and providing as output just one representative of the whole equivalence class; a commont \tit{equivalence relation} employed is the event vector, which seems to be a good alternative since the number of event vectors is polynomial, but reconciliations with the same event vector may be every different from each other \todo{add pic pag 24}
+    \end{itemize}
+
+    In 2017 \textcite{gastaldello} proved that, if the set of vertices of the parasite tree $P$ that are associated to host switches is fixed, an optimal reconciliation can be easily identified by using the LCA mapping. This theoretical result lead to the following theorem.
+
+    \begin{framedthm}{Equivalence of reconciliations}
+        Two reconciliations are identical if and only if they have the same host switches
+    \end{framedthm}
+
+    placeholder \todo{add pic pag 26}
+
+    Although this is a good \tit{similarity measure}, the problem is that establishing whether two reconciliations are equivalent requires to enumerate all the optimal solutions, and then cluster them according to this equivalence relation, which is unfeasible when the number of reconciliations is too large.
+
+    Is it possible to enumerate only 1 representative for each equivalence class, without the need of considering all of its elements? It has been proven to be possible for 3 distinct definitions of equivalence relations by \textcite{wang}, but the relations were rather artificial and they are not applicable in real-world contexts.
+
+    \subsection{Visualizing reconciliations}
+
     \printbibliography
 \end{document}

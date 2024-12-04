@@ -38,3 +38,7 @@
 \contentsline {chapter}{\numberline {7}The UAV monitoring problem}{88}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Connection with the RMCCP}{90}{section.7.1}%
 \contentsline {section}{\numberline {7.2}A new graph model}{91}{section.7.2}%
+\contentsline {chapter}{\numberline {8}TODO}{94}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Reconciliation between phylogenetic trees}{95}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Reducing the number of optimal reconciliations}{96}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Visualizing reconciliations}{97}{subsection.8.1.2}%
