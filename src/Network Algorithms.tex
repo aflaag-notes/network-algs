@@ -1405,6 +1405,34 @@
         Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to design an attack strategy such that all the guards form a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
+    \chapter{TODO}
+
+    \tbf{Wireless sensor networks} (WSNs) are large-scale, multi-hop wireless systems composed of nodes with \tit{limited resources}, such as energy, bandwidth, storage, and processing power. Designed primarily for continuous monitoring and data collection, WSNs play a crucial role in various applications by providing low-level surveillance and data gathering within a designated area.
+
+    Once deployed, Wireless Sensor Networks (WSNs) are designed to operate autonomously over extended periods without direct human intervention. Over their lifetimes, it is crucial to address software bugs, reconfigure system parameters, and perform software upgrades to maintain reliable system performance. For large-scale WSNs, manually retrieving and reconfiguring individual nodes is \tit{impractical and inefficient}. As a result, \tbf{data dissemination}, i.e. \tbf{broadcasting}, is essential for efficiently disseminating updates and reconfigurations across the network.
+
+    Broadcasting enables the dissemination of data from a sink node to all nodes in the network using wireless communication. The transmitted data may include code for updating programs, system commands for configuration or control and updated system parameters to optimize performance.
+
+    There are three requirements for data dissemination in WSNs.
+
+    \begin{itemize}
+        \item \tbf{Reliability}: To ensure reliability, all nodes in the network must be \tit{covered} during data dissemination. Since this process forms the foundation for critical services such as reprogramming and parameter distribution, failing to reach even a single node can lead to inconsistencies or a complete network crash.
+        \item \tbf{Energy efficiency}: The data dissemination process must be conducted with \tit{minimal energy consumption} due to the limited power resources of network nodes. Energy consumption primarily involves two components:
+            \begin{itemize}
+                \item \tbf{read-write operations}, ecessary for storing data blocks and thus unavoidable
+                \item \tbf{transmission activity}, the largest contributor to energy consumption and the aspect most amenable to optimization
+            \end{itemize}
+        \item \tbf{Scalability}: In Wireless Sensor Networks, both the number of nodes and node density can vary significantly. A dissemination protocol is considered scalable if the completion time of data dissemination increases linearly with the size of the network.
+    \end{itemize}
+
+    A wireless ad-hoc network is composed of a set $S$ of fixed radio stations connected via wireless links.
+
+    \begin{itemize}
+        \item for the \tbf{station placement}, we assume that the stations are positioned on the Euclidean plane, acknowledging that this is only a partially realistic assumption
+
+        \item each node is equipped with \tbf{omnidirectional antennas}, enabling transmissions to be received by all neighboring nodes, resulting in a natural broadcast effect
+    \end{itemize}
+
     \chapter{The data mule scheduling problem}
 
     A \tbf{sensor} is a device that detects and responds to specific \tit{environmental inputs}, such as light, heat, motion, moisture, or pressure, among many other physical phenomena. Upon sensing these inputs, the sensor generates an \tit{output signal}, which can either be displayed locally in a human-readable format or transmitted electronically over a network for further analysis or processing. This process allows sensors to play a crucial role in monitoring and interpreting real-world conditions across a wide range of applications.
@@ -2040,9 +2068,7 @@
 
     \chapter{The centralized deployment of mobile sensors problem}
 
-    \tbf{Wireless sensor networks} (WSNs) are large-scale, multi-hop wireless systems composed of nodes with \tit{limited resources}, such as energy, bandwidth, storage, and processing power. Designed primarily for continuous monitoring and data collection, WSNs play a crucial role in various applications by providing low-level surveillance and data gathering within a designated \tit{area of interest} (AoI). 
-
-    To be effective, WSNs must ensure full coverage of the AoI, with no internal sensing gaps, to accurately monitor the environment. Due to factors like human inaccessibility and constrained deployment budgets, careful sensor positioning within the AoI is \tit{essential} to maximize coverage, extend network lifespan, and achieve operational goals. Therefore, \tbf{sensor mobility} is mandatory.
+    To be effective, WSNs must ensure full coverage of the \tbf{area of interest} (AoI), with no internal sensing gaps, to accurately monitor the environment. Due to factors like human inaccessibility and constrained deployment budgets, careful sensor positioning within the AoI is \tit{essential} to maximize coverage, extend network lifespan, and achieve operational goals. Therefore, \tbf{sensor mobility} is mandatory.
 
     There are two main strategies for sensor deployment in wireless sensor networks using \tbf{mobility}, which are described below.
 
@@ -2267,7 +2293,7 @@
         \end{figure}
     \end{example}
 
-    A \tbf{flow} is a map $\func{f}{E(G)}{\R}$ that satisfies the following two constraints:
+    A \tbf{flow} is a map $\func{f}{E(G)}{\R}$ that satisfies the following three constraints:
 
     \begin{itemize}
         \item \tbf{skew symmetry} the flow on an arc from $u$ to $v$ is equivalent to the negation of the flow on the arc from $v$ to $u$; the sign of the flow indicates the flow's direction $$f(u,v) = -f(v, u)$$
@@ -2794,7 +2820,7 @@
         \item the behaviour of the UAVs may be allowed to change dynamically w.r.t. some \tit{emergency} situation
     \end{itemize}
 
-    \chapter{TODO}
+    \chapter{The reconciliation visualization problem}
 
     Various systems undergo a process called \tbf{coevolution}, where they evolve in response to one another's changes over time. This interconnected evolution is observed in multiple contexts:
 
@@ -2823,7 +2849,7 @@
 
     Informally, a \tbf{reconciliation} is a mapping from the nodes of the parasite tree $P$, toe the nodes of the host tree $H$, such that the leaf mapping function betwen $H$ and $P$ is respected.
 
-    \centeredimage[]{0.25}{../assets/h_p_f.png}
+    \centeredimage[]{0.2}{../assets/h_p_f.png}
 
     There are multiple ways to visualize the reconciliation between two trees, for example consider the following in which the host tree is represented by \curlyquotes{tubes}, and the parasite tree is contained by such tubes, as whosn in the following picture.
 
@@ -2878,6 +2904,54 @@
     Is it possible to enumerate only one representative for each equivalence class, without the need of considering all of its elements? It has been proven to be possible for 3 distinct definitions of equivalence relations by \textcite{wang}, but the relations were rather artificial and they are not applicable in real-world contexts.
 
     \subsection{Visualizing reconciliations}
+
+    Consider host tree $H$, a parasite tree $P$, a leaf mapping function $f$ and a reconciliation $R$ between $H$ and $P$. There are three main strategies in which the reconciliation $R$ is usually visualized:
+
+    placeholder \todo{add pic pag 30}
+
+    \begin{itemize}
+        \item $R$ is represented through two paired trees --- the leftmost visualization
+        \item $P$ is drawn inside $H$ --- the visualization in the middle
+        \item $H$ is represented as pipes and $P$ is drawn inside $H$'s pipes --- the rightmost visualization
+    \end{itemize}
+
+    \begin{example}[Visualizations]
+        The following are some examples of visualizations generated through multiple programs that compute reconciliations.
+
+        placeholder \todo{add pic pag 31}
+
+        placeholder \todo{add pic pag 32}
+
+        placeholder \todo{add pic pag 33}
+
+        placeholder \todo{add pic pag 34}
+
+        placeholder \todo{add pic pag 35}
+    \end{example}
+
+    An interesting approach that was recently developed in order to visualize reconciliations is the following:
+
+    placeholder \todo{add pic pag 38}
+
+    In this type of visualization, the host tree is represented through colored blocks (optionally slanted), and the parasite tree is drawn inside the colored blocks. Host switches are represented through dashed lines, and losses are represented as shown below
+
+    placeholder \todo{add pic pag 39}
+
+    In general, in reconciliation visualizations it is ideal to minimize the number of crossings, since it enhances readability, but this is not always possible, as shown in the following example:
+
+    placeholder \todo{add pic pag 42}
+
+    The following two theoretical results offer insight into the feasibility of reducing the number of crossings.
+
+    \begin{framedthm}{}
+        Every reconciliation admits a planar representation if and only if the associated tanglegram is planar.
+    \end{framedthm}
+
+    placeholder \todo{add pic pag 46}
+
+    \begin{framedthm}{}
+        Deciding whether a time-consistent reconciliation admits a visualization drawing with at most $k$ crossing is \NPComplete.
+    \end{framedthm}
 
     \printbibliography
 \end{document}
