@@ -1425,13 +1425,18 @@
         \item \tbf{Scalability}: In Wireless Sensor Networks, both the number of nodes and node density can vary significantly. A dissemination protocol is considered scalable if the completion time of data dissemination increases linearly with the size of the network.
     \end{itemize}
 
-    A wireless ad-hoc network is composed of a set $S$ of fixed radio stations connected via wireless links.
+    A wireless ad-hoc network is composed of a set $S$ of fixed radio stations connected via wireless links
 
     \begin{itemize}
         \item for the \tbf{station placement}, we assume that the stations are positioned on the Euclidean plane, acknowledging that this is only a partially realistic assumption
-
         \item each node is equipped with \tbf{omnidirectional antennas}, enabling transmissions to be received by all neighboring nodes, resulting in a natural broadcast effect
+        \item stations can communicate either directly (\tbf{single-hop communication}) if they are \tit{sufficiently close}, or via \tbf{intermediate nodes}
+        \item each station is assigned a \tbf{transmission range}, represented by a function $\func{r}{S}{\R}$ which induces a communication graph $G = (S, E)$ where $$(i, j) \in E \iff \dist(i, j) \le r(i)$$ and $\dist(i, j)$ is the Euclidean distance between $i$ and $j$; in other words, $(i, j) \in E$ if and only if $j$ belongs to the disk centered ad $i$ and having radius $r(i)$
     \end{itemize}
+
+    Each station can dynamically \tit{modulate} its own transmission power, in fact the \tbf{transmission radius} of a station depends on the energy power supplied to the station. In particular, the power $P_s$ required by a station $s$ to transmit dta to another station $t$ must satisfy the following inequality $$\dfrac{P_s}{\dist^\alpha(s, t) } \ge 1$$ where $\alpha \ge 1$ is called \tbf{distance-power gradient}. Usually $2 \le \alpha \le 4$, and $\alpha = 2$ in empty space. This implies that, in order to have a communication from $s$ to $t$, the power $P_s$ must be \tit{proportional} to $\dist^\alpha(s, t)$. 
+
+    % The primary goal is to minimize energy consumption, as all devices rely on a common electricity source (e.g., when the stations are deployed in an ad-hoc fashion and connected to a centralized power supply).
 
     \chapter{The data mule scheduling problem}
 
@@ -1728,7 +1733,7 @@
 
     \textcite{christofides} originally developed his algorithm to solve the Euclidean TSP, a specific type of metric TSP. However, this algorithm is more general and can be applied to any metric TSP, not limited to Euclidean cases. Despite its general applicability, there are certain inputs that push the performance of this algorithm close to its worst-case approximation ratio of $\frac{3}{2}$.
 
-    In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidian TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidian space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
+    In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidean TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidean space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
 
     placeholder \todo{last part?}
 
