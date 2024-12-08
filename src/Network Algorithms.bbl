@@ -1045,6 +1045,50 @@
     \field{year}{1972}
   \endentry
 
+  \entry{kirousis}{article}{}
+    \name{author}{4}{}{%
+      {{hash=KLM}{%
+         family={Kirousis},
+         familyi={K\bibinitperiod},
+         given={Lefteris\bibnamedelima M},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=KE}{%
+         family={Kranakis},
+         familyi={K\bibinitperiod},
+         given={Evangelos},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Krizanc},
+         familyi={K\bibinitperiod},
+         given={Danny},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Pelc},
+         familyi={P\bibinitperiod},
+         given={Andrzej},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{KLM+1}
+    \strng{fullhash}{KLMKEKDPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{1-2}
+    \field{pages}{289\bibrangedash 305}
+    \field{title}{Power consumption in packet radio networks}
+    \field{volume}{243}
+    \field{journaltitle}{Theoretical Computer Science}
+    \field{year}{2000}
+  \endentry
+
   \entry{kuhn}{article}{}
     \name{author}{1}{}{%
       {{hash=KHW}{%
