@@ -1430,19 +1430,17 @@
     A wireless ad-hoc network is composed of a set $S$ of fixed radio stations connected via wireless links
 
     \begin{itemize}
-        \item for the \tbf{station placement}, we assume that the stations are positioned on the Euclidean plane, acknowledging that this is only a partially realistic assumption
+        % \item for the \tbf{station placement}, we assume that the stations are positioned on the Euclidean plane, acknowledging that this is only a partially realistic assumption
         \item each node is equipped with \tbf{omnidirectional antennas}, enabling transmissions to be received by all neighboring nodes, resulting in a natural broadcast effect
         \item stations can communicate either directly (\tbf{single-hop communication}) if they are \tit{sufficiently close}, or via \tbf{intermediate nodes}
-        \item each station is assigned a \tbf{transmission range}, represented by a function $\func{r}{S}{\R}$ which induces a communication graph $G = (S, E)$ where $$(i, j) \in E \iff \dist(i, j) \le r(i)$$ and $\dist(i, j)$ is the Euclidean distance between $i$ and $j$; in other words, $(i, j) \in E$ if and only if $j$ belongs to the disk centered ad $i$ and having radius $r(i)$
+        % \item each station is assigned a \tbf{transmission range}, represented by a function $\func{r}{S}{\R}$ which induces a communication graph $G = (S, E)$ where $$(i, j) \in E \iff \dist(i, j) \le r(i)$$ and $\dist(i, j)$ is the Euclidean distance between $i$ and $j$; in other words, $(i, j) \in E$ if and only if $j$ belongs to the disk centered ad $i$ and having radius $r(i)$
     \end{itemize}
 
     Each station can dynamically \tit{modulate} its own transmission power, in fact the \tbf{transmission radius} of a station depends on the energy power supplied to the station. In particular, the power $P_s$ required by a station $s$ to transmit data to another station $t$ must satisfy the following inequality $$\dfrac{P_s}{\dist^\alpha(s, t) } \ge 1$$ where $\alpha \ge 1$ is called \tbf{distance-power gradient}. Usually $2 \le \alpha \le 4$, and $\alpha = 2$ in empty space. This implies that, in order to have a communication from $s$ to $t$, the power $P_s$ must be \tit{proportional} to $\dist^\alpha(s, t)$. 
 
-    \section{The Min Broadcast problem}
+    The primary goal is to \tbf{minimize energy consumption}, as all devices rely on a common electricity source (e.g., when the stations are deployed in an ad-hoc fashion and connected to a centralized power supply). To achieve this goal, the stations collaborate to provide specific \tbf{connectivity properties}, by \tit{dynamically adjusting} their transmission ranges.
 
-    The primary goal is to \tbf{minimize energy consumption}, as all devices rely on a common electricity source (e.g., when the stations are deployed in an ad-hoc fashion and connected to a centralized power supply). To achieve this goal, the stations collaborate to provide specific \tbf{connectivity properties}, by \tit{dynamically adjusting} their transmission ranges. Depending on the desired connectivity property, various optimization problems arise, each with unique challenges.
-
-    In particular, the \tbf{transmission graph} is required to
+    Depending on the requirements of the network, the \tbf{transmission graph} may be required to
 
     \begin{itemize}
         \item be \tbf{strongly connected}: this problem is \NPHard, and although there exists a 2-approximation algorithm in two-dimensional settings, found by \textcite{kirousis}, there exists values of $r > 1$ such that the problem is not $r$-approximable
@@ -1450,23 +1448,29 @@
         \item include a \tbf{spanning tree} rooted at a given source node $s$
     \end{itemize}
 
-    For what concerns the last requirement, given a source node $s$, let the \tbf{Broadcast Range Assignment} (\tit{Broadcast}, for short) a range assignment that induces a communication graph $G$ containing a directed spanning tree rooted at $s$. We define the following problem.
+    The last requirement is the focus of this chapter, and it will be discussed in greater detail. In particular, consider a graph $G = (V, E)$, in which the vertices of the graph are the stations that need to communicate between one another, and $E$ is the set of connections between the various stations. Moreover, consider a function $\func{w}{E(G)}{\R^+}$ which assigns weights to the edges of $G$ such that $w(u, v)$ describes the cost of connecting $u$ and $v$, due to either distance or other factors.
+
+    Since the main goal is to \tit{minimize the energy consumption} of the various hops of the network, we need to decide the \tbf{power consumption} of each node on the graph $G$ that we considered. Assume that there is a special \tit{source node} $s$ that is the starting point for any transmission that will be considered. In particular, we are interested in sending a \tbf{broadcast message} from $s$ to any other node of $G$, while still minimizing the energy consumption.
+
+    Let a \tbf{power assignment} be a function $\func{r}{V(G)}{\R^+}$, such that induces a subgraph $G'= (V, E')$ of the graph $G$, where the edges are defined as follows $$(i, j) \in E' \iff w(i, j) \le r(i)$$ If $G'$ is a \tit{spanning tree} of $G$ rooted at $s$, i.e. $s$ can correctly broadcast a messsage to any other node of the network, we will call the power assignment $r$ a \tbf{Broadcast Range Assignment}, or \tit{broadcast} for short.
 
     \begin{frameddefn}{Min Broadcast problem}
-        Given a set of nodes, a source node $s$, determine the Broadcast that minimizes the overall energy consumption.
+        The \tbf{Min Broadcast} problem asks to find the power assignment $r$ for a given network $G$ that minimizes the energy consumption, i.e. that minimizes $\sum_{v \in V(G)}{r(v)}$.
     \end{frameddefn}
-    
-    Note that we are assuming that the energy required to perform a transmission between two nodes is represented by the \tit{weight} between the two nodes.
 
-    Now, consider the following computational problem.
+    Note that this problem \tit{resambles} the problem of finding the \href{https://en.wikipedia.org/wiki/Minimum_spanning_tree}{Minimum Spanning Tree} (MST) --- which asks for the spanning tree of minimum weight of a given edge-weighted graph --- but it is \tit{not the same problem}. In fact, a power assignment is an assignment of the vertices which does \curlyquotes{choose} edges, but if a vertex $u$ has a power assignment $r(u)$, than \tit{all the edges} $(u, v)$ such that $w(u, v) \le r(u)$ are automatically, making the problem much harder to solve.
 
-    \begin{frameddefn}[label={set cover}]{Set cover}
+    \section{The Min Broadcast problem}
+
+    Consider the following computational problem.
+
+    \begin{frameddefn}[label={set cover}]{Set cover (SC)}
         Given a \tit{universe} set $U = \{1, \ldots, n\}$, and a collection of sets $S \in \powerset(U)$ such that $\bigcup_{X \in S}{X} = U$, find the \tit{smallest} sub-collection of $S$ whose union still equals $U$.
     \end{frameddefn}
 
     In 1972 \textcite{karp} proved that the \tbf{set cover} problem is \NPComplete. For the set cover problem, the following theoretical result is known.
 
-    \begin{framedthm}{Inapproximability of Set Cover}
+    \begin{framedthm}[label={sc inapprox}]{Inapproximability of Set Cover}
         The Set Cover problem is not approximable within a factor of $c \log n$, for some $c > 0$, where $n = \abs U$ and $U$ is the universe set of the set cover problem.
     \end{framedthm}
 
@@ -1486,9 +1490,82 @@
             \item for any $e \in E(G)$, let $w(e) := 1$
         \end{itemize}
         
-        Let $C'$ be a solution for the instance of the set cover problem we considered; such a solution a
+        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted at $s$, since each element in $U$ is contained in t least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
+
+        Conversely, assume that $r$ is a feasible solution for the Min Broadcast problem, i.e. a power assignment that minimizes the energy consumption --- note that, $r(s) = 1$, and w.l.o.g. $r(v)$ is either 0 or 1 if $v$ is of the form $v_{C_j}$, otherwise it is 0 if it is of the form $v_{s_i}$. Thus, a solution for the set cover problem $C'$ can be derived by simply selecting all subsects $C_j \in C$ such that $r(C_j) = 1$ in the power assignment. The cardinality of such a solution is $\abs{C'} = \mathrm{cost}(r) - 1$, since $\mathrm{cost}(r)$ must contain the cost of the source node $s$.
+
+        This proves that, given an instance of the set cover problem $(U, C)$, an instance of the Min Broadcast problem $(G, w, s)$ can be constructed such that there exists a solution for $(U, C)$ of cardinality $k$ if and only if there exists a solution for $(G, w, s)$ of cost $k + 1$. Therefore, if Min Broadcast is approximable within a constant factor, then SC is approximable within a constant factor as well, which is not possible by \cref{sc inapprox}.
     \end{proof}
 
+    As a final note, it can be proven that the Min Broadcast problem is \NPComplete \cite{cagalj}, and in its general version --- not discussed in this notes --- it is neither approximable within $(1 - \varepsilon) \Delta$, where $\Delta$ is the maximum degree of the spanning tree of the solution to the problem, and $\varepsilon$ is an arbitrary constant.
+
+    \subsection{Euclidian Min Broadcast}
+
+    There exist special cases of the Min Broadcast problem, which are particularly interesting. An example is provided by the \tbf{Euclidean bidimensional Min Broadcast}, in which the problem is restricted to the Euclidean plane, and the weight between the edges of the networks considered will be the Euclidean distance between the hops, raised to some constant $\alpha$.
+
+    In this special case, it is crucial to \tit{collaborate} in order to minimize the overall energy consumption. For example, consider the following setting
+
+    \centeredimage[]{0.25}{../assets/euclidean.png}
+
+    $S_1$ needs to communicate with $S_2$, but it can only communicate directly to $S_3$, and $S_3$ can in turn communicate to $S_2$. Assume that $\alpha = 2$, thus the cost for the transmission between $S_1$ and $S_2$ is $\dist(S_1, S_2)^2$, and the total cost of transmitting a message from $S_1$ to $S_2$ passing through $S_3$ is $$\dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ Note that if the angle $S_1S_3S_2$ is obtuse, then $$\dist(S_1, S_2)^2 > \dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ for the triangle inequality.
+
+    In the Euclidean case, a power assignment $r$ of a given network can be represented by the corresponding \tit{family of disks} $D = \{D_1, \ldots, D_n\}$, and the overall energy consumption will be defined as $$\mathrm{cost}(D) := \sum_{i = 1}^n{r_i^\alpha}$$ where $r_i$ is the radius of $D_i$.
+
+    Differently from the Min Broadcast problem, nothing is known about the hardness of the Euclidean version of the problem, but there exists an approximation algorithm that is based on the computation of an MST of the given graph, which works as follows:
+
+    \begin{itemize}
+        \item compute the MST of the complete graph, induced by \todo{BY WHAT pag 29}
+        \item assign a direction to the edges, from $s$ toward the leaves
+        \item the power assignment is defined as follows: assign to each node $i$ the radius equal to the length of the longest directed edge outgoing from $i$
+    \end{itemize}
+
+    Although it is easy to implement, the approximation ratio of this algorithm is very involved and outside the scope of these nodes. Nevertheless, the next section will focus on algorithms and theoretical results regarding the problem of finding an MST of a given graph.
+
+    \section{The minimum spanning tree problem}
+
+    The \tbf{Minimum Spanning Tree} (MST) problem is defined as follows.
+
+    \begin{frameddefn}{Minimum Spanning Tree}
+        Given a graph $G = (V, E)$, and a function $\func{w}{E(G)}{\R}$, find the subtree of $G$ that minimizes the total weight of its edges w.r.t. $w$.
+    \end{frameddefn}
+
+    In the general case there may be several minimum spanning trees of the given graph, but the following lemma can be proved for a special case of $w$.
+
+    \begin{framedlem}{Uniqueness of the MST}
+        Given a graph $G = (V, E)$, and a function $\func{w}{E(G)}{\R}$, if $w$ is such that all the edges have distinct weights, then $G$'s MST is unique.
+    \end{framedlem}
+
+    \begin{proof}
+        By way of contradiction, assume that there exist two distinct MSTs $T$ and $T'$ for $G$, such that $$\sum_{e \in E(T)}{w(e)} = \sum_{e \in E(T')}{w(e)}$$ Without loss of generality, since $T \neq T'$ assume there exists $e_1 \in E(T) - E(T')$. Since $T'$ is an MST, the graph induced by $E(T') \cup \{e_1\}$ must contain a cycle $C$, and there must be at least one edge $e_2 \in E(T') - E(T)$ which lies in $C$.
+
+        Now, if $w(e_1) < w(e_2)$, replacing $e_2$ with $e_1$ in $T'$ yields a spanning tree of $G$ of less weight than the weight of $T'$, which is a contradiction because we assumed that $T'$ was an MST. The same reasoning can be applied in the case in which $w(e_2) < w(e_1)$, and the case in which $w(e_1) = w(e_2)$ does not exist by hypothesis on $w$.
+    \end{proof}
+
+    \begin{framedlem}{}
+        Consider a graph $G = (V, E)$, a weight function $\func{w}{E(G)}{\R}$, and a cycle $C$ of $G$; if in $C$ there exists an edge $e$ such that its weight is larger than the weight of all the other edges of $C$, $e$ does not belong to any MST of $G$.
+    \end{framedlem}
+    
+    \begin{proof}
+        By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \in E(T)$; hence, by definition of MST, the graph induced by $E(T) - \{e\}$ is described by two subtrees $T_1$ and $T_2$ of $G$, and the two endpoints of $e$ belong two $T_1$ and $T_2$ respectively.
+
+        Note that the rest of the cycle $C$ also connects the two subtrees, i.e. there exists another edge $f$ of $C$ such that the two subtrees $T_1$ and $T_2$ are connected, therefore we can define a new tree $T'$ induced by $E(T_1) \cup E(T_2) \cup \{f\}$ which still spans $G$ entirely. Finally, note that $w(e) > w(f)$ by hypothesis, therefore the total weight of $T'$ is less than the weight of $T$, contradicting the assumption for which $T$ was an MST.
+    \end{proof}
+
+    \begin{framedlem}{}
+        Consider a graph $G = (V, E)$, and a weight function $\func{w}{E(G)}{\R}$; if in $G$ there exists a unique edge $e$ of minimum weight, $e$ is in any MST of $G$.
+    \end{framedlem}
+
+    \begin{proof}
+        By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \notin E(T)$, and consider the graph induced by $E(T) \cup \{e\}$. Clearly, such a graph contains a cycle $C$ that includes $e$, and by definition of $T$, removing any edge of $C$, that is different from $e$ itself, yields an MST of weight lower than the one of $T$, since
+
+        \begin{itemize}
+            \item $e$ has minimum weight among all the edges of the graph
+            \item the weight that was replaced in favor of $e$ must have greater weight than $e$'s weight, by definition of $e$
+        \end{itemize}
+
+        and this contradicts the assumption of $T$ being an MST of $G$.
+    \end{proof}
+    
     \chapter{The data mule scheduling problem}
 
     A \tbf{sensor} is a device that detects and responds to specific \tit{environmental inputs}, such as light, heat, motion, moisture, or pressure, among many other physical phenomena. Upon sensing these inputs, the sensor generates an \tit{output signal}, which can either be displayed locally in a human-readable format or transmitted electronically over a network for further analysis or processing. This process allows sensors to play a crucial role in monitoring and interpreting real-world conditions across a wide range of applications.

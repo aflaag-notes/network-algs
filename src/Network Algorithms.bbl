@@ -195,6 +195,39 @@
     \field{year}{1980}
   \endentry
 
+  \entry{cagalj}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={{\v{C}}agalj},
+         familyi={{\v{C}}\bibinitperiod},
+         given={Mario},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HJP}{%
+         family={Hubaux},
+         familyi={H\bibinitperiod},
+         given={Jean-Pierre},
+         giveni={J\bibinithyphendelim P\bibinitperiod},
+      }}%
+      {{hash=EC}{%
+         family={Enz},
+         familyi={E\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CM+1}
+    \strng{fullhash}{CMHJPEC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of the 8th annual international conference on Mobile computing and networking}
+    \field{pages}{172\bibrangedash 182}
+    \field{title}{Minimum-energy broadcast in all-wireless networks: NP-completeness and distribution issues}
+    \field{year}{2002}
+  \endentry
+
   \entry{calamoneri2}{article}{}
     \name{author}{3}{}{%
       {{hash=CT}{%
