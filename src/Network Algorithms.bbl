@@ -155,6 +155,34 @@
     \field{year}{1957}
   \endentry
 
+  \entry{blaschke}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BW}{%
+         family={Blaschke},
+         familyi={B\bibinitperiod},
+         given={Wilhelm},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=TG}{%
+         family={Thomsen},
+         familyi={T\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BW+1}
+    \strng{fullhash}{BWTG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Vorlesungen {\"u}ber Differentialgeometrie und geometrische Grundlagen von Einsteins Relativit{\"a}tstheorie: Elementare Differentialgeometrie}
+    \field{year}{1924}
+  \endentry
+
   \entry{brent}{article}{}
     \name{author}{2}{}{%
       {{hash=BR}{%
@@ -1047,6 +1075,44 @@
     \field{year}{1973}
   \endentry
 
+  \entry{imai}{article}{}
+    \name{author}{3}{}{%
+      {{hash=IH}{%
+         family={Imai},
+         familyi={I\bibinitperiod},
+         given={Hiroshi},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=IM}{%
+         family={Iri},
+         familyi={I\bibinitperiod},
+         given={Masao},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Murota},
+         familyi={M\bibinitperiod},
+         given={Kazuo},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SIAM}%
+    }
+    \strng{namehash}{IH+1}
+    \strng{fullhash}{IHIMMK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{number}{1}
+    \field{pages}{93\bibrangedash 105}
+    \field{title}{Voronoi diagram in the Laguerre geometry and its applications}
+    \field{volume}{14}
+    \field{journaltitle}{SIAM Journal on Computing}
+    \field{year}{1985}
+  \endentry
+
   \entry{karp}{inbook}{}
     \name{author}{1}{}{%
       {{hash=KRM}{%
@@ -1813,6 +1879,43 @@
     \field{journaltitle}{J. ACM}
     \field{month}{01}
     \field{year}{1962}
+  \endentry
+
+  \entry{wieselthier}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=WJE}{%
+         family={Wieselthier},
+         familyi={W\bibinitperiod},
+         given={Jeffrey\bibnamedelima E},
+         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=NGD}{%
+         family={Nguyen},
+         familyi={N\bibinitperiod},
+         given={Gam\bibnamedelima D},
+         giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=EA}{%
+         family={Ephremides},
+         familyi={E\bibinitperiod},
+         given={Anthony},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{WJE+1}
+    \strng{fullhash}{WJENGDEA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{Proceedings IEEE INFOCOM 2000. Conference on Computer Communications. Nineteenth Annual Joint Conference of the IEEE Computer and Communications Societies (Cat. No. 00CH37064)}
+    \field{pages}{585\bibrangedash 594}
+    \field{title}{On the construction of energy-efficient broadcast and multicast trees in wireless networks}
+    \field{volume}{2}
+    \field{year}{2000}
   \endentry
 
   \entry{butterwise}{inbook}{}
