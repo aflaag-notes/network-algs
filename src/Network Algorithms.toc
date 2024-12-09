@@ -44,7 +44,7 @@
 \contentsline {chapter}{\numberline {9}TODO (Voronoi)}{99}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Voronoi diagrams}{101}{section.9.1}%
 \contentsline {subsection}{\numberline {9.1.1}Algorithms for computing Voronoi diagrams}{105}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}Sensor heterogeneity}{109}{section.9.2}%
+\contentsline {section}{\numberline {9.2}Sensor heterogeneity}{108}{section.9.2}%
 \contentsline {chapter}{\numberline {10}The UAV monitoring problem}{113}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Connection with the RMCCP}{116}{section.10.1}%
 \contentsline {section}{\numberline {10.2}A new graph model}{117}{section.10.2}%
