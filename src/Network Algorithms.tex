@@ -1405,7 +1405,151 @@
         Consider a vertex cover of less than $n - 1$ nodes of $P_n$. It is always possible to design an attack strategy such that all the guards form a connected path, therefore an edge will be unprotected because there are less than $n - 1$ guards.
     \end{proof}
 
-    \chapter{TODO (coloring)}
+    \chapter{The frequency assignment problem}
+
+    The introduction of new services, such as \tit{data communication} (e.g., internet and email) and video conferencing, has led to \tbf{capacity shortages} in existing wired networks. This increasing demand highlights the need for alternative solutions.
+
+    One such alternative is a \tbf{fixed wireless network}, which consists of \tit{wireless devices} positioned at fixed locations, such as on buildings or towers. These devices form a network through radio or other wireless connections, operating without reliance on established infrastructure or centralized control.
+
+    Fixed wireless networks offer a viable solution for \tit{extending} the capacity of wired networks, providing flexibility and scalability while bypassing the limitations of traditional wired infrastructure. Moreover, they offer significant benefits, particularly in areas where traditional wired infrastructure is unavailable or impractical, for example
+
+    \begin{itemize}
+        \item \tbf{connecting remote areas}: they enable connectivity in rural or hard-to-reach locations without the need for costly and time-consuming cable installation
+        \item \tbf{viable broadband solution}: in rural regions lacking wired infrastructure, fixed wireless broadband serves as a practical and efficient option for providing high-speed internet access
+    \end{itemize}
+
+    This technology bridges the digital divide by bringing connectivity to underserved communities, supporting activities such as communication, education, and business.
+
+    One of the most widely adopted applications of wireless communication is the creation of \tbf{fixed cellular telecommunication networks}. Unlike mobile cellular networks, where transmitters and receivers are mobile, fixed cellular networks feature \tit{transmitters} and \tit{receivers} positioned at fixed locations within the area of interest. These networks offer a cost-effective alternative to building traditional wired infrastructure. By eliminating the need for extensive cable installation, fixed cellular networks reduce deployment costs while maintaining reliable connectivity, making them an attractive solution for expanding telecommunications, particularly in areas where wired networks are expensive or impractical to implement.
+
+    Fixed wireless services typically employ \tbf{directional radio antennas} at both ends of the signal to ensure reliable and efficient communication. These antennas are carefully aligned to maintain a stable connection.
+
+    Unlike mobile or portable wireless devices, which are often battery-powered, fixed wireless devices usually draw their electrical power from the \tit{public utility mains}. This setup ensures continuous operation without the limitations of battery life, making fixed wireless an ideal solution for stable, long-term connectivity.
+
+    Wireless communication between two points is achieved using a \tbf{transmitter} and a \tbf{receiver}, and the wireless devices communicate over the air using \tit{radio frequencies}. Therefore, if the radio frequencies are not utilized carefully, signals from different devices or networks could \tit{overlap}, causing interference that degrades communication quality or renders it impossible. In fact, the \tbf{radio frequency spectrum} is a \tit{finite} resource. Hence, it is necessary to develop a proper strategy to perform a \tbf{frequency assignment} in order to avoid overlapping problems.
+
+    \tbf{Frequency assignment} plays a crucial role in the operation of many different types of wireless networks. The specific requirements and methods for assigning frequencies can vary significantly depending on the nature of the network. As a result, the concept of frequency assignment is interpreted differently across various applications. This diversity has led to the development of multiple \curlyquotes{flavors} of frequency assignment strategies, each tailored to address the unique challenges and constraints of specific network scenarios, as extensively discussed in the literature.
+
+    In a wireless communication, the \tit{transmitter} generates electrical oscillations at a specific \tit{radio frequency} (RF), which are then converted into electromagnetic waves for propagation through the air. The \tit{receiver}, located at the destination point, detects these waves and converts them back into electrical signals, completing the communication process. This fundamental mechanism enables the transmission of data over varying distances without the need for physical connections. However, several challenges may affect the reliability and efficiency of wireless communication, some of which are listed below.
+
+    \begin{itemize}
+        \item In point-to-point connections, the transmitter and receiver must have a clear \tbf{line-of-sight}, meaning there should be no obstacles (e.g., buildings, trees, or terrain) blocking the signal path. To overcome this, transmitters and receivers are often installed at \tit{elevated locations}, such as rooftops or towers, to reduce obstructions and improve signal reliability. The distance between the transmitter and receiver also plays a critical role, as signals weaken over long distances or in obstructed environments.
+        \item As already mentioned, signals from multiple transmitters can \tbf{interfere} with one another, especially when operating on similar frequencies. Crossed or overlapping signals degrade communication quality and can lead to dropped connections or noise. To minimize interference, frequency reuse must be carefully planned. Frequencies can only be \tit{reused} if transmitters are far enough apart to avoid signal overlap. Otherwise, the quality of the communication link may be compromised.
+        \item The rapid expansion of new wireless services, such as digital cellular networks, has led to a \tit{growing demand} for frequencies in the radio spectrum, which is a scarce and valuable resource, and the high cost of acquiring and licensing frequencies necessitates \tit{efficient} use of the available spectrum. \tbf{Frequency reuse} strategies can help achieve significant cost savings by allowing the same frequency to be used by transmitters in non-overlapping or distant areas.
+    \end{itemize}
+
+    Therefore, it is crucial to develop efficient \tbf{frequency assignment strategies}, to mitigate the challenges that affect wireless communication. In particular, a solution to the frequency assignment problem seeks to balance two \tit{competing objectives}:
+
+    \begin{itemize}
+        \item \tbf{economies of frequency reuse}: maximizing the efficient reuse of available frequencies to minimize costs and maximize capacity
+        \item \tbf{quality of communication}: ensuring that frequency reuse does not degrade the quality of the network through interference or reduced performance
+    \end{itemize}
+
+    This balance is achieved by quantifying the trade-offs between these aspects, which transforms the problem into a mathematical optimization challenge. By applying optimization techniques, the goal is to \tit{allocate frequencies} in a way that meets performance requirements while minimizing interference and resource usage. The class of problems aimed at solving frequency assignment challenges is called \tbf{Frequency Assignment Problems} (FAPs).
+
+    In general, FAPs consist of two primary components:
+
+    \begin{itemize}
+        \item \tbf{aim}: assign frequencies to a set of wireless communication connections; the frequencies must be selected from a predefined set, which may vary depending on the geographic location or other contextual factors.
+        \item {constraint}: assigned frequencies should avoid interference; as we already discussed, if two connections use frequencies that are too close (or the same frequency in overlapping areas), \tit{interference} occurs, degrading the quality of the communication signal, and this must be avoided
+    \end{itemize}
+
+    But what is \tbf{interference} precisely? For \tit{interference} to occur between two wireless communication signals, two primary conditions must be met.
+
+    \begin{itemize}
+        \item \tbf{Frequency proximity}: The frequencies of the two signals must be close to each other on the \tit{electromagnetic spectrum}. This can happen either when the frequencies are in close proximity or when they are harmonics of one another (i.e., integer multiples of the same frequency). \tbf{Doppler effects} can also contribute to interference, especially if the relative speed between the transmitter and receiver causes a shift in the frequency, making it closer to another signal's frequency. \tbf{Harmonics} are generally less of a concern in modern systems since the frequency bands available for assignment are typically narrow, and there is usually not enough room for harmonic overlap.
+        \item \tbf{Geographical proximity}: The two connections (transmitter and receiver pairs) must be geographically close to each other. This proximity increases the likelihood of \tit{signal overlap}, especially if both connections are operating on similar or the same frequencies. In close range, signals can interfere due to the strength and spread of the radio waves, especially in urban environments with high building densities or obstacles.
+    \end{itemize}
+
+    Both the frequency proximity and geographical proximity aspect of interference are modeled in various ways across the literature. As a result, various models of frequency assignment exist, each tailored to specific network requirements or deployment scenarios. Therefore, in this notes a \tit{simplified model} will be introduced, that captures the essential aspects of the problem and provides a basic framework for understanding the trade-offs between frequency reuse and interference.
+
+    \begin{frameddefn}{Interference graph}
+        Given a set of wireless stations that need to communicate, an \tbf{interference graph} is defined as follows:
+
+        \begin{itemize}
+            \item the graph has one vertex per station
+            \item a \tit{directed} edge connects two nodes $u$ and $v$ if the station represented by $u$ may need to communicate with the station represented by $v$; note that any communication --- i.e. edge --- may lead to an interference
+            \item the \tit{colors} of the nodes represent the \tit{channels} that are assigned to each corresponding station
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{example}[Interference graphs]
+        The following is an example of an interference graph
+
+        \centeredimage[An interference graph.]{0.3}{../assets/interf_graph.png}
+
+        Note that different colors represent different assigned channels for the various stations.
+    \end{example}
+
+    Note that, in this example, there are two highlighted regions. Those regions are \tbf{collision}, and this model is able to represent two different types of collisions.
+
+    \begin{itemize}
+        \item \tbf{Direct collisions}: these occur when two stations are located in \tit{very close proximity} to each other and are assigned the \tit{same frequency channel}. Because they are so close, their signals will overlap, causing interference. To avoid this, the frequencies assigned to these stations must be at least $h$ apart, for some specified minimum frequency separation $h$. In the example above, the rightmost ellipse represents a \tit{direct collision}.
+        \item \tbf{Hidden collisions}: these happen when two stations are located in \tit{close proximity} to each other but are not directly within each other's signal range (i.e., they are not \tit{line-of-sight} or are blocked by obstacles). However, their assigned frequencies still cause interference because they are close enough that their signals can interfere indirectly. In this case, the frequencies assigned to stations in these close locations must be at least $k$ apart to avoid such interference, for some specified minimum frequency separation $k$. In the example above, the leftmost ellipse represents a \tit{hidden collision}.
+    \end{itemize}
+
+    Therefore, given an interference graph, the problem of avoiding interference can be modeled as a \tbf{labeling} or \tbf{coloring} problem.
+
+    \section{The $L(h, k)$-labeling problem}
+
+    The labeling problem that will be considered in this chapter is defined as follows.
+
+    \begin{frameddefn}{$L(h, k)$-labeling}
+        Given a graph $G= (V, E)$, an \tbf{$L(h, k)$-labeling} of $G$ is a \tit{node coloring function} $f$ that assigns colors to each node of $G$, such that:
+
+        \begin{itemize}
+            \item $\forall (u, v) \in E(G) \quad \abs{f(u) - f(v)} \ge h$
+            \item $\forall u, v \in V(G) \quad \exists w \in V(G) \mid (u, w), (w, v) \in E(G) \implies \abs{f(u) - f(v)} \ge k$
+        \end{itemize}
+    \end{frameddefn}
+
+    Note that the words \curlyquotes{labeling} and \curlyquotes{coloring} will be used interchangeably in the following sections.
+    
+    Clearly, since \tbf{bandwidth} is expensive, a \tit{good} coloring (i.e. frequency assigning) function $f$ on the nodes is such that it minimizes the total bandwidth $\sigma_{h, k}$ utilized in order to determine a valid $L(h, k)$-labeling. the minimum bandwidth will be noted with $\lambda_{h, k}$.
+    
+    % Note that the second condition of the $L(h, k)$-labeling definition is often written as $$\forall u, v \in V(G) \quad \dist(u, v) = 2 \implies \abs{f(u)- f(v)} \ge k$$
+
+    Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having span (i.e. bandwidth) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons).
+
+    The problem of finding a \tbf{minimum bandwidth labeling} has been introduced in 1991 by \textcite{shao}, in the context of a frequency assignment problem, for the case of $h = 2$ and $k = 1$.
+
+    However, the problem was already known in combinatorics for the case $h = k = 1$, which was introduced by \textcite{wegner} in 1977. In particular, he introduced the concept in the context of coloring the \tbf{square} of a graph, which is defined as follows.
+
+    \begin{frameddefn}{Graph square}
+        Given a graph $G = (V, E)$, its \tbf{square} $G^2 = (V', E')$ is a graph defined as follows:
+        
+        \begin{itemize}
+            \item $V'\rbk{G^2} := V(G)$
+            \item $(u, v) \in E'\rbk{G^2}$ if either $(u, v) \in E(G)$, or $u$ and $v$ are connected in $G$ through a path of length 2
+        \end{itemize}
+    \end{frameddefn}
+
+    \begin{example}[Graph square]
+        Given the followin graph $G$, on the left, its square $G^2$ is the graph on its right.
+
+        \centeredimage[A graph (on the left), and its square (on the right).]{0.25}{../assets/graph_square.png}
+    \end{example}
+
+    If $h = k = 1$, the problem of finding an $L(1, 1)$-labeling with minimum bandwidth on a graph $G$ is equivalent to the problem of finding a \tit{vertex coloring} (i.e. a labeling of the nodes such that adjacent nodes are assigned different labels, using the minimum number of colors) on $G^2$.
+
+    After the $L(h, k)$-labeling has been introduced, it has since been used to model multiple problems, for instance:
+
+    \begin{itemize}
+        \item the $L(0, 1)$-labeling problem is used to model a type of integer \tit{control code} assignment problem in radio networks, to avoid hidden collisions
+        \item $L(0, 1)$- and $L(1,1)$-labeling problems are used to model the channel assignment in optical cluster-based networks
+    \end{itemize}
+
+    \begin{framedlem}{}
+        For any $h, k, d$, it holds that $\lambda_{dh, dk} = d \cdot \lambda_{h, k}$.
+    \end{framedlem}
+
+    \begin{proof}
+        Let $f$ be an $L(dh, dk)$-labeling over a given graph $G$; thus, we can define $f'$ to be a labeling function such that $$\funcmap{f'}{V(G)}{\N}{x}{\dfrac{f(x)}{d}}$$ and it is clearly an $L(h, k)$-labeling of $G$, by definition. Hence, we have \todo{unclear} $$\lambda_{dh, dk} \ge \dfrac{\lambda_{dh, dk}}{d} = \sigma_{h, k}^{f'} \ge \lambda_{h, k}$$
+
+        Conversely, let $f$ be an $L(h, k)$-labeling over a given graph $G$; thus, we can define $f'$ to be a labeling function such that $$\funcmap{f'}{V(G)}{\N}{x}{f(x) \cdot d}$$ and it is clearly an $L(dh, dk)$-labeling of $G$, by definition. Hence, we have \todo{unclear + to finish}
+    \end{proof}
+
+    Because of this lemma, for any $L(a, b)$-labeling such that $a = dh$ and $dk$ for some $h, k, d$, we can restrict the problem into finding an $L(h, k)$-labeling, since $\lambda_{a, b} = d \lambda_{h, k}$. Therefore, we can always restrict the $L(h, k)$-labeling problem into the case in which $h$ and $k$ are coprime numbers.
 
     \chapter{The broadcast's energy consumption problem}
 
@@ -1458,7 +1602,7 @@
         The \tbf{Min Broadcast} problem asks to find the power assignment $r$ for a given network $G$ that minimizes the energy consumption, i.e. that minimizes $\sum_{v \in V(G)}{r(v)}$.
     \end{frameddefn}
 
-    Note that this problem \tit{resambles} the problem of finding the \href{https://en.wikipedia.org/wiki/Minimum_spanning_tree}{Minimum Spanning Tree} (MST) --- which asks for the spanning tree of minimum weight of a given edge-weighted graph --- but it is \tit{not the same problem}. In fact, a power assignment is an assignment of the vertices which does \curlyquotes{choose} edges, but if a vertex $u$ has a power assignment $r(u)$, than \tit{all the edges} $(u, v)$ such that $w(u, v) \le r(u)$ are automatically, making the problem much harder to solve.
+    Note that this problem \tit{resambles} the problem of finding the \href{https://en.wikipedia.org/wiki/Minimum_spanning_tree}{Minimum Spanning Tree} (MST) --- which asks for the spanning tree of minimum weight of a given edge-weighted graph --- but it is \tit{not the same problem}. In fact, a power assignment is an assignment of the vertices which does \curlyquotes{choose} edges, but if a vertex $u$ has a power assignment $r(u)$, than \tit{all the edges} $(u, v)$ such that $w(u, v) \le r(u)$ are automatically chosen, making the problem much harder to solve.
 
     \section{The Min Broadcast problem}
 
@@ -2818,7 +2962,7 @@
     %     As a final note, the best-known algorithm was presented by \cite{micali} in 1980.
     % }
 
-    \chapter{TODO (Voronoi)}
+    \chapter{The sensor self-deployment problem}
 
     The previous chapter explored approaches to addressing the \tbf{deployment problem} through \tit{centralized solutions}. These methods rely on a central server to compute and coordinate the deployment of sensors across the AoI.
 
@@ -3113,7 +3257,7 @@
         Given two circles $\mathscr C_1$ and $\mathscr C_2$, centered at $C_1$ and $C_2$ --- where $C_1 \neq C_2$ --- and having radii $r_1$ and $r_2$, respectively, $C_1$ and $C_2$ lie on the same side w.r.t. the radical axis if and only if $$\dist^2(C_1, C_2) < \abs{r_1^2 - r_2^2}$$
     \end{framedlem}
 
-    \centeredimage[Possible positions of the radical axes between two circles.]{0.3}{../assets/radical_axis.png}
+    \centeredimage[Possible positions of the radical axes between two circles.]{0.3}{../assets/radical_axes.png}
 
     By using this notion of distance, we can define the following diagrams, called \tbf{Voronoi-Laguerre} diagrams, introduced by \textcite{imai}, which are defined as follows.
 

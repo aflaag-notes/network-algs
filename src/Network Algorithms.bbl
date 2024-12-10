@@ -1449,6 +1449,38 @@
     \field{year}{2004}
   \endentry
 
+  \entry{shao}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SZ}{%
+         family={Shao},
+         familyi={S\bibinitperiod},
+         given={Zhendong},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=YRK}{%
+         family={Yeh},
+         familyi={Y\bibinitperiod},
+         given={Roger\bibnamedelima K},
+         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{SZ+1}
+    \strng{fullhash}{SZYRK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{3}
+    \field{pages}{668\bibrangedash 671}
+    \field{title}{The L (2, 1)-labeling and operations of graphs}
+    \field{volume}{52}
+    \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
+    \field{year}{2005}
+  \endentry
+
   \entry{sal19}{article}{}
     \name{author}{5}{}{%
       {{hash=SW}{%
@@ -1879,6 +1911,28 @@
     \field{journaltitle}{J. ACM}
     \field{month}{01}
     \field{year}{1962}
+  \endentry
+
+  \entry{wegner}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=WG}{%
+         family={Wegner},
+         familyi={W\bibinitperiod},
+         given={Gerd},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WG1}
+    \strng{fullhash}{WG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Graphs with given diameter and a coloring problem}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:118873943
+    \endverb
+    \field{year}{1977}
   \endentry
 
   \entry{wieselthier}{inproceedings}{}
