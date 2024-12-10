@@ -994,6 +994,46 @@
     \field{year}{2017}
   \endentry
 
+  \entry{griggs}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GJR}{%
+         family={Griggs},
+         familyi={G\bibinitperiod},
+         given={Jerrold\bibnamedelima R.},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=YRK}{%
+         family={Yeh},
+         familyi={Y\bibinitperiod},
+         given={Roger\bibnamedelima K.},
+         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Society for Industrial & Applied Mathematics (SIAM)}%
+    }
+    \strng{namehash}{GJR+1}
+    \strng{fullhash}{GJRYRK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1137/0405048
+    \endverb
+    \field{issn}{1095-7146}
+    \field{number}{4}
+    \field{pages}{586–595}
+    \field{title}{Labelling Graphs with a Condition at Distance 2}
+    \verb{url}
+    \verb http://dx.doi.org/10.1137/0405048
+    \endverb
+    \field{volume}{5}
+    \field{journaltitle}{SIAM Journal on Discrete Mathematics}
+    \field{month}{11}
+    \field{year}{1992}
+  \endentry
+
   \entry{guha}{article}{}
     \name{author}{2}{}{%
       {{hash=GS}{%
@@ -1447,38 +1487,6 @@
     \field{journaltitle}{Theoretical Computer Science}
     \field{month}{12}
     \field{year}{2004}
-  \endentry
-
-  \entry{shao}{article}{}
-    \name{author}{2}{}{%
-      {{hash=SZ}{%
-         family={Shao},
-         familyi={S\bibinitperiod},
-         given={Zhendong},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=YRK}{%
-         family={Yeh},
-         familyi={Y\bibinitperiod},
-         given={Roger\bibnamedelima K},
-         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{SZ+1}
-    \strng{fullhash}{SZYRK1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{number}{3}
-    \field{pages}{668\bibrangedash 671}
-    \field{title}{The L (2, 1)-labeling and operations of graphs}
-    \field{volume}{52}
-    \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
-    \field{year}{2005}
   \endentry
 
   \entry{sal19}{article}{}

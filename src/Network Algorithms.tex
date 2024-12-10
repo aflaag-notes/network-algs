@@ -1490,11 +1490,11 @@
 
     Therefore, given an interference graph, the problem of avoiding interference can be modeled as a \tbf{labeling} or \tbf{coloring} problem.
 
-    \section{The $L(h, k)$-labeling problem}
+    \section{The $L(h, k)$-labeling problems}
 
     The labeling problem that will be considered in this chapter is defined as follows.
 
-    \begin{frameddefn}{$L(h, k)$-labeling}
+    \begin{frameddefn}{$L(h, k)$-labelings}
         Given a graph $G= (V, E)$, an \tbf{$L(h, k)$-labeling} of $G$ is a \tit{node coloring function} $f$ that assigns colors to each node of $G$, such that:
 
         \begin{itemize}
@@ -1511,7 +1511,7 @@
 
     Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having span (i.e. bandwidth) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons).
 
-    The problem of finding a \tbf{minimum bandwidth labeling} has been introduced in 1991 by \textcite{shao}, in the context of a frequency assignment problem, for the case of $h = 2$ and $k = 1$.
+    The problem of finding a \tbf{minimum bandwidth labeling} has been introduced in 1991 by \textcite{griggs}, in the context of a frequency assignment problem, for the case of $h = 2$ and $k = 1$.
 
     However, the problem was already known in combinatorics for the case $h = k = 1$, which was introduced by \textcite{wegner} in 1977. In particular, he introduced the concept in the context of coloring the \tbf{square} of a graph, which is defined as follows.
 
@@ -1540,6 +1540,12 @@
     \end{itemize}
 
     \begin{framedlem}{}
+        Let $x, y, k \ge 0$ and $d > 0$; if $\abs{ x- y} \ge kd$ then $\abs{x' - y'} \ge kd$, where $x' := d \floor{\dfrac{x}{d}}$ and $y' := d \floor{\dfrac{y}{d}}$.
+    \end{framedlem}
+
+    HOW DOES THIS RELATE WITH THE FOLLOWING LEMMA WHAT? \todo{what?}
+
+    \begin{framedlem}{}
         For any $h, k, d$, it holds that $\lambda_{dh, dk} = d \cdot \lambda_{h, k}$.
     \end{framedlem}
 
@@ -1550,6 +1556,98 @@
     \end{proof}
 
     Because of this lemma, for any $L(a, b)$-labeling such that $a = dh$ and $dk$ for some $h, k, d$, we can restrict the problem into finding an $L(h, k)$-labeling, since $\lambda_{a, b} = d \lambda_{h, k}$. Therefore, we can always restrict the $L(h, k)$-labeling problem into the case in which $h$ and $k$ are coprime numbers.
+
+    Moreover, the case for $k = 0$, for any value of $h$, is not usually considered in this context, as it coincides with the classical vertex coloring (previously described). On the counter side, the case when $h = k$ is very studied in the literature, and the case when $h = 2k$ is definitely the most studied $L(h, k)$-labeling problem.
+
+    It has been proven that both the $L(0,1)$-labeling of planar graphs, and the $L(1,1)$-labeling of general, planar, bounded degree and unit-disk graphs are all \NPComplete problems. Now, consider the following special form of the $L(2,1)$-labeling problem.
+
+    \begin{frameddefn}{Distance 2 Labeling problem}
+        Given a graph $G = (V, E)$, with diameter 2, the \tbf{Distance 2 Labeling}  (DL) problem asks for the following: is there a $\lambda_{2,1}(G) \le \abs{V(G)}$?
+    \end{frameddefn}
+
+    In 1992, \textcite{griggs} proved that this decisional problem is \NPComplete. However, before proving this theorem, it is necessary to introduce some definitions.
+
+    \begin{frameddefn}{Hamiltonian path}
+        Given a graph $G$, a \tbf{Hamiltonian path} (HP) on $G$ is a \tit{path} that visits each vertex exactly once.
+    \end{frameddefn}
+
+    \begin{frameddefn}{Complement of a graph}
+        Given a graph $G = (V, E)$, its \tbf{complement} $G^c = (V', E')$ is defined as follows:
+
+        \begin{itemize}
+            \item $V' := V(G)$
+            \item $E' := \{(u, v) \in V \times V \mid (u,v) \notin E(G)\}$
+        \end{itemize}
+    \end{frameddefn}
+
+    In order to prove the theorem, we need to consider the following modified version of the DL problem.
+
+    \begin{frameddefn}{Injective Distance 2 Labeling}
+        Given a graph $G = (V, E)$, with diameter 2, the \tbf{Injective Distance 2 Labeling} (IDL) problem, asks for the following: is there an injective function $\func{f}{V(G)}{[0, n - 1]}$ such that $\abs{f(x)- f(y)} \ge 2$ whenever $(x, y) \in E(G)$?
+    \end{frameddefn}
+
+    We will prove the following theorem regarding the complexity of the IDL problem, which will be used to prove the complexity of the DL problem by reduction.
+
+    \begin{framedthm}{}
+        IDL is \NPComplete.
+    \end{framedthm}
+
+    \begin{proof}
+        We will prove that the IDL problem is equivalent to the problem of finding a HP on $G^C$.
+
+        First, consider an instance of the IDL problem, and its associated injective function $f$; since $f$ is injective, its inverse $f^{-1}$ exists. Now, order $G$'s vertices as follows: $$\forall i \in [0, n - 1] \quad v_i = f^{-1}(i)$$ therefore the vertices are numbered after the color they are assigned to through $f$. Observe that, since $(x, y) \in E(G)$ implies that $\abs{f(x) - f(y)} \ge 2$ by definition of $f$, we have that $v_i$ and $v_{i + 1}$ cannot be adjacent in $G$. Hence, by definition, $(v_i, v_{i + 1}) \in E\rbk{G^c}$ for all $i \in [0, n - 2]$, implying that $v_0 , \ldots, v_{n - 1}$ is a Hamiltonian path of $G^c$.
+
+        Conversely, consider a Hamiltonian path $v_0, \ldots, v_{n - 1}$ of $G^c$; thus, we can define the following function $$\funcmap{f}{V(G)}{[0, n - 1]}{v_i}{i}$$ such that
+
+        \begin{itemize}
+            \item it is trivially injective, by definition
+            \item given an edge $(x, y) \in E(G)$, there will be $i$ and $j$ such that $x = v_i$ and $y = v_j$, and note that $(v_i, v_j) \notin E\rbk{G^c}$; therefore, we have that $f(x) = f(v_i) = i$ and $f(y) = f(v_j) = j$, and clearly $\abs{i - j} \ge 2$ since $x$ and $y$ are not adjacent in $G^c$
+        \end{itemize}
+        
+        proving that $f$ is indeed an injective function that solves the IDL problem.
+
+        Since it is well-known that the HP problem is \NPComplete, and we just proved that HP and IDL are equivalent, we have that IDL is \NPComplete as well.
+    \end{proof}
+
+    We are now ready to prove the complexity of the DL problem.
+
+    \begin{framedthm}{}
+        DL is \NPComplete.
+    \end{framedthm}
+
+    \begin{proof}
+        Trivially it can be verified in polynomial time whether a labeling function $f$ is a feasible $L(2,1)$-labeling for $G$, and whether $\displaystyle \lambda_{2,1}(G) \le \max_{v \in V(G)}{f(v)} \le n$.
+
+        Now, consider the graph $G = (V, E)$ of an instance of the IDL problem, and construct a graph $G' = (V', E')$ as follows:
+
+        \begin{itemize}
+            \item let $x$ be a new vertex
+            \item $V' := V \cup \{x\}$
+            \item $E' := E \cup \{(x, v) \mid v \in V(G)\}$
+        \end{itemize}
+        
+        therefore $x$ is adjacent to all other nodes, implying that $\abs{V'} = \abs V + 1 = n + 1$ and $G'$ has diameter 2.
+
+        Now, assume that there exists an injection $\func{f}{V(G)}{[0, n - 1]}$ such that $(x, y) \in E(G) \implies \abs{f(x) - f(y)} \ge 2$, and let $\func{g}{V'(G')}{[0, n + 1]}$ be a new function such that $$g(u) := \soe{ll}{f(v) & v \in V(G) \\ n + 1 & u = x}$$ Note that:
+
+        \begin{itemize}
+            \item $g(x)$ is defined to be $n + 1$, and $f(v)$ is at most $n - 1$, thus from the condition $f$ satisfies by definition if follows that $(x, y) \in E'(G') \implies \abs{f(x) - f(y)} \ge 2$
+            \item since $f$ is injective, and by the previous condition, it holds that $$\abs{f(u) - f(v)} \neq 0 \implies \abs{f(u) - f(v)} \ge 1$$ for any pair of vertices of $G'$ that are at distance 2
+        \end{itemize}
+
+        which implies that $g$ is an $L(2,1)$-labeling for $G'$, and clearly $$\displaystyle \lambda_{2,1}(g') \le \max_{v ' \in v'\rbk{g'}}{g(v')} \le \abs{v'}$$
+
+        Conversely, suppose that $\lambda_{2,1}(G') \le \abs{V'}$, i.e. there exists a feasible $L(2,1)$-labeling $g$ such that $\displaystyle \max_{v ' \in v'\rbk{g'}}{g(v')} \le \abs{v'}$. Now, assume that $g(x) \neq \abs V + 1 \land g(x) \neq 0$; since $g$ is a $L(2,1)$-labeling of $G'$, there cannot be any $v \in V(G)$ such that $g(v) = g(x) \pm 1$, since $x$ is connected to each vertex $v \in V(G)$, thus \todo{what? pag 39}
+
+        Therefore, $g(x)$ is either 0 or $\abs V + 1$, hence
+
+        \begin{itemize}
+            \item if $g(x) = \abs V + 1$, let $f$ be $g$ restricted on $V$, thus $$\forall v \in V(G) \quad f(v) := g(v)$$
+            \item if $g(x) = 0$ , let $f$ be defined as follows $$\forall v \in V(G) \quad f(v) := g(v) - 2$$
+        \end{itemize}
+
+        i lost the focus idk \todo{what?}
+    \end{proof}
 
     \chapter{The broadcast's energy consumption problem}
 
@@ -1634,7 +1732,7 @@
             \item for any $e \in E(G)$, let $w(e) := 1$
         \end{itemize}
         
-        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted at $s$, since each element in $U$ is contained in t least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
+        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted at $s$, since each element in $U$ is contained in at least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
 
         Conversely, assume that $r$ is a feasible solution for the Min Broadcast problem, i.e. a power assignment that minimizes the energy consumption --- note that, $r(s) = 1$, and w.l.o.g. $r(v)$ is either 0 or 1 if $v$ is of the form $v_{C_j}$, otherwise it is 0 if it is of the form $v_{s_i}$. Thus, a solution for the set cover problem $C'$ can be derived by simply selecting all subsects $C_j \in C$ such that $r(C_j) = 1$ in the power assignment. The cardinality of such a solution is $\abs{C'} = \mathrm{cost}(r) - 1$, since $\mathrm{cost}(r)$ must contain the cost of the source node $s$.
 

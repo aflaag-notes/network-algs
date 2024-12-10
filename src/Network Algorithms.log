@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.7)  10 DEC 2024 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.12.7)  10 DEC 2024 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2987,7 +2987,7 @@ File: ../assets/graph_square.png Graphic file (type png)
 <use ../assets/graph_square.png>
 Package pdftex.def Info: ../assets/graph_square.png  used on input line 1530.
 (pdftex.def)             Requested size: 252.75618pt x 60.41306pt.
-Package cleveref Info: loaded `english' language definitions on input line 1549.
+Package cleveref Info: loaded `english' language definitions on input line 1553.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2996,9 +2996,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1549.
+Package cleveref Info: loaded `english' language definitions on input line 1553.
 [55 <../assets/graph_square.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 1554.
+Package cleveref Info: loaded `english' language definitions on input line 1584.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3007,11 +3007,44 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1554.
+Package cleveref Info: loaded `english' language definitions on input line 1584.
 [56]
+Package cleveref Info: loaded `english' language definitions on input line 1617.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 1617.
+[57]
+Package cleveref Info: loaded `english' language definitions on input line 1650.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 1650.
+[58]
+Package cleveref Info: loaded `english' language definitions on input line 1652.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 1652.
+[59]
 Chapter 5.
-Package cleveref Info: loaded `english' language definitions on input line 1570.
-[57
+Package cleveref Info: loaded `english' language definitions on input line 1668.
+[60
 
 ]
 
@@ -3021,9 +3054,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1598.
-[58]
-Package cleveref Info: loaded `english' language definitions on input line 1622.
+Package cleveref Info: loaded `english' language definitions on input line 1696.
+[61]
+Package cleveref Info: loaded `english' language definitions on input line 1720.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3032,9 +3065,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1622.
-[59]
-Package cleveref Info: loaded `english' language definitions on input line 1645.
+Package cleveref Info: loaded `english' language definitions on input line 1720.
+[62]
+Package cleveref Info: loaded `english' language definitions on input line 1743.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3043,14 +3076,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1645.
-[60]
-<../assets/euclidean.png, id=887, 608.2725pt x 383.93437pt>
+Package cleveref Info: loaded `english' language definitions on input line 1743.
+[63]
+<../assets/euclidean.png, id=910, 608.2725pt x 383.93437pt>
 File: ../assets/euclidean.png Graphic file (type png)
 <use ../assets/euclidean.png>
-Package pdftex.def Info: ../assets/euclidean.png  used on input line 1652.
+Package pdftex.def Info: ../assets/euclidean.png  used on input line 1750.
 (pdftex.def)             Requested size: 152.06775pt x 95.98335pt.
-Package cleveref Info: loaded `english' language definitions on input line 1664.
+Package cleveref Info: loaded `english' language definitions on input line 1762.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3059,9 +3092,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1664.
-[61 <../assets/euclidean.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 1694.
+Package cleveref Info: loaded `english' language definitions on input line 1762.
+[64 <../assets/euclidean.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 1792.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3070,9 +3103,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1694.
-[62]
-Package cleveref Info: loaded `english' language definitions on input line 1732.
+Package cleveref Info: loaded `english' language definitions on input line 1792.
+[65]
+Package cleveref Info: loaded `english' language definitions on input line 1830.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3081,9 +3114,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1732.
-[63]
-Package cleveref Info: loaded `english' language definitions on input line 1735.
+Package cleveref Info: loaded `english' language definitions on input line 1830.
+[66]
+Package cleveref Info: loaded `english' language definitions on input line 1833.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3092,11 +3125,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1735.
-[64]
+Package cleveref Info: loaded `english' language definitions on input line 1833.
+[67]
 Chapter 6.
-Package cleveref Info: loaded `english' language definitions on input line 1755.
-[65
+Package cleveref Info: loaded `english' language definitions on input line 1853.
+[68
 
 ]
 
@@ -3106,39 +3139,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1782.
-[66]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 1805.
-[67]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 1835.
-[68]
-Package cleveref Info: loaded `english' language definitions on input line 1863.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 1863.
+Package cleveref Info: loaded `english' language definitions on input line 1880.
 [69]
-Package cleveref Info: loaded `english' language definitions on input line 1896.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3146,9 +3148,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1896.
+Package cleveref Info: loaded `english' language definitions on input line 1903.
 [70]
-Package cleveref Info: loaded `english' language definitions on input line 1912.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 1933.
+[71]
+Package cleveref Info: loaded `english' language definitions on input line 1961.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3157,9 +3168,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1912.
-[71]
-Underfull \hbox (badness 10000) in paragraph at lines 1924--1925
+Package cleveref Info: loaded `english' language definitions on input line 1961.
+[72]
+Package cleveref Info: loaded `english' language definitions on input line 1994.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 1994.
+[73]
+Package cleveref Info: loaded `english' language definitions on input line 2010.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2010.
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 2022--2023
 
  []
 
@@ -3167,74 +3200,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 1924--1925
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1930             \Function
+l.2028             \Function
                             {2approxTSP}{$G$, $w$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1931                 \State
+l.2029                 \State
                               Choose $r \in V(K_n)$ randomly
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1932                 \State
+l.2030                 \State
                               $T := \texttt{findMST}(K_n, r)$ \Comment{find ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1933                 \State
+l.2031                 \State
                               $\texttt L := \texttt{DFSpreorder}(T)$ \Commen...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1934                 \State
+l.2032                 \State
                               $V := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1935                 \State
+l.2033                 \State
                               $\texttt L' := \texttt{[]}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1936                 \For
+l.2034                 \For
                            {$v \in \texttt L$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1937                     \If
+l.2035                     \If
                               {$v \notin V$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1938                         \State
+l.2036                         \State
                                       $\texttt L'.\texttt{append}(v)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1939                         \State
+l.2037                         \State
                                       $V = V \cup \{v\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1940                     \EndIf
+l.2038                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1941                 \EndFor
+l.2039                 \EndFor
                               
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1942                 \State
+l.2040                 \State
                               \textbf{return} \ttt L' \Comment{\texttt L' is...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1943             \EndFunction
+l.2041             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 1950.
+Package cleveref Info: loaded `english' language definitions on input line 2048.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3243,9 +3276,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1950.
-[72]
-Package cleveref Info: loaded `english' language definitions on input line 1969.
+Package cleveref Info: loaded `english' language definitions on input line 2048.
+[75]
+Package cleveref Info: loaded `english' language definitions on input line 2067.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3254,9 +3287,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1969.
-[73]
-Underfull \hbox (badness 10000) in paragraph at lines 1980--1981
+Package cleveref Info: loaded `english' language definitions on input line 2067.
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 2078--2079
 
  []
 
@@ -3264,89 +3297,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 1980--1981
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1986             \Function
+l.2084             \Function
                             {3/2approxTSP}{$G$, $w$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1987                 \State
+l.2085                 \State
                               Choose $r \in V(K_n)$ randomly
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1988                 \State
+l.2086                 \State
                               $T := \texttt{findMST}(K_n, r)$ \Comment{find ...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1989                 \State
+l.2087                 \State
                               $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{od...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1990                 \State
+l.2088                 \State
                               $M := \texttt{findMinWeightPM}(G^O)$ \Comment{...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1991                 \State
+l.2089                 \State
                               $U := M \cup T$ \Comment{$U$ is a multi-graph}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1992                 \State
+l.2090                 \State
                               $\texttt L := \texttt{findEulerianCircuit}(U)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1993                 \State
+l.2091                 \State
                               $V := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1994                 \State
+l.2092                 \State
                               $\texttt L' := \texttt{[]}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1995                 \For
+l.2093                 \For
                            {$v \in \texttt L$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1996                     \If
+l.2094                     \If
                               {$v \notin V$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1997                         \State
+l.2095                         \State
                                       $\texttt L'.\texttt{append}(v)$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1998                         \State
+l.2096                         \State
                                       $V = V \cup \{v\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1999                     \EndIf
+l.2097                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2000                 \EndFor
+l.2098                 \EndFor
                               
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2001                 \State
+l.2099                 \State
                               \textbf{return} \ttt L' \Comment{\texttt L' is...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2002             \EndFunction
+l.2100             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 2011.
+Package cleveref Info: loaded `english' language definitions on input line 2109.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3355,9 +3388,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2011.
-[74]
-Package cleveref Info: loaded `english' language definitions on input line 2030.
+Package cleveref Info: loaded `english' language definitions on input line 2109.
+[77]
+Package cleveref Info: loaded `english' language definitions on input line 2128.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3366,9 +3399,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2030.
-[75]
-Package cleveref Info: loaded `english' language definitions on input line 2034.
+Package cleveref Info: loaded `english' language definitions on input line 2128.
+[78]
+Package cleveref Info: loaded `english' language definitions on input line 2132.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3377,11 +3410,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2034.
-[76]
+Package cleveref Info: loaded `english' language definitions on input line 2132.
+[79]
 Chapter 7.
-Package cleveref Info: loaded `english' language definitions on input line 2046.
-[77
+Package cleveref Info: loaded `english' language definitions on input line 2144.
+[80
 
 ]
 
@@ -3391,13 +3424,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2066.
-[78]
-Overfull \hbox (9.95482pt too wide) in paragraph at lines 2068--2068
+Package cleveref Info: loaded `english' language definitions on input line 2164.
+[81]
+Overfull \hbox (9.95482pt too wide) in paragraph at lines 2166--2166
 |[]\T1/cmr/bx/n/17.28 The min-i-mum con-nected dom-i-nat-ing set prob-lem| 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 2147.
+Package cleveref Info: loaded `english' language definitions on input line 2245.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3405,42 +3438,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2147.
-[79]
-Package cleveref Info: loaded `english' language definitions on input line 2168.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2168.
-[80]
-Package cleveref Info: loaded `english' language definitions on input line 2204.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2204.
-[81]
-Package cleveref Info: loaded `english' language definitions on input line 2265.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2265.
+Package cleveref Info: loaded `english' language definitions on input line 2245.
 [82]
-Underfull \hbox (badness 10000) in paragraph at lines 2279--2280
+Package cleveref Info: loaded `english' language definitions on input line 2266.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2266.
+[83]
+Package cleveref Info: loaded `english' language definitions on input line 2302.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2302.
+[84]
+Package cleveref Info: loaded `english' language definitions on input line 2363.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2363.
+[85]
+Underfull \hbox (badness 10000) in paragraph at lines 2377--2378
 
  []
 
@@ -3448,64 +3481,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 2279--2280
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2285             \Function
+l.2383             \Function
                             {greedyMinCDS}{$G$, B, Gr, W}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2286                 \While
+l.2384                 \While
                              {\texttt{True}}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2287                     \If
+l.2385                     \If
                               {$\exists v \in \mathrm W \cup \mathrm{Gr} \mi...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2288                         \State
+l.2386                         \State
                                       Color $v$ in black and color its adjac...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2289                     \Else
+l.2387                     \Else
                                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2290                         \State
+l.2388                         \State
                                       \textbf{break}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2291                     \EndIf
+l.2389                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2292                 \EndWhile
+l.2390                 \EndWhile
                                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2293                 \Do
+l.2391                 \Do
                           
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2294                     \State
+l.2392                     \State
                                   Color either one or two gray nodes in blac...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2295                 \doWhile
+l.2393                 \doWhile
                                {$\mathrm{CC} == 1$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2296             \EndFunction
+l.2394             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 2316.
+Package cleveref Info: loaded `english' language definitions on input line 2414.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3514,19 +3547,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2316.
-[83]
-<../assets/points.png, id=1061, 225.84375pt x 202.50656pt>
+Package cleveref Info: loaded `english' language definitions on input line 2414.
+[86]
+<../assets/points.png, id=1084, 225.84375pt x 202.50656pt>
 File: ../assets/points.png Graphic file (type png)
 <use ../assets/points.png>
-Package pdftex.def Info: ../assets/points.png  used on input line 2330.
+Package pdftex.def Info: ../assets/points.png  used on input line 2428.
 (pdftex.def)             Requested size: 67.75363pt x 60.75243pt.
-<../assets/convex_hull.png, id=1062, 231.11343pt x 233.37187pt>
+<../assets/convex_hull.png, id=1085, 231.11343pt x 233.37187pt>
 File: ../assets/convex_hull.png Graphic file (type png)
 <use ../assets/convex_hull.png>
-Package pdftex.def Info: ../assets/convex_hull.png  used on input line 2334.
+Package pdftex.def Info: ../assets/convex_hull.png  used on input line 2432.
 (pdftex.def)             Requested size: 69.33456pt x 70.01208pt.
-Package cleveref Info: loaded `english' language definitions on input line 2335.
+Package cleveref Info: loaded `english' language definitions on input line 2433.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3535,9 +3568,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2335.
-[84 <../assets/points.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 2340--2341
+Package cleveref Info: loaded `english' language definitions on input line 2433.
+[87 <../assets/points.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 2438--2439
 
  []
 
@@ -3545,59 +3578,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 2340--2341
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2346             \Function
+l.2444             \Function
                             {distributedReduceCDS}{$G$, $D$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2347                 \State
+l.2445                 \State
                               $V := D$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2348                 \Do
+l.2446                 \Do
                           
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2349                     \State
+l.2447                     \State
                                   Choose $u \in \argmin_{v \in V}{\deg(v)}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2350                     \If
+l.2448                     \If
                               {$\texttt{CH}(\mathcal N'(u)) \subseteq \bigcu...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2351                         \State
+l.2449                         \State
                                       $D = D - \{u\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2352                     \EndIf
+l.2450                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2353                     \State
+l.2451                     \State
                                   $V = V - \{u\}$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2354                 \doWhile
+l.2452                 \doWhile
                                {$V \neq \varnothing$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2355                 \State
+l.2453                 \State
                               \tbf{return} $D$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2356             \EndFunction
+l.2454             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 2362.
+Package cleveref Info: loaded `english' language definitions on input line 2460.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3606,11 +3639,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2362.
-[85 <../assets/convex_hull.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 2460.
+[88 <../assets/convex_hull.png (PNG copy)>]
 Chapter 8.
-Package cleveref Info: loaded `english' language definitions on input line 2380.
-[86
+Package cleveref Info: loaded `english' language definitions on input line 2478.
+[89
 
 ]
 
@@ -3620,39 +3653,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2402.
-[87]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2423.
-[88]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2444.
-[89]
-Package cleveref Info: loaded `english' language definitions on input line 2479.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2479.
+Package cleveref Info: loaded `english' language definitions on input line 2500.
 [90]
-Package cleveref Info: loaded `english' language definitions on input line 2514.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3660,10 +3662,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2514.
+Package cleveref Info: loaded `english' language definitions on input line 2521.
 [91]
-Package cleveref Info: loaded `english' language definitions on input line 2587.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -3671,9 +3671,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2587.
+Package cleveref Info: loaded `english' language definitions on input line 2542.
 [92]
-Package cleveref Info: loaded `english' language definitions on input line 2609.
+Package cleveref Info: loaded `english' language definitions on input line 2577.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3682,14 +3682,47 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2609.
+Package cleveref Info: loaded `english' language definitions on input line 2577.
 [93]
-<../assets/match2flow.png, id=1140, 1008.01593pt x 494.59781pt>
+Package cleveref Info: loaded `english' language definitions on input line 2612.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2612.
+[94]
+Package cleveref Info: loaded `english' language definitions on input line 2685.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2685.
+[95]
+Package cleveref Info: loaded `english' language definitions on input line 2707.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2707.
+[96]
+<../assets/match2flow.png, id=1164, 1008.01593pt x 494.59781pt>
 File: ../assets/match2flow.png Graphic file (type png)
 <use ../assets/match2flow.png>
-Package pdftex.def Info: ../assets/match2flow.png  used on input line 2616.
+Package pdftex.def Info: ../assets/match2flow.png  used on input line 2714.
 (pdftex.def)             Requested size: 302.4071pt x 148.38048pt.
-Package cleveref Info: loaded `english' language definitions on input line 2630.
+Package cleveref Info: loaded `english' language definitions on input line 2728.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3698,251 +3731,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2630.
-[94 <../assets/match2flow.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 2673.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2673.
-[95]
-Underfull \hbox (badness 10000) in paragraph at lines 2678--2679
-
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2683             \Function
-                            {findAugmentingPath}{$G$, $M$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2684                 \State
-                              Construct a directed bipartite graph $G' = (V'...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2685                 \State
-                              $V_1' := V_1$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2686                 \State
-                              $V_2' := V_2$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2687                 \State
-                              $V' := V_1' \cup V_2'$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2688                 \State
-                              $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cu...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2689                 \State
-                              $F := \{v \in V_1' \mid v \mathrm{\ free \ w.r...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2690                 \While
-                             {$F \neq \varnothing$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2691                     \State
-                                  Choose $v \in F$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2692                     \State
-                                  Continue a DFS starting on $v$ on $G'$, an...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2693                     \State
-                                  $F = F - \{v\}$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2694                 \EndWhile
-                                
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2695                 \State
-                              \textbf{return} \texttt{None}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2696             \EndFunction
-                               
-Package cleveref Info: loaded `english' language definitions on input line 2699.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2699.
-[96]
-Underfull \hbox (badness 10000) in paragraph at lines 2718--2719
-
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2723             \Function
-                            {maximumMatchingBipGraphs}{$G$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2724                 \State
-                              $M := \varnothing$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2725                 \Do
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2726                     \State
-                                  $p := \texttt{findAugmentingPath}(G)$ \Com...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2727                     \State
-                                  Swap the edges between $M$ and $E(G) - M$ ...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2728                 \doWhile
-                               {$p \neq \varnothing$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2729                 \State
-                              \textbf{return} $M$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2730             \EndFunction
-                               
-Package cleveref Info: loaded `english' language definitions on input line 2733.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2733.
-[97]
-Underfull \hbox (badness 10000) in paragraph at lines 2747--2748
-
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2752             \Function
-                            {hopcroftKarp}{$G$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2753                 \State
-                              $M := \varnothing$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2754                 \State
-                              Construct a directed bipartite graph $G' = (V'...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2755                 \State
-                              $V_1' := V_1$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2756                 \State
-                              $V_2' := V_2$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2757                 \State
-                              $V' := V_1' \cup V_2'$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2758                 \State
-                              $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cu...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2759                 \State
-                              $F_1 := \{v \in V_1' \mid v \mathrm{\ free \ w...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2760                 \Do
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2761                     \State
-                                  Run a simultaneous BFS starting from all t...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2762                     \State
-                                  Run a DFS starting from the nodes in $F_2$...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2763                     \For
-                               {$p \in P$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2764                         \State
-                                      Swap the edges between $M$ and $E(G) -...
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2765                     \EndFor
-                                  
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2766                 \doWhile
-                               {$P \neq \varnothing$}
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2767                 \State
-                              \textbf{return} $M$
-pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2768             \EndFunction
-                               
+Package cleveref Info: loaded `english' language definitions on input line 2728.
+[97 <../assets/match2flow.png (PNG copy)>]
 Package cleveref Info: loaded `english' language definitions on input line 2771.
 
 
@@ -3954,29 +3744,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package cleveref Info: loaded `english' language definitions on input line 2771.
 [98]
-Package cleveref Info: loaded `english' language definitions on input line 2801.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2801.
-[99]
-Package cleveref Info: loaded `english' language definitions on input line 2816.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-Package cleveref Info: loaded `english' language definitions on input line 2816.
-[100]
-Underfull \hbox (badness 10000) in paragraph at lines 2837--2838
+Underfull \hbox (badness 10000) in paragraph at lines 2776--2777
 
  []
 
@@ -3984,64 +3752,329 @@ Underfull \hbox (badness 10000) in paragraph at lines 2837--2838
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2842             \Function
-                            {maxWeightPerfectMatchingBipGraphs}{$G$}
+l.2781             \Function
+                            {findAugmentingPath}{$G$, $M$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2843                 \State
+l.2782                 \State
+                              Construct a directed bipartite graph $G' = (V'...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2783                 \State
+                              $V_1' := V_1$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2784                 \State
+                              $V_2' := V_2$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2785                 \State
+                              $V' := V_1' \cup V_2'$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2786                 \State
+                              $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cu...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2787                 \State
+                              $F := \{v \in V_1' \mid v \mathrm{\ free \ w.r...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2788                 \While
+                             {$F \neq \varnothing$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2789                     \State
+                                  Choose $v \in F$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2790                     \State
+                                  Continue a DFS starting on $v$ on $G'$, an...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2791                     \State
+                                  $F = F - \{v\}$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2792                 \EndWhile
+                                
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2793                 \State
+                              \textbf{return} \texttt{None}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2794             \EndFunction
+                               
+Package cleveref Info: loaded `english' language definitions on input line 2797.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2797.
+[99]
+Underfull \hbox (badness 10000) in paragraph at lines 2816--2817
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2821             \Function
+                            {maximumMatchingBipGraphs}{$G$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2822                 \State
                               $M := \varnothing$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2844                 \Do
+l.2823                 \Do
                           
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2845                     \State
+l.2824                     \State
+                                  $p := \texttt{findAugmentingPath}(G)$ \Com...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2825                     \State
+                                  Swap the edges between $M$ and $E(G) - M$ ...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2826                 \doWhile
+                               {$p \neq \varnothing$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2827                 \State
+                              \textbf{return} $M$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2828             \EndFunction
+                               
+Package cleveref Info: loaded `english' language definitions on input line 2831.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2831.
+[100]
+Underfull \hbox (badness 10000) in paragraph at lines 2845--2846
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2850             \Function
+                            {hopcroftKarp}{$G$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2851                 \State
+                              $M := \varnothing$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2852                 \State
+                              Construct a directed bipartite graph $G' = (V'...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2853                 \State
+                              $V_1' := V_1$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2854                 \State
+                              $V_2' := V_2$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2855                 \State
+                              $V' := V_1' \cup V_2'$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2856                 \State
+                              $E' := \{(u, v) \mid (u, v) \in E(G) - M\} \cu...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2857                 \State
+                              $F_1 := \{v \in V_1' \mid v \mathrm{\ free \ w...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2858                 \Do
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2859                     \State
+                                  Run a simultaneous BFS starting from all t...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2860                     \State
+                                  Run a DFS starting from the nodes in $F_2$...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2861                     \For
+                               {$p \in P$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2862                         \State
+                                      Swap the edges between $M$ and $E(G) -...
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2863                     \EndFor
+                                  
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2864                 \doWhile
+                               {$P \neq \varnothing$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2865                 \State
+                              \textbf{return} $M$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.17}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2866             \EndFunction
+                               
+Package cleveref Info: loaded `english' language definitions on input line 2869.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2869.
+[101]
+Package cleveref Info: loaded `english' language definitions on input line 2899.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2899.
+[102]
+Package cleveref Info: loaded `english' language definitions on input line 2914.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 2914.
+[103]
+Underfull \hbox (badness 10000) in paragraph at lines 2935--2936
+
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2940             \Function
+                            {maxWeightPerfectMatchingBipGraphs}{$G$}
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2941                 \State
+                              $M := \varnothing$
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2942                 \Do
+                          
+pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2943                     \State
                                   $p := \texttt{findMaxWeightAugPath}(G)$ \C...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2846                     \If
+l.2944                     \If
                               {$w(p) \ge 0$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2847                         \State
+l.2945                         \State
                                       Swap the edges between $M$ and $E(G) -...
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2848                     \Else
+l.2946                     \Else
                                 
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2849                         \State
+l.2947                         \State
                                       \textbf{break}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2850                     \EndIf
+l.2948                     \EndIf
                                  
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2851                 \doWhile
+l.2949                 \doWhile
                                {$p \neq \varnothing$}
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2852                 \State
+l.2950                 \State
                               \textbf{return} $M$
 pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.2853             \EndFunction
+l.2951             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 2858.
+Package cleveref Info: loaded `english' language definitions on input line 2956.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4050,14 +4083,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2858.
-[101]
-<../assets/oddcycle.png, id=1217, 499.8675pt x 314.67563pt>
+Package cleveref Info: loaded `english' language definitions on input line 2956.
+[104]
+<../assets/oddcycle.png, id=1241, 499.8675pt x 314.67563pt>
 File: ../assets/oddcycle.png Graphic file (type png)
 <use ../assets/oddcycle.png>
-Package pdftex.def Info: ../assets/oddcycle.png  used on input line 2884.
+Package pdftex.def Info: ../assets/oddcycle.png  used on input line 2982.
 (pdftex.def)             Requested size: 149.9614pt x 94.40341pt.
-Package cleveref Info: loaded `english' language definitions on input line 2887.
+Package cleveref Info: loaded `english' language definitions on input line 2985.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4066,14 +4099,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2887.
-[102 <../assets/oddcycle.png (PNG copy)>]
-<../assets/blossom.png, id=1225, 782.17218pt x 273.27094pt>
+Package cleveref Info: loaded `english' language definitions on input line 2985.
+[105 <../assets/oddcycle.png (PNG copy)>]
+<../assets/blossom.png, id=1248, 782.17218pt x 273.27094pt>
 File: ../assets/blossom.png Graphic file (type png)
 <use ../assets/blossom.png>
-Package pdftex.def Info: ../assets/blossom.png  used on input line 2897.
+Package pdftex.def Info: ../assets/blossom.png  used on input line 2995.
 (pdftex.def)             Requested size: 195.54256pt x 68.31755pt.
-Package cleveref Info: loaded `english' language definitions on input line 2927.
+Package cleveref Info: loaded `english' language definitions on input line 3025.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4082,9 +4115,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2927.
-[103 <../assets/blossom.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 2965.
+Package cleveref Info: loaded `english' language definitions on input line 3025.
+[106 <../assets/blossom.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3063.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4093,22 +4126,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 2965.
-[104]
+Package cleveref Info: loaded `english' language definitions on input line 3063.
+[107]
 Chapter 9.
 
-Overfull \hbox (9.13992pt too wide) in paragraph at lines 2981--2982
+Overfull \hbox (9.13992pt too wide) in paragraph at lines 3079--3080
 []\T1/cmr/m/n/12 Typically, each sen-sor op-er-ates us-ing a \T1/cmr/bx/n/12 look-compute-move \T1/cmr/m/n/12 cy-cle, a pro-cess in which 
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 2992.
-[105
+Package cleveref Info: loaded `english' language definitions on input line 3090.
+[108
 
 ]
-<../assets/particles.png, id=1254, 529.22719pt x 723.45282pt>
+<../assets/particles.png, id=1278, 529.22719pt x 723.45282pt>
 File: ../assets/particles.png Graphic file (type png)
 <use ../assets/particles.png>
-Package pdftex.def Info: ../assets/particles.png  used on input line 2993.
+Package pdftex.def Info: ../assets/particles.png  used on input line 3091.
 (pdftex.def)             Requested size: 132.30647pt x 180.86276pt.
 
 
@@ -4118,14 +4151,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3019.
-[106 <../assets/particles.png (PNG copy)>]
-<../assets/voronoi.png, id=1261, 1204.5pt x 1204.5pt>
+Package cleveref Info: loaded `english' language definitions on input line 3117.
+[109 <../assets/particles.png (PNG copy)>]
+<../assets/voronoi.png, id=1284, 1204.5pt x 1204.5pt>
 File: ../assets/voronoi.png Graphic file (type png)
 <use ../assets/voronoi.png>
-Package pdftex.def Info: ../assets/voronoi.png  used on input line 3020.
+Package pdftex.def Info: ../assets/voronoi.png  used on input line 3118.
 (pdftex.def)             Requested size: 180.6672pt x 180.6672pt.
-Package cleveref Info: loaded `english' language definitions on input line 3046.
+Package cleveref Info: loaded `english' language definitions on input line 3144.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4134,24 +4167,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3046.
-[107 <../assets/voronoi.png>]
-<../assets/voronoi_desc.png, id=1269, 524.71031pt x 593.21625pt>
+Package cleveref Info: loaded `english' language definitions on input line 3144.
+[110 <../assets/voronoi.png>]
+<../assets/voronoi_desc.png, id=1292, 524.71031pt x 593.21625pt>
 File: ../assets/voronoi_desc.png Graphic file (type png)
 <use ../assets/voronoi_desc.png>
-Package pdftex.def Info: ../assets/voronoi_desc.png  used on input line 3052.
+Package pdftex.def Info: ../assets/voronoi_desc.png  used on input line 3150.
 (pdftex.def)             Requested size: 131.17725pt x 148.3037pt.
-<../assets/voronoi_vertices.png, id=1270, 496.85625pt x 605.26125pt>
+<../assets/voronoi_vertices.png, id=1293, 496.85625pt x 605.26125pt>
 File: ../assets/voronoi_vertices.png Graphic file (type png)
 <use ../assets/voronoi_vertices.png>
-Package pdftex.def Info: ../assets/voronoi_vertices.png  used on input line 3057.
+Package pdftex.def Info: ../assets/voronoi_vertices.png  used on input line 3155.
 (pdftex.def)             Requested size: 124.21375pt x 151.31493pt.
-<../assets/voronoi_singleton.png, id=1271, 837.1275pt x 443.40656pt>
+<../assets/voronoi_singleton.png, id=1294, 837.1275pt x 443.40656pt>
 File: ../assets/voronoi_singleton.png Graphic file (type png)
 <use ../assets/voronoi_singleton.png>
-Package pdftex.def Info: ../assets/voronoi_singleton.png  used on input line 3061.
+Package pdftex.def Info: ../assets/voronoi_singleton.png  used on input line 3159.
 (pdftex.def)             Requested size: 209.28136pt x 110.85136pt.
-Package cleveref Info: loaded `english' language definitions on input line 3062.
+Package cleveref Info: loaded `english' language definitions on input line 3160.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4160,29 +4193,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3062.
-[108 <../assets/voronoi_desc.png (PNG copy)> <../assets/voronoi_vertices.png (PNG copy)>]
-<../assets/voronoi_two.png, id=1278, 237.13594pt x 435.12563pt>
+Package cleveref Info: loaded `english' language definitions on input line 3160.
+[111 <../assets/voronoi_desc.png (PNG copy)> <../assets/voronoi_vertices.png (PNG copy)>]
+<../assets/voronoi_two.png, id=1301, 237.13594pt x 435.12563pt>
 File: ../assets/voronoi_two.png Graphic file (type png)
 <use ../assets/voronoi_two.png>
-Package pdftex.def Info: ../assets/voronoi_two.png  used on input line 3065.
+Package pdftex.def Info: ../assets/voronoi_two.png  used on input line 3163.
 (pdftex.def)             Requested size: 59.28383pt x 108.78113pt.
-<../assets/voronoi_colinear.png, id=1279, 707.64375pt x 495.35063pt>
+<../assets/voronoi_colinear.png, id=1302, 707.64375pt x 495.35063pt>
 File: ../assets/voronoi_colinear.png Graphic file (type png)
 <use ../assets/voronoi_colinear.png>
-Package pdftex.def Info: ../assets/voronoi_colinear.png  used on input line 3069.
+Package pdftex.def Info: ../assets/voronoi_colinear.png  used on input line 3167.
 (pdftex.def)             Requested size: 176.9105pt x 123.83736pt.
-<../assets/voronoi_four.png, id=1280, 907.89188pt x 557.08125pt>
+<../assets/voronoi_four.png, id=1303, 907.89188pt x 557.08125pt>
 File: ../assets/voronoi_four.png Graphic file (type png)
 <use ../assets/voronoi_four.png>
-Package pdftex.def Info: ../assets/voronoi_four.png  used on input line 3076.
+Package pdftex.def Info: ../assets/voronoi_four.png  used on input line 3174.
 (pdftex.def)             Requested size: 226.97241pt x 139.26997pt.
-<../assets/voronoi_four2.png, id=1281, 467.49657pt x 377.91188pt>
+<../assets/voronoi_four2.png, id=1304, 467.49657pt x 377.91188pt>
 File: ../assets/voronoi_four2.png Graphic file (type png)
 <use ../assets/voronoi_four2.png>
-Package pdftex.def Info: ../assets/voronoi_four2.png  used on input line 3076.
+Package pdftex.def Info: ../assets/voronoi_four2.png  used on input line 3174.
 (pdftex.def)             Requested size: 116.87386pt x 94.47774pt.
-Package cleveref Info: loaded `english' language definitions on input line 3084.
+Package cleveref Info: loaded `english' language definitions on input line 3182.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4191,24 +4224,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3084.
-[109 <../assets/voronoi_singleton.png (PNG copy)> <../assets/voronoi_two.png (PNG copy)> <../assets/voronoi_colinear.png (PNG copy)> <../assets/voronoi_four.png (PNG copy)> <../assets/voronoi_four2.png (PNG copy)>]
-<../assets/voronoi_alg1.png, id=1289, 336.50719pt x 495.35063pt>
+Package cleveref Info: loaded `english' language definitions on input line 3182.
+[112 <../assets/voronoi_singleton.png (PNG copy)> <../assets/voronoi_two.png (PNG copy)> <../assets/voronoi_colinear.png (PNG copy)> <../assets/voronoi_four.png (PNG copy)> <../assets/voronoi_four2.png (PNG copy)>]
+<../assets/voronoi_alg1.png, id=1313, 336.50719pt x 495.35063pt>
 File: ../assets/voronoi_alg1.png Graphic file (type png)
 <use ../assets/voronoi_alg1.png>
-Package pdftex.def Info: ../assets/voronoi_alg1.png  used on input line 3117.
+Package pdftex.def Info: ../assets/voronoi_alg1.png  used on input line 3215.
 (pdftex.def)             Requested size: 84.12659pt x 123.83736pt.
-<../assets/voronoi_alg2.png, id=1290, 398.99063pt x 367.3725pt>
+<../assets/voronoi_alg2.png, id=1314, 398.99063pt x 367.3725pt>
 File: ../assets/voronoi_alg2.png Graphic file (type png)
 <use ../assets/voronoi_alg2.png>
-Package pdftex.def Info: ../assets/voronoi_alg2.png  used on input line 3117.
+Package pdftex.def Info: ../assets/voronoi_alg2.png  used on input line 3215.
 (pdftex.def)             Requested size: 99.7474pt x 91.8429pt.
-<../assets/voronoi_alg3.png, id=1291, 398.99063pt x 367.3725pt>
+<../assets/voronoi_alg3.png, id=1315, 398.99063pt x 367.3725pt>
 File: ../assets/voronoi_alg3.png Graphic file (type png)
 <use ../assets/voronoi_alg3.png>
-Package pdftex.def Info: ../assets/voronoi_alg3.png  used on input line 3117.
+Package pdftex.def Info: ../assets/voronoi_alg3.png  used on input line 3215.
 (pdftex.def)             Requested size: 99.7474pt x 91.8429pt.
-Package cleveref Info: loaded `english' language definitions on input line 3121.
+Package cleveref Info: loaded `english' language definitions on input line 3219.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4217,14 +4250,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3121.
-[110]
-<../assets/voronoi_alg4.png, id=1298, 901.86937pt x 588.69937pt>
+Package cleveref Info: loaded `english' language definitions on input line 3219.
+[113]
+<../assets/voronoi_alg4.png, id=1322, 901.86937pt x 588.69937pt>
 File: ../assets/voronoi_alg4.png Graphic file (type png)
 <use ../assets/voronoi_alg4.png>
-Package pdftex.def Info: ../assets/voronoi_alg4.png  used on input line 3136.
+Package pdftex.def Info: ../assets/voronoi_alg4.png  used on input line 3234.
 (pdftex.def)             Requested size: 225.46678pt x 147.17447pt.
-Package cleveref Info: loaded `english' language definitions on input line 3137.
+Package cleveref Info: loaded `english' language definitions on input line 3235.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4233,24 +4266,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3137.
-[111 <../assets/voronoi_alg1.png (PNG copy)> <../assets/voronoi_alg2.png (PNG copy)> <../assets/voronoi_alg3.png (PNG copy)>]
-<../assets/fortune1.png, id=1305, 438.8897pt x 240.9pt>
+Package cleveref Info: loaded `english' language definitions on input line 3235.
+[114 <../assets/voronoi_alg1.png (PNG copy)> <../assets/voronoi_alg2.png (PNG copy)> <../assets/voronoi_alg3.png (PNG copy)>]
+<../assets/fortune1.png, id=1329, 438.8897pt x 240.9pt>
 File: ../assets/fortune1.png Graphic file (type png)
 <use ../assets/fortune1.png>
-Package pdftex.def Info: ../assets/fortune1.png  used on input line 3144.
+Package pdftex.def Info: ../assets/fortune1.png  used on input line 3242.
 (pdftex.def)             Requested size: 109.72215pt x 60.22484pt.
-<../assets/beach_line.png, id=1306, 910.15031pt x 426.09187pt>
+<../assets/beach_line.png, id=1330, 910.15031pt x 426.09187pt>
 File: ../assets/beach_line.png Graphic file (type png)
 <use ../assets/beach_line.png>
-Package pdftex.def Info: ../assets/beach_line.png  used on input line 3156.
+Package pdftex.def Info: ../assets/beach_line.png  used on input line 3254.
 (pdftex.def)             Requested size: 227.53702pt x 106.5227pt.
-<../assets/beach_line2.png, id=1307, 430.60875pt x 346.29375pt>
+<../assets/beach_line2.png, id=1331, 430.60875pt x 346.29375pt>
 File: ../assets/beach_line2.png Graphic file (type png)
 <use ../assets/beach_line2.png>
-Package pdftex.def Info: ../assets/beach_line2.png  used on input line 3160.
+Package pdftex.def Info: ../assets/beach_line2.png  used on input line 3258.
 (pdftex.def)             Requested size: 107.65192pt x 86.57321pt.
-Package cleveref Info: loaded `english' language definitions on input line 3160.
+Package cleveref Info: loaded `english' language definitions on input line 3258.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4259,19 +4292,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3160.
-[112 <../assets/voronoi_alg4.png (PNG copy)> <../assets/fortune1.png (PNG copy)> <../assets/beach_line.png (PNG copy)>]
-<../assets/site_event.png, id=1314, 251.43938pt x 210.7875pt>
+Package cleveref Info: loaded `english' language definitions on input line 3258.
+[115 <../assets/voronoi_alg4.png (PNG copy)> <../assets/fortune1.png (PNG copy)> <../assets/beach_line.png (PNG copy)>]
+<../assets/site_event.png, id=1337, 251.43938pt x 210.7875pt>
 File: ../assets/site_event.png Graphic file (type png)
 <use ../assets/site_event.png>
-Package pdftex.def Info: ../assets/site_event.png  used on input line 3170.
+Package pdftex.def Info: ../assets/site_event.png  used on input line 3268.
 (pdftex.def)             Requested size: 75.43239pt x 63.23672pt.
-<../assets/vertex_event.png, id=1315, 338.01282pt x 253.69781pt>
+<../assets/vertex_event.png, id=1338, 338.01282pt x 253.69781pt>
 File: ../assets/vertex_event.png Graphic file (type png)
 <use ../assets/vertex_event.png>
-Package pdftex.def Info: ../assets/vertex_event.png  used on input line 3174.
+Package pdftex.def Info: ../assets/vertex_event.png  used on input line 3272.
 (pdftex.def)             Requested size: 101.40462pt x 76.10992pt.
-Package cleveref Info: loaded `english' language definitions on input line 3175.
+Package cleveref Info: loaded `english' language definitions on input line 3273.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4280,9 +4313,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3175.
-[113 <../assets/beach_line2.png (PNG copy)> <../assets/site_event.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 3208.
+Package cleveref Info: loaded `english' language definitions on input line 3273.
+[116 <../assets/beach_line2.png (PNG copy)> <../assets/site_event.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3306.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4291,19 +4324,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3208.
-[114 <../assets/vertex_event.png (PNG copy)>]
-<../assets/voronoi_limit.png, id=1324, 480.29437pt x 364.36125pt>
+Package cleveref Info: loaded `english' language definitions on input line 3306.
+[117 <../assets/vertex_event.png (PNG copy)>]
+<../assets/voronoi_limit.png, id=1347, 480.29437pt x 364.36125pt>
 File: ../assets/voronoi_limit.png Graphic file (type png)
 <use ../assets/voronoi_limit.png>
-Package pdftex.def Info: ../assets/voronoi_limit.png  used on input line 3223.
+Package pdftex.def Info: ../assets/voronoi_limit.png  used on input line 3321.
 (pdftex.def)             Requested size: 144.08942pt x 109.3092pt.
-<../assets/voronoi_stale.png, id=1325, 322.20375pt x 343.2825pt>
+<../assets/voronoi_stale.png, id=1348, 322.20375pt x 343.2825pt>
 File: ../assets/voronoi_stale.png Graphic file (type png)
 <use ../assets/voronoi_stale.png>
-Package pdftex.def Info: ../assets/voronoi_stale.png  used on input line 3229.
+Package pdftex.def Info: ../assets/voronoi_stale.png  used on input line 3327.
 (pdftex.def)             Requested size: 96.66187pt x 102.98553pt.
-Package cleveref Info: loaded `english' language definitions on input line 3232.
+Package cleveref Info: loaded `english' language definitions on input line 3330.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4312,18 +4345,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3232.
-[115 <../assets/voronoi_limit.png (PNG copy)> <../assets/voronoi_stale.png (PNG copy)>]
-Overfull \hbox (8.22098pt too wide) in paragraph at lines 3240--3241
+Package cleveref Info: loaded `english' language definitions on input line 3330.
+[118 <../assets/voronoi_limit.png (PNG copy)> <../assets/voronoi_stale.png (PNG copy)>]
+Overfull \hbox (8.22098pt too wide) in paragraph at lines 3338--3339
 []\T1/cmr/m/n/12 The dis-tance that has been in-tro-duced is the fol-low-ing, named af-ter [][]Ed-mond La-guerre[][]. 
  []
 
-<../assets/radical_axis.png, id=1332, 646.66594pt x 368.1253pt>
+<../assets/radical_axis.png, id=1356, 646.66594pt x 368.1253pt>
 File: ../assets/radical_axis.png Graphic file (type png)
 <use ../assets/radical_axis.png>
-Package pdftex.def Info: ../assets/radical_axis.png  used on input line 3254.
+Package pdftex.def Info: ../assets/radical_axis.png  used on input line 3352.
 (pdftex.def)             Requested size: 194.00127pt x 110.43843pt.
-Package cleveref Info: loaded `english' language definitions on input line 3255.
+Package cleveref Info: loaded `english' language definitions on input line 3353.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -4331,19 +4364,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3255.
-[116]
-<../assets/radical_axes.png, id=1341, 1292.57906pt x 228.855pt>
+Package cleveref Info: loaded `english' language definitions on input line 3353.
+[119]
+<../assets/radical_axes.png, id=1366, 1292.57906pt x 228.855pt>
 File: ../assets/radical_axes.png Graphic file (type png)
 <use ../assets/radical_axes.png>
-Package pdftex.def Info: ../assets/radical_axes.png  used on input line 3260.
+Package pdftex.def Info: ../assets/radical_axes.png  used on input line 3358.
 (pdftex.def)             Requested size: 387.77672pt x 68.65701pt.
-<../assets/voronoi_laguerre.png, id=1343, 747.54282pt x 508.90125pt>
+<../assets/voronoi_laguerre.png, id=1368, 747.54282pt x 508.90125pt>
 File: ../assets/voronoi_laguerre.png Graphic file (type png)
 <use ../assets/voronoi_laguerre.png>
-Package pdftex.def Info: ../assets/voronoi_laguerre.png  used on input line 3270.
+Package pdftex.def Info: ../assets/voronoi_laguerre.png  used on input line 3368.
 (pdftex.def)             Requested size: 261.6439pt x 178.1181pt.
-Package cleveref Info: loaded `english' language definitions on input line 3274.
+Package cleveref Info: loaded `english' language definitions on input line 3372.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4352,9 +4385,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3274.
-[117 <../assets/radical_axis.png (PNG copy)> <../assets/radical_axes.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 3296.
+Package cleveref Info: loaded `english' language definitions on input line 3372.
+[120 <../assets/radical_axis.png (PNG copy)> <../assets/radical_axes.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3394.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4363,21 +4396,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3296.
-[118 <../assets/voronoi_laguerre.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3394.
+[121 <../assets/voronoi_laguerre.png (PNG copy)>]
 Chapter 10.
 
-Overfull \hbox (12.29997pt too wide) in paragraph at lines 3298--3299
+Overfull \hbox (12.29997pt too wide) in paragraph at lines 3396--3397
 \T1/cmr/bx/n/12 Unmanned Aerial Ve-hi-cles (UAVs) \T1/cmr/m/n/12 are ad-vanced fly-ing ve-hi-cles ca-pa-ble of \T1/cmr/m/it/12 au-tonomously
  []
 
-<../assets/uav_graph.png, id=1362, 997.47656pt x 447.92343pt>
+<../assets/uav_graph.png, id=1386, 997.47656pt x 447.92343pt>
 File: ../assets/uav_graph.png Graphic file (type png)
 <use ../assets/uav_graph.png>
-Package pdftex.def Info: ../assets/uav_graph.png  used on input line 3313.
+Package pdftex.def Info: ../assets/uav_graph.png  used on input line 3411.
 (pdftex.def)             Requested size: 299.24527pt x 134.37805pt.
-Package cleveref Info: loaded `english' language definitions on input line 3314.
-[119
+Package cleveref Info: loaded `english' language definitions on input line 3412.
+[122
 
 ]
 
@@ -4387,8 +4420,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3344.
-[120 <../assets/uav_graph.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3442.
+[123 <../assets/uav_graph.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -4396,9 +4429,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3370.
-[121]
-Package cleveref Info: loaded `english' language definitions on input line 3401.
+Package cleveref Info: loaded `english' language definitions on input line 3468.
+[124]
+Package cleveref Info: loaded `english' language definitions on input line 3499.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4407,19 +4440,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3401.
-[122]
-<../assets/uav_cases.png, id=1393, 1157.82562pt x 386.19281pt>
+Package cleveref Info: loaded `english' language definitions on input line 3499.
+[125]
+<../assets/uav_cases.png, id=1417, 1157.82562pt x 386.19281pt>
 File: ../assets/uav_cases.png Graphic file (type png)
 <use ../assets/uav_cases.png>
-Package pdftex.def Info: ../assets/uav_cases.png  used on input line 3407.
+Package pdftex.def Info: ../assets/uav_cases.png  used on input line 3505.
 (pdftex.def)             Requested size: 347.35037pt x 115.85872pt.
-<../assets/split_uavs.png, id=1394, 990.70125pt x 474.27188pt>
+<../assets/split_uavs.png, id=1418, 990.70125pt x 474.27188pt>
 File: ../assets/split_uavs.png Graphic file (type png)
 <use ../assets/split_uavs.png>
-Package pdftex.def Info: ../assets/split_uavs.png  used on input line 3413.
+Package pdftex.def Info: ../assets/split_uavs.png  used on input line 3511.
 (pdftex.def)             Requested size: 297.21266pt x 142.28265pt.
-Package cleveref Info: loaded `english' language definitions on input line 3414.
+Package cleveref Info: loaded `english' language definitions on input line 3512.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4428,9 +4461,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3414.
-[123 <../assets/uav_cases.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 3442.
+Package cleveref Info: loaded `english' language definitions on input line 3512.
+[126 <../assets/uav_cases.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3540.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4439,9 +4472,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3442.
-[124 <../assets/split_uavs.png (PNG copy)>]
-Package cleveref Info: loaded `english' language definitions on input line 3447.
+Package cleveref Info: loaded `english' language definitions on input line 3540.
+[127 <../assets/split_uavs.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3545.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4450,24 +4483,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3447.
-[125]
+Package cleveref Info: loaded `english' language definitions on input line 3545.
+[128]
 Chapter 11.
-<../assets/h_p.png, id=1415, 1059.96pt x 428.35031pt>
+<../assets/h_p.png, id=1438, 1059.96pt x 428.35031pt>
 File: ../assets/h_p.png Graphic file (type png)
 <use ../assets/h_p.png>
-Package pdftex.def Info: ../assets/h_p.png  used on input line 3458.
+Package pdftex.def Info: ../assets/h_p.png  used on input line 3556.
 (pdftex.def)             Requested size: 370.99156pt x 149.92485pt.
-Package cleveref Info: loaded `english' language definitions on input line 3461.
-[126
+Package cleveref Info: loaded `english' language definitions on input line 3559.
+[129
 
  <../assets/h_p.png (PNG copy)>]
-<../assets/h_p_f.png, id=1422, 1078.0275pt x 576.65437pt>
+<../assets/h_p_f.png, id=1445, 1078.0275pt x 576.65437pt>
 File: ../assets/h_p_f.png Graphic file (type png)
 <use ../assets/h_p_f.png>
-Package pdftex.def Info: ../assets/h_p_f.png  used on input line 3476.
+Package pdftex.def Info: ../assets/h_p_f.png  used on input line 3574.
 (pdftex.def)             Requested size: 215.60167pt x 115.32883pt.
-Package cleveref Info: loaded `english' language definitions on input line 3479.
+Package cleveref Info: loaded `english' language definitions on input line 3577.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4476,19 +4509,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3479.
-[127 <../assets/h_p_f.png (PNG copy)>]
-<../assets/recon_cases.png, id=1427, 819.8128pt x 620.3175pt>
+Package cleveref Info: loaded `english' language definitions on input line 3577.
+[130 <../assets/h_p_f.png (PNG copy)>]
+<../assets/recon_cases.png, id=1451, 819.8128pt x 620.3175pt>
 File: ../assets/recon_cases.png Graphic file (type png)
 <use ../assets/recon_cases.png>
-Package pdftex.def Info: ../assets/recon_cases.png  used on input line 3480.
+Package pdftex.def Info: ../assets/recon_cases.png  used on input line 3578.
 (pdftex.def)             Requested size: 245.94572pt x 186.09668pt.
-<../assets/time_consistency.png, id=1428, 1276.77pt x 448.67625pt>
+<../assets/time_consistency.png, id=1452, 1276.77pt x 448.67625pt>
 File: ../assets/time_consistency.png Graphic file (type png)
 <use ../assets/time_consistency.png>
-Package pdftex.def Info: ../assets/time_consistency.png  used on input line 3493.
+Package pdftex.def Info: ../assets/time_consistency.png  used on input line 3591.
 (pdftex.def)             Requested size: 383.03395pt x 134.60391pt.
-Package cleveref Info: loaded `english' language definitions on input line 3496.
+Package cleveref Info: loaded `english' language definitions on input line 3594.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4497,19 +4530,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3496.
-[128 <../assets/recon_cases.png (PNG copy)> <../assets/time_consistency.png (PNG copy)>]
-<../assets/recon_conv.png, id=1435, 834.86906pt x 328.22626pt>
+Package cleveref Info: loaded `english' language definitions on input line 3594.
+[131 <../assets/recon_cases.png (PNG copy)> <../assets/time_consistency.png (PNG copy)>]
+<../assets/recon_conv.png, id=1459, 834.86906pt x 328.22626pt>
 File: ../assets/recon_conv.png Graphic file (type png)
 <use ../assets/recon_conv.png>
-Package pdftex.def Info: ../assets/recon_conv.png  used on input line 3512.
+Package pdftex.def Info: ../assets/recon_conv.png  used on input line 3610.
 (pdftex.def)             Requested size: 250.46265pt x 98.46863pt.
-<../assets/recon_equiv.png, id=1436, 863.47594pt x 347.79938pt>
+<../assets/recon_equiv.png, id=1460, 863.47594pt x 347.79938pt>
 File: ../assets/recon_equiv.png Graphic file (type png)
 <use ../assets/recon_equiv.png>
-Package pdftex.def Info: ../assets/recon_equiv.png  used on input line 3515.
+Package pdftex.def Info: ../assets/recon_equiv.png  used on input line 3613.
 (pdftex.def)             Requested size: 259.04477pt x 104.3406pt.
-Package cleveref Info: loaded `english' language definitions on input line 3516.
+Package cleveref Info: loaded `english' language definitions on input line 3614.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4518,14 +4551,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3516.
-[129 <../assets/recon_conv.png (PNG copy)>]
-<../assets/recon_equiv2.png, id=1445, 1301.61281pt x 648.92438pt>
+Package cleveref Info: loaded `english' language definitions on input line 3614.
+[132 <../assets/recon_conv.png (PNG copy)>]
+<../assets/recon_equiv2.png, id=1469, 1301.61281pt x 648.92438pt>
 File: ../assets/recon_equiv2.png Graphic file (type png)
 <use ../assets/recon_equiv2.png>
-Package pdftex.def Info: ../assets/recon_equiv2.png  used on input line 3524.
+Package pdftex.def Info: ../assets/recon_equiv2.png  used on input line 3622.
 (pdftex.def)             Requested size: 325.4024pt x 162.2307pt.
-Package cleveref Info: loaded `english' language definitions on input line 3538.
+Package cleveref Info: loaded `english' language definitions on input line 3636.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4534,21 +4567,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3538.
-[130 <../assets/recon_equiv.png (PNG copy)> <../assets/recon_equiv2.png (PNG copy)>]
+Package cleveref Info: loaded `english' language definitions on input line 3636.
+[133 <../assets/recon_equiv.png (PNG copy)> <../assets/recon_equiv2.png (PNG copy)>]
 
-LaTeX Warning: Marginpar on page 131 moved.
-
-
-LaTeX Warning: Marginpar on page 131 moved.
+LaTeX Warning: Marginpar on page 134 moved.
 
 
-LaTeX Warning: Marginpar on page 131 moved.
+LaTeX Warning: Marginpar on page 134 moved.
 
 
-LaTeX Warning: Marginpar on page 131 moved.
+LaTeX Warning: Marginpar on page 134 moved.
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
+
+LaTeX Warning: Marginpar on page 134 moved.
+
+Package cleveref Info: loaded `english' language definitions on input line 3678.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -4556,22 +4589,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
-[131]
-Overfull \hbox (26.94536pt too wide) in paragraph at lines 3581--3581
+Package cleveref Info: loaded `english' language definitions on input line 3678.
+[134]
+Overfull \hbox (26.94536pt too wide) in paragraph at lines 3679--3679
 []\T1/cmr/m/n/12 Mario ƒa-galj et al. ^^P  Minimum-energy broad-cast in all-wireless net-works: NP-completeness
  []
 
 
-Overfull \hbox (7.07715pt too wide) in paragraph at lines 3581--3581
+Overfull \hbox (7.07715pt too wide) in paragraph at lines 3679--3679
 []\T1/cmr/m/n/12 Tiziana Cala-m-oneri et al. ^^P  Man-age-ment of a post-disaster emer-gency sce-nario through
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
-[132
+Package cleveref Info: loaded `english' language definitions on input line 3678.
+[135
 
 ]
-Package cleveref Info: loaded `english' language definitions on input line 3580.
+Package cleveref Info: loaded `english' language definitions on input line 3678.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4580,9 +4613,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
-[133]
-Package cleveref Info: loaded `english' language definitions on input line 3580.
+Package cleveref Info: loaded `english' language definitions on input line 3678.
+[136]
+Package cleveref Info: loaded `english' language definitions on input line 3678.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4591,9 +4624,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
-[134]
-Package cleveref Info: loaded `english' language definitions on input line 3580.
+Package cleveref Info: loaded `english' language definitions on input line 3678.
+[137]
+Package cleveref Info: loaded `english' language definitions on input line 3678.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4602,9 +4635,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3580.
-[135]
-Package cleveref Info: loaded `english' language definitions on input line 3581.
+Package cleveref Info: loaded `english' language definitions on input line 3678.
+[138]
+Package cleveref Info: loaded `english' language definitions on input line 3679.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4613,8 +4646,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 3581.
-[136] (./Network Algorithms.aux
+Package cleveref Info: loaded `english' language definitions on input line 3679.
+[139] (./Network Algorithms.aux
 Package cleveref Info: loaded `english' language definitions on input line 12.
 )
  ***********
@@ -4626,25 +4659,25 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Network Algorithms".out' has not changed.
-(rerunfilecheck)             Checksum: 7EE00DCC241C855B15D01014988F1BA9;10530.
+(rerunfilecheck)             Checksum: 41CB3DC29768B9B8868B87E02FA7C298;10535.
 Package logreq Info: Writing requests to '"Network Algorithms".run.xml'.
 \openout1 = `"Network Algorithms.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 76647 strings out of 476024
- 1864430 string characters out of 5792396
- 3047138 words of memory out of 5000000
- 97238 multiletter control sequences out of 15000+600000
+ 76698 strings out of 476024
+ 1865465 string characters out of 5792396
+ 3047594 words of memory out of 5000000
+ 97276 multiletter control sequences out of 15000+600000
  598813 words of font info for 132 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  119i,20n,123p,1909b,2711s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf
 -dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "Network Algorithms.pdf" (139 pages, 7879419 bytes).
+Output written on "Network Algorithms.pdf" (142 pages, 7894360 bytes).
 PDF statistics:
- 1850 PDF objects out of 2073 (max. 8388607)
- 1545 compressed objects within 16 object streams
- 529 named destinations out of 1000 (max. 500000)
+ 1878 PDF objects out of 2073 (max. 8388607)
+ 1570 compressed objects within 16 object streams
+ 542 named destinations out of 1000 (max. 500000)
  815 words of extra memory for PDF output out of 10000 (max. 10000000)
 
