@@ -17,53 +17,54 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated field_info (elt_size=8) to 12700 items from 5000.
+Reallocated field_info (elt_size=8) to 12980 items from 5000.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
 Warning--entry type for "konig" isn't style-file defined
 --line 208 of file ./references.bib
+Warning--I didn't find a database entry for "hanusama"
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 55 entries,
+You've used 56 entries,
             6399 wiz_defined-function locations,
-            1652 strings with 21119 characters,
-and the built_in function-call counts, 425824 in all, are:
-= -- 34036
-> -- 6700
-< -- 2405
-+ -- 12027
-- -- 2407
-* -- 28955
-:= -- 45183
+            1658 strings with 21211 characters,
+and the built_in function-call counts, 432953 in all, are:
+= -- 34600
+> -- 6791
+< -- 2433
++ -- 12205
+- -- 2437
+* -- 29491
+:= -- 45953
 add.period$ -- 0
-call.type$ -- 55
-change.case$ -- 1550
+call.type$ -- 56
+change.case$ -- 1565
 chr.to.int$ -- 242
-cite$ -- 108
-duplicate$ -- 45341
-empty$ -- 37446
-format.name$ -- 3342
-if$ -- 86925
+cite$ -- 110
+duplicate$ -- 46076
+empty$ -- 38104
+format.name$ -- 3401
+if$ -- 88381
 int.to.chr$ -- 0
-int.to.str$ -- 164
+int.to.str$ -- 167
 missing$ -- 0
-newline$ -- 2057
-num.names$ -- 3362
-pop$ -- 19138
+newline$ -- 2089
+num.names$ -- 3410
+pop$ -- 19488
 preamble$ -- 1
-purify$ -- 1792
+purify$ -- 1811
 quote$ -- 0
-skip$ -- 11628
+skip$ -- 11793
 stack$ -- 0
-substring$ -- 60299
-swap$ -- 9713
-text.length$ -- 1400
-text.prefix$ -- 55
+substring$ -- 61354
+swap$ -- 9866
+text.length$ -- 1424
+text.prefix$ -- 56
 top$ -- 1
-type$ -- 1857
+type$ -- 1891
 warning$ -- 0
-while$ -- 5632
+while$ -- 5723
 width$ -- 0
-write$ -- 2003
-(There was 1 warning)
+write$ -- 2034
+(There were 2 warnings)

@@ -338,6 +338,38 @@
     \field{year}{2024}
   \endentry
 
+  \entry{chang}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CGJ}{%
+         family={Chang},
+         familyi={C\bibinitperiod},
+         given={Gerard\bibnamedelima J},
+         giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kuo},
+         familyi={K\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SIAM}%
+    }
+    \strng{namehash}{CGJ+1}
+    \strng{fullhash}{CGJKD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{2}
+    \field{pages}{309\bibrangedash 316}
+    \field{title}{The L(2,1)-labeling problem on graphs}
+    \field{volume}{9}
+    \field{journaltitle}{SIAM Journal on Discrete Mathematics}
+    \field{year}{1996}
+  \endentry
+
   \entry{cheng2}{inproceedings}{}
     \name{author}{6}{}{%
       {{hash=CW}{%

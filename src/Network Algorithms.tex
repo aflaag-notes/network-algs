@@ -1649,6 +1649,58 @@
         i lost the focus idk \todo{what?}
     \end{proof}
 
+    \subsection{Known results}
+
+    Research in this field has progressed in several directions, including:
+
+    \begin{itemize}
+        \item \tbf{bounds on $\lambda_{h, k}$}: investigating both \tit{lower and upper bounds} for $\lambda_{h, k}$, providing theoretical insights into its limits and behavior across different scenarios
+            \begin{itemize}
+                \item for instance, for what concerns \tit{lower bounds}, it is known that $\lambda{2,1} \ge \delta + 1 = (\Delta - 1) 1 + 2$ and that $h \ge k \implies \lambda_{h, k} \ge (\Delta - 1) k + h$
+                \item regarding \tit{lower bounds}, it is known that $\lambda_{2, 1} \le \Delta^2 + 2 \Delta$, proved by \textcite{griggs}, and it is conjectured that $\lambda_{2,1} \le \Delta^2$
+            \end{itemize}
+        \item limiting the coloring problem on \tbf{specialized graph classes}:
+            \begin{itemize}
+                \item \tbf{Exact Labelings}: studies that focus on deriving precise labelings for specific graph structures
+                \item \tbf{Approximate Labelings}: approaches that aim for near-optimal solutions, particularly when exact computations are infeasible or overly complex
+            \end{itemize}
+    \end{itemize}
+
+    To determine \tit{upper bounds} for $\lambda_{2,1}$, we can consider the following \tbf{greedy approach} to label color the nodes: given a graph $G = (V, E)$ with nodes $v_1, \ldots, v_n$, label its nodes in order, assigning to $v_i$ the smallest color that \tit{does not conflict} with the labels of its neighbourhood. Although this algorithm may lead to suboptimal solutions, it can be used to define an upper bounds for $\lambda_{2, 1}$ since it clearly yields a valid $L(2,1)$-labeling.
+
+    placeholder \todo{i skipped pag 44}
+
+    We will now cover \tit{exact results} regarding $\lambda_{2,1}$. Consider a \tit{clique graph} $K_n$; since all the nodes of a clique graph are pairwise adjacent, it must be that $$\lambda_{2, 1}(K_n) = 2(n - 1)$$. 
+
+    Differently, consider a \href{https://en.wikipedia.org/wiki/Star_(graph_theory)}{\tit{star graph}} $K_{1, t}$; we can prove that $$\lambda_{2,1}(K_{1,t}) = t + 1$$ easily:
+
+    \begin{itemize}
+        \item clearly $\lambda_{2,1}(K_{1,t}) \le t + 1$ by using the \tit{greedy algorithm} discussed previously, which would yield a labeling that assigns to the star's center the color $t + 1$, and to any other vertex a color between $0$ and $t - 1$
+        \item conversely, to prove that $\lambda_{2,1}(K_{1,t}) \ge t + 1$, assume by way of contradiction that $\lambda_{2,1}(K_{1,t}) < t + 1$; then, it must be that $\lambda_{2,1} \le t$, but if the center of the star graph is labeled with any color between 0 and $t$, there would not be enough colors since there are $t$ external nodes on the star graph
+    \end{itemize}
+    
+    Additionally, for other graph topology we have interesting results. For instance, the proof of the following paper was first proposed by \textcite{griggs}.
+
+    \begin{framedthm}{$\lambda_{2,1}$ on trees}
+        Given a tree $T_n$, $\lambda_{2,1}(T_n)$ is either $\Delta + 1$ or $\Delta + 2$.
+    \end{framedthm}
+
+    \begin{proof}
+        Trivially, we have that $\lambda_{2,1}(T_n) \ge \Delta + 1$, since any tree $T_n$ contains a $K_{1, \Delta}$ star graph.
+
+        To prove that $\lambda_{2,1}(T_n) \le \Delta + 2$, we need to consider a different \tit{greedy labeling} algorithm, called \tbf{First-Fit labeling} which works as follows:
+
+        \begin{itemize}
+            \item order the nodes of $T_n$ such that $v_i$ is attached just once to the subgraph of $T_n$ that contains $\{v_1, \ldots , v_{i -1 }\}$; note that this ordering induces subgraphs $T_i := T_{i + 1} - \{v_{ i +1}\}$ where $v_{i + 1}$ is a leaf, for any $i \in [1, n - 1]$
+            \item label $v_1$ with 0
+            \item label $v_i$ with the first available color
+        \end{itemize}
+
+        Inductively, assume that we have already labeled all the nodes from $v_1$ to $v_i$, and consider $v_{i + 1}$ which has to be labeled. Let $v_j$ be $v_i + 1$ parent w.r.t. $T_n$, and clearly $j \le i + 1$; note that, by definition of $\Delta$, $v_j$ has at most $\Delta - 1$ adjacent neighbours \todo{snapshot ciao armando}
+    \end{proof}
+
+    In the original paper, it was conjectured that decide whether the correct value for a given $T_n$ tree is $\Delta + 1$ or $\Delta + 2$ is \NPComplete, but this conjecture was later disproved by \textcite{chang} in 1996, which provided a polynomial $O(\Delta^{4.5} n)$ algorithm based on a \tit{dynamic programming} approach. Multiple authors have proposed many various algorithms attempting to improve this time complexity, and finally in 2008 \textcite{hanusama} proposed a linear algorithm.
+
     \chapter{The broadcast's energy consumption problem}
 
     \tbf{Wireless sensor networks} (WSNs) are large-scale, multi-hop wireless systems composed of nodes with \tit{limited resources}, such as energy, bandwidth, storage, and processing power. Designed primarily for continuous monitoring and data collection, WSNs play a crucial role in various applications by providing low-level surveillance and data gathering within a designated area.
