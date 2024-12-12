@@ -1107,6 +1107,48 @@
     \field{year}{1998}
   \endentry
 
+  \entry{hasunuma}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=HT}{%
+         family={Hasunuma},
+         familyi={H\bibinitperiod},
+         given={Toru},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=IT}{%
+         family={Ishii},
+         familyi={I\bibinitperiod},
+         given={Toshimasa},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=OH}{%
+         family={Ono},
+         familyi={O\bibinitperiod},
+         given={Hirotaka},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=UY}{%
+         family={Uno},
+         familyi={U\bibinitperiod},
+         given={Yushi},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{HT+1}
+    \strng{fullhash}{HTITOHUY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Scandinavian Workshop on Algorithm Theory}
+    \field{pages}{185\bibrangedash 197}
+    \field{title}{An Algorithm for L (2, 1)-Labeling of Trees}
+    \field{year}{2008}
+  \endentry
+
   \entry{hopcroft}{article}{}
     \name{author}{2}{}{%
       {{hash=HJE}{%
@@ -1183,6 +1225,28 @@
     \field{volume}{14}
     \field{journaltitle}{SIAM Journal on Computing}
     \field{year}{1985}
+  \endentry
+
+  \entry{jonas}{book}{}
+    \name{author}{1}{}{%
+      {{hash=JTK}{%
+         family={Jonas},
+         familyi={J\bibinitperiod},
+         given={Theodore\bibnamedelima Kimball},
+         giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of South Carolina}%
+    }
+    \strng{namehash}{JTK1}
+    \strng{fullhash}{JTK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Graph coloring analogues with a condition at distance two: L (2, 1)-labellings and list lambda-labellings}
+    \field{year}{1993}
   \endentry
 
   \entry{karp}{inbook}{}

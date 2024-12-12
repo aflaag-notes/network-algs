@@ -1509,7 +1509,9 @@
     
     % Note that the second condition of the $L(h, k)$-labeling definition is often written as $$\forall u, v \in V(G) \quad \dist(u, v) = 2 \implies \abs{f(u)- f(v)} \ge k$$
 
-    Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having span (i.e. bandwidth) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons).
+    \begin{framedobs}{Notation}
+        Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having \tit{span} (i.e. \tit{bandwidth}) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons.
+    \end{framedobs}
 
     The problem of finding a \tbf{minimum bandwidth labeling} has been introduced in 1991 by \textcite{griggs}, in the context of a frequency assignment problem, for the case of $h = 2$ and $k = 1$.
 
@@ -1559,7 +1561,9 @@
 
     Moreover, the case for $k = 0$, for any value of $h$, is not usually considered in this context, as it coincides with the classical vertex coloring (previously described). On the counter side, the case when $h = k$ is very studied in the literature, and the case when $h = 2k$ is definitely the most studied $L(h, k)$-labeling problem.
 
-    It has been proven that both the $L(0,1)$-labeling of planar graphs, and the $L(1,1)$-labeling of general, planar, bounded degree and unit-disk graphs are all \NPComplete problems. Now, consider the following special form of the $L(2,1)$-labeling problem.
+    It has been proven that both the $L(0,1)$-labeling of planar graphs, and the $L(1,1)$-labeling of general, planar, bounded degree and unit-disk graphs are all \NPComplete problems.
+
+    Now, let the \tbf{diameter} of a graph be the shortest path between each pair of vertices of the graph, and consider the following special form of the $L(2,1)$-labeling problem.
 
     \begin{frameddefn}{Distance 2 Labeling problem}
         Given a graph $G = (V, E)$, with diameter 2, the \tbf{Distance 2 Labeling}  (DL) problem asks for the following: is there a $\lambda_{2,1}(G) \le \abs{V(G)}$?
@@ -1670,9 +1674,9 @@
 
     placeholder \todo{i skipped pag 44}
 
-    We will now cover \tit{exact results} regarding $\lambda_{2,1}$. Consider a \tit{clique graph} $K_n$; since all the nodes of a clique graph are pairwise adjacent, it must be that $$\lambda_{2, 1}(K_n) = 2(n - 1)$$. 
+    We will now cover \tit{exact results} regarding $\lambda_{2,1}$. Consider a \tbf{clique graph} $K_n$; since all the nodes of a clique graph are pairwise adjacent, it must be that $$\lambda_{2, 1}(K_n) = 2(n - 1)$$. 
 
-    Differently, consider a \href{https://en.wikipedia.org/wiki/Star_(graph_theory)}{\tit{star graph}} $K_{1, t}$; we can prove that $$\lambda_{2,1}(K_{1,t}) = t + 1$$ easily:
+    Differently, consider a \href{https://en.wikipedia.org/wiki/Star_(graph_theory)}{\tbf{star graph}} $K_{1, t}$; we can prove that $$\lambda_{2,1}(K_{1,t}) = t + 1$$ easily:
 
     \begin{itemize}
         \item clearly $\lambda_{2,1}(K_{1,t}) \le t + 1$ by using the \tit{greedy algorithm} discussed previously, which would yield a labeling that assigns to the star's center the color $t + 1$, and to any other vertex a color between $0$ and $t - 1$
@@ -1681,7 +1685,7 @@
     
     Additionally, for other graph topology we have interesting results. For instance, the proof of the following paper was first proposed by \textcite{griggs}.
 
-    \begin{framedthm}{$\lambda_{2,1}$ on trees}
+    \begin{framedthm}[label={lambda trees}]{$\lambda_{2,1}$ on trees}
         Given a tree $T_n$, $\lambda_{2,1}(T_n)$ is either $\Delta + 1$ or $\Delta + 2$.
     \end{framedthm}
 
@@ -1696,10 +1700,53 @@
             \item label $v_i$ with the first available color
         \end{itemize}
 
-        Inductively, assume that we have already labeled all the nodes from $v_1$ to $v_i$, and consider $v_{i + 1}$ which has to be labeled. Let $v_j$ be $v_i + 1$ parent w.r.t. $T_n$, and clearly $j \le i + 1$; note that, by definition of $\Delta$, $v_j$ has at most $\Delta - 1$ adjacent neighbours \todo{snapshot ciao armando}
+        Inductively, assume that we have already labeled all the nodes from $v_1$ to $v_i$, and consider $v_{i + 1}$ which has to be labeled. Let $v_j$ be $v_i + 1$ parent w.r.t. $T_n$, and clearly $j \le i + 1$; moreover, note that, by definition of $\Delta$, $v_j$ has at most $\Delta - 1$ children. Therefore, since this is a $L(2,1)$-labeling, we have that
+
+        \begin{itemize}
+            \item and no more than 3 colors are forbidden because of $v_j$'s color --- namely, if $v_j$ has color $f(v_j)$ for some coloring function $f$, then $v_{i + 1}$ cannot have color $f(v_j) - 1$, $f(v_j)$ and $f(v_j) + 1$
+            \item at most $\Delta - 1$ are forbidden due to $v_j$'s children
+        \end{itemize}
+        
+        implying that, if we have at least $(\Delta - 1) + 3 + 1 = \Delta + 3$ at our disposal --- namely, from 0 to $\Delta + 2$ --- we are always able to label $v_{i+1}$. This proves that $\lambda_{2,1}(T_n) \le \Delta + 2$.
     \end{proof}
 
-    In the original paper, it was conjectured that decide whether the correct value for a given $T_n$ tree is $\Delta + 1$ or $\Delta + 2$ is \NPComplete, but this conjecture was later disproved by \textcite{chang} in 1996, which provided a polynomial $O(\Delta^{4.5} n)$ algorithm based on a \tit{dynamic programming} approach. Multiple authors have proposed many various algorithms attempting to improve this time complexity, and finally in 2008 \textcite{hanusama} proposed a linear algorithm.
+    In the original paper, it was conjectured that decide whether the correct value for a given $T_n$ tree is $\Delta + 1$ or $\Delta + 2$ is \NPComplete, but this conjecture was later disproved by \textcite{chang} in 1996, which provided a polynomial $O(\Delta^{4.5} n)$ algorithm based on a \tit{dynamic programming} approach. Multiple authors have proposed many various algorithms attempting to improve this time complexity, and finally in 2008 \textcite{hasunuma} proposed a linear algorithm.
+
+    For what concerns \tbf{path graphs} $P_n$, it is immediate to see that $\lambda_{2,1}(P_2) = 2$ and $\lambda_{2,1}(P_3) = 3$ from the results for the star graphs. Moreover, by exhaustion it can be easily shown that $\lambda_{2,1}(P_4) = 3$ and, for the case when $n \ge 5$, note that
+
+    \begin{itemize}
+        \item clearly $\lambda_{2,1}(P_5) \le 4$, since we have 5 colors, from 0 to 4, and we just need to color each node with a different label
+        \item since $P_5$ includes two $P_4$'s, we have that $\lambda_{2,1}(P_5) \ge 3$
+        \item this implies that $\lambda_{2,1}(P_5)$ is either 3 or 4, but \todo{what? pag 52}
+    \end{itemize}
+
+    Finally, for any $n \ge 5$, we have that $\lambda_{2,1}(P_n) = 4$, and the result follows from \cref{lambda trees}, since $\Delta = 2$.
+
+    Lastly, if the graph considered is a \tbf{cycle graph}, we have the following result.
+
+    \begin{framedthm}{$\lambda_{2,1}$ on cycle graphs}
+        Given a cycle graph $C_n$, we have that $\lambda_{2,1}(C_n) = 4$.
+    \end{framedthm}
+
+    \begin{proof}
+        For any $n \le 4$, it is trivial to check the statement, as shown in the following picture
+
+        \centeredimage[Cases for $C_3$ and $C_4$ (top to bottom).]{0.25}{../assets/c3_c4.png}
+
+        Note that any $C_n$ contains a $P_n$ if we ignore one of the edges, hence $\lambda_{2,1}(C_n) \ge 4$ because of the previous result. To prove that $\lambda_{2,1}(C_n) \le 4$, we just need to consider 3 possible cases:
+
+        \centeredimage[Cases for $C_n$ when $n \ge 5$.]{0.3}{../assets/cycles_cases.png}
+
+        As it is shown in the figure:
+
+        \begin{itemize}
+            \item if $\congmod{n}{0}{3}$, we just need to cycle 0, 2 and 4 repeatedly
+            \item otherwise, if $\congmod{n}{1}{3}$, we cycle 0, 2 and 4 for the first $n - 4$ vertices of the cycle, and the last vertices will be colored with 0, 3 1 and 4, respectively
+            \item finally, if $\congmod{n}{2}{3}$, we cycle 0, 2 and 4 for the first $n - 2$ vertices of the cycle, and the last vertices will be colored with 1 and 3, respectively
+        \end{itemize}
+    \end{proof}
+
+    As a final note, if the graph $G$ considered is a \href{https://en.wikipedia.org/wiki/Lattice_graph}{\tbf{grid graph}}, it is known that $\lambda_{2,1}(G) = \Delta + 2$, and if it is a \href{https://en.wikipedia.org/wiki/Outerplanar_graph}{\tbf{outerplanar graph}}, it has been proven that $\lambda_{2,1}(G) \le 2 \Delta + 2$ by \textcite{jonas} in 1993.
 
     \chapter{The broadcast's energy consumption problem}
 
