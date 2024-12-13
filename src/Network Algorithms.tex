@@ -1795,7 +1795,7 @@
         \end{itemize}
     \end{frameddefn}
 
-    As a final note, in real-world scenarios the transmitting stations are able to handle \tbf{multiple channels}, therefore usually a \tit{set of channels} is assigned to each station of a given network. To exploit this capability of the stations, given two sets of integer values $I$ and $J$, let $$\dist(I, J) = \min_{i \in I, j \in J}{\abs{i - j}}$$ and consider the following extension of the $L(h, k)$-labeling problem that aims at minimizing the \tit{span} as well, given an integer $n$.
+    As a final note, in real-world scenarios the transmitting stations are able to handle \tbf{multiple channels}, therefore usually a \tit{set of channels} is assigned to each station of a given network. To exploit this capability of the stations, given two sets of integer values $I$ and $J$, let $$\dist(I, J) := \min_{i \in I, j \in J}{\abs{i - j}}$$ and consider the following extension of the $L(h, k)$-labeling problem that aims at minimizing the \tit{span} as well, given an integer $n$.
 
     \begin{frameddefn}{$n$-multiple $L(h,k)$-labeling}
         Given a graph $G$, an \tbf{$n$-multiple $L(h,k)$-labeling} of $G$ w.r.t $H$ is a \tit{node coloring function} $f$ that assigns \tit{multiple} colors to each node of $G$, such that:
@@ -1822,7 +1822,7 @@
     \begin{example}[Dual graphs]
         The following two graphs are one the dual of the other.
 
-        \centeredimage[The red graph is the dual of the blue graph, and \tit{vice versa}.]{0.25}{../assets/dual_graph.png}
+        \centeredimage[The red graph is the dual of the blue graph, and \tit{vice versa}.]{0.23}{../assets/dual_graph.png}
     \end{example}
 
     It can be shown that a \tbf{vertex coloring} of $G^*$ corresponds to a \tbf{map coloring} of $G$.
