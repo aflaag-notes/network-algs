@@ -8,17 +8,17 @@ These are my [notes](<https://raw.githubusercontent.com/aflaag-notes/network-alg
 - [ ] 2
     - last part
 - [x] 3
-- [ ] 4
-- [ ] 5
-- [ ] 6
+- [x] 4 (coloring)
+- [ ] 5 (mst)
+- [ ] 6 (tsp)
     - last part?
-- [x] 7
-- [ ] 8
+- [x] 7 (cds)
+- [ ] 8 (mwpm)
     - blossom algorithm
     - last part?
 - [ ] 9
-- [x] 10
-- [ ] 11
+- [x] 10 (uavs)
+- [ ] 11 (reconciliations)
     - last part?
 
 - [ ] TODOs here and there

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Network Algorithms"] 1734088505.36104 "Network Algorithms.aux" "Network Algorithms.bbl" "Network Algorithms" 1734088821.41921 0
-  "./Network_Algorithms-blx.bib" 1734088820.76537 344 e588c9a99e172ae2d6714a5a36257b2b ""
+["bibtex Network Algorithms"] 1734118565.10634 "Network Algorithms.aux" "Network Algorithms.bbl" "Network Algorithms" 1734118773.99949 0
+  "./Network_Algorithms-blx.bib" 1734118773.38077 344 e588c9a99e172ae2d6714a5a36257b2b ""
   "./references.bib" 1734084270.53851 23557 7e3e7e7252899d04a154f1796b7ada83 ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1727349926 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "Network Algorithms.aux" 1734088820.71537 49135 58a5322e42b94a87ae1684303d9ded96 "pdflatex"
+  "Network Algorithms.aux" 1734118773.34411 47823 2ae9db11dbbe207d2cba32e3734aa425 "pdflatex"
   (generated)
   "Network Algorithms.bbl"
   "Network Algorithms.blg"
   (rewritten before read)
-["pdflatex"] 1734088797.11173 "Network Algorithms.tex" "Network Algorithms.pdf" "Network Algorithms" 1734088821.41952 0
+["pdflatex"] 1734118753.38951 "Network Algorithms.tex" "Network Algorithms.pdf" "Network Algorithms" 1734118774.0001 0
   "../../packages/Nyx/logo.png" 1710239380.27782 91419 8de48debf770a599a084520c83ce5d80 ""
   "../../packages/Nyx/nyx-frames.sty" 1730629084.06146 4374 f7123ec27baf822b3a4c3ded1b17a699 ""
   "../../packages/Nyx/nyx-intro.sty" 1710239380.27782 3476 d82343305e561945eb7e4f3f9e3a4fe2 ""
@@ -24,6 +24,11 @@
   "../assets/benes_single.png" 1727773695.89778 240603 232b1cc67a014004c3158560353b85db ""
   "../assets/benes_subnetworks.png" 1727773541.35112 391022 4236b3c27eda43252575edb87075353a ""
   "../assets/blossom.png" 1733342958.04806 26504 7942d309e6c2f216fd154b84791ac504 ""
+  "../assets/blossom1.png" 1734118501.6041 46817 9c7ee1477d3cc26b8ec513f38ab577b1 ""
+  "../assets/blossom2.png" 1734117978.08407 55088 c0ae5c8ea57184cdf6cd6d24b48867b4 ""
+  "../assets/blossom3.png" 1734118155.62408 29725 f44ed97bdc10c195cb663b1936fe2c54 ""
+  "../assets/blossom4.png" 1734118203.65075 71771 edeff3d5d806653ef7e0dda1ae40e5eb ""
+  "../assets/blossom_piece.png" 1734117423.72405 11676 8dc12ca40a241c9c034e554442bca2b2 ""
   "../assets/butterfly.png" 1727639147.96724 129878 80e1b79b7485097af4c169a4e797efde ""
   "../assets/butterfly_extended.png" 1727639202.17391 58800 009c6e383088450d839da50c7b6eee1b ""
   "../assets/butterfly_lcp.png" 1728317486.70242 236104 15434167dd2ac0b27780534f8b83fe26 ""
@@ -496,12 +501,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1727349926 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1733560489.50027 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1733560477 7164996 3071b60120d18f8de9067b6397c0b6b6 ""
-  "Network Algorithms.aux" 1734088820.71537 49135 58a5322e42b94a87ae1684303d9ded96 "pdflatex"
-  "Network Algorithms.bbl" 1734088505.45536 60481 24085c9ae46339706c90fe415fd9c0a4 "bibtex Network Algorithms"
-  "Network Algorithms.out" 1734088820.76204 10981 578c10f8a28ba1bcb4afd75aa24089b0 "pdflatex"
-  "Network Algorithms.run.xml" 1734088820.76871 2664 df1e6e300845d67cd10f4948af798c27 "pdflatex"
-  "Network Algorithms.tex" 1734088782.7887 309949 4b993fbf44055f7835d8ba66b7ac23b9 ""
-  "Network Algorithms.toc" 1734088820.76871 5236 d0528ed72acdd947be7d8143030d5505 "pdflatex"
+  "Network Algorithms.aux" 1734118773.34411 47823 2ae9db11dbbe207d2cba32e3734aa425 "pdflatex"
+  "Network Algorithms.bbl" 1734118565.1941 61527 56dbf71932ea9887b74aeeec55891ffc "bibtex Network Algorithms"
+  "Network Algorithms.out" 1734118773.37744 10981 578c10f8a28ba1bcb4afd75aa24089b0 "pdflatex"
+  "Network Algorithms.run.xml" 1734118773.38411 2664 df1e6e300845d67cd10f4948af798c27 "pdflatex"
+  "Network Algorithms.tex" 1734118751.75411 313545 657e5cddbf8008a5bf3df2833ef821cc ""
+  "Network Algorithms.toc" 1734118773.38411 5236 0304e9c3404e420d983f928a7144b1d9 "pdflatex"
   (generated)
   "Network Algorithms.aux"
   "Network Algorithms.log"
