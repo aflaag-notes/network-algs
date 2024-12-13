@@ -17,6 +17,31 @@
 \endgroup
 
 \datalist[entry]{anyt/global//global/global}
+  \entry{appel}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AK}{%
+         family={Appel},
+         familyi={A\bibinitperiod},
+         given={Kenneth},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HW}{%
+         family={Haken},
+         familyi={H\bibinitperiod},
+         given={Wolfgang},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AK+1}
+    \strng{fullhash}{AKHW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Every planar map is four colorable}
+    \field{year}{1976}
+  \endentry
+
   \entry{arora}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=AS}{%
@@ -368,6 +393,36 @@
     \field{volume}{9}
     \field{journaltitle}{SIAM Journal on Discrete Mathematics}
     \field{year}{1996}
+  \endentry
+
+  \entry{chang2}{article}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{2}{}{%
+      {{hash=CGJ}{%
+         family={Chang},
+         familyi={C\bibinitperiod},
+         given={Gerard\bibnamedelima J},
+         giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=LSC}{%
+         family={Liaw},
+         familyi={L\bibinitperiod},
+         given={Sheng-Chyang},
+         giveni={S\bibinithyphendelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CGJ+1}
+    \strng{fullhash}{CGJLSC+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{pages}{23\bibrangedash 31}
+    \field{title}{The L (2, 1)-labeling problem on ditrees}
+    \field{volume}{66}
+    \field{journaltitle}{Ars Combinatoria}
+    \field{year}{2003}
   \endentry
 
   \entry{cheng2}{inproceedings}{}
