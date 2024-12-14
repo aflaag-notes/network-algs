@@ -13,8 +13,7 @@ These are my [notes](<https://raw.githubusercontent.com/aflaag-notes/network-alg
 - [ ] 6 (tsp)
     - last part?
 - [x] 7 (cds)
-- [ ] 8 (mwpm)
-    - blossom algorithm
+- [x] 8 (mwpm)
     - last part?
 - [ ] 9
 - [x] 10 (uavs)

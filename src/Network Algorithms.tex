@@ -1407,9 +1407,9 @@
 
     \chapter{The frequency assignment problem}
 
-    The introduction of new services, such as \tit{data communication} (e.g., internet and email) and video conferencing, has led to \tbf{capacity shortages} in existing wired networks. This increasing demand highlights the need for alternative solutions.
+    The introduction of new services, such as \tit{data communication} (e.g., internet, emails and video conferencing), has led to \tbf{capacity shortages} in existing wired networks. This increasing demand highlights the need for alternative solutions in order to communicate over the internet effectively.
 
-    One such alternative is a \tbf{fixed wireless network}, which consists of \tit{wireless devices} positioned at fixed locations, such as on buildings or towers. These devices form a network through radio or other wireless connections, operating without reliance on established infrastructure or centralized control.
+    One such alternative is provided by \tbf{fixed wireless networks}, which consist of \tit{wireless devices} positioned at fixed locations, such as on buildings or towers. These devices form a network through radio or other wireless connections, operating without reliance on established infrastructure or centralized control.
 
     Fixed wireless networks offer a viable solution for \tit{extending} the capacity of wired networks, providing flexibility and scalability while bypassing the limitations of traditional wired infrastructure. Moreover, they offer significant benefits, particularly in areas where traditional wired infrastructure is unavailable or impractical, for example
 
@@ -1451,17 +1451,17 @@
 
     \begin{itemize}
         \item \tbf{aim}: assign frequencies to a set of wireless communication connections; the frequencies must be selected from a predefined set, which may vary depending on the geographic location or other contextual factors.
-        \item {constraint}: assigned frequencies should avoid interference; as we already discussed, if two connections use frequencies that are too close (or the same frequency in overlapping areas), \tit{interference} occurs, degrading the quality of the communication signal, and this must be avoided
+        \item \tbf{constraint}: assigned frequencies should avoid interference; as we already discussed, if two connections use frequencies that are too close (or the same frequency in overlapping areas), \tit{interference} occurs, degrading the quality of the communication signal, which must be avoided
     \end{itemize}
 
     But what is \tbf{interference} precisely? For \tit{interference} to occur between two wireless communication signals, two primary conditions must be met.
 
     \begin{itemize}
         \item \tbf{Frequency proximity}: The frequencies of the two signals must be close to each other on the \tit{electromagnetic spectrum}. This can happen either when the frequencies are in close proximity or when they are harmonics of one another (i.e., integer multiples of the same frequency). \tbf{Doppler effects} can also contribute to interference, especially if the relative speed between the transmitter and receiver causes a shift in the frequency, making it closer to another signal's frequency. \tbf{Harmonics} are generally less of a concern in modern systems since the frequency bands available for assignment are typically narrow, and there is usually not enough room for harmonic overlap.
-        \item \tbf{Geographical proximity}: The two connections (transmitter and receiver pairs) must be geographically close to each other. This proximity increases the likelihood of \tit{signal overlap}, especially if both connections are operating on similar or the same frequencies. In close range, signals can interfere due to the strength and spread of the radio waves, especially in urban environments with high building densities or obstacles.
+        \item \tbf{Geographical proximity}: The two connections (transmitter and receiver pairs) must be geographically close to each other. This proximity increases the likelihood of \tit{signal overlap}, especially if both connections are operating on similar or the same frequencies. In close range, signals can interfere due to the strength and spread of the radio waves, especially in urban environments with high obstacle densities.
     \end{itemize}
 
-    Both the frequency proximity and geographical proximity aspect of interference are modeled in various ways across the literature. As a result, various models of frequency assignment exist, each tailored to specific network requirements or deployment scenarios. Therefore, in this notes a \tit{simplified model} will be introduced, that captures the essential aspects of the problem and provides a basic framework for understanding the trade-offs between frequency reuse and interference.
+    Both the frequency proximity and geographical proximity aspects of interference are modeled in various ways across the literature. As a result, various models of frequency assignment exist, each tailored to specific network requirements or deployment scenarios. Therefore, in this notes a \tit{simplified model} will be introduced, that captures the essential aspects of the problem and provides a basic framework for understanding the trade-offs between frequency reuse and interference.
 
     \begin{frameddefn}{Interference graph}
         Given a set of wireless stations that need to communicate, an \tbf{interference graph} is defined as follows:
@@ -1474,21 +1474,21 @@
     \end{frameddefn}
 
     \begin{example}[Interference graphs]
-        The following is an example of an interference graph
+        The following is an example of an interference graph.
 
         \centeredimage[An interference graph.]{0.3}{../assets/interf_graph.png}
 
         Note that different colors represent different assigned channels for the various stations.
     \end{example}
 
-    Note that, in this example, there are two highlighted regions. Those regions are \tbf{collision}, and this model is able to represent two different types of collisions.
+    Moreover, note that in this example there are two highlighted regions. Those regions are \tbf{collision}, and this model is able to represent two different types of collisions.
 
     \begin{itemize}
         \item \tbf{Direct collisions}: these occur when two stations are located in \tit{very close proximity} to each other and are assigned the \tit{same frequency channel}. Because they are so close, their signals will overlap, causing interference. To avoid this, the frequencies assigned to these stations must be at least $h$ apart, for some specified minimum frequency separation $h$. In the example above, the rightmost ellipse represents a \tit{direct collision}.
         \item \tbf{Hidden collisions}: these happen when two stations are located in \tit{close proximity} to each other but are not directly within each other's signal range (i.e., they are not \tit{line-of-sight} or are blocked by obstacles). However, their assigned frequencies still cause interference because they are close enough that their signals can interfere indirectly. In this case, the frequencies assigned to stations in these close locations must be at least $k$ apart to avoid such interference, for some specified minimum frequency separation $k$. In the example above, the leftmost ellipse represents a \tit{hidden collision}.
     \end{itemize}
 
-    Therefore, given an interference graph, the problem of avoiding interference can be modeled as a \tbf{labeling} or \tbf{coloring} problem.
+    Therefore, given an interference graph, the problem of avoiding interference can be modeled as a \tbf{labeling} or \tbf{coloring} problem, which is discussed in the following section.
 
     \section{The $L(h, k)$-labeling problem}
 
@@ -1505,10 +1505,8 @@
 
     Note that the words \curlyquotes{labeling} and \curlyquotes{coloring} will be used interchangeably in the following sections.
     
-    Clearly, since \tbf{bandwidth} is expensive, a \tit{good} coloring (i.e. frequency assigning) function $f$ on the nodes is such that it minimizes the total bandwidth $\sigma_{h, k}$ utilized in order to determine a valid $L(h, k)$-labeling. the minimum bandwidth will be noted with $\lambda_{h, k}$.
+    Clearly, since \tbf{bandwidth} is expensive, a \tit{good} coloring (i.e. frequency assignment) function $f$ on the nodes is one that minimizes the total bandwidth $\sigma_{h, k}$ utilized in order to determine a valid $L(h, k)$-labeling. The minimum possible bandwidth will be noted with $\lambda_{h, k}$.
     
-    % Note that the second condition of the $L(h, k)$-labeling definition is often written as $$\forall u, v \in V(G) \quad \dist(u, v) = 2 \implies \abs{f(u)- f(v)} \ge k$$
-
     \begin{framedobs}{Notation}
         Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having \tit{span} (i.e. \tit{bandwidth}) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons.
     \end{framedobs}
@@ -1527,7 +1525,7 @@
     \end{frameddefn}
 
     \begin{example}[Graph square]
-        Given the followin graph $G$, on the left, its square $G^2$ is the graph on its right.
+        Given the following graph $G$, on the left, its square $G^2$ is the graph on its right.
 
         \centeredimage[A graph (on the left), and its square (on the right).]{0.25}{../assets/graph_square.png}
     \end{example}
@@ -1559,9 +1557,9 @@
         Conversely, let $f$ be an $L(h, k)$-labeling over a given graph $G$, that realizes $\lambda_{h, k}$; thus, we can define $f'$ to be a labeling function such that $$\funcmap{f'}{V(G)}{\N}{x}{f(x) \cdot d}$$ and it is clearly an $L(dh, dk)$-labeling of $G$, by definition. Hence, we have $$d \cdot \lambda_{h,k} = \sigma_{dh, dk}^{f'} \ge \lambda_{dh, dk}$$
     \end{proof}
 
-    Because of this lemma, for any $L(a, b)$-labeling such that $a = dh$ and $dk$ for some $h, k, d$, we can restrict the problem into finding an $L(h, k)$-labeling, since $\lambda_{a, b} = d \lambda_{h, k}$. Therefore, we can always restrict the $L(h, k)$-labeling problem into the case in which $h$ and $k$ are coprime numbers.
+    Because of this lemma, for any $L(a, b)$-labeling such that $a = dh$ and $b = dk$ for some $h, k, d$, we can restrict the problem into finding an $L(h, k)$-labeling, since $\lambda_{a, b} = d \lambda_{h, k}$. Therefore, we can always restrict the $L(h, k)$-labeling problem into the case in which $h$ and $k$ are \tbf{coprime numbers}.
 
-    Moreover, the case for $k = 0$, for any value of $h$, is not usually considered in this context, as it coincides with the classical vertex coloring (previously described). On the counter side, the case when $h = k$ is very studied in the literature, and the case when $h = 2k$ is definitely the most studied $L(h, k)$-labeling problem.
+    Moreover, the case for $k = 0$, for any value of $h$, is not usually considered in this context, as it coincides with the classical vertex coloring (previously described). On the counter side, the case when $h = k$ is very studied in the literature, and the cases when $h = 2k$ are definitely the most studied $L(h, k)$-labeling problems.
 
     It has been proven that both the $L(0,1)$-labeling of \href{https://en.wikipedia.org/wiki/Planar_graph}{planar graphs}, and the $L(1,1)$-labeling of general, planar, bounded degree and unit-disk graphs are all \NPComplete problems.
 
@@ -1571,10 +1569,10 @@
         Given a graph $G = (V, E)$, with diameter 2, the \tbf{Distance 2 Labeling}  (DL) problem asks for the following: is there a $\lambda_{2,1}(G) \le \abs{V(G)}$?
     \end{frameddefn}
 
-    In 1992, \textcite{griggs} proved that this decisional problem is \NPComplete. However, before proving this theorem, it is necessary to introduce some definitions.
+    In 1992, \textcite{griggs} proved that this decisional problem is \NPComplete. However, before showing the proof of this theorem, it is necessary to introduce some definitions.
 
     \begin{frameddefn}{Hamiltonian path}
-        Given a graph $G$, a \tbf{Hamiltonian path} (HP) on $G$ is a \tit{path} that visits each vertex exactly once.
+        Given a graph $G$, a \tbf{Hamiltonian path} (HP) on $G$ is a \tit{path} that visits each vertex of $G$ exactly once.
     \end{frameddefn}
 
     \begin{frameddefn}{Complement of a graph}
@@ -1586,7 +1584,7 @@
         \end{itemize}
     \end{frameddefn}
 
-    In order to prove the theorem, we need to consider the following modified version of the DL problem.
+    In order to prove the theorem, we need to consider the following modified version of the DL problem first.
 
     \begin{frameddefn}{Injective Distance 2 Labeling}
         Given a graph $G = (V, E)$, with diameter 2, the \tbf{Injective Distance 2 Labeling} (IDL) problem, asks for the following: is there an injective function $\func{f}{V(G)}{[0, n - 1]}$ such that $\abs{f(x)- f(y)} \ge 2$ whenever $(x, y) \in E(G)$?
@@ -1666,8 +1664,8 @@
     \begin{itemize}
         \item \tbf{bounds on $\lambda_{h, k}$}: investigating both \tit{lower and upper bounds} for $\lambda_{h, k}$, providing theoretical insights into its limits and behavior across different scenarios
             \begin{itemize}
-                \item for instance, for what concerns \tit{lower bounds}, it is known that $\lambda_{2,1} \ge \delta + 1 = (\Delta - 1) 1 + 2$ and that $h \ge k \implies \lambda_{h, k} \ge (\Delta - 1) k + h$
-                \item regarding \tit{lower bounds}, it is known that $\lambda_{2, 1} \le \Delta^2 + 2 \Delta$, proved by \textcite{griggs}, and it is conjectured that $\lambda_{2,1} \le \Delta^2$
+                \item for instance, for what concerns \tit{lower bounds}, it is known that $\lambda_{2,1} \ge \Delta + 1$ and that $h \ge k \implies \lambda_{h, k} \ge (\Delta - 1) k + h$
+                \item regarding \tit{upper bounds}, it is known that $\lambda_{2, 1} \le \Delta^2 + 2 \Delta$, proved by \textcite{griggs}, and it is conjectured that $\lambda_{2,1} \le \Delta^2$
             \end{itemize}
         \item limiting the coloring problem on \tbf{specialized graph classes}:
             \begin{itemize}
@@ -1676,20 +1674,20 @@
             \end{itemize}
     \end{itemize}
 
-    We will now focus on the $L(2,1)$-labeling problem specifically, which has been extensively studied in the literature.
+    As for the previous section, we will focus on the $L(2,1)$-labeling problem specifically, which has been extensively studied in the literature.
 
-    To determine \tit{upper bounds} for $\lambda_{2,1}$, we can consider the following \tbf{greedy approach} to label color the nodes: given a graph $G = (V, E)$ with nodes $v_1, \ldots, v_n$, label its nodes in order, assigning to $v_i$ the smallest color that \tit{does not conflict} with the labels of its neighbourhood. Although this algorithm may lead to suboptimal solutions, it can be used to define an upper bounds for $\lambda_{2, 1}$ since it clearly yields a valid $L(2,1)$-labeling.
+    To determine \tit{upper bounds} for $\lambda_{2,1}$, we can consider the following \tbf{greedy approach} to label the nodes: given a graph $G = (V, E)$ with nodes $v_1, \ldots, v_n$, label its nodes in order, assigning to $v_i$ the smallest color that \tit{does not conflict} with the labels of its neighbourhood. Although this algorithm may lead to suboptimal solutions, it can be used to define upper bounds for $\lambda_{2, 1}$ since it clearly yields a valid $L(2,1)$-labeling.
 
     We will now cover \tit{exact results} regarding $\lambda_{2,1}$. Consider a \tbf{clique graph} $K_n$; since all the nodes of a clique graph are pairwise adjacent, it must be that $$\lambda_{2, 1}(K_n) = 2(n - 1)$$
 
     Differently, consider a \href{https://en.wikipedia.org/wiki/Star_(graph_theory)}{\tbf{star graph}} $K_{1, t}$; we can prove that $$\lambda_{2,1}(K_{1,t}) = t + 1$$ easily:
 
     \begin{itemize}
-        \item clearly $\lambda_{2,1}(K_{1,t}) \le t + 1$ by using the \tit{greedy algorithm} discussed previously, which would yield a labeling that assigns to the star's center the color $t + 1$, and to any other vertex a color between $0$ and $t - 1$
+        \item clearly $\lambda_{2,1}(K_{1,t}) \le t + 1$ by using the \tit{greedy algorithm} discussed previously, which would yield for example a labeling that assigns to the star's center the color $t + 1$, and to any other vertex a color between $0$ and $t - 1$
         \item conversely, to prove that $\lambda_{2,1}(K_{1,t}) \ge t + 1$, assume by way of contradiction that $\lambda_{2,1}(K_{1,t}) < t + 1$; then, it must be that $\lambda_{2,1} \le t$, but if the center of the star graph is labeled with any color between 0 and $t$, there would not be enough colors since there are $t$ external nodes on the star graph
     \end{itemize}
     
-    Additionally, for other graph topology we have interesting results. For instance, the proof of the following paper was first proposed by \textcite{griggs}.
+    Additionally, for other graph topologies we have interesting results. For instance, the proof of the following result was first proposed by \textcite{griggs}.
 
     \begin{framedthm}[label={lambda trees}]{$\lambda_{2,1}$ on trees}
         Given a tree $T_n$, $\lambda_{2,1}(T_n)$ is either $\Delta + 1$ or $\Delta + 2$.
@@ -1885,14 +1883,14 @@
     \begin{itemize}
         \item be \tbf{strongly connected}: this problem is \NPHard, and although there exists a 2-approximation algorithm in two-dimensional settings, found by \textcite{kirousis}, there exists values of $r > 1$ such that the problem is not $r$-approximable
         \item have a \tbf{bounded diameter}: this is non-trivial, and no approximation algorithms are currently known
-        \item include a \tbf{spanning tree} rooted at a given source node $s$
+        \item include a \tbf{spanning tree} rooted in a given source node $s$
     \end{itemize}
 
     The last requirement is the focus of this chapter, and it will be discussed in greater detail. In particular, consider a graph $G = (V, E)$, in which the vertices of the graph are the stations that need to communicate between one another, and $E$ is the set of connections between the various stations. Moreover, consider a function $\func{w}{E(G)}{\R^+}$ which assigns weights to the edges of $G$ such that $w(u, v)$ describes the cost of connecting $u$ and $v$, due to either distance or other factors.
 
     Since the main goal is to \tit{minimize the energy consumption} of the various hops of the network, we need to decide the \tbf{power consumption} of each node on the graph $G$ that we considered. Assume that there is a special \tit{source node} $s$ that is the starting point for any transmission that will be considered. In particular, we are interested in sending a \tbf{broadcast message} from $s$ to any other node of $G$, while still minimizing the energy consumption.
 
-    Let a \tbf{power assignment} be a function $\func{r}{V(G)}{\R^+}$, such that induces a subgraph $G'= (V, E')$ of the graph $G$, where the edges are defined as follows $$(i, j) \in E' \iff w(i, j) \le r(i)$$ If $G'$ is a \tit{spanning tree} of $G$ rooted at $s$, i.e. $s$ can correctly broadcast a messsage to any other node of the network, we will call the power assignment $r$ a \tbf{Broadcast Range Assignment}, or \tit{broadcast} for short.
+    Let a \tbf{power assignment} be a function $\func{r}{V(G)}{\R^+}$, such that induces a subgraph $G'= (V, E')$ of the graph $G$, where the edges are defined as follows $$(i, j) \in E' \iff w(i, j) \le r(i)$$ If $G'$ is a \tit{spanning tree} of $G$ rooted in $s$, i.e. $s$ can correctly broadcast a messsage to any other node of the network, we will call the power assignment $r$ a \tbf{Broadcast Range Assignment}, or \tit{broadcast} for short.
 
     \begin{frameddefn}{Min Broadcast problem}
         The \tbf{Min Broadcast} problem asks to find the power assignment $r$ for a given network $G$ that minimizes the energy consumption, i.e. that minimizes $\sum_{v \in V(G)}{r(v)}$.
@@ -1930,7 +1928,7 @@
             \item for any $e \in E(G)$, let $w(e) := 1$
         \end{itemize}
         
-        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted at $s$, since each element in $U$ is contained in at least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
+        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted in $s$, since each element in $U$ is contained in at least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
 
         Conversely, assume that $r$ is a feasible solution for the Min Broadcast problem, i.e. a power assignment that minimizes the energy consumption --- note that, $r(s) = 1$, and w.l.o.g. $r(v)$ is either 0 or 1 if $v$ is of the form $v_{C_j}$, otherwise it is 0 if it is of the form $v_{s_i}$. Thus, a solution for the set cover problem $C'$ can be derived by simply selecting all subsects $C_j \in C$ such that $r(C_j) = 1$ in the power assignment. The cardinality of such a solution is $\abs{C'} = \mathrm{cost}(r) - 1$, since $\mathrm{cost}(r)$ must contain the cost of the source node $s$.
 
@@ -2040,7 +2038,7 @@
 
     We assume that the type of networks discussed in this chapter are \tbf{fixed}, therefore the sensor cannot change position over time. Moreover, we assume that the sensors need to send all the gathered information to a \tbf{base station}.
     
-    From an engineering standpoint, one of the most critical challenges in fixed sensor networks is \tbf{energy management}, for the following reasons:
+    From an engineering standpoint, one of the most critical challenges in fixed sensor networks is \tbf{energy management}, for the following reasons.
 
     \begin{itemize}
         \item Sensor networks are often deployed in remote or inaccessible areas where direct access to power sources is impractical. As a result, sensors typically rely on \tit{batteries}, which are difficult to replace or recharge due to the network's location and density.
@@ -2054,7 +2052,7 @@
     \begin{itemize}
         \item \tbf{unstable communication infrastructure}: connections between nodes in a multi-hop setup can be prone to \tit{instability}, especially in changing environments where interference or physical obstructions disrupt communication paths
         \item \tbf{high energy costs with sparse deployment}: in areas where nodes are \tit{sparsely} deployed, the distance to the nearest node or the base station can be considerable, hence nodes must increase their transmission range to maintain connectivity, consuming significantly more energy and reducing overall network lifespan
-        \item \tbf{energy depletion in dense networks}: in \tit{densely} packed networks, nodes near the base station bear a heavy communication load, often forwarding data from distant nodes, which can lead to rapid energy depletion for these nodes, creating bottlenecks in the network and reducing its effectiveness over time.
+        \item \tbf{energy depletion in dense networks}: in \tit{densely} packed networks, nodes near the base station bear a heavy communication load, often forwarding data from distant nodes, which can lead to rapid energy depletion for these nodes, creating bottlenecks in the network and reducing its effectiveness over time
     \end{itemize}
 
     Another strategy, which is significantly more \tit{energy-efficient}, is to leverage \tbf{mobile data mules}. A \tit{data mule} is a mobile node equipped with:
@@ -2066,7 +2064,7 @@
 
     The data mule traverses the sensing area, collecting data as it comes within close range of each sensor node. Later, it returns to the base station to deposit all gathered data.
 
-    There are multiple advantages to this approach.
+    There are multiple advantages to this approach, for instance:
 
     \begin{itemize}
         \item \tbf{energy savings for sensor nodes}: each sensor only needs to transmit data over short distances, conserving substantial energy as it eliminates the need for long-range or multi-hop communication; additionally, sensor nodes avoid the energy cost of forwarding data from other nodes, reducing their workload
@@ -2076,7 +2074,7 @@
 
     Although data mules offer greater flexibility in sensor networks, it remains important to ensure they traverse sensor nodes in an \tit{optimized manner}. Efficient traversal minimizes the data mule's battery usage, helping to extend its operational life and reducing associated costs.
 
-    To minimize the time required for a data mule to collect data from all sensor nodes, the problem can be framed as a \tbf{scheduling problem}, where each sensor node's communication represents a \tit{job}. The goal is to control both the movement (i.e. \tit{path} and \tit{speed}) of the data mule and its communication schedule with each node, similar to \href{https://en.wikipedia.org/wiki/Optimal_job_scheduling}{job allocation} in classical scheduling problems.
+    The problem of minimizing the time required for a data mule to collect data from all sensor nodes can be framed as a \tbf{scheduling problem}, where each sensor node's communication represents a \tit{job}. The goal is to control both the movement (i.e. \tit{path} and \tit{speed}) of the data mule and its communication schedule with each node, similar to \href{https://en.wikipedia.org/wiki/Optimal_job_scheduling}{job allocation} in classical scheduling problems.
 
     However, data mule scheduling presents additional complexity due to unique location and time constraints:
 
@@ -2101,9 +2099,9 @@
         \item \tbf{Job scheduling}: When the data mule is within range of multiple sensors, it needs a strategy to \tit{decide} the sequence of data collection. This scheduling can be framed as a \tit{job allocation problem}, where each sensor's data transfer represents a \tit{job} with specific time intervals during which it can be completed. The task is to allocate time slots for each job to ensure all data is collected in the shortest possible time. This problem closely aligns with classical job scheduling, where the objective is to assign time slots efficiently to maximize throughput and minimize the overall collection time.
     \end{itemize}
 
-    Since the \tbf{speed contro} subproblem is typically handled by engineers, and the \tbf{job scheduling} subproblem falls outside this chapter's scope, our focus here is on the first subproblem, the \tbf{path selection} for the data mule.
+    Since the \tbf{speed control} subproblem is typically handled by engineers, and the \tbf{job scheduling} subproblem falls outside this chapter's scope, our focus will be on the first subproblem, the \tbf{path selection} for the data mule.
 
-    Consider a scenario where sensor nodes operate at \tit{varying sampling rates} (e.g., pollution sensors that adjust to real-time conditions). Each sensor has a \tit{limited buffer} for storing its data until a mobile data mule—serving as a mobile base station—arrives to offload this information. Once the data mule reaches a sensor node, it transfers the collected data to its own storage, freeing up the sensor's buffer for new data. This setup has several practical implications:
+    Consider a scenario where sensor nodes operate at \tit{varying sampling rates} (e.g., pollution sensors that adjust to real-time conditions). Each sensor has a \tit{limited buffer} for storing its data until a mobile data mule --- serving as a \tit{mobile base station} --- arrives to offload this information. Once the data mule reaches a sensor node, it transfers the collected data to its own storage, freeing up the sensor's buffer for new data. This setup has several practical implications:
 
     \begin{itemize}
         \item \tbf{varying sampling rates}: sensors sampling data at different rates may fill their buffers at different speeds, impacting the urgency and frequency of data mule visits, in fact sensors with higher sampling rates (e.g., in highly polluted areas) might require more frequent visits to prevent data loss
@@ -2134,11 +2132,11 @@
     \begin{itemize}
         \item an 1832 handbook for traveling salesmen references the problem, presenting example routes through Germany and Switzerland, though without any mathematical formulation
         \item in the mid-1800s, mathematicians \href{https://en.wikipedia.org/wiki/William_Rowan_Hamilton}{W. R. Hamilton} and \href{https://en.wikipedia.org/wiki/Thomas_Kirkman}{T. Kirkman} introduced the first formal mathematical formulation of the problem
-        \item the TSP in its general form was studied in the 1930s, when researchers analyzed the limitations of the brute-force algorithm and noted the non-optimality of simpler heuristics like the nearest neighbour approach
+        \item the TSP in its general form was first studied in the 1930s, when researchers analyzed the limitations of the brute-force algorithm and noted the non-optimality of simpler heuristics like the \tit{nearest neighbour} approach
     \end{itemize}
 
     \begin{frameddefn}{Hamiltonian cycle}
-        Given a graph $G = (V,E)$, a \tbf{Hamiltonian cycle} (HC) is a cycle that passes through each node in $V(G)$ exactly once.
+        Given a graph $G$, a \tbf{Hamiltonian cycle} (HC) is a cycle that passes through each node of $G$ exactly once.
     \end{frameddefn}
 
     It can be proven that determining whether a graph $G$ contains a HC is \NPComplete --- HC will be used interchangeably for \curlyquotes{Hamiltonian cycle} and the associated decision problem. Now, consider the following decisional version of the TSP.
@@ -2169,8 +2167,8 @@
     In 1954 \textcite{dantzig} showed that the TSP can be formulated as an ILP as well:
 
     \begin{itemize}
-        \item given a complete graph $K_n = (V, E)$, and assume that the TS tour is oriented
-        \item define variables $x_{ij}$ and $w_{ij}$ for each $(i, j) \in E(G)$
+        \item given a complete graph $K_n = (V, E)$, assume that the TS tour is oriented
+        \item define variables $x_{ij}$ and $w_{ij}$ for each $(i, j) \in E(K_n)$
         \item let $x_{ij} = 1$ if and only if the TS tour traverses the oriented edge $(i, j)$
         \item let $w_{ij} = w(i, j)$
     \end{itemize}
@@ -2186,7 +2184,7 @@
         & x \in \{0,1\}^n
     \end{array}\]
 
-    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $j$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any \tit{proper subset} of vertices $S$ of $V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself; in fact, this constraint avoids the possibility of forming cycles in the solution because a cycle has the same number of edges and vertices. Note that, in reality, the last constraint hides $\abs{\powerset(V(K_n))} - 2 = 2^n - 2$ constraints, one for each possible \tit{proper subset} $S$ of $V(K_n)$.
+    The first two constraints force the tour to be Hamiltonian, by imposing that for any vertex $j$ there must be at most 1 incoming edge, and for each vertex $i$ there must be at most 1 outgoing edge. However, this does not imply that the solution of the ILP is a cycle: in fact, without the third constraint, a valid solution could involve multiple unconnected cycles of $G$. Therefore, the last constraint imposes that any \tit{proper subset} of vertices $S$ of $V(K_n)$ must cover a number of edges that is strictly less than the number of vertices of $S$ itself. This constraint correctly avoids the possibility of forming cycles in the solution of size less than $V(K_n)$, because if a non-empty set of $k$ vertices has $k$ edges that connect them, then there must be a cycle between them. Additionally, note that in reality, the last constraint hides $\abs{\powerset(V(K_n))} - 2 = 2^n - 2$ constraints, one for each possible \tit{proper subset} $S$ of $V(K_n)$.
 
     The next theorem shows that, in addition to being \NPComplete, the TSP is also non-approximable, making it an especially challenging problem.
 
@@ -2195,7 +2193,7 @@
     \end{framedthm}
 
     \begin{proof}
-        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_n) - E(G)}$$ Note that, for the same reasoning applied in the proof of \cref{tsp np compl}, a TS tour with total weight $n$ exists in $K_n$ if and only if $G$ has a HC.
+        Let $G = (V, E)$ be an instance of HC, and construct a complete graph $K_{\abs V} = (V, E')$ starting from $G$ by adding edges; moreover, define $\func{w}{E'(K_n)}{\R^+}$ as follows: $$\soe{ll}{w(i, j) = 1 & (i, j) \in E(G) \\ w(i, j) = 2 + (r - 1) n & (i,j) \in E'(K_n) - E(G)}$$ Note that, for the same reasoning applied in the proof of \cref{tsp np compl}, a TS tour with total weight $n$ exists in $K_n$ if and only if $G$ has a HC.
 
         Assume there exists an $r$-approximation polynomial algorithm $A$ for the TSP; therefore, because the total weight of the TS tour is $n$, $A$ ran on $K_n$ would find a solution $H$ such that $$\sum_{(i, j) \in H} {w(i, j)} \le rn$$ Now, assume that there exists an edge $(\hat i, \hat j)$ in $H$ such that $(\hat i, \hat j) \in E'(K_n) - E(G)$; hence, by definition of $w$, the total weight of $H$ must be at least $$\sum_{(i, j) \in H}{w(i, j)} = (n - 1) \cdot 1  + 2 + (r - 1)n = n - 1 + 2 + rn - n = rn + 1 > rn$$ because $H$ would be a cycle containing $n - 1$ edges from $E(G)$ and 1 edge from $E'(K_n) - E(G)$. Since $A$ is an $r$-approximation algorithm, this implies that any solution $H$ for $A$ must contain only edges inside $G$, otherwise $H$ would not be an $r$-approximation of an optimal solution for the TSP. However, if any of $A$'s solutions $H$ lie entirely in $G$, then $H$ is a HC for $G$ as previously discussed, which means that $A$ can find a HC in $G$ in polynomial time, which would imply that $\Pclass = \NPclass$ because HC is \NPComplete.
     \end{proof}
@@ -2209,7 +2207,7 @@
     \end{framedlem}
 
     \begin{proof}
-        Consider a graph $G$, an MST $T$ of $G$, and an optimal TS tour $H^*$ on $G$. Clearly, if by removing and edge from $H^*$, we obtain a path $P$, which has weight strictly less than $H^*$'s weight --- note that this is true because $w(i, j) \in \R^+$ for any $(i, j) \in E(G)$. Moreover, note that a path is a special case of a tree, therefore $P$'s weight must be at least $T$'s weight, by definition of MST. Thus, we have that $$w(T) \le w(P) \le w(H^*)$$
+        Consider a graph $G$, an MST $T$ of $G$, and an optimal TS tour $H^*$ on $G$. Clearly, by removing an edge from $H^*$ we obtain a path $P$, which has weight strictly less than $H^*$'s weight --- note that this is true because $w(i, j) \in \R^+$ for any $(i, j) \in E(G)$. Moreover, note that a path is a special case of a tree, therefore $P$'s weight must be at least $T$'s weight, by definition of MST. Thus, we have that $$w(T) \le w(P) \le w(H^*)$$
     \end{proof}
 
     Consider the following special case of graphs.
@@ -2218,18 +2216,18 @@
         Given a graph $G$, and a weight function $\func{w}{E(G)}{\R^+}$, $G$ is said to be a \tbf{metric graph} if and only if $$\forall u, v, z \in V(G) \quad w(u, z) \le w(u, v) + w(v, z)$$ which means that $w$ satisfies the triangle inequality.
     \end{frameddefn}
 
-    For metric graphs, there exist algorithm that can approximate solutions for the TSP. In particular, the following algorithm leverages the triangle inequality property of $w$ to obtain a 2-approximation for the TSP.
+    For metric graphs, there exist algorithms that can approximate solutions for the TSP. In particular, the following algorithm leverages the triangle inequality property of $w$ to obtain a 2-approximation for the TSP.
 
     \begin{framedalgo}{2-approximation TSP}
-        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(G)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le 2w(H^*)$, where $H^*$ is an optimal TS tour. \\
+        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(K_n)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le 2w(H^*)$, where $H^*$ is an optimal TS tour. \\
         \hrule
 
         \quad
         \label{alg:2-approx_tsp}
         \begin{algorithmic}[1]
-            \Function{2approxTSP}{$G$, $w$}
+            \Function{2approxTSP}{$K_n$, $w$}
                 \State Choose $r \in V(K_n)$ randomly
-                \State $T := \texttt{findMST}(K_n, r)$ \Comment{find an MST rooted in $r$}
+                \State $T := \texttt{findMST}(K_n, w, r)$ \Comment{find an MST rooted in $r$ w.r.t. $w$}
                 \State $\texttt L := \texttt{DFSpreorder}(T)$ \Comment{a \tit{preorder} DFS on $T$}
                 \State $V := \varnothing$
                 \State $\texttt L' := \texttt{[]}$
@@ -2247,9 +2245,9 @@
     \begin{proof}
         We will prove that any solution $H$ of the algorithm is a 2-approximation of an optimal solution $H^*$ for the TSP.
 
-        Consider an optimal TS tour $H^*$, and an MST $T$ of the complete graph $K_n$ in input, rooted in some $r \in V(K_n)$. The list \texttt L computed by the algorithm is obtained from a \tit{preorder} DFS visit $T$, therefore each \tit{edge} of the visit \texttt L will appear exactly \tit{twice}. This means that the tour $C$ described by the edges between the vertices of \texttt L is such that $w(C) = 2 w(T)$.
+        Consider an optimal TS tour $H^*$, and an MST $T$ of the complete graph $K_n$ in input, rooted in some $r \in V(K_n)$. The list \texttt L computed by the algorithm is obtained from a \tit{preorder} DFS visit $T$, therefore each \tit{edge} of the visit \texttt L will appear exactly \tit{twice}. This means that the tour $C$ described by the edges between the vertices of \texttt L is such that $w(C) = 2 w(T)$. Note that $C$ is not a TS tour, since there nodes are repeated.
 
-        Note that $C$ is not a TS tour, since there nodes are repeated. However, by leveraging the triangle inequality of $w$, we can prove that the weight of the final list \texttt L' --- which is \texttt L without repetitions of the vertices --- is bounded by the weight of \texttt L. In fact, for any instance \texttt L in which $$\ldots \ u \ v \ z \ \ldots$$ where $v$ is repeated, by removing $v$ and passing through $(u, z)$ directly --- which always exists because $K_n$ is a complete graph --- will not worsen the total weight of the tour, because $$w(u, z) \le w(u, v) + w(v, z)$$ by hypothesis. Let $H$ be the tour described by the edges between the vertices of \texttt L'; hence, we have that $w(H) \le w(C)$.
+        Now, by leveraging the triangle inequality of $w$, we can prove that the weight of the final list \texttt L' --- which is \texttt L without repetitions of the vertices --- is bounded by the weight of \texttt L. In fact, for any instance \texttt L in which $$\ldots \ u \ v \ z \ \ldots$$ where $v$ is repeated, by removing $v$ and passing through $(u, z)$ directly --- which always exists because $K_n$ is a complete graph --- will not worsen the total weight of the tour, because $$w(u, z) \le w(u, v) + w(v, z)$$ by hypothesis. Let $H$ be the tour described by the edges between the vertices of \texttt L'; hence, we have that $w(H) \le w(C)$.
 
         Finally, because of \cref{tsp bound}, we conclude that $$w(H) \le w(C) = 2w(T) \le 2w(H^*)$$
     \end{proof}
@@ -2265,7 +2263,7 @@
     \end{framedcor}
 
     \begin{proof}
-        Consider a graph $G$; for the handshaking lemma, we have that $$\sum_{v \in V(G)}{\deg(v)} = 2 m$$ Let $O: = \{v \in V(G) \mid \deg(v) \ \mathrm{odd}\}$ and $E := \{v \in V(G) \mid \deg(v) \ \mathrm{even}\}$ then, we have that $$\sum_{v \in O}{\deg(v)} + \sum_{v \in E}{\deg(v)} = \sum_{v \in V(G)} {\deg(v)} = 2m$$ because $O$ and $E$ describe a partition on $V(G)$. Therefore, because each degree of nodes in $E$ is even by definition, $\sum_{v \in E}{\deg(v)}$ is even, which means that the handshaking lemma is satisfied only if $\sum_{v \in O}{\deg(v)}$ is even as well. However, since each degree of nodes in $O$ is odd by definition, it must be that the entire sum is even.
+        Consider a graph $G$; for the handshaking lemma, we have that $$\sum_{v \in V(G)}{\deg(v)} = 2 m$$ Let $O: = \{v \in V(G) \mid \deg(v) \ \mathrm{odd}\}$ and $E := \{v \in V(G) \mid \deg(v) \ \mathrm{even}\}$; then, we have that $$\sum_{v \in O}{\deg(v)} + \sum_{v \in E}{\deg(v)} = \sum_{v \in V(G)} {\deg(v)} = 2m$$ because $O$ and $E$ describe a partition on $V(G)$. Therefore, because each degree of nodes in $E$ is even by definition, $\sum_{v \in E}{\deg(v)}$ is even, which means that the handshaking lemma is satisfied only if $\sum_{v \in O}{\deg(v)}$ is even as well. However, since each degree of nodes in $O$ is odd by definition, it must be that the entire sum is even, i.e. $\sum_{v \in O}{\deg(v)}$ is even. Finally, since this sum is even, and it only contains odd values, it must be that the sum is composed of an even number of addends, implying that $\abs O$ is even.
     \end{proof}
 
     \begin{frameddefn}{Eulerian circuit}
@@ -2277,17 +2275,17 @@
     \end{framedthm}
 
     \begin{framedalgo}{$\frac{3}{2}$-approximation TSP}
-        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(G)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le \frac{3}{2}w(H^*)$, where $H^*$ is an optimal TS tour. \\
+        Given a complete graph $K_n = (V, E')$, and a weight function $\func{w}{E'(K_n)}{\R^+}$ such that $K_n$ is a metric graph, the algorithm finds a TS tour $H$ such that $w(H) \le \frac{3}{2}w(H^*)$, where $H^*$ is an optimal TS tour. \\
         \hrule
 
         \quad
         \label{alg:3/2-approx_tsp}
         \begin{algorithmic}[1]
-            \Function{3/2approxTSP}{$G$, $w$}
+            \Function{3/2approxTSP}{$K_n$, $w$}
                 \State Choose $r \in V(K_n)$ randomly
-                \State $T := \texttt{findMST}(K_n, r)$ \Comment{find an MST rooted in $r$}
+                \State $T := \texttt{findMST}(K_n, w, r)$ \Comment{find an MST rooted in $r$ w.r.t. $w$}
                 \State $O := \{v \in V(T) \mid \deg_T(v) \ \mathrm{odd}\}$ \Comment{$\deg_T(v)$ is the degree of $v$ in $T$}
-                \State $M := \texttt{findMinWeightPM}(G^O)$ \Comment{$G^O$ is induced by $O$}
+                \State $M := \texttt{findMinWeightPM}(K_n^O, w)$ \Comment{$K_n^O$ is induced by $O$}
                 \State $U := M \cup T$ \Comment{$U$ is a multi-graph}
                 \State $\texttt L := \texttt{findEulerianCircuit}(U)$
                 \State $V := \varnothing$
@@ -2306,22 +2304,22 @@
     \begin{proof}
         We will prove that any solution $H$ of the algorithm is a $\frac{3}{2}$-approximation of an optimal solution $H^*$ for the TSP.
 
-        Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $G^O$ this set induces. Now, consider the graph $G^O$, induced by $O$, and a minimum weight perfect matching $M$ of $G^O$.
+        Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $K_n^O$ this set induces with the edges of $K_n$. Now, consider the graph $K_n^O$, induced by $O$, and a minimum weight perfect matching $M$ of $K_n^O$.
 
-        Note that, because of \cref{odd even}, $\abs O$ is even, therefore $G^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $G^O$. Moreover, let $N^*$ be a TS tour on $G^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately. Note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Additionally, note that both $N_O$ and $N_E$ are perfect matchings $G^O$, but since $M$ is the perfect matching of $G^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2}$$ Consider a TS tour $A$, obtained from $H^*$, by skipping the even-degree nodes:
+        Note that, because of \cref{odd even}, $\abs O$ is even, therefore $K_n^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $K_n^O$. Moreover, let $N^*$ be a TS tour on $K_n^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately. Note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Additionally, note that both $N_O$ and $N_E$ are perfect matchings of $K_n^O$, but since $M$ is the perfect matching of $K_n^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2}$$ Consider a TS tour $A$, obtained from $H^*$, by skipping the even-degree nodes:
 
         \begin{itemize}
-            \item clearly, this is a TS tour on $O$, because $O$ is derived from $T$, which is a spanning tree, therefore it will contain all the odd-degree vertices of $K_n$; by triangle inequality, this implies that $w(A) \le w(H^*)$
-            \item lastly, since $N^*$ is an optimal TS tour on $O$ by definition, we have that $w(N^*) \le w(A)$
+            \item clearly, this is a TS tour on $K_n^O$, since $O$ is derived from $T$, which is a spanning tree, therefore it will contain all the odd-degree vertices of $K_n$; by triangle inequality, this implies that $w(A) \le w(H^*)$
+            \item since $N^*$ is an optimal TS tour on $K_n^O$ by definition, we have that $w(N^*) \le w(A)$
             \item this means that $w(N^*) \le w(A) \le w(H^*)$, therefore $$w(M) \le \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$
         \end{itemize}
 
         Now consider the multi-graph described by the edges in $U := M \cup T$, where the edges that appear both in $M$ and in $T$ are \tit{counted twice}:
         
         \begin{itemize}
-            \item clearly, the graph induced by $U$ is connected, because $T$ is a spanning tree
-            \item since $M$ is a minimum weight perfect matching of $G^O$, adding the edges from $M$ to $T$ into $U$ will turn the degree of the vertices that were in $O$ into even degrees, therefore all nodes in $U$ are of even degree; this means that, since $U$ is connected, it is always possible to find a Eulerian circuit by \cref{eul circ}
-            \item because $w(M) + w(T) = w(U)$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$ --- $H$ is the solution provided by the algorithm --- and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
+            \item clearly, the multi-graph induced by $U$ is connected, because $T$ is a spanning tree
+            \item since $M$ is a minimum weight perfect matching of $K_n^O$, adding the edges of $M$ in $T$ will turn the degree of the vertices that were in $O$ into even degrees, therefore all nodes in $U$ are of even degree; this means that, since $U$ is connected, it is always possible to find an Eulerian circuit by \cref{eul circ}
+            \item finally, since $w(U) = w(M) + w(T)$, given a solution of the algorithm $H$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$, and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
         \end{itemize}
     \end{proof}
 
@@ -2689,7 +2687,7 @@
 
     These capabilities enable mobile sensors to dynamically adjust positions and share information, ensuring comprehensive coverage and effective monitoring across the area of interest.
 
-    The sensing and communication units in mobile sensors are distinct components, so the \tit{ensing range} and \tit{communication range} are not inherently linked from a hardware standpoint. However, they must be integrated at the protocol level to ensure both \tbf{connectivity} and \tbf{coverage} within the network. In particular, research shows that if the $r_c \ge 2 r_s$, protocols can guarantee coverage while inherently satisfying the connectivity requirement as well. This relationship allows the network to achieve \tit{full monitoring} coverage of the area of interest while ensuring that all sensors remain connected, streamlining protocol design and enhancing network resilience.
+    The sensing and communication units in mobile sensors are distinct components, so the \tit{ensing range} and \tit{communication range} are not inherently linked from a hardware standpoint. However, they must be integrated at the protocol level to ensure both \tbf{connectivity} and \tbf{coverage} within the network. In particular, research shows that if $r_c \ge 2 r_s$, protocols can guarantee coverage while inherently satisfying the connectivity requirement as well. This relationship allows the network to achieve \tit{full monitoring} coverage of the area of interest while ensuring that all sensors remain connected, streamlining protocol design and enhancing network resilience.
 
     \tbf{Coverage} is a critical consideration in environmental monitoring applications using WSNs. Broadly, coverage refers to the effectiveness and quality of the sensing function, measuring how well the sensor network can monitor and observe changes within a given area. High coverage ensures that the AoI is comprehensively monitored without gaps, allowing the WSN to detect and respond to environmental changes accurately.
 
@@ -2714,17 +2712,17 @@
     For example, in agricultural monitoring, regular patrols can be used to check on specific crop health indicators, or in environmental monitoring, periodic sweeps can detect pollutant levels at known hotspots. This approach reduces energy consumption and resource usage, making it well-suited for scenarios where frequent, but not continuous, data collection is adequate.
 
     \begin{frameddefn}{Sweep coverage problem}
-        Given a set of PoI $P$, find the minimum number of \tit{mobile sensors} to guarantee \tit{sweep coverage} for $P$.
+        Given a set of PoIs $P$, find the minimum number of \tit{mobile sensors} to guarantee \tit{sweep coverage} for $P$.
     \end{frameddefn}
 
     In 2014 \textcite{gorain14} showed that, instead of using only mobile sensors, the use of both \tit{static} and \tit{mobile sensors} can be more effective in terms of total number of sensors used. Additionally, in 2015 \textcite{gorain15} showed an energy efficient sweep coverage problem, whose objective is to guarantee sweep coverage by employing both \tit{mobile} and \tit{static sensors}, such that the total energy consumption is minimized.
 
-    Moreover, the \tbf{location information} of sensors plays a crucial role in deployment protocols, as these protocols often rely on the \tit{precise positioning} of sensors. Depending on the environment and application, different techniques for obtaining and utilizing location information are employed:
+    Moreover, the \tbf{location information} of sensors plays a crucial role in deployment protocols, as these protocols often rely on the \tit{precise positioning} of sensors. Depending on the environment and application, different techniques for obtaining and utilizing location information are employed.
 
     \begin{itemize}
         \item \tbf{Outdoor Applications}: For applications in outdoor environments, GPS is the most widely used solution, since it provides accurate global positioning data, enabling sensors to autonomously determine their location for deployment or operation.
         \item \tbf{Indoor Centralized Applications}: For indoor environments where global positioning is needed but GPS may not be available, a \tit{grid-based approach} is commonly used. In this method, the area is divided into a grid of predefined locations, known as \tit{landmarks}, and sensors are deployed at specific grid points. In some cases, the sensors themselves may be used as \tit{landmarks}, enabling them to assist in positioning other sensors within the network.
-        \item \tbf{Indoor Distributed Applications}: In scenarios where sensors need to determine their location autonomously without a central system, techniques based on signal measurements are employed
+        \item \tbf{Indoor Distributed Applications}: In scenarios where sensors need to determine their location autonomously without a central system, techniques based on signal measurements are employed.
     \end{itemize}
 
     \begin{frameddefn}{Deployment problem (for area coverage)}
@@ -2889,7 +2887,7 @@
     A \tbf{flow} is a map $\func{f}{E(G)}{\R}$ that satisfies the following three constraints:
 
     \begin{itemize}
-        \item \tbf{skew symmetry} the flow on an arc from $u$ to $v$ is equivalent to the negation of the flow on the arc from $v$ to $u$; the sign of the flow indicates the flow's direction $$f(u,v) = -f(v, u)$$
+        \item \tbf{skew symmetry}: the flow on an arc from $u$ to $v$ is equivalent to the negation of the flow on the arc from $v$ to $u$; the sign of the flow indicates the flow's direction $$f(u,v) = -f(v, u)$$
         \item \tbf{capacity constraint}: the flow of an edge cannot exceed its capacity $$\forall (u, v) \in E(G) \quad f(u, v) \le c(u, v)$$
         \item \tbf{conservation of flows}: the sum of the flows entering a node must equal the sum of the flows exiting that node (except for $s$ and $t$) $$\forall v \in V(G) - \{s, t\} \quad \sum_{\substack{u:(u, v) \in E(G) \\f(u, v) >0}}{f(u, v)} = \sum_{\substack{u:(v, u)\in E(G) \\ f(v, u) >0}}{f(v, u)}$$
     \end{itemize}
@@ -2897,7 +2895,7 @@
     The \tbf{value of flow} is defined as the amount of flow passing from $s$ to $t$ $$\abs f := \sum_{v : (s, v) \in E(G)}{f(s, v)} = \sum_{u:(u, t)\in E(G)}{f(u, t)}$$
 
     \begin{frameddefn}{Maximum flow problem}
-        Given a flow network $G$, the \tbf{maximum flow problem} is to route as much flow as possible from $G$'s source to $G$'s sink, in other words find the flow $f$ with maximum value $\abs f$.
+        Given a flow network $G$, the \tbf{maximum flow problem} is to route as much flow as possible from $G$'s source to $G$'s sink; in other words, the problem asks to find the flow $f$ with maximum value $\abs f$.
     \end{frameddefn}
 
     \begin{framedthm}{}
@@ -2909,13 +2907,13 @@
 
         \begin{itemize}
             \item let $s$ and $t$ be new nodes, i.e. the source and the sink, respectively; then $V' := V \cup \{s, t\}$
-            \item let $E_1 := \{(s, u) \mid u \in V_1\}$, $E_2 := \{(v, t) \mid v \in V_2\}$ be the set of edges connecting the source to each node in $V_1$, and the one connecting each node in $V_2$ to the sink, respectively; moreover, let $$E_e := \{(u, v) \mid u \in V_1 , v \in V(G), (u, v) \in E(G)\}$$ be the set of edges that connects $V_1$ and $V_2$ exactly as they were connected in $G$; finally $E' := E_1 \cup E_e \cup E_2$
-            \item let the capacity be a function $\func{c}{E(G)}{\R^+}$ such that $$\forall u, v \in V'(G') \quad c(u, v) = 1$$
+            \item let $E_1 := \{(s, u) \mid u \in V_1\}$, $E_2 := \{(v, t) \mid v \in V_2\}$ be the set of edges connecting the source to each node in $V_1$, and connecting each node in $V_2$ to the sink, respectively; moreover, let $E_e := E(G)$ be the set of edges that connects $V_1$ and $V_2$ exactly as they were connected in $G$; finally $E' := E_1 \cup E_e \cup E_2$
+            \item let the capacity be a function $\func{c}{E'(G')}{\R^+}$ such that $$\forall u, v \in V'(G') \quad c(u, v) = 1$$
         \end{itemize}
 
-        \centeredimage[]{0.3}{../assets/match2flow.png} \todo{this should be done better}
+        Consider a perfect matching $M$ on the bipartite graph $G$; by defining an integer-valued flow $f$ on the flow network $G'$, it is easy to see that $f$ is a maximum flow, since the capacity of each edge is 1; the other implication can be proved with a similar reasoning.
 
-        Consider a perfect matching $M$ on the bipartite graph $G$, by defining an integer-valued flow $f$ on the flow network $G'$, it is easy to see that $f$ is a maximum flow, since the capacity of each edge is 1; the other implication can be proved with a similar reasoning.
+        \centeredimage[]{0.3}{../assets/match2flow.png} \todo{this should be done better}
     \end{proof}
 
     \begin{framedthm}{Integral flow theorem}
@@ -2955,11 +2953,11 @@
     \end{framedthm}
 
     \proofiff{
-        Consider the contrapositive: if there exists an augmenting path w.r.t. $M$, then $M$ is not a maximum matching of $G$. Consider the edges of an augmenting path $A$ w.r.t. $M$, and construct a new matching $M'$ of $G$ as follows: $$M' := (M - A) \cup (A \cap (E(G) - M))$$ therefore, $M'$ still contains the edges that were in $M$ not considering the augmenting path, but it also contains the edges that were in $A$ and were \tit{not} in $M$; in other words, $M'$ is $M$ that includes a swapped version of the augmenting path. Note that, by definition, $A$ starts and ends on free nodes w.r.t. $M$, which means that the first and last edges of $A$ are not in $M$, which in turn implies that these two edges will appear in $M'$, by construction. Moreover, note that $M'$ is still a matching, by construction. This implies that $\abs M < \abs{M'}$, therefore $M'$ is still a matching but of greater cardinality, hence $M$ cannot be a maximum matching.
+        Consider the contrapositive: if there exists an augmenting path w.r.t. $M$, then $M$ is not a maximum matching of $G$. Consider the edges of an augmenting path $A$ w.r.t. $M$, and construct a new matching $M'$ of $G$ as follows: $$M' := (M - A) \cup (A \cap (E(G) - M))$$ therefore, $M'$ still contains the edges that were in $M$ not considering the augmenting path, but it also contains the edges that were in $A$ and were \tit{not} in $M$; in other words, $M'$ is $M$ that includes a swapped version of the augmenting path $A$. Note that, by definition, $A$ starts and ends on free nodes w.r.t. $M$, which means that the first and last edges of $A$ are not in $M$, which in turn implies that these two edges will appear in $M'$, by construction. Moreover, note that $M'$ is still a matching, by construction. This implies that $\abs M < \abs{M'}$, therefore $M'$ is still a matching but of greater cardinality, hence $M$ cannot be a maximum matching.
     }{
         Consider a graph $G$, a matching $M$ for $G$, and assume that there are no augmenting paths in $G$ w.r.t. $M$. Additionally, by way of contradiction, assume that $M$ is not a maximum matching of $G$, thus there exists a matching $M'$ for $G$ such that $\abs M < \abs{M'}$.
 
-        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise a odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in a cycle, by definition of matching --- which is not possible by definition of matching. In particular, the connected compontents of $H$ can be classified into 5 kinds:
+        Let $H$ be the multi-graph induced by $M \cup M'$, where edges in $M \cap M'$ are counted twice. By construction, we have that for each $v \in V(H)$ it holds that $1 \le \deg(v) \le 2$, therefore each connected component of $H$ is either a cycle or a path. Moreover, cycles in $H$ can only have even length, otherwise an odd-length cycle would imply that there would be a vertex adjacent to two edges belonging to the same matching --- since edges \tit{must} alternate between $M$ and $M'$ in the connected compontens of $H$ --- which is not possible, by definition of matching. In particular, the connected compontents of $H$ can be classified into 5 kinds:
 
         \begin{enumerate}[label=\arabic*.]
             \item a cycle of length 2 (recall that $H$ is a multi-graph)
@@ -2975,7 +2973,7 @@
     This theorem can be leveraged in order to design an \tit{iterative algorithm} which can find a \tit{maximum matching} on a given bipartite graph. First, we need to define an algorithm to find an augmenting path on a bipartite graph.
 
     \begin{framedalgo}[label={alg:augmenting_path}]{Augmenting paths}
-        Given a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a matching $M$, the algorithm returns an augmenting path on $G$ w.r.t. $M$. \\
+        Given a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a matching $M$, the algorithm returns an augmenting path on $G$ w.r.t. $M$, if possible. \\
         \hrule
 
         \quad
@@ -2989,7 +2987,7 @@
                 \State $F := \{v \in V_1' \mid v \mathrm{\ free \ w.r.t. \ } M\}$
                 \While{$F \neq \varnothing$}
                     \State Choose $v \in F$
-                    \State Continue a DFS starting on $v$ on $G'$, and if the DFS finds a node in $u \in V_2$ free w.r.t. $M$, \textbf{return} the path $v \to u$
+                    \State Continue a DFS starting on $v$ on $G'$, and if the DFS finds a node in $u \in V_2'$ free w.r.t. $M$, \textbf{return} the path $v \to u$
                     \State $F = F - \{v\}$
                 \EndWhile
                 \State \textbf{return} \texttt{None}
@@ -3005,7 +3003,7 @@
             \item an edge goes from $V_2$ to $V_1$ if it does not belong to $M$
         \end{itemize}
 
-        it is sufficient to run a DFS starting from any node $v \in V_1'$ that is free w.r.t. $M$ (in $G$), and if the DFS finds a node $u \in V_2$ that is still free w.r.t $M$ (in $G$), than the path $v \to u$ must be an augmenting path.
+        it is sufficient to run a DFS starting from any node $v \in V_1'$ that is free w.r.t. $M$, and if the DFS finds a node $u \in V_2'$ that is still free w.r.t $M$, then the path $v \to u$ must be an augmenting path.
     }
 
     \cost{
@@ -3025,7 +3023,7 @@
                 \Do
                     \State $p := \texttt{findAugmentingPath}(G)$ \Comment{defined in \cref{alg:augmenting_path}}
                     \State Swap the edges between $M$ and $E(G) - M$ in $p$
-                \doWhile{$p \neq \varnothing$}
+                \doWhile{$p \neq \texttt{None}$}
                 \State \textbf{return} $M$
             \EndFunction
         \end{algorithmic}
@@ -3034,11 +3032,11 @@
     \idea{
         When the algorithm returns $M$, there are no more augmenting paths w.r.t. $M$ in $G$ due to the \texttt{do-while} exiting condition, therefore $M$ is a maximum matching by the \cref{aug paths}.
 
-        Note that the algorithm can start from any matching for $G$, even an empty one $M := \varnothing$, since the first iteration of the algorithm will find any edge in $E(G)$ as augmenting path.
+        Note that the algorithm can start from any matching for $G$, even an empty one $M := \varnothing$, since the first iteration of the algorithm will find an edge of $E(G)$ as augmenting path.
     }
 
     \cost{
-        Note that, since $G$ cannot contain odd-length cycles, hence the number of free vertices of $G$ w.r.t. $M$ is at most $\frac{n}{2}$. Moreover, when the algorithm finishes a maximum matching on $G$ has been found, which implies that there are no more free vertices in $G$ w.r.t. $M$, thus the number of iterations is at most the number of free vertices of $G$ w.r.t. $M$. Finally, since the cost of swapping the edges between $M$ and $E(G) - M$ is $O(n)$, the final cost of the algorithm is $$\dfrac{n}{2}\sbk{O(n + m) + O(n)} = \dfrac{n}{2}O(n^2 + nm) = O(nm)$$
+        Note that $G$ cannot contain odd-length cycles, hence the number of free vertices of $G$ w.r.t. $M$ is at most $\frac{n}{2}$. Moreover, when the algorithm finishesm, a maximum matching on $G$ has been found, which implies that there are no more free vertices in $G$ w.r.t. $M$, thus the number of iterations is at most the number of free vertices of $G$ w.r.t. $M$. Finally, since the cost of swapping the edges between $M$ and $E(G) - M$ is $O(n)$, the final cost of the algorithm is $$\dfrac{n}{2}\sbk{O(n + m) + O(n)} = \dfrac{n}{2}O(n^2 + nm) = O(nm)$$
     }
 
     Although this naïve solution still yields a polynomial time algorithm, in 1973 \textcite{hopcroft} developed the so-called \href{https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm}{Hopcroft-Karp algorithm}, which is able to find a maximum matching on a bipartite graphs in $O(m \sqrt n)$ time, which is better than what this algorithm can achieve.
@@ -3058,10 +3056,10 @@
                 \State $E' := \{(v, u) \in V_2' \times V_1' \mid (u, v) \in E(G) - M\} \cup \{(u, v) \in V_1' \times V_2' \mid (u, v) \in M\}$
                 \State $F_1 := \{v \in V_1' \mid v \mathrm{\ free \ w.r.t. \ } M\}$
                 \Do
-                    \State Run a simultaneous BFS starting from all the vertices in $F_1$, until at least one free node in $V_2'$ is found; let the set of free nodes in $V_2'$ be $F_2$
+                    \State Run a simultaneous BFS starting from all the vertices in $F_1$, until at least one free node in $V_2'$ is found; let the set of free nodes found in $V_2'$ be $F_2$
                     \State Run a DFS starting from the nodes in $F_2$ and climb the BFS trees up towards $F_1$; let $P$ the set of all the paths found
                     \For{$p \in P$}
-                        \State Swap the edges between $M$ and $E(G) - M$ in $p$
+                        \State Swap the edges between $M$ and $E'(G') - M$ in $p$
                     \EndFor
                 \doWhile{$P \neq \varnothing$}
                 \State \textbf{return} $M$
@@ -3095,7 +3093,7 @@
             \item augmenting paths
         \end{itemize}
 
-        Consider the augmenting paths: each of them bust be at least $2 \sqrt n$ long, therefore there must be at most $$\dfrac{n}{2 \sqrt n} = O(\sqrt n)$$ such paths. This means that the maximum matching $M'$ considered can be larger than $M$ by at most $O(\sqrt n)$ edges. In the worst case, each step of the algorithm augments the size of $M$ by one, therefore at most $O(\sqrt n)$ steps are required after the first $\sqrt n$ steps.
+        Consider the augmenting paths: each of them must be at least $2 \sqrt n$ long, therefore there can be at most $$\dfrac{n}{2 \sqrt n} = O(\sqrt n)$$ such paths. This means that the maximum matching $M'$ considered can be larger than $M$ by at most $O(\sqrt n)$ edges. In the worst case, each step of the algorithm augments the size of $M$ by one, therefore at most $O(\sqrt n)$ steps are required after the first $\sqrt n$ steps.
 
         This shows that the algorithm runs in at most $O(\sqrt n) + O(\sqrt n) = O(\sqrt n)$ iterations of the \texttt{do-while}, and since the cost of a single iteration is $O(m)$, we have that the total cost of the algorithm is $$O(m) \cdot O(\sqrt n) = O(m \sqrt n)$$
     }
@@ -3126,7 +3124,7 @@
     \begin{frameddefn}{Augmenting path (weighted case)}
         Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t. $M$ is an alternating path such that the total weight of the edges in $E(G) - M$ is greater than the total weight of the edges in $M$.
 
-        The \tbf{weight} of such an augmenting path is defined as follows: $$w(A) := \sum_{e \in E(G) - M}{w(e)} - \sum_{e \in M}{w(e)}$$
+        The \tbf{weight} of such an augmenting path $A$ is defined as follows: $$w(A) := \sum_{e \in E(G) - M}{w(e)} - \sum_{e \in M}{w(e)}$$
     \end{frameddefn}
 
     Note that, differently from the previous definition, this type of augmenting path does not need to end on a free node.
@@ -3148,13 +3146,15 @@
                     \Else
                         \State \textbf{break}
                     \EndIf
-                \doWhile{$p \neq \varnothing$}
+                \doWhile{$p \neq \texttt{None}$}
                 \State \textbf{return} $M$
             \EndFunction
         \end{algorithmic}
     \end{framedalgo}
 
-    Note that the cost of this algorithm is at least $O(n m)$, but in 1955 \textcite{kuhn} presented the so-called \href{https://en.wikipedia.org/wiki/Hungarian_algorithm}{Hungarian method}, through which it possible to transform the minimum weight perfect matching problem into an ILP, which can be solved in $O(n^3)$ time. Given a matching $M$ of a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a weight function $\func{w}{E(G)}{\R_{>0}}$, define the following variables:
+    The cost of this algorithm depends on the implementation, but it is is at least $O(n m)$.
+
+    Lastly, in 1955 \textcite{kuhn} presented the so-called \href{https://en.wikipedia.org/wiki/Hungarian_algorithm}{Hungarian method}, through which it possible to transform the minimum weight perfect matching problem into an ILP, which can be solved in $O(n^3)$ time. Given a matching $M$ of a bipartite graph $G = (V = V_1 \cup V_2, E)$, and a weight function $\func{w}{E(G)}{\R_{>0}}$, define the following variables:
 
     \begin{itemize}
         \item let $x_{ij}$ be a variable for each $(i, j) \in E(G)$, such that $x_{ij} = 1$ if and only if $(i, j) \in M$
@@ -3179,7 +3179,7 @@
         A graph is bipartite if and only if it does not contain cycles of odd length.
     \end{framedthm}
 
-    In fact, the algorithm for finding augmenting paths --- in the unweighted version --- \cref{aug paths} works by relying on the fact that the given graph \tit{cannot} contain odd-legth cycles. For instance, consider the following scenario:
+    In fact, the algorithm for finding augmenting paths --- in the unweighted version --- \cref{aug paths} works by relying on the fact that the graph in input \tit{cannot} contain odd-length cycles. For instance, consider the following scenario:
 
     \centeredimage[A cycle of odd length.]{0.3}{../assets/oddcycle.png}
 
@@ -3199,7 +3199,7 @@
 
     Although the presence of \tit{blossoms} does not allow the use of the algorithms discussed earlier, the following lemma enables us to define an algorithm capable of solving the problem, which will be discussed later.
 
-    \begin{framedlem}[label={blossom lemma}]{Cycle contraction}
+    \begin{framedlem}[label={blossom lemma}]{Blossom lemma}
         Let $G$ be a graph, let $M$ be a matching of $G$, and let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$. Let $G'$ be the graph obtained by contracting $B$, and let $M'$ be the matching induced by $M$ on $G'$. Then $M$ is a maximum matching of $G$ if and only if $M'$ is a maximum matching of $G'$.
     \end{framedlem}
 
@@ -3214,19 +3214,26 @@
 
         \begin{itemize}
             \item The first case occurs when $P$ does not cross $b$. This implies that $P$ is an augmenting path for both $G'$ w.r.t. $M'$ and $G$ w.r.t. $M$, which would imply that $M$ is not a maximum matching by \cref{aug paths}, raising a contradiction
-            \item Consider the case in which $P$ crosses $b$. Note that $b$ must be free w.r.t. $M'$, since $B$ was contracted over its uncovered vertex w.r.t. $M$, which is free w.r.t. $M$ in $G$. Hence, since we are assuming that $B$ is \tit{node-disjoint}, this condition implies that $b$ must be an endpoint of $P$. Now, consider $B$: clearly, we can define in $G$ a path $P'$ formed by $P' := P \cup P''$, since $P$ must exist in $G$ as well, and $P''$ is the portion of $B$ which can \tit{extend} $P$ as augmenting path. This means that $P'$ is an augmenting path in $G$ w.r.t. $M$, which raises a contradiction by \cref{aug paths} as the previous case. \end{itemize}
+            \item Consider the case in which $P$ crosses $b$. Note that any edge of $E(G) - E(B)$ that has an endpoint on $B$ cannot be in $M$, because 
+
+                \begin{itemize}
+                    \item the uncovered vertex of $B$ is \tit{node-disjoint} from $M$, by hypothesis
+                    \item each other node of $B$ is adjacent to an edge in $M$, by definition
+                \end{itemize}
+
+        which implies that $b$ must be free w.r.t. $M'$. This implies that $b$ must be an endpoint of $P$. Now, consider $B$: clearly, we can define in $G$ a path $P'$ formed by $P' := P \cup P''$, since $P$ must exist in $G$ as well, and $P''$ is the portion of $B$ which can \tit{extend} $P$ as augmenting path. This means that $P'$ is an augmenting path in $G$ w.r.t. $M$ since the uncovered vertex of $B$ is free w.r.t. $M$, which raises a contradiction by \cref{aug paths} as the previous case. \end{itemize}
     }{
         By way of contradiction, assume that $M'$ is maximum in $G'$, but $M$  is not maximum in $G$; therefore, by \cref{aug paths}, there must exist an augmenting path $P$ in $G$ w.r.t. $M$.
 
-        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G$. Moreover, let $v$ be the uncovered node of $B$ w.r.t. $M$. Thus, in $G$ two cases may occur.
+        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G$. Thus, as before, in $G$ two cases may occur.
 
         \begin{itemize}
-            \item The first case occurs when $P$ does not cross $v$. Trivially, this implies that $P$ is an augmenting path both for $G$ and $G'$, which would raise a contradiction by \cref{aug paths}.
-            \item The second case occurs when $P$ crosses $v$. Note that, since $B$ contains only 1 single free node w.r.t. $M$, namely $v$, at least one of the endpoints of $P$ must lie outside $B$, and let it be $w$. Let $P'$ be the portion of $P$ which joints $v$ and $w$; note that, when contracting $B$ on $v$, obtaining $b$, we obtain a path $P'$ that an augmenting path in $G'$ that starts in $b$ and ends in $w$, which raises a contradiction by \cref{aug paths}.
+            \item The first case occurs when $P$ does not cross $B$. This would imply that $P$ is an augmenting path both for $G$ and $G'$, which would raise a contradiction by \cref{aug paths}.
+            \item The second case occurs when $P$ crosses $B$. Note that, since $B$ contains only 1 single free node w.r.t. $M$, \tit{at least one} of the endpoints of $P$ must lie outside $B$, and let this endpoint be $w$. Let $P'$ be the portion of $P$ that joins $b$ and $w$ in $G'$; we have that $P'$ is an augmenting path in $G'$ w.r.t. $M'$, which raises a contradiction by \cref{aug paths}.
         \end{itemize}
     }
 
-    Thanks to this lemma, in 1965 \textcite{edmonds} designed an algorithm, also known as \href{https://en.wikipedia.org/wiki/Blossom_algorithm}{Blossom algorithm}, and the idea of the algorithm is the following:
+    Finally, thanks to this lemma, in 1965 \textcite{edmonds} designed an algorithm, also known as \href{https://en.wikipedia.org/wiki/Blossom_algorithm}{Blossom algorithm}. The idea of the algorithm is the following:
 
     \begin{itemize}
         \item start with a matching $M$ of $G$, even empty
@@ -3605,7 +3612,7 @@
         \item \tbf{emergency search and rescue}: locating and assisting individuals in distress in hard-to-reach areas
     \end{itemize}
 
-    Suppose an AoI is provided, and assume that in the AoI there is a set $S = \{v_1, \ldots, v_n\}$ of sites that must be examined, and each site $v_i$ requires a time $t_i$ to be inspected. Moreover, consider a fleet of $m$ UAVs that start from a \tbf{safe location} $v_0$, each of which have a battery capacity $B$. Each UAV must periodically fly back to $v_0$ in order to recharge its battery, which requires time $R$ (which is often assumed to be from 2.5 to 5 times the value of $B$). It is crucial to determine the best strategy in order to overfly the sites in $S$ \tit{as efficiently as possible}. In a real-world scenario, this could make the difference between saving a life and not being able to.
+    Suppose an AoI is provided, and assume that in the AoI there is a set $S = \{v_1, \ldots, v_n\}$ of sites that must be examined, and each site $v_i$ requires a time $t_i$ to be inspected. Moreover, consider a fleet of $m$ UAVs that start from a \tbf{safe location} $v_0$, each of which have a battery capacity $B$. Each UAV must periodically fly back to $v_0$ in order to recharge its battery, which requires time $R$ (which is often assumed to be from 2.5 to 5 times the value of $B$). It is crucial to determine the best strategy in order to overfly the sites in $S$ \tit{as efficiently as possible}. In a real-world scenarios, this could make the difference between saving a life and not being able to.
 
     We can model this problem as a graph, as follows.
 
@@ -3619,11 +3626,11 @@
         \item the \tit{sites}, which are the set of dots in the AoI different from the \tit{safe location}
     \end{itemize}
 
-    It must be possible to go from each node to every other node, therefore we assume there is an edge between each pair of nodes; therefore, if $n := \abs S$, then the graph can be thought of a clique graph $K_{n + 1}$, where $n + 1$ comes from the \tit{safe location}.
+    It must be possible to go from each node to every other node, therefore we assume there is an edge between each pair of nodes; therefore, if $n := \abs S$, then the graph can be thought of a clique graph $K_{n + 1}$, where the $(n + 1)$-th node is the \tit{safe location}.
 
     Each UAV has a \tbf{flying-and-inspection} time that is bounded by $B$, the capacity of its own battery. We can assume that the graph is edge-weighted, for each pair of sites $(v_i,v_j)$, the weight $w(v_i, v_j)$ represents the time a UAV needs to fly from $u_i$ to $u_j$.
 
-    To distinguish between the UAVs, we will color each path a UAV traverses differently in the graph. In particular, each UAV flies along a \tbf{cycle}, and visits as many sites as it can w.r.t. its battery capacity $B$, passing through the \tit{safe location} $v_0$ every time it has to recharge its battery (which requires time $R$).
+    To distinguish between the UAVs, we will color each path a UAV traverses differently in the graph. In particular, each UAV flies along \tbf{cycles}, and in each ecycle it visits as many sites as it can w.r.t. its battery capacity $B$, passing through the \tit{safe location} $v_0$ every time it has to recharge its battery (which requires time $R$).
 
     But what does it mean to overfly the sites in $S$ \tit{as efficiently as possible}? In fact, we may have multiple optimization functions:
 
@@ -3636,13 +3643,13 @@
     Let's try to find a problem which satisfies all the constraints of the \tbf{UAV monitoring problem}.
 
     \begin{frameddefn}{mTSP}
-        The \tbf{multiple Traveling Salesmen} (mTSP) problem is formulated as follows: given a set of $n$ cities, 1 depot, a \tit{cost metric}, and $m$ salesmen must collectively cover all the cities, determine one tour for each of the $m$ salesmen that minimize the total length w.r.t. the \tit{cost metric}.
+        The \tbf{multiple Traveling Salesmen} (mTSP) problem is formulated as follows: given a set of $n$ cities, 1 depot, a \tit{cost metric}, and $m$ salesmen that must collectively cover all the cities, determine one tour for each of the $m$ salesmen that minimize the total length w.r.t. the \tit{cost metric}.
     \end{frameddefn}
 
     This problem does not model the UAV monitoring problem appropriately because it has no visiting time nor \curlyquotes{battery capacity} constraint.
 
     \begin{frameddefn}{kTRPR}
-        The \tbf{k-Traveling Repairperson Problem with Repairtimes} (kTRPR) is formulated as follows: given $n$ customers, each with a repairtime, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, let the \tit{latency} of a site be the time elapsed before that site is visited by any repairperson; the problem asks to determine $k$ cycles for each of the $k$ repairperson that minimize the sum of all the latencies of the sites.
+        The \tbf{k-Traveling Repairperson Problem with Repairtimes} (kTRPR) is formulated as follows: given $n$ customers, each with a repairtime, 1 depot, and $k$ repairpersons that must visit all the $n$ customers, let the \tit{latency} of a site be the time elapsed before that site is visited by any repairperson; the problem asks to determine $k$ cycles for each of the $k$ repairpersons that minimize the sum of all the latencies of the sites.
     \end{frameddefn}
 
     This problem is a bit more similar to our problem, but it still does not model the UAV monitoring problem appropriately because it has no battery constraint.
@@ -3657,7 +3664,7 @@
         The \tbf{Vehicle Routing Problem} (VRP) is a generic term for a class of problems focused on optimizing routes for a fleet of vehicles to efficiently serve a set of customers.
     \end{frameddefn}
 
-    This class of problems do not model our problem correctly because there is usually a constraing on the number of visited customers per vehicle, which is not a constraint present in our problem.
+    This class of problems do not model our problem correctly because there is usually a constraint on the number of visited customers per vehicle, which is not a constraint present in our problem.
 
     \begin{frameddefn}{TOP}
         The \tbf{Team Orienteering Problem} (TOP) is defined as follows: given $n$ sites each with a profit, 1 depot, $m$ vehicles each with a limited total duration for their routes, determine the cycles for each of the $m$ vehicles that maximize the total profit.
@@ -3665,7 +3672,7 @@
 
     Although the first round of this problem is equivalent to our problem, a solution to this problem may be not be best solution to our problem because it may be possible to take advantage of the capacities of the batteries of the UAVs and distributing the problem of covering all the sites throughout multple rounds.
 
-    No previously studied problem seems to model the UAV monitoring problem appropriately, which implies that we cannot exploit any know result.
+    In conclusion, no previously studied problem seems to model the UAV monitoring problem appropriately, which implies that we cannot exploit any know result.
 
     \section{Connection with the RMCCP}
     
@@ -3756,13 +3763,13 @@
 
     \centeredimage[]{0.35}{../assets/h_p.png}
 
-    Let $H$ (\tit{host}) be the tree on the left, and $P$ (\tit{parasite}) be the tree on the right; these trees are called \tbf{phylogenetic trees}, and describe the evolution stages of \href{https://en.wikipedia.org/wiki/Gopher}{ghopers} --- a family of rodents --- and the ones of \href{https://en.wikipedia.org/wiki/Louse}{lice} --- a family of parasites --- respectively. The leaves of the tree are the set of species that currently exist, and the mapping between the leaves of $H$ and $P$ is called a \tbf{leaf mapping function} which maps each parasite to the gopher they attack.
+    Let $H$ (\tit{host}) be the tree on the left, and $P$ (\tit{parasite}) be the tree on the right. These trees are called \tbf{phylogenetic trees}, and the ones in picure represent the evolution stages of \href{https://en.wikipedia.org/wiki/Gopher}{ghopers} --- a family of rodents --- and the ones of \href{https://en.wikipedia.org/wiki/Louse}{lice} --- a family of parasites --- respectively. The leaves of the tree are the set of species that currently exist, and the mapping between the leaves of $H$ and $P$ is called a \tbf{leaf mapping function} which maps each parasite to the gopher they attack.
 
     In biology, understanding the feasibility of mappings between phylogenetic trees is crucial for determining which parasite species may have attacked which hosts. To achieve this, biologists use a technique known as \tbf{reconciliation} of evolutionary trees. In particular, while computing the reconciliation of two trees it is important to follow the \tit{leaf mapping function}, since those are the mappings that actually occur in nature.
 
     Biologists aim to examine \tit{all possible reconciliations} to determine which align with biological feasibility and which do not. Unfortunately, this requires to enumerate all optimal (according to some \tit{cost} function) reconciliations, which could be enormous since it is exponential w.r.t. the size of the input trees. To circumvent this problem, we can either try to reduce the number of optimal reconciliation, or develop a strategy to visualize reconciliations cleverly.
 
-    Additionally, some modern computational methods used to reconstruct phylogenetic trees produce \tbf{unrooted trees}, which represents the relationships between species without specifying the direction of evolutionary ancestry --- i.e. it doesn't indicate which species is the \curlyquotes{ancestor} and which are the \curlyquotes{descendants}.
+    Additionally, some modern computational methods used to reconstruct phylogenetic trees produce \tbf{unrooted trees}, which represent the relationships between species without specifying the direction of evolutionary ancestry --- i.e. it doesn't indicate which species is the \curlyquotes{ancestor} and which are the \curlyquotes{descendants}.
 
     To transform an unrooted tree into a \tbf{rooted tree} (which does indicate ancestry), scientists can employ \tbf{reconciliation} techniques, which leverage additional information to infer where the \curlyquotes{root} --- i.e. the \tit{Least Common Ancestor} (LCA) --- of the tree should be placed. By aligning the evolutionary histories of related systems, like hosts and parasites, reconciliations help establish a biologically consistent direction of evolution.
 
@@ -3770,11 +3777,11 @@
 
     \section{Reconciliation between phylogenetic trees}
 
-    Informally, a \tbf{reconciliation} is a mapping from the nodes of the parasite tree $P$, toe the nodes of the host tree $H$, such that the leaf mapping function betwen $H$ and $P$ is respected.
+    Informally, a \tbf{reconciliation} is a mapping from the nodes of the parasite tree $P$, to the nodes of the host tree $H$, such that the leaf mapping function betwen $H$ and $P$ is respected.
 
     \centeredimage[]{0.2}{../assets/h_p_f.png}
 
-    There are multiple ways to visualize the reconciliation between two trees, for example consider the following in which the host tree is represented by \curlyquotes{tubes}, and the parasite tree is contained by such tubes, as whosn in the following picture.
+    There are multiple ways to visualize the reconciliation between two trees, for example consider the following one shown in the picture, in which the host tree is represented by \curlyquotes{tubes}, and the parasite tree is contained by such tubes.
 
     \centeredimage[]{0.3}{../assets/recon_cases.png}
 
@@ -3784,7 +3791,7 @@
         \item \tbf{cospeciation}: in the case of cospeciation, the two trees match perfectly and both the host and the parasite speciated in the same fashion
         \item \tbf{duplication}: this occurs when the parasite speciated but the host did not, which graphically implies that one host tube will contain multiple branches of parasite species
         \item \tbf{loss}: this occurs when a species goes extinct, which graphically implies that there will be a truncated branch in the parasite tree
-        \item \tbf{host switch} or \tbf{gene transfer}: this occurs when a parasite changed host, which graphically implies that a branch of the parasite tree changes host tube
+        \item \tbf{host switch} or \tbf{gene transfer}: this occurs when a parasite changed host, which graphically implies that a branch of the parasite tree changeshost tube
     \end{itemize}
 
     Another constraint that is important while computing reconciliations is the \tbf{time consistency} constraint, which ensures that the evolutionary events depicted in the reconciliation are temporally plausible. This means that the timing of these events must be consistent with the known or inferred evolutionary timelines of the species involved.
@@ -3807,7 +3814,8 @@
     In order to reduce the number of optimal reconciliations two main approaches are employed:
 
     \begin{itemize}
-        \item \tbf{similarity measure}: we can reduce the number by defining a \tit{similarity measure} between reconciliations, i.e. by finding a subset $S$ of all the reconciliations that represent the whole set, such that each of the optimal reconciliations is at a bounded distance from at least one of the reconciliations in $S$; a common \tit{similarity measure} employed is the smallest number of operations needed to change one reconciliation into another, but this may not represent the concept of \curlyquotes{similarity} well enough, as similar reconciliationsmay need a large number of operations to be changed from one to another, as shown in the following picture
+        \item \tbf{similarity measure}: we can reduce the number by defining a \tit{similarity measure} between reconciliations, i.e. by finding a subset $S$ of all the reconciliations that represent the whole set, such that each of the optimal reconciliations is at a bounded distance from at least one of the reconciliations in $S$; a common \tit{similarity measure} employed is the smallest number of operations needed to change one reconciliation into another, but this may not represent the concept of \curlyquotes{similarity} well enough, as similar reconciliations may need a large number of operations to be changed from one to another
+
             \centeredimage[]{0.3}{../assets/recon_conv.png}
 
         \item \tbf{equivalence classes}: alternatively, the number may be reduced by using the definition of \tit{equivalence classes} to group the reconciliations that may be considered biologically equivalent, and providing as output just one representative of the whole equivalence class; a commont \tit{equivalence relation} employed is the event vector, which seems to be a good alternative since the number of event vectors is polynomial, but reconciliations with the same event vector may be every different from each other
@@ -3828,9 +3836,9 @@
 
     \subsection{Visualizing reconciliations}
 
-    Consider host tree $H$, a parasite tree $P$, a leaf mapping function $f$ and a reconciliation $R$ between $H$ and $P$. There are three main strategies in which the reconciliation $R$ is usually visualized:
+    Consider host tree $H$, a parasite tree $P$, a leaf mapping function $f$ and a reconciliation $R$ between $H$ and $P$. There are three main \tbf{strategies} in which the reconciliation $R$ is usually visualized:
 
-    placeholder \todo{add pic pag 30}
+    \centeredimage[]{0.30}{../assets/recon_ex1.png}
 
     \begin{itemize}
         \item $R$ is represented through two paired trees --- the leftmost visualization
@@ -3841,36 +3849,36 @@
     \begin{example}[Visualizations]
         The following are some examples of visualizations generated through multiple programs that compute reconciliations.
 
-        placeholder \todo{add pic pag 31}
+        \centeredimage[A visualization produced by the CoRe-PA software (first strategy).]{0.30}{../assets/recon_ex2.png}
 
-        placeholder \todo{add pic pag 32}
+        \centeredimage[A visualization produced by the Jane 4 software (first strategy).]{0.30}{../assets/recon_ex3.png}
 
-        placeholder \todo{add pic pag 33}
+        \centeredimage[A visualization produced by the CophyTrees software (second strategy).]{0.30}{../assets/recon_ex4.png}
 
-        placeholder \todo{add pic pag 34}
+        \centeredimage[A visualization produced by the Primetv software (second/third strategy).]{0.30}{../assets/recon_ex5.png}
 
-        placeholder \todo{add pic pag 35}
+        \centeredimage[A visualization produced by the SylvX software (third strategy).]{0.30}{../assets/recon_ex6.png}
     \end{example}
 
     An interesting approach that was recently developed in order to visualize reconciliations is the following:
 
-    placeholder \todo{add pic pag 38}
+    \centeredimage[]{0.30}{../assets/recon_new.png}
 
     In this type of visualization, the host tree is represented through colored blocks (optionally slanted), and the parasite tree is drawn inside the colored blocks. Host switches are represented through dashed lines, and losses are represented as shown below
 
-    placeholder \todo{add pic pag 39}
+    \centeredimage[]{0.30}{../assets/recon_new2.png}
 
     In general, in reconciliation visualizations it is ideal to minimize the number of crossings, since it enhances readability, but this is not always possible, as shown in the following example:
 
-    placeholder \todo{add pic pag 42}
+    \centeredimage[]{0.30}{../assets/unavoidable_crossing.png}
 
     The following two theoretical results offer insight into the feasibility of reducing the number of crossings.
 
     \begin{framedthm}{}
-        Every reconciliation admits a planar representation if and only if the associated tanglegram is planar.
+        A reconciliation admits a planar representation if and only if the associated tanglegram is planar.
     \end{framedthm}
 
-    placeholder \todo{add pic pag 46}
+    \centeredimage[]{0.30}{../assets/tanglegram.png}
 
     \begin{framedthm}{}
         Deciding whether a time-consistent reconciliation admits a visualization drawing with at most $k$ crossing is \NPComplete.
