@@ -312,7 +312,6 @@
         \hrule
 
         \quad
-        \label{alg:dijkstra}
         \begin{algorithmic}[1]
             \Function{dijkstra}{$G$, $w$, $s$}
                 \For{$v \in V(G)$}
@@ -350,9 +349,9 @@
         The cost of the algorithm depends on the implementation:
 
         \begin{itemize}
-            \item if $Q$ is implemented through a \tit{queue}, then the time complexity is $O(n^2)$
-            \item if $Q$ is implemented through a \tit{heap}, then the time complexity is $O(m \log n)$
-            \item if $Q$ is implemented through a \tit{fibonacci heap}, then the time complexity is $O(m + n \log n)$
+            \item if $Q$ is implemented through a \tbf{Queue}, then the time complexity is $O(n^2)$
+            \item if $Q$ is implemented through a \tbf{Heap}, then the time complexity is $O(m \log n)$
+            \item if $Q$ is implemented through a \tbf{Fibonacci Heap}, then the time complexity is $O(m + n \log n)$
         \end{itemize}
     }
 
@@ -1704,7 +1703,7 @@
             \item label $v_i$ with the first available color
         \end{itemize}
 
-        Inductively, assume that we have already labeled all the nodes from $v_1$ to $v_i$, and consider $v_{i + 1}$ which has to be labeled. Let $v_j$ be $v_{i + 1}$'s parent w.r.t. $T_n$, and clearly $j \le i + 1$; moreover, note that, by definition of $\Delta$, $v_j$ has at most $\Delta - 1$ adjacent nodes, not counting $v_{i + 1}$. Therefore, since this is a $L(2,1)$-labeling, we have that
+        Inductively, assume that we have already labeled all the nodes from $v_1$ to $v_i$, and consider $v_{i + 1}$ which has to be labeled. Let $v_j$ be $v_{i + 1}$'s parent w.r.t. $T_n$, and clearly $j \le i + 1$; moreover, note that, by definition of $\Delta$, $v_j$ has at most $\Delta - 1$ adjacent nodes, not counting $v_{i + 1}$. Therefore, since this is a $L(2,1)$-labeling, we have that in order to label $v_{i + 1}$
 
         \begin{itemize}
             \item no more than 3 colors are forbidden because of $v_j$'s color --- namely, if $v_j$ has color $f(v_j)$ for some coloring function $f$, then $v_{i + 1}$ cannot have color $f(v_j) - 1$, $f(v_j)$ and $f(v_j) + 1$
@@ -1716,7 +1715,7 @@
 
     In the original paper, it was conjectured that decide whether the correct value for a given $T_n$ tree is $\Delta + 1$ or $\Delta + 2$ is \NPComplete, but this conjecture was later disproved by \textcite{chang} in 1996, which provided a polynomial $O(\Delta^{4.5} n)$ algorithm based on a \tit{dynamic programming} approach. Multiple authors have proposed many various algorithms attempting to improve this time complexity, and finally in 2008 \textcite{hasunuma} proposed a linear algorithm.
 
-    For what concerns \tbf{path graphs} $P_n$, it is immediate to see that $\lambda_{2,1}(P_2) = 2$ and $\lambda_{2,1}(P_3) = 3$ from the results for the star graphs. Moreover, by exhaustion it can be easily shown that $\lambda_{2,1}(P_4) = 3$ and, for the case when $n \ge 5$, note that
+    For what concerns \tbf{path graphs} $P_n$, it is immediate to see that $\lambda_{2,1}(P_2) = 2$ and $\lambda_{2,1}(P_3) = 3$ from the results for the star graphs. Moreover, by exhaustion it can be easily shown that $\lambda_{2,1}(P_4) = 3$, and for $P_5$ note that
 
     \begin{itemize}
         \item clearly $\lambda_{2,1}(P_5) \le 4$, since we have 5 colors, from 0 to 4, and we just need to color each node with a different label
@@ -1724,7 +1723,7 @@
         \item this implies that $\lambda_{2,1}(P_5)$ is either 3 or 4, but it can be proved by exhaustion that the correct number is indeed 4
     \end{itemize}
 
-    Finally, for any $n \ge 5$, we have that
+    Finally, for any $n > 5$, we have that
 
     \begin{itemize}
         \item $P_n$ contains a $P_5$, therefore $\lambda_{2,1}(P_n) \ge 4$
@@ -1744,7 +1743,7 @@
 
         \centeredimage[Cases for $C_3$ and $C_4$ (top to bottom).]{0.25}{../assets/c3_c4.png}
 
-        Note that any $C_n$ contains a $P_n$ if we ignore one of the edges, hence $\lambda_{2,1}(C_n) \ge 4$ because of the previous result. To prove that $\lambda_{2,1}(C_n) \le 4$, we just need to consider 3 possible cases:
+        For the case $n \ge 5$, note that $C_n$ contains a $P_n$ if we ignore one of the edges, hence $\lambda_{2,1}(C_n) \ge 4$ because of the previous result. To prove that $\lambda_{2,1}(C_n) \le 4$, we just need to consider 3 possible cases:
 
         \centeredimage[Cases for $C_n$ when $n \ge 5$.]{0.3}{../assets/cycles_cases.png}
 
@@ -1752,12 +1751,12 @@
 
         \begin{itemize}
             \item if $\congmod{n}{0}{3}$, we just need to cycle 0, 2 and 4 repeatedly
-            \item otherwise, if $\congmod{n}{1}{3}$, we cycle 0, 2 and 4 for the first $n - 4$ vertices of the cycle, and the last vertices will be colored with 0, 3 1 and 4, respectively
+            \item otherwise, if $\congmod{n}{1}{3}$, we cycle 0, 2 and 4 for the first $n - 4$ vertices of the cycle, and the last vertices will be colored with 0, 3, 1 and 4, respectively
             \item finally, if $\congmod{n}{2}{3}$, we cycle 0, 2 and 4 for the first $n - 2$ vertices of the cycle, and the last vertices will be colored with 1 and 3, respectively
         \end{itemize}
     \end{proof}
 
-    As a final note, if the graph $G$ considered is a \href{https://en.wikipedia.org/wiki/Lattice_graph}{\tbf{grid graph}}, it is known that $\lambda_{2,1}(G) = \Delta + 2$, and if it is a \href{https://en.wikipedia.org/wiki/Outerplanar_graph}{\tbf{outerplanar graph}}, it has been proven that $\lambda_{2,1}(G) \le 2 \Delta + 2$ by \textcite{jonas} in 1993.
+    As a final note, if the graph $G$ considered is a \href{https://en.wikipedia.org/wiki/Lattice_graph}{\tbf{grid graph}}, it is known that $\lambda_{2,1}(G) = \Delta + 2$, and if it is an \href{https://en.wikipedia.org/wiki/Outerplanar_graph}{\tbf{outerplanar graph}}, it has been proven that $\lambda_{2,1}(G) \le 2 \Delta + 2$ by \textcite{jonas} in 1993.
 
     \subsection{Variations of the problem}
 
@@ -1774,7 +1773,7 @@
 
     As in the undirected case, the objective of the problem is to minimize the \tit{span} needed to define an oriented $L(h,k)$-labeling.
 
-    For instance, note that $\lambda_{2,1}$ for the \tit{directed} (i.e. oriented) case can vary greatly from the \tit{undirected} case. For instance, recall that $\Delta + 1 \le \lambda_{2,1}(T_n) \le \Delta + 2$ for any \tit{undirected} tree $T_n$, but it has been shown by \textcite{chang2} that $\lambda_{2,1}(T_n) \le 4$ for any \tit{directed} tree.
+    Note that $\lambda_{h,k}$ for the \tit{directed} (i.e. oriented) case can vary greatly from the \tit{undirected} case. For instance, recall that $\Delta + 1 \le \lambda_{2,1}(T_n) \le \Delta + 2$ for any \tit{undirected} tree $T_n$, but it has been shown by \textcite{chang2} that $\lambda_{2,1}(T_n) \le 4$ for any \tit{directed} tree.
 
     Another type of variation to the $L(h,k)$-labeling problem is the following generalization.
 
@@ -1786,7 +1785,7 @@
 
     The objective of this problem is analogous to the previous versions discussed, i.e. minimizing the \tit{span}. On general graphs, it is known that $L(2,1,1)$- and $L(\delta, 1, \ldots, 1)$-labelings are both \NPHard, therefore special classes of graphs are usually studied for this type of problems.
 
-    Differently, if we are interested in utilizing the coloring problem to solve a frequency assignment problem for a given network, and our network topology has a \tbf{backbone} structure such that the transmitting power of its nodes is higher thatn the rest of the network, we may exploit the following coloring problem, that has the same objective as the cases studied before.
+    Differently, if we are interested in utilizing the coloring problem to solve a frequency assignment problem for a given network, and our network topology has a \tbf{backbone} structure such that the transmitting power of its nodes is higher that the rest of the network, we may exploit the following coloring problem, that has the same objective as the cases studied before.
 
     \begin{frameddefn}{Backbone coloring}
         Given a graph $G$, that has a \tit{backbone} $H \subseteq G$, a \tbf{Backbone coloring} of $G$ w.r.t $H$ is a \tit{node coloring function} $f$ that assigns colors to each node of $G$, such that:
@@ -1800,17 +1799,17 @@
     As a final note, in real-world scenarios the transmitting stations are able to handle \tbf{multiple channels}, therefore usually a \tit{set of channels} is assigned to each station of a given network. To exploit this capability of the stations, given two sets of integer values $I$ and $J$, let $$\dist(I, J) := \min_{i \in I, j \in J}{\abs{i - j}}$$ and consider the following extension of the $L(h, k)$-labeling problem that aims at minimizing the \tit{span} as well, given an integer $n$.
 
     \begin{frameddefn}{$n$-multiple $L(h,k)$-labeling}
-        Given a graph $G$, an \tbf{$n$-multiple $L(h,k)$-labeling} of $G$ w.r.t $H$ is a \tit{node coloring function} $f$ that assigns \tit{multiple} colors to each node of $G$, such that:
+        Given a graph $G$, an \tbf{$n$-multiple $L(h,k)$-labeling} of $G$ is a \tit{node coloring function} $f$ that assigns $n$ colors to each node of $G$, such that:
 
         \begin{itemize}
             \item $\forall (u, v) \in E(G) \quad \dist(f(u), f(v)) \ge h$
-            \item $\forall (u, v) \in E(H) \mid \dist_G(u, v) = 2 \quad \dist(f(u), f(v)) \ge k$
+            \item $\forall (u, v) \in E(G) \mid \dist_G(u, v) = 2 \quad \dist(f(u), f(v)) \ge k$
         \end{itemize}
     \end{frameddefn}
 
     \subsection{Map coloring}
 
-    A natural way to model a \tbf{map} of adjacent regions is with a \tbf{planar graph}, where each region is represented with a node, and there is an edge between each pair of nodes of the graph that represent adjacent regions of map. Now, consider the following graph definition.
+    A natural way to model a \tbf{map} of adjacent regions is with a \tbf{planar graph}, where each region is represented with a node, and there is an edge between each pair of nodes of the graph that represent adjacent regions of the map. Now, consider the following graph definition.
 
     \begin{frameddefn}{Dual graph}
         Given a planar graph $G = (V, E)$, its \tbf{dual graph} $G^* = (V', E')$ is defined as follows:
@@ -1824,23 +1823,23 @@
     \begin{example}[Dual graphs]
         The following two graphs are one the dual of the other.
 
-        \centeredimage[The red graph is the dual of the blue graph, and \tit{vice versa}.]{0.23}{../assets/dual_graph.png}
+        \centeredimage[The red graph is the dual of the blue graph, and \tit{vice versa}.]{0.15}{../assets/dual_graph.png}
     \end{example}
 
     It can be shown that a \tbf{vertex coloring} of $G^*$ corresponds to a \tbf{map coloring} of $G$.
 
     Map coloring problems are valuable models for real-world scenarios. While cartographers have long known that four colors suffice to color any map such that no two adjacent regions share the same color, this was formally proven only in 1976 by \textcite{appel}. The proof, which relied heavily on computer assistance, reduced the problem to more than 1700 configurations, each exhaustively verified by a machine.
 
-    Lastly, regarding classical \tbf{vertex coloring} problems, the following are some interesting results for small numbers, extensively studied in the literature:
+    Regarding classical \tbf{map coloring} problems, the following are some interesting results for small numbers, extensively studied in the literature:
 
     \begin{itemize}
         \item \tbf{2-coloring}: this problem is in \Pclass, and a polynomial time algorithm that solves it is the following
             \begin{itemize}
                 \item choose a starting region and assign one of the two available colors to it
-                \item assigne the other color to its neighbouring regions
+                \item assign the other color to its neighbouring regions
                 \item expand the colored region by alternating the 2 colors, until either all the regions have been colored, or there is a region that cannot be colored without conflicting with its neighbours, which implies that the map was not 2-colorable from the beginning
             \end{itemize}
-        \item \tbf{3-coloring}: this problem is notoriously \NPHard, and \textcite{karp} proved its difficulty by a reduction from the 3-SAT problem; however, some techniques are available which can simplify the map before searching for a 3-coloring function, but such strategies do not change the time complexity of the problem in the worst case
+        \item \tbf{3-coloring}: this problem is \NPHard,  however some techniques are available which can simplify the map before searching for a 3-coloring function, but such strategies do not change the time complexity of the problem in the worst case
         \item \tbf{4-coloring}: the 4-coloring problem is \NPComplete, as for the 3-coloring case
         \item \tbf{5-coloring}: it easy relatively easy to color a map using 5 colors, and there are algorithms that can simplify the input map
     \end{itemize}
@@ -1859,7 +1858,7 @@
         \item \tbf{Reliability}: To ensure reliability, all nodes in the network must be \tit{covered} during data dissemination. Since this process forms the foundation for critical services such as reprogramming and parameter distribution, failing to reach even a single node can lead to inconsistencies or a complete network crash.
         \item \tbf{Energy efficiency}: The data dissemination process must be conducted with \tit{minimal energy consumption} due to the limited power resources of network nodes. Energy consumption primarily involves two components:
             \begin{itemize}
-                \item \tbf{read-write operations}, ecessary for storing data blocks and thus unavoidable
+                \item \tbf{read-write operations}, necessary for storing data blocks and thus unavoidable
                 \item \tbf{transmission activity}, the largest contributor to energy consumption and the aspect most amenable to optimization
             \end{itemize}
         \item \tbf{Scalability}: In Wireless Sensor Networks, both the number of nodes and node density can vary significantly. A dissemination protocol is considered scalable if the completion time of data dissemination increases linearly with the size of the network.
@@ -1874,7 +1873,7 @@
         % \item each station is assigned a \tbf{transmission range}, represented by a function $\func{r}{S}{\R}$ which induces a communication graph $G = (S, E)$ where $$(i, j) \in E \iff \dist(i, j) \le r(i)$$ and $\dist(i, j)$ is the Euclidean distance between $i$ and $j$; in other words, $(i, j) \in E$ if and only if $j$ belongs to the disk centered ad $i$ and having radius $r(i)$
     \end{itemize}
 
-    Each station can dynamically \tit{modulate} its own transmission power, in fact the \tbf{transmission radius} of a station depends on the energy power supplied to the station. In particular, the power $P_s$ required by a station $s$ to transmit data to another station $t$ must satisfy the following inequality $$\dfrac{P_s}{\dist^\alpha(s, t) } \ge 1$$ where $\alpha \ge 1$ is called \tbf{distance-power gradient}. Usually $2 \le \alpha \le 4$, and $\alpha = 2$ in empty space. This implies that, in order to have a communication from $s$ to $t$, the power $P_s$ must be \tit{proportional} to $\dist^\alpha(s, t)$. 
+    Each station can dynamically \tit{modulate} its own transmission power, in fact the \tbf{transmission radius} of a station depends on the energy power supplied to the station. In particular, the power $P_s$ required by a station $s$ to transmit data to another station $t$ must satisfy the following inequality $$P_s \ge \dist^\alpha(s, t)$$ where $\alpha \ge 1$ is called \tbf{distance-power gradient}. Usually $2 \le \alpha \le 4$, and $\alpha = 2$ in empty space. This implies that, in order to have a communication from $s$ to $t$, the power $P_s$ must be \tit{proportional} to $\dist^\alpha(s, t)$. 
 
     The primary goal is to \tbf{minimize energy consumption}, as all devices rely on a common electricity source (e.g., when the stations are deployed in an ad-hoc fashion and connected to a centralized power supply). To achieve this goal, the stations collaborate to provide specific \tbf{connectivity properties}, by \tit{dynamically adjusting} their transmission ranges.
 
@@ -1890,7 +1889,7 @@
 
     Since the main goal is to \tit{minimize the energy consumption} of the various hops of the network, we need to decide the \tbf{power consumption} of each node on the graph $G$ that we considered. Assume that there is a special \tit{source node} $s$ that is the starting point for any transmission that will be considered. In particular, we are interested in sending a \tbf{broadcast message} from $s$ to any other node of $G$, while still minimizing the energy consumption.
 
-    Let a \tbf{power assignment} be a function $\func{r}{V(G)}{\R^+}$, such that induces a subgraph $G'= (V, E')$ of the graph $G$, where the edges are defined as follows $$(i, j) \in E' \iff w(i, j) \le r(i)$$ If $G'$ is a \tit{spanning tree} of $G$ rooted in $s$, i.e. $s$ can correctly broadcast a messsage to any other node of the network, we will call the power assignment $r$ a \tbf{Broadcast Range Assignment}, or \tit{broadcast} for short.
+    Let a \tbf{power assignment} be a function $\func{r}{V(G)}{\R^+}$, such that it induces a subgraph $G'= (V, E')$ of the graph $G$, where the edges are defined as follows $$(i, j) \in E' \iff w(i, j) \le r(i)$$ If $G'$ is a \tit{spanning tree} of $G$ rooted in $s$, i.e. $s$ can correctly broadcast a messsage to any other node of the network, we will call the power assignment $r$ a \tbf{Broadcast Range Assignment}, or \tit{broadcast} for short.
 
     \begin{frameddefn}{Min Broadcast problem}
         The \tbf{Min Broadcast} problem asks to find the power assignment $r$ for a given network $G$ that minimizes the energy consumption, i.e. that minimizes $\sum_{v \in V(G)}{r(v)}$.
@@ -1906,7 +1905,7 @@
         Given a \tit{universe} set $U = \{1, \ldots, n\}$, and a collection of sets $S \in \powerset(U)$ such that $\bigcup_{X \in S}{X} = U$, find the \tit{smallest} sub-collection of $S$ whose union still equals $U$.
     \end{frameddefn}
 
-    In 1972 \textcite{karp} proved that the \tbf{set cover} problem is \NPComplete. For the set cover problem, the following theoretical result is known.
+    In 1972 \textcite{karp} proved that the \tbf{set cover} problem is \NPComplete. Moreover, for the set cover problem, the following theoretical result is known.
 
     \begin{framedthm}[label={sc inapprox}]{Inapproximability of Set Cover}
         The Set Cover problem is not approximable within a factor of $c \log n$, for some $c > 0$, where $n = \abs U$ and $U$ is the universe set of the set cover problem.
@@ -1919,23 +1918,23 @@
     \end{framedthm}
 
     \begin{proof}
-        We will perform a reduction from an instance of the set cover problem to an instance of the Min Broadcast problem. Consider an instance of the set cover problem $(U, C)$, where $U = \{s_1, \ldots, s_n\}$ is the unisverse set and $C = \{C_1, \ldots, C_m\}$ is the given collection of sets, construct the following instance $(G, w, s)$ of the Min Broadcast problem:
+        We will perform a reduction from an instance of the set cover problem to an instance of the Min Broadcast problem. Consider an instance of the set cover problem $(U, C)$, where $U = \{s_1, \ldots, s_n\}$ is the unisverse set and $C = \{C_1, \ldots, C_m\}$ is the given collection of sets, and construct the following instance $(G, w, s)$ of the Min Broadcast problem:
 
         \begin{itemize}
             \item let $v_{s_i}$ be a vertex for each $s_i \in U$, and let $v_{C_j}$ be a vertex for each $C_j \in C$; moreover, let $s$ be a new node
             \item the nodes of the graph $G$ are $$V(G) := \{s\} \cup \{v_{s_i} \mid s_i \in U\} \cup \{v_{C_j} \mid C_j \in C\}$$
-            \item the edges of the \tit{directed} graph $G$ are $$E(G) := \{(s, v_{C_j}) \mid C_j \in C\} \cup \{(v_{C_j}, v_{U_i}) \mid C_j \in C, U_i \in C_j\}$$ therefore, there is an edge between $s$ and each vertex representing a set $C_j$, and an edge between a set $C_j$ and its elements $s_i \in C_j$
+            \item the edges of the \tit{directed} graph $G$ are $$E(G) := \{(s, v_{C_j}) \mid C_j \in C\} \cup \{(v_{C_j}, v_{s_i}) \mid C_j \in C, s_i \in C_j\}$$ therefore, there is an edge between $s$ and each vertex representing a set $C_j$, and an edge between a set $C_j$ and its elements $s_i \in C_j$
             \item for any $e \in E(G)$, let $w(e) := 1$
         \end{itemize}
         
-        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted in $s$, since each element in $U$ is contained in at least one element of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
+        Let $C'$ be a solution for the instance of the set cover problem we considered; note that, by construction of the edges of $G$, any solution of the Min Broadcast instance we constructed assigns 1 to $s$ and to all the nodes of the form $v_{C_j}$ for the ones and only $C_j \in C'$, since the solution to the Min Broadcast must \tit{minimize} the energy consumption. Moreover, the transmission graph induced by this power assignment must be a spanning tree rooted in $s$, since each element of $U$ is contained in at least one set of $C'$. The cost of such a solution is $\abs{C'} + 1$, for the source node $s$.
 
-        Conversely, assume that $r$ is a feasible solution for the Min Broadcast problem, i.e. a power assignment that minimizes the energy consumption --- note that, $r(s) = 1$, and w.l.o.g. $r(v)$ is either 0 or 1 if $v$ is of the form $v_{C_j}$, otherwise it is 0 if it is of the form $v_{s_i}$. Thus, a solution for the set cover problem $C'$ can be derived by simply selecting all subsects $C_j \in C$ such that $r(C_j) = 1$ in the power assignment. The cardinality of such a solution is $\abs{C'} = \mathrm{cost}(r) - 1$, since $\mathrm{cost}(r)$ must contain the cost of the source node $s$.
+        Conversely, assume that $r$ is a feasible solution for the Min Broadcast problem, i.e. a power assignment that minimizes the energy consumption --- note that, $r(s) = 1$, and w.l.o.g. $r(v)$ is 1 if $v$ is of the form $v_{C_j}$, otherwise it is 0 if it is of the form $v_{s_i}$. Thus, a solution for the set cover problem $C'$ can be derived by simply selecting all subsects $C_j \in C$ such that $r(C_j) = 1$ in the power assignment. The cardinality of such a solution is $\abs{C'} = \mathrm{cost}(r) - 1$, since $\mathrm{cost}(r)$ must contain the cost of the source node $s$.
 
         This proves that, given an instance of the set cover problem $(U, C)$, an instance of the Min Broadcast problem $(G, w, s)$ can be constructed such that there exists a solution for $(U, C)$ of cardinality $k$ if and only if there exists a solution for $(G, w, s)$ of cost $k + 1$. Therefore, if Min Broadcast is approximable within a constant factor, then SC is approximable within a constant factor as well, which is not possible by \cref{sc inapprox}.
     \end{proof}
 
-    As a final note, it can be proven that the Min Broadcast problem is \NPComplete \cite{cagalj}, and in its general version --- not discussed in this notes --- it is neither approximable within $(1 - \varepsilon) \Delta$, where $\Delta$ is the maximum degree of the spanning tree of the solution to the problem, and $\varepsilon$ is an arbitrary constant.
+    As a final note, it can be proven that the Min Broadcast problem is \NPComplete \cite{cagalj}, and in its general version --- not discussed in this notes --- it is not approximable within $(1 - \varepsilon) \Delta$, where $\Delta$ is the maximum degree of the spanning tree of the solution to the problem, and $\varepsilon$ is an arbitrary constant.
 
     \subsection{Euclidean Min Broadcast}
 
@@ -1945,7 +1944,7 @@
 
     \centeredimage[]{0.25}{../assets/euclidean.png}
 
-    $S_1$ needs to communicate with $S_2$, but it can only communicate directly to $S_3$, and $S_3$ can in turn communicate to $S_2$. Assume that $\alpha = 2$, thus the cost for the transmission between $S_1$ and $S_2$ is $\dist(S_1, S_2)^2$, and the total cost of transmitting a message from $S_1$ to $S_2$ passing through $S_3$ is $$\dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ Note that if the angle $S_1S_3S_2$ is obtuse, then $$\dist(S_1, S_2)^2 > \dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ for the triangle inequality.
+    $S_1$ needs to communicate with $S_2$, but it can only communicate directly to $S_3$, and $S_3$ can in turn communicate to $S_2$. Assume that $\alpha = 2$, hence the total cost of transmitting a message from $S_1$ to $S_2$ passing through $S_3$ is $$\dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ Note that if the angle $S_1S_3S_2$ is obtuse, then $$\dist(S_1, S_2)^2 > \dist(S_1, S_3)^2 + \dist(S_3, S_2)^2$$ for the triangle inequality.
 
     In the Euclidean case, a power assignment $r$ of a given network can be represented by the corresponding \tit{family of disks} $D = \{D_1, \ldots, D_n\}$, and the overall energy consumption will be defined as $$\mathrm{cost}(D) := \sum_{i = 1}^n{r_i^\alpha}$$ where $r_i$ is the radius of $D_i$.
 
@@ -1974,9 +1973,9 @@
     \end{framedlem}
 
     \begin{proof}
-        By way of contradiction, assume that there exist two distinct MSTs $T$ and $T'$ for $G$, such that $$\sum_{e \in E(T)}{w(e)} = \sum_{e \in E(T')}{w(e)}$$ Without loss of generality, since $T \neq T'$ assume there exists $e_1 \in E(T) - E(T')$. Since $T'$ is an MST, the graph induced by $E(T') \cup \{e_1\}$ must contain a cycle $C$, and there must be at least one edge $e_2 \in E(T') - E(T)$ which lies in $C$.
+        By way of contradiction, assume that there exist two distinct MSTs $T$ and $T'$ for $G$, such that $$\sum_{e \in E(T)}{w(e)} = \sum_{e \in E(T')}{w(e)}$$ Without loss of generality, since $T \neq T'$ assume there exists $e_1 \in E(T) - E(T')$. Since $T'$ is an MST, the graph induced by $E(T') \cup \{e_1\}$ must contain a cycle $C$, and there must be at least one edge $e_2 \in E(T') - E(T)$ which lies in $C$ --- if such an $e_2$ does not exist, then $e_1$ could not have existed in the first place.
 
-        Now, if $w(e_1) < w(e_2)$, replacing $e_2$ with $e_1$ in $T'$ yields a spanning tree of $G$ of less weight than the weight of $T'$, which is a contradiction because we assumed that $T'$ was an MST. The same reasoning can be applied in the case in which $w(e_2) < w(e_1)$, and the case in which $w(e_1) = w(e_2)$ does not exist by hypothesis on $w$.
+        Now, if $w(e_1) < w(e_2)$, replacing $e_2$ with $e_1$ in $T'$ yields a spanning tree of $G$ of less weight than the weight of $T'$, which is a contradiction because we assumed that $T'$ was an MST. The same reasoning can be applied in the case in which $w(e_2) < w(e_1)$, and the case in which $w(e_1) = w(e_2)$ does not hold by hypothesis on $w$.
     \end{proof}
 
     \begin{framedlem}{}
@@ -1986,7 +1985,7 @@
     \begin{proof}
         By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \in E(T)$; hence, by definition of MST, the graph induced by $E(T) - \{e\}$ is described by two subtrees $T_1$ and $T_2$ of $G$, and the two endpoints of $e$ belong two $T_1$ and $T_2$ respectively.
 
-        Note that the rest of the cycle $C$ also connects the two subtrees, i.e. there exists another edge $f$ of $C$ such that the two subtrees $T_1$ and $T_2$ are connected, therefore we can define a new tree $T'$ induced by $E(T_1) \cup E(T_2) \cup \{f\}$ which still spans $G$ entirely. Finally, note that $w(e) > w(f)$ by hypothesis, therefore the total weight of $T'$ is less than the weight of $T$, contradicting the assumption for which $T$ was an MST.
+        Note that the rest of the cycle $C$ also connects the two subtrees, i.e. there exists at least another edge $f$ of $C$ such that the two subtrees $T_1$ and $T_2$ are connected, therefore we can define a new tree $T'$ induced by $E(T_1) \cup E(T_2) \cup \{f\}$ which still spans $G$ entirely. Finally, note that $w(e) > w(f)$ by hypothesis, therefore the total weight of $T'$ is less than the weight of $T$, contradicting the assumption for which $T$ was an MST.
     \end{proof}
 
     \begin{framedlem}{}
@@ -1994,11 +1993,11 @@
     \end{framedlem}
 
     \begin{proof}
-        By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \notin E(T)$, and consider the graph induced by $E(T) \cup \{e\}$. Clearly, such a graph contains a cycle $C$ that includes $e$, and by definition of $T$, removing any edge of $C$, that is different from $e$ itself, yields an MST of weight lower than the one of $T$, since
+        By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \notin E(T)$, and consider the graph induced by $E(T) \cup \{e\}$. Clearly, such a graph contains a cycle $C$ that includes $e$, and by definition of $T$, removing any edge of $C$ that is different from $e$ itself, yields an MST of weight lower than the one of $T$, since
 
         \begin{itemize}
             \item $e$ has minimum weight among all the edges of the graph
-            \item the weight that was replaced in favor of $e$ must have greater weight than $e$'s weight, by definition of $e$
+            \item the edge that was replaced with $e$ must have \tit{strictly greater} weight than $e$'s weight, since $e$ has unique minimum weight in $G$
         \end{itemize}
 
         and this contradicts the assumption of $T$ being an MST of $G$.
@@ -2012,13 +2011,87 @@
         By way of contradiction, assume that there exists an MST $T$ of $G$ such that $e \notin E(T)$; then, by definition, adding $e$ to $E(T)$ would create a cycle that passes through the cut $C$ of $G$ at least twice. Therefore, if we remove any other edge that is both on the cut and in the cycle we just formed, we get a spanning tree of $G$ with less weight then $T$'s, by hypothesis on the weight of $e$.
     \end{proof}
 
-    \begin{framedcor}{}
+    \begin{framedcor}[label={prim cor}]{}
         Consider a graph $G = (V, E)$, a weight function $\func{w}{E(G)}{\R}$, and a set of edges defined by a cut $C$ on $G$; then, all the edges that have minimum weight in $C$ are included in any MST of $G$.
     \end{framedcor}
 
-    There are three classical algorithms that are well-known in the literature which are able to compute the MST of a given graph, namely \href{https://en.wikipedia.org/wiki/Kruskal%27s_algorithm}{Kruskal's algorithm}, \href{https://en.wikipedia.org/wiki/Prim%27s_algorithm}{Prim's algorithm} and \href{https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm}{Borvka's algorithm}; all of the three algorithms employ \tbf{greedy} approaches, and they are presented down below.
+    There are three classical algorithms that are well-known in the literature which are able to compute the MST of a given graph, namely \href{https://en.wikipedia.org/wiki/Kruskal%27s_algorithm}{Kruskal's algorithm}, \href{https://en.wikipedia.org/wiki/Prim%27s_algorithm}{Prim's algorithm} and \href{https://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm}{Borůvka's algorithm}; all of the three algorithms employ \tbf{greedy} approaches, and they are presented down below.
 
-    placeholder \todo{this part is trash}
+    \begin{framedalgo}{Kruskal's algorithm}
+        Given a graph $G$, and a weight function $\func{w}{E(G)}{\R^+}$, the algorithm returns an MST of $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{kruskal}{$G$, $w$}
+                \State $T := \varnothing$
+                \While{$V(T) \neq V(G)$}
+                    \State Let $e$ be the edge that connects two different connected components of $T$ that has the least weight w.r.t. $w$
+                    \State $T = T \cup \{e\}$
+                \EndWhile
+                \State \textbf{return} $T$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        The algorithm repeatedly chosses the edge $e$ that connects two different connected components of $T$ which has the least weight w.r.t. $w$, until $T$ spans $G$ entirely.
+    }
+
+    \cost{
+        The algorithm is usually implemented using the \tbf{Union-Find} data structure, through which it is possible to achieve a cost of $O(m \log n)$ time (assuming that $\frac{n}{2} \le m \le n^2$, and $\log n$ and $\log m$ are within a constant factor to each other).
+    }
+
+    \begin{framedalgo}{Prim's algorithm}
+        Given a graph $G$, and a weight function $\func{w}{E(G)}{\R^+}$, the algorithm returns an MST of $G$. \\
+        \hrule
+
+        \quad
+        \begin{algorithmic}[1]
+            \Function{Prim}{$G$, $w$}
+                \State $v \in V(G)$
+                \State $\texttt{Sol} := \varnothing$
+                \State $R := \{v\}$
+                \State $\texttt{MinHeap H} := \texttt{[]}$
+                \For{$u \in V(G) - \{v\}$}
+                    \State $\texttt{H.insert(}u, +\infty\texttt{)}$
+                \EndFor
+                \State $\texttt{parents} := \texttt{[}-1\texttt{]} * n$
+                \State $\texttt{parents[}v\texttt{]} = v$
+                \For{$y \in V(G) : y \sim v$}
+                    \State $\texttt{parents[}y\texttt{]} = v$
+                    \State $\texttt{H.set\_key(}y, w(v, y)\texttt{)}$
+                \EndFor
+                \While{$R \neq V(G)$}
+                    \State $y := \texttt{H.extract\_min()}$ \Comment{$y$ is \underline{removed} from \texttt{H}}
+                        \State $\texttt{Sol} = \texttt{Sol} \cup \{ (\texttt{parents[}y\texttt{]}, y) \}$
+                    \State $R = R \cup \{y\}$
+                    \For{$x \in V(G) - R : x \sim y$}
+                        \If{$\texttt{H.get\_key(}x\texttt{)} > w(x, y)$}
+                            \State $\texttt{parents[}x\texttt{]} = y$
+                            \State $\texttt{H.set\_key(}x, w(x, y)\texttt{)}$
+                        \EndIf
+                    \EndFor
+                \EndWhile
+                \State \textbf{return} \texttt{Sol}
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        The idea of the algorithm is very similar to the idea of Dijkstra's algorithm --- proposed in \cref{dijkstra} --- with the only difference being the \tit{optimization function} of the algorithm:
+
+        \begin{itemize}
+            \item Dijkstra's algorithm aims at minimizing the distance between the starting node
+            \item Prim's algorithm aims at minimizing the weight of the edge on the cut defined by the current set of visited vertices $R$ --- note that this algorithm relies on \cref{prim cor}
+        \end{itemize}
+    }
+
+    \cost{
+        This implementation through a \tbf{MinHeap} has cost of $O(m \log n)$, but it is possible to achieve a cost of $O(m + n \log n)$ through a \tbf{Fibonacci Heap}.
+    }
+
+    placeholder \todo{missing boruvka's alg}
     
     \subsection{Min Broadcast heuristics}
     
@@ -3703,7 +3776,7 @@
     In 2023 \textcite{calamoneri} introduced the following problem, aimed at modeling and extending the UAV monitoring problem.
 
     \begin{frameddefn}{MDMT-VRP-TCT}
-        The \tbf{Multi-Depot Multi-Trip Vehicle Routing Problem with Total Completion Time minimization} (MDMT-VRP-TCT) is defined as follows: given the UAV monitoring problem, extended with multiple depots, determine the cycles for the UAVs that \tit{minimize the total completion time}, subject to the constraints of battery capacity and flying-and-inspection time
+        The \tbf{Multi-Depot Multi-Trip Vehicle Routing Problem with Total Completion Time minimization} (MDMT-VRP-TCT) is defined as follows: given the UAV monitoring problem, extended with multiple depots, determine the cycles for the UAVs that \tit{minimize the total completion time}, subject to the constraints of battery capacity and flying-and-inspection time.
     \end{frameddefn}
     
     Note that in the formulation we described earlier the UAV monitoring problem had 1 safe location, but the MDMT-VRP-TCT generalizes this formulation by allowing the considered setting to admit multiple depots for the UAVs --- note that 1 UAV is \tit{tied} to 1 depot, in the context of this problem. This is particularly useful in real-world scenarios, such as natural disasters, where UAVs are deployed to scan affected areas and prioritize rescue efforts. In such cases, there may also be multiple depots coordinating multiple UAVs.
@@ -3721,12 +3794,12 @@
     Additionally, the MDMT-VRP-TCT can be formulated as an ILP, by employing the following definitions:
 
     \begin{itemize}
-        \item let a \tbf{sequence} be a ordered set of $k$ target nodes (i.e. sites), and let the \tbf{duration} $d_k$ of a $k$-long sequence be the sum between
+        \item let a \tbf{sequence} be an ordered set of $k$ target nodes (i.e. sites), and let the \tbf{duration} $d_k$ of a $k$-long sequence be the sum between
             \begin{itemize}
                 \item all the traveling times between consecutive target nodes of the sequence
                 \item the service times of all the target nodes of the sequence
             \end{itemize}
-        \item given a UAV $u$, and its depot $o_u$, let a \tbf{trip} assigned to $u$ be a $k$-long sequence that passes through $o_u$; the duration $d_{k,u}$ of such a $k + 1$-long trip is defined as the sum between
+        \item given a UAV $u$, and its depot $o_u$, let a \tbf{trip} assigned to $u$ be a $k$-long sequence that passes through $o_u$; the duration $d_{k,u}$ of such a $(k + 1)$-long trip is defined as the sum between
             \begin{itemize}
                 \item the duration of the $k$-long sequence of the trip
                 \item the traveling distance between $o_u$ and the first node of the sequence of the trip
@@ -3735,7 +3808,7 @@
     \end{itemize}
 
     \begin{frameddefn}{Compatibility}
-        Given a UAV $u$ with a battery capacity of $B$, a $k$-long sequence is said to be \tbf{compatible} $u$ if the duration of its associated trip is upper bounded by $B$.
+        Given a UAV $u$ with a battery capacity of $B$, a $k$-long sequence is said to be \tbf{compatible} with $u$ if the duration of its associated trip is upper bounded by $B$.
     \end{frameddefn}
 
     The core concept of such an ILP involves generating \tit{all possible sequences} that are compatible with at least one UAV, and selecting the optimal solution. However, this approach may result in an \tit{unmanageably large} number of sequences. To address this, a \tbf{matheuristic approach} may be employed, by generating only a \tit{subset} of feasible cycles to input into the model. Notably, determining which sequences to generate becomes a critically important aspect of this method.
