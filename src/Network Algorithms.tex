@@ -1638,11 +1638,18 @@
             \item since $f$ is injective, and by the previous condition, it holds that $$\abs{f(u) - f(v)} \neq 0 \implies \abs{f(u) - f(v)} \ge 1$$ for any pair of vertices of $G'$ that are at distance 2
         \end{itemize}
 
-        which implies that $g$ is an $L(2,1)$-labeling for $G'$, and clearly $$\displaystyle \lambda_{2,1}(G') \le \max_{v ' \in v'\rbk{g'}}{g(v')} \le \abs{V'}$$
+        which implies that $g$ is an $L(2,1)$-labeling for $G'$, and clearly $$\displaystyle \lambda_{2,1}(G') \le \max_{v ' \in V'\rbk{G'}}{g(v')} \le \abs{V'}$$
 
-        Conversely, suppose that $\lambda_{2,1}(G') \le \abs{V'}$, i.e. there exists a feasible $L(2,1)$-labeling $g$ such that $\displaystyle \max_{v ' \in v'\rbk{g'}}{g(v')} \le \abs{V'}$. Note that $G'$ has diameter 2 because of $x$, therefore it must be that $u \neq v \implies g(u) \neq g(v)$ for each $u, v \in V'(G')$, otherwise $g$ would not be a feasible $L(2,1)$-labeling; this implies that $g$ must be injective.
+        Conversely, suppose that $\lambda_{2,1}(G') \le \abs{V'}$, i.e. there exists a feasible $L(2,1)$-labeling $g$ such that $\displaystyle \max_{v ' \in V'\rbk{G'}}{g(v')} \le \abs{V'}$. Note that $G'$ has diameter 2 because of $x$, therefore it must be that $u \neq v \implies g(u) \neq g(v)$ for each $u, v \in V'(G')$, otherwise $g$ would not be a feasible $L(2,1)$-labeling; this implies that $g$ must be injective.
 
-        Now, assume that $g(x) \neq \abs V + 1 \land g(x) \neq 0$; since $g$ is a $L(2,1)$-labeling of $G'$, there cannot be any $v \in V(G)$ such that $g(v) = g(x) \pm 1$, since $x$ is connected to each vertex $v \in V(G)$, thus \todo{what? pag 39}
+        Now, assume that $g(x) \neq \abs V + 1 \land g(x) \neq 0$; since $g$ is a $L(2,1)$-labeling of $G'$, and $x$ is connected to each vertex $v \in V(G)$, we have that
+
+        \begin{itemize}
+            \item no vertex $v \in V(G)$ has color $g(x)$, or $g(x) \pm 1$
+            \item hence, the \tit{lower} --- w.r.t. $g(x)$ --- range of possible colors for the other vertices is $[0, g(x) - 2]$, i.e. $$g(x) - 2 - 0 + 1 = g(x) - 1$$ colors, and the \tit{upper} range will be $[g(x) + 2, R]$, i.e. $$R - (g(x) + 2) + 1= R - g(x) - 1$$ colors, for some $R$
+            \item to determine $R$, note that the number of vertices that have to be colored is $n$, therefore $$g(x) - 1 + R - g(x) - 1 = n \iff R = n + 2$$
+            \item this implies that the range of possible colors of $g$ is $[0, R + 2]$, contradicting the hypothesis for which $\lambda_{2,1}(G') \le n + 1$
+        \end{itemize}
 
         Therefore, $g(x)$ is either 0 or $\abs V + 1$, hence
 
@@ -1837,7 +1844,7 @@
             \begin{itemize}
                 \item choose a starting region and assign one of the two available colors to it
                 \item assign the other color to its neighbouring regions
-                \item expand the colored region by alternating the 2 colors, until either all the regions have been colored, or there is a region that cannot be colored without conflicting with its neighbours, which implies that the map was not 2-colorable from the beginning
+                \item expand the colored region by alternating the 2 colors, until either all the regions have been colored, or there is a region that cannot be colored without conflicting with its neighbours, which implies that the map is 2-colorable from the beginning
             \end{itemize}
         \item \tbf{3-coloring}: this problem is \NPHard,  however some techniques are available which can simplify the map before searching for a 3-coloring function, but such strategies do not change the time complexity of the problem in the worst case
         \item \tbf{4-coloring}: the 4-coloring problem is \NPComplete, as for the 3-coloring case
@@ -2379,20 +2386,14 @@
 
         Consider an MST $T$ of $K_n$ rooted in some node $r \in V(K_n)$, and consider the set of vertices $O$ that have odd degree in $T$, and the subgraph $K_n^O$ this set induces with the edges of $K_n$. Now, consider the graph $K_n^O$, induced by $O$, and a minimum weight perfect matching $M$ of $K_n^O$.
 
-        Note that, because of \cref{odd even}, $\abs O$ is even, therefore $K_n^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $K_n^O$. Moreover, let $N^*$ be a TS tour on $K_n^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately. Note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Additionally, note that both $N_O$ and $N_E$ are perfect matchings of $K_n^O$, but since $M$ is the perfect matching of $K_n^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2}$$ Consider a TS tour $A$, obtained from $H^*$, by skipping the even-degree nodes:
-
-        \begin{itemize}
-            \item clearly, this is a TS tour on $K_n^O$, since $O$ is derived from $T$, which is a spanning tree, therefore it will contain all the odd-degree vertices of $K_n$; by triangle inequality, this implies that $w(A) \le w(H^*)$
-            \item since $N^*$ is an optimal TS tour on $K_n^O$ by definition, we have that $w(N^*) \le w(A)$
-            \item this means that $w(N^*) \le w(A) \le w(H^*)$, therefore $$w(M) \le \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$
-        \end{itemize}
+        Note that, because of \cref{odd even}, $\abs O$ is even, therefore $K_n^O$ has a perfect matching; thus, let $M$ be the minimum weight perfect matching of $K_n^O$. Moreover, let $N^*$ be a TS tour on $K_n^O$, and let $N_O$ and $N_E$ be the two subsets of edges obtained by taking the edges of $N^*$ alternately. Note that $N_O$ and $N_E$ describe a partition of $N^*$, which implies that $w(N_E) + w(N_O) = w(N^*)$. Additionally, note that both $N_O$ and $N_E$ are perfect matchings of $K_n^O$, but since $M$ is the perfect matching of $K_n^O$ with minimum weight, it must be that $$w(M) \le \min (w(N_O), w(N_E)) \le \dfrac{w(N_O) + w(N_E)}{2} = \dfrac{w(N^*)}{2}$$ Moreover, note that $N^*$ is a TS tour on $K_n^O$, and $H^*$ is a TS tour on $G$, therefore $w(N^*) \le w(H^*)$ by the triangle inequality. Hence, we have that $$w(M) \le \dfrac{w(N^*)}{2} \le \dfrac{w(H^*)}{2}$$
 
         Now consider the multi-graph described by the edges in $U := M \cup T$, where the edges that appear both in $M$ and in $T$ are \tit{counted twice}:
         
         \begin{itemize}
             \item clearly, the multi-graph induced by $U$ is connected, because $T$ is a spanning tree
             \item since $M$ is a minimum weight perfect matching of $K_n^O$, adding the edges of $M$ in $T$ will turn the degree of the vertices that were in $O$ into even degrees, therefore all nodes in $U$ are of even degree; this means that, since $U$ is connected, it is always possible to find an Eulerian circuit by \cref{eul circ}
-            \item finally, since $w(U) = w(M) + w(T)$, given a solution of the algorithm $H$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$, and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
+            \item finally, by definition of $U$ we have that $$w(U) = w(M \cup T) = w(M) + w(T) - w(M \cap T) + w(M \cap T) = w(M) + w(T)$$ therefore, given a solution of the algorithm $H$, we have that $$w(H) \le w(U) = w(M) + w(T) \le \dfrac{w(H^*)}{2} + w(H^*) \le \dfrac{3}{2}w(H^*)$$ where $w(H) \le w(U)$ by definition of $H$, and $w(T) \le w(H^*)$ is a consequence of \cref{tsp bound}
         \end{itemize}
     \end{proof}
 
@@ -2663,7 +2664,7 @@
                 \EndWhile
                 \Do
                     \State Color either one or two gray nodes in black to reduce CC
-                \doWhile{$\mathrm{CC} == 1$}
+                \doWhile{$\mathrm{CC} > 1$}
             \EndFunction
         \end{algorithmic}
     \end{framedalgo}
@@ -2863,7 +2864,7 @@
 
     As we already discussed, not all graphs have a \tit{perfect matching}, but when one exists, certain theorems for bipartite graphs --- like the following, proved by \href{https://en.wikipedia.org/wiki/Philip_Hall}{Philip Hall} in 1935 --- can help determine its existence and structure.
 
-    Given a set of vertices $S \subseteq V(G)$ of a graph $G$, let $$\delta(S) := \{v \in V(G) \mid \exists x \in V(G) : (v, x) \in E(G)\}$$ be $S$'s \tbf{neighbourhood}.
+    Given a set of vertices $S \subseteq V(G)$ of a graph $G$, let $$\delta(S) := \{v \in V(G) \mid \exists x \in S : (v, x) \in E(G)\}$$ be $S$'s \tbf{neighbourhood}.
 
     \begin{framedthm}{Hall's marriage theorem}
         Given a bipartite graph $G$, bipartite into $V_1$ and $V_2$, where $\abs{V_1} \le \abs{V_2}$, $G$ has a $V_1$-perfect matching if and only if for each set $S$ of $k$ nodes in $V_1$ there are at least $k$ nodes in $V_2$ adjacent to some node in $S$. Using symbols $$\forall S \subseteq V_1 \quad \abs S \le \abs{\delta(S)}$$
@@ -3343,14 +3344,14 @@
 
     \chapter{The sensor self-deployment problem}
 
-    The previous chapter explored approaches to addressing the \tbf{deployment problem} through \tit{centralized solutions}. These methods rely on a central server to compute and coordinate the deployment of sensors across the AoI.
+    The previous chapter explored approaches to address the \tbf{deployment problem} through \tit{centralized solutions}. These methods rely on a central server to compute and coordinate the deployment of sensors across the AoI.
 
-    However, \tbf{centralized solution} is often \tit{not ideal} due to several limitations:  
+    However, centralized solutions are often \tit{not ideal} due to several limitations:  
 
     \begin{itemize}
-        \item it requires a continuous connection to a central server
+        \item they require a continuous connection to a central server
         \item significant delays are likely to occur
-        \item the approach lacks fault tolerance, making it vulnerable to failures
+        \item they lack fault tolerance, making them vulnerable to failures
     \end{itemize}
 
     In contrast, the \tit{mobility of sensors} enables them to \tbf{self-deploy} autonomously. Starting from any initial configuration, they can move to a final distribution that ensures complete coverage of the AoI. This decentralized approach offers greater flexibility and resilience.
@@ -3367,7 +3368,7 @@
 
     This iterative process enables sensors to \tit{adapt dynamically} to their environment and achieve efficient coverage autonomously.
 
-    We can model sensors as \tit{physical particles} influenced by forces such as magnetism and gravity, as shown in the following image
+    We can model sensors as \tit{physical particles} influenced by forces such as magnetism and gravity, as shown in the following image:
 
     \centeredimage[]{0.25}{../assets/particles.png}
 
@@ -3375,7 +3376,7 @@
         \item \tbf{repulsion}: when two sensors are too close to each other, they \tit{repel}, mimicking the behavior of like-charged particles, ensuring that sensors spread out and avoid overcrowding in a given area
         \item \tbf{attraction}: if two sensors are far apart but still within communication range, they exert an \tit{attractive force} on each other, similar to gravitational pull, encouraging sensors to maintain connectivity and fill coverage gaps
         \item \tbf{no interaction}: sensors ignore one another when they are too far apart to communicate, reflecting the absence of forces beyond their interaction range
-        \item additionally, \tbf{friction} is introduced into the system to dampen \tit{oscillatory movements}, helping sensors stabilize in their final positions and avoid perpetual motion.  
+        \item additionally, \tbf{friction} is introduced into the system to dampen \tit{oscillatory movements}, helping sensors stabilize in their final positions and avoid perpetual motion
     \end{itemize}
 
     Nevertheless, this model inspired by physical particles presents several \tbf{weaknesses}:
@@ -3407,14 +3408,14 @@
         
         \item \tbf{Satisfaction criteria}. A sensor is considered \tit{satisfied} if it completely covers its assigned portion of the AoI, or its entire sensing radius is fully utilized in attempting to cover its portion.
         
-        \item \tbf{Adjustment for unsatisfied sensors}. if a sensor does not meet the \tit{satisfaction criteria}, it moves to a new position to improve its coverage. Movement is guided by local information about its region and the positions of neighboring sensors.  
+        \item \tbf{Adjustment for unsatisfied sensors}. If a sensor does not meet the \tit{satisfaction criteria}, it moves to a new position to improve its coverage. Movement is guided by local information about its region and the positions of neighboring sensors.  
         
         \item \tbf{Dynamic adaptation}. As sensors move, the Voronoi diagram updates dynamically, redistributing AoI regions to reflect the sensors' new positions.  
     \end{itemize}
 
     This approach ensures efficient and adaptive coverage of the AoI while minimizing overlap and redundancy. By leveraging the geometric properties of Voronoi diagrams, the protocol provides a clear and logical framework for sensor deployment.
 
-    \begin{frameddefn}{Voronoi diagrams}
+    \begin{frameddefn}{Voronoi diagram}
         Given a set $\mathcal P = \{P_1, \ldots, P_n\}$ of $n$ distinct points on the plane, the \tbf{Voronoi diagram} $\mathrm{VD}(\mathcal P)$ of the set of points is a \tit{partition} of the plane into $n$ cells $V_1, \ldots, V_n$, such that
 
         \begin{itemize}
@@ -3426,28 +3427,28 @@
     In other words, a region $V_i$ of the Voronoi diagram is the set of points that are closer to $P_i$ than any other $P_j$ on the plane.
 
     \begin{example}[Voronoi diagrams]
-        The following is an exmaple of a Voronoi diagrams, along with some definitions of its components:
+        The following is an exmaple of a Voronoi diagram, along with some definitions of its components:
 
         \centeredimage[]{0.25}{../assets/voronoi_desc.png}
     \end{example}
 
-    Clearly, by definition, Voronoi vertices are the points of the plane that are equidistant to its neighbour points in $\mathcal P$
+    Clearly, by definition, Voronoi vertices are the points of the plane that are equidistant to its neighbouring points in $\mathcal P$.
 
     \centeredimage[]{0.25}{../assets/voronoi_vertices.png}
 
-    The Voronoi diagram of a single point is the following
+    The Voronoi diagram of a single point is the following:
 
     \centeredimage[]{0.25}{../assets/voronoi_singleton.png}
 
-    and the Voronoi diagram of two points is described by two half planes
+    and the Voronoi diagram of two points is described by two half planes, as shown below:
 
     \centeredimage[]{0.25}{../assets/voronoi_two.png}
 
-    which implies that the Voronoi diagram of collinear sites is the following
+    which implies that the Voronoi diagram of \tit{collinear points} is the following:
 
     \centeredimage[]{0.25}{../assets/voronoi_colinear.png}
 
-    Note that 4 non-collinear sites may generate two different Voronoi diagrams, as shown below:
+    Note that 4 non-collinear points may generate two different Voronoi diagrams, as shown below:
 
     \begin{figure}[H]
         \centering
@@ -3461,23 +3462,23 @@
 
     \begin{itemize}
         \item a point $Q$ on the plane lies on the \tbf{Voronoi segment} between two points $P_i$ and $P_j$ if and only if the largest empty circle centered in $Q$ touches only $P_i$ and $P_j$
-        \item a point $Q$ on the plane is a \tbf{Voronoi vertex} if and only if the larges empty circle centered in $Q$ touches at least 3 sites of $\mathcal P$
+        \item a point $Q$ on the plane is a \tbf{Voronoi vertex} if and only if the largest empty circle centered in $Q$ touches at least 3 sites of $\mathcal P$
     \end{itemize}
 
     Let $V$ and $E$ be respectively the sets of vertices and edges of a given Voronoi diagram --- note that $E$ also contains the edges that extend infinitely. Thus, it holds the following result.
 
     \begin{framedthm}{}
-        Given a Voronoi diagram of $n$ vertices, such that $n \ge 3$; it holds that $\abs V \le 2n - 5$ and $\abs E \le 3n - 6$.
+        Consider a Voronoi diagram generated by $n$ points, such that $n \ge 3$; it holds that $\abs V \le 2n - 5$ and $\abs E \le 3n - 6$.
     \end{framedthm}
 
     \begin{proof}
         If the Voronoi diagram is defined by \tit{only} collinear points, then we have $\abs V = 0 \le 2n - 5$ for any $n \ge 3$, and $\abs E = n - 1 \le 3n - 6$ for any $n \ge 3$.
 
-        For the general case, consider the given Voronoi diagram; clearly, since it is not defined by \tit{only} collinear points, it will contain some edges that extend infinitely, which implies that the Voronoi diagram does not describe a planar graph. Nevertheless, we can create a \tit{dummy node} $p_\infty$ to which we can connect all the infinite edges, making the graph described by the Voronoi diagram a planar graph, as shown below:
+        For the general case, consider the given Voronoi diagram; clearly, since it is not defined by \tit{only} collinear points, it will contain some edges that extend infinitely, which implies that the Voronoi diagram does not describe a planar graph. Nevertheless, we can create a \tit{dummy node} $p_\infty$ to which we can connect all the infinite edges, turning the Voronoi diagram into a planar graph, as shown below:
 
         placeholder \todo{add pic pag 32}
 
-        Now that the graph is planar, we can use \href{https://en.wikipedia.org/wiki/Planar_graph#Euler's_formula}{Euler's formula} which states that $$\abs V - \abs E + F = 2$$ where $F$ is the number of faces of the graph we are considering, which is $n$, and since the number of nodes is $\abs V + 1$ for the \tit{dummy node}, we have that $$\abs V + 1 - \abs E + n =  2$$ Moreover, for the \cref{handshaking lemma} we know that $$\sum_{v \in \mathrm{VD}}{\deg(v)} = 2 \abs E$$ and since $\deg(v) \ge 3$ it must be that $$2 \abs E = \sum_{v \in \mathrm{VD}}{\deg(v)} \ge 3 \abs{\mathrm{VD}} = 3 (\abs V + 1)$$
+        Now that the graph is planar, we can use \href{https://en.wikipedia.org/wiki/Planar_graph#Euler's_formula}{Euler's formula} which states that $$\abs V - \abs E + F = 2$$ where $F$ is the number of faces (i.e. Voronoi regions) of the graph we are considering, which is $n$, and since the number of nodes is $\abs V + 1$ for the \tit{dummy node}, we have that $$\abs V + 1 - \abs E + n =  2$$ Moreover, for the \cref{handshaking lemma} we know that $$\sum_{v \in V \cup \{p_\infty\}}{\deg(v)} = 2 \abs E$$ and since $\deg(v) \ge 3$ it must be that $$2 \abs E = \sum_{v \in V \cup \{p_\infty\}}{\deg(v)} \ge 3 \abs{V \cup \{p_\infty\}} = 3 (\abs V + 1)$$
 
         Finally, by using this inequality and Euler's formula, we find the bounds of the statement.
     \end{proof}
@@ -3510,7 +3511,7 @@
 
     Hence, the cost of the algorithm that computes the Voronoi diagram through intersecting half planes is given by the cost of finding a single cell, which is $O(n \log n)$ since there are $O(n)$ half planes, times the number of cells, thus $O(n^2 \log n)$.
 
-    Note that we can actually do better: in fact, not every site pair describes an axis of the Voronoi diagram, as shown below:
+    Note that we can actually do better: in fact, not every pair of points in $\mathcal P$ describes an axis of the Voronoi diagram, as shown below:
 
     \centeredimage[]{0.25}{../assets/voronoi_alg4.png}
 
@@ -3540,7 +3541,7 @@
 
     If a point is above the beach line, it must be closer to one of the points in $\mathcal P$ above the sweep line than to the sweep line itself, by definition. Therefore, such a point will lie inside the Voronoi cell of the site that has already been swept by $l$, implying that the Voronoi diagram above the beach line is completely determined.
 
-    Now, consider a point $Q$; if $Q$ is touched by the portion of the beach line generated by the point $P_i \in \mathcal P$, it will belong to the voronoi cell $V_i$, generated by $P_i$, implying that for all $j \neq i$ we have that $$\dist(Q, P_i) \le \dist(Q, P_j)$$ and, recalling $Q$ lies on the parabola generated by $P_i$ and $l$ if and only if $\dist(Q, P_i) = l_y - Q_y$, we have that $$\dist(Q, P_j) \ge \dist(Q, P_i) = l_y - Q_Y = \dist(Q, l)$$ Therefore, when a point appears on the beach line, it is on the parabola associated to its closest site.
+    Now, consider a point $Q$; if $Q$ is touched by the portion of the beach line generated by the point $P_i \in \mathcal P$, it will belong to the voronoi cell $V_i$, generated by $P_i$, implying that for all $j \neq i$ we have that $$\dist(Q, P_i) \le \dist(Q, P_j)$$ and, recalling that $Q$ lies on the parabola generated by $P_i$ and $l$ if and only if $\dist(Q, P_i) = l_y - Q_y$, we have that $$\dist(Q, P_j) \ge \dist(Q, P_i) = l_y - Q_Y = \dist(Q, l)$$ Therefore, when a point appears on the beach line, it is on the parabola associated to its closest site.
 
     Points on the beach line lying at the intersection of two parabola arches are called \tbf{breakpoints}. Clearly, breakpoints are closest to two points of $\mathcal P$ at the same time, which means that they will lie on the \tit{segments} of the Voronoi diagram that will be generated at the end of the algorithm.
 
@@ -3560,13 +3561,13 @@
         \item the one to its left
     \end{itemize}
 
-    Therefore $x$ is equally distant from 3 different points of $\mathcal P$, which implies that a circle centered at $x$ passes through these 3 different points. Clearly, such an event determines a Voronoi vertex when the sweep line finished to sweep this circle, indeed this events are called \tbf{circle events}.
+    Therefore $x$ is equally distant from 3 different points of $\mathcal P$, which implies that a circle centered at $x$ passes through these 3 different points. Clearly, such an event determines a Voronoi vertex when the sweep line has finished to sweep this circle, indeed this events are called \tbf{circle events}.
 
     Hence, if the next event encountered by the beach line is
 
     \begin{itemize}
         \item a \tbf{site event}, insert the new site encountered in a \tit{list of sites}, in the order dictated by the appearing order of its parabola arch, and add a segment in the final Voronoi diagram
-        \item a \tbf{circle event}, store both the new Voronoi vertex in the final diagram, and the information that it is the endpoint of segments corresponding to two breakpoints convering into a single point
+        \item a \tbf{circle event}, store both the new Voronoi vertex in the final diagram, and the information that it is the endpoint of segments corresponding to two breakpoints converging into a single point
     \end{itemize}
 
     and, in both cases, it must be checked whether a new triple of sites producing a next \tit{circle event} has been discovered.
@@ -3574,12 +3575,12 @@
     Finally, regarding the computational cost of the algorithm
 
     \begin{itemize}
-        \item each event requires constant time to be detected, and a consstant number of accesses to the data structures to be stored
+        \item each event requires constant time to be detected, and a constant number of accesses to the data structures to be stored
         \item each data structure contains $O(n)$ information
         \item each access costs $O(\log n)$ time
     \end{itemize}
 
-    therefore, the computational time Fortune's algorithm is $O(n \log n)$, and it requires $O(n)$ space, which is optimal since the sorting problem using comparisons can be reduced to the computation of the Voronoi diagrams.
+    therefore, the computational time of the Fortune's algorithm is $O(n \log n)$, and it requires $O(n)$ space, which is optimal since the sorting problem using comparisons can be reduced to the computation of the Voronoi diagrams.
 
     \section{Sensor heterogeneity}
 
@@ -3594,14 +3595,14 @@
 
     \begin{itemize}
         \item \tbf{virtual force-based approaches}: they rely on \tit{forces} derived from inter-sensor distances, but when sensors have varying coverage or communication ranges, distance alone is \tit{insufficient} to optimize deployment or connectivity effectively
-        \item \tbf{Voronoi cell-based approaches}: Voronoi diagrams divide the area into regions based on proximity to sensors but do not account for each sensor's \tit{unique coverage} or \tit{communication capabilities}, leading to suboptimal partitioning in heterogeneous networks.
+        \item \tbf{Voronoi cell-based approaches}: Voronoi diagrams divide the area into regions based on proximity to sensors but do not account for each sensor's \tit{unique coverage} or \tit{communication capabilities}, leading to suboptimal partitioning in heterogeneous networks
     \end{itemize}
 
     For instance, consider the following scenario:
 
     \centeredimage[]{0.3}{../assets/voronoi_limit.png}
 
-    In this cnotest, a protocol based on the construction of Voronoi cells would determine the rightmost vertical line, which is clearly not the optimal partitioning in this context. In fact, the optimal partitioning is represented by the leftmost vertical line, which precisely divides the plane into two half planes at the intersection points of the circles of the two sites $s_1$ and $s_2$.
+    In this context, a protocol based on the construction of Voronoi cells would determine the rightmost vertical line, which is clearly not the optimal partitioning in this context. In fact, the optimal partitioning is represented by the leftmost vertical line, which precisely divides the plane into two half planes at the intersection points of the circles centered in the two sites $s_1$ and $s_2$.
 
     But this is not the only limitation of Voronoi based protocols if we consider networks with heterogeneous sensors. In fact, the following condition may occur 
 
@@ -3609,7 +3610,7 @@
 
     in which the (mobile) sensors on the left --- that have the bigger radii --- do not move since they completely cover their cells, and the sensors on the right --- that have the smaller radii --- do not move since their coverage capacity is maximized and cannot cover more than they already cover. This is a \tbf{stale situation}.
 
-    Because it is difficult to take it into account, in most existing algorithms sensor heterogeneity is typically overlooked, leading to \tit{suboptimal performance} in heterogeneous sensor networks. To address this, \textcite{blaschke} proposed a new notion of \tbf{distance} proposed, which considers both the Euclidean distance and the device heterogeneity. Ideally, the resulting diagrams should satisfy the following properties:
+    Because it is difficult to take it into account, in most existing algorithms sensor heterogeneity is typically overlooked, leading to \tit{suboptimal performance} in heterogeneous sensor networks. To address this, \textcite{blaschke} proposed a new notion of \tbf{distance}, which considers both the Euclidean distance and the device heterogeneity. Ideally, the resulting diagrams should satisfy the following properties:
 
     \begin{itemize}
         \item \tbf{straight-edged polygons}: the partitions should form \tit{convex polygons}, which are computationally efficient to handle and simplify deployment planning
@@ -3619,15 +3620,15 @@
     The distance that has been introduced is the following, named after \href{https://en.wikipedia.org/wiki/Edmond_Laguerre}{Edmond Laguerre}.
 
     \begin{frameddefn}{Laguerre distance}
-        Given two points $P=(x_P, y_P, z_P)$ and $Q=(x_Q, y_Q, z_Q)$ in $\R^3$, their \tbf{Laguerre distance} between $P$ and $Q$ is defined as follows $$\dist_L^2(P, Q) = (x_P - x_Q) ^2 + (y_P - y_Q)^2 - (z_P - z_Q)^2$$
+        Given two points $P=(x_P, y_P, z_P)$ and $Q=(x_Q, y_Q, z_Q)$ in $\R^3$, the \tbf{Laguerre distance} between $P$ and $Q$ is defined as follows $$\dist_L^2(P, Q) = (x_P - x_Q) ^2 + (y_P - y_Q)^2 - (z_P - z_Q)^2$$
 
         Given two circles $\mathscr C_1$ and $\mathscr C_2$, centered at $C_1$ and $C_2$ and having radii $r_2$ and $r_2$, respectively, the Laguerre distance between $\mathscr C_1$ and $\mathscr C_2$ is defined as follows $$\dist_L^2(\mathscr C_1, \mathscr C_2) = \dist^2(C_1, C_2) - (r_1 - r_2)^2$$
 
-        Given two points $P = (x_P, y_P)$ and $C = (x_C, y_C)$ in $\R^2$, and a circle $\mathscr C$ centered at $C$ having radius $r$, the Laguerre distance between $P$ and $\mathscr C$ is defined as follows $$\dist_L^2(P, \mathscr) = (x_P - x_C)^2 + (y_P - y_C)^2 - r^2$$
+        Given two points $P = (x_P, y_P)$ and $C = (x_C, y_C)$ in $\R^2$, and a circle $\mathscr C$ centered at $C$ having radius $r$, the Laguerre distance between $P$ and $\mathscr C$ is defined as follows $$\dist_L^2(P, \mathscr C) = (x_P - x_C)^2 + (y_P - y_C)^2 - r^2$$
     \end{frameddefn}
 
     \begin{framedlem}{}
-        Given two circles $\mathscr C_1$ and $\mathscr C_2$, centered at $C_1$ and $C_2$ --- where $C_1 \neq C_2$ --- and having radii $r_1$ and $r_2$, respectively, the set of points equally distant from $\mathscr C_1$ and $\mathscr C_2$ is a vertical straight line, orthogonal to the segment $\overline{C_1 C_2}$, and it is called \tbf{radical axis}
+        Given two circles $\mathscr C_1$ and $\mathscr C_2$, centered at $C_1$ and $C_2$ --- where $C_1 \neq C_2$ --- and having radii $r_1$ and $r_2$, respectively, the set of points equally distant (in terms of Laguerre distance) from $\mathscr C_1$ and $\mathscr C_2$ is a vertical straight line, orthogonal to the segment $\overline{C_1 C_2}$, and it is called \tbf{radical axis}
     \end{framedlem}
 
     \centeredimage[The radical axis between two circles.]{0.3}{../assets/radical_axis.png}
@@ -3654,7 +3655,7 @@
     There are some similarities with the classical Voronoi diagrams, in particular:
 
     \begin{itemize}
-        \item Voronoi-Laguere polygons partition the plane
+        \item Voronoi-Laguerre polygons partition the plane
         \item $V_i$ is always convex, since it is generated by intersecting half planes
         \item clearly, if $r_i = 0$ for each $i \in [1, n]$, the Voronoi-Laguerre diargam degenerates into a classical Voronoi diagram
     \end{itemize}
@@ -3663,7 +3664,7 @@
 
     \begin{itemize}
         \item $\mathscr C_i$ could be \tit{external} to $V_i$ (for instance, consider $C_2$'s position w.r.t. $V_2$ in \cref{voronoi_laguerre})
-        \item $V_i$ could be \tit{empty}, which happens if $\mathscr C_i$ is inside the union of other circles (for instance, consider $\mathscr C_3$, which has no corresponding $V_3$ cell)
+        \item $V_i$ could be \tit{empty}, which happens if $\mathscr C_i$ is inside the union of other circles (for instance, consider $\mathscr C_3$, which has no corresponding $V_3$ cell in \cref{voronoi_laguerre})
     \end{itemize}
 
     \begin{framedthm}{}
