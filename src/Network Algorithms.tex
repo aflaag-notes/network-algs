@@ -1632,8 +1632,8 @@
         Now, assume that there exists an injection $\func{f}{V(G)}{[0, n - 1]}$ such that $(x, y) \in E(G) \implies \abs{f(x) - f(y)} \ge 2$, and let $\func{g}{V'(G')}{[0, n + 1]}$ be a new function such that $$g(u) := \soe{ll}{f(v) & v \in V(G) \\ n + 1 & u = x}$$ Note that:
 
         \begin{itemize}
-            \item $g(x)$ is defined to be $n + 1$, and $f(v)$ is at most $n - 1$, thus from the condition $f$ satisfies by definition if follows that $(x, y) \in E'(G') \implies \abs{f(x) - f(y)} \ge 2$
-            \item since $f$ is injective, and by the previous condition, it holds that $$\abs{f(u) - f(v)} \neq 0 \implies \abs{f(u) - f(v)} \ge 1$$ for any pair of vertices of $G'$ that are at distance 2
+            \item $g(x)$ is defined to be $n + 1$, and $f(v)$ is at most $n - 1$, thus from the condition $f$ satisfies by definition if follows that $(x, y) \in E'(G') \implies \abs{g(x) - g(y)} \ge 2$
+            \item since $f$ is injective, and by the previous condition, it holds that $$\abs{g(u) - g(v)} \neq 0 \implies \abs{g(u) - g(v)} \ge 1$$ for any pair of vertices of $G'$ that are at distance 2
         \end{itemize}
 
         which implies that $g$ is an $L(2,1)$-labeling for $G'$, and clearly $$\displaystyle \lambda_{2,1}(G') \le \max_{v ' \in V'\rbk{G'}}{g(v')} \le \abs{V'}$$
@@ -2871,16 +2871,20 @@
     \proofiff{
         Consider a $V_1$-perfect matching $M$ of $G$, and let $S \subseteq V_1$ be a set of vertices; by definition of $M$, each node $s \in S$ is matched through $M$ with a different node in $\delta(S)$, therefore $\abs S \le \abs{\delta(S)}$.
     }{
-        Assume that $\forall S \subseteq V_1 \quad \abs S \le \abs{\delta(S)}$ and, by way of contradiction, assume that the cardinality of the $V_1$-maximum matching $M$ is such that $\abs M < \abs{V_1}$, therefore $M$ is not a $V_1$-perfect matching. Thus, there must at least one vertex $u_0 \in V_1$ which is not covered by $M$. Let $S = \{u_0\}$; by hypothesis, we have that $1 = \abs S \le \abs{\delta(S)}$, therefore there must exist at least 1 vertex in $\delta(S)$, which means that $u_0$ is adjacent to at least one vertex. Let this vertex be $v_1 \in V_2$. Now, two cases may occur:
+        Assume that $\forall S \subseteq V_1 \quad \abs S \le \abs{\delta(S)}$. Let $M^*$ be a maximum matching on $G$ and, by way of contradiction, suppose that $\abs {M ^*} < \abs V$, i.e. there exists at least a vertex $u_0 \in V_1$ not matched through $M^*$. Let $S_0 := \{u_0\}$; by hypothesis, it must be that $\abs {S_0} \le \abs{\delta (S_0)}$, which means that there exists a vertex $v_0 \in \delta(S_0)$ such that $u_0 \sim v_1$.
+
+        By way of contradiction, assume that $v_1$ is not covered by the edges of $M^*$; thus, $u_0 \sim v_1$ would imply that $M^* \cup \{(u_0, v_1)\}$ is a matching that has more edges than $M^*$ --- note that $u_0$ is free w.r.t. $M^*$, by hypothesis --- which is a contradiction by definition of $M^*$. This proves that $v_1$ must be matched through $M^*$ with some vertex $u_1 \in V_1$, and clearly $u_1 \neq u_0$.
+
+        Let $S_1 := \{u_0, u_1\}$; since $\abs{S_1} \le \abs{\delta(S_1)}$ and $u_0 \sim v_1 \sim u_1$, there must exist another vertex $v_2 \in \delta(S_1)$ such that $u_1 \neq v_2$, and clearly $v_2 \neq v_1$. By the same reasoning as before, we have that $v_2$ must be matched through $M^*$ to a node $u_2 \in V_1$, but note that $u_2 \notin S_1$, since
 
         \begin{itemize}
-            \item if $v_1$ is not covered by $M$, then placeholder \todo{what?}
-            \item instead, if $v_1$ is covered by $M$, consider the vertex matched with $v_1$ through $M$, and let this node be $u_1 \in V_1$
+            \item $u_2 \neq u_0$ because we chose $u_0$ as a non-matched vertex w.r.t. $M^*$ by hypothesis
+            \item $u_2 \neq u_1$ since $(u_1, v_1) \in M^*$
         \end{itemize}
 
-        Now, consider a second set $S = \{u_0, u_1\}$; by hypothesis, we have that $2 = \abs S \le \abs{\delta(S)}$, which implies that there must exist at least one other node in $\delta(S)$, other than $v_1$, which must be adjacent either to $u_0$ or $u_1$. Let this vertex be $v_2 \in V_2$.
+        Repeating this process, consider the iteration where $S_r = V_1$; since $\abs{S_r} \le \abs{\delta(S_r)}$, by the same reasoning applied before, there exists a node $v_{r + 1} \in V_2 - \{v_1, \ldots, v_r\}$ matched to a node $u_{r + 1} \in V_1 - S_r = V_1 - V_1 = \varnothing$, which is clearly a contradiction.
 
-        At this point, the same argument as before can be applied, but since $G$ is finite, we will eventually reach a node $v_r$ TODO \todo{WHAT}
+        This implies that $\abs{M^*} \ge \abs {V_1}$, which means that $M^*$ is indeed a $V_1$-perfect matching, by definition.
     }
 
     This theorem establishes a criterion for the \tit{existence} of a perfect matching, but does not provide an efficient, algorithmic method to construct one --- finding the matching by enumerating all subsets of $V_1$ requires exponential time, making it impractical for large sets.
@@ -2970,8 +2974,12 @@
         Given a flow network $G$, the \tbf{maximum flow problem} is to route as much flow as possible from $G$'s source to $G$'s sink; in other words, the problem asks to find the flow $f$ with maximum value $\abs f$.
     \end{frameddefn}
 
+    \begin{framedthm}[label={integral flow}]{Integral flow theorem}
+        Given a flow network $G = (V, E)$, and a capacity function $c$, if $c$ only assumes integer values, there exists a max flow $f$ for $G$ such that $\abs f$, and $f(u, v)$ for any $u, v \in V(G)$, are integers.
+    \end{framedthm}
+
     \begin{framedthm}{}
-        The perfect matching problem on bipartite graphs is reducible to the maximum flow problem on flow networks.
+        The maximum matching problem on bipartite graphs is reducible to the maximum flow problem on flow networks.
     \end{framedthm}
 
     \begin{proof}
@@ -2987,10 +2995,6 @@
 
         \centeredimage[]{0.3}{../assets/match2flow.png} \todo{this should be done better}
     \end{proof}
-
-    \begin{framedthm}{Integral flow theorem}
-        Given a flow network $G = (V, E)$, and a capacity function $c$, if $c$ only assumes integer values, there exists a max flow $f$ for $G$ such that $\abs f$, and $f(u, v)$ for any $u, v \in V(G)$, are integers.
-    \end{framedthm}
 
     \begin{framedcor}{}
         The cardinality of a maximum matching $M$ on a bipartite graph $G$ is equal to the value of the maximum flow $f$ in the associated flow network $G'$, therefore $\abs M = \abs f$.
@@ -3155,7 +3159,7 @@
     \cost{
         Assuming that $m > n$, the cost of the \texttt{do-while} is simply the cost of performing a BFS and a DFS, which has cost $$O(n + m) + O(n + m) = O(n + m) = O(m)$$
 
-        Consider the first $\sqrt n$ steps of the algorithm; clearly, they take $O(m \sqrt n)$ time. Note that, at each iteration of the \texttt{do-while}, the length of the augmenting paths found keeps increasing, since at the $k$-th iteration \tit{all} the augmenting paths of length $2k - 1$ are found. This means that, after the first $\sqrt n$ steps, the shortest augmenting path is at least $2\sqrt n - 1 + 1 = 2\sqrt n$ long.
+        Consider the first $\sqrt n$ steps of the algorithm; clearly, they take $O(m \sqrt n)$ time. Note that, at each iteration of the \texttt{do-while}, the length of the augmenting paths found keeps increasing, since at the $k$-th iteration \tit{all} the augmenting paths of length $2k - 1$ are found. This means that, after the first $\sqrt n$ steps, the shortest augmenting path is at least $2 (\sqrt n + 1) - 1 = 2 \sqrt n + 2 - 1 = 2 \sqrt n + 1$ long.
 
         Moreover, note that the symmetric difference between a maximum matching $M'$ and the partial matching $M$ found after the first $\sqrt n$ steps is a set of
         
@@ -3165,7 +3169,7 @@
             \item augmenting paths
         \end{itemize}
 
-        Consider the augmenting paths: each of them must be at least $2 \sqrt n$ long, therefore there can be at most $$\dfrac{n}{2 \sqrt n} = O(\sqrt n)$$ such paths. This means that the maximum matching $M'$ considered can be larger than $M$ by at most $O(\sqrt n)$ edges. In the worst case, each step of the algorithm augments the size of $M$ by one, therefore at most $O(\sqrt n)$ steps are required after the first $\sqrt n$ steps.
+        Consider the augmenting paths: each of them must be at least $2 \sqrt n$ long, therefore there can be at most $$\dfrac{n}{2 \sqrt n + 1} = O(\sqrt n)$$ such paths. This means that the maximum matching $M'$ considered can be larger than $M$ by at most $O(\sqrt n)$ edges, since each augmenting path increases the cardinality of $M$ by 1. Finally, in the worst case, each step of the algorithm finds one augmenting path per iteration, therefore at most $O(\sqrt n)$ steps are required after the first $\sqrt n$ steps to find all the augmenting paths.
 
         This shows that the algorithm runs in at most $O(\sqrt n) + O(\sqrt n) = O(\sqrt n)$ iterations of the \texttt{do-while}, and since the cost of a single iteration is $O(m)$, we have that the total cost of the algorithm is $$O(m) \cdot O(\sqrt n) = O(m \sqrt n)$$
     }
@@ -3272,24 +3276,24 @@
     Although the presence of \tit{blossoms} does not allow the use of the algorithms discussed earlier, the following lemma enables us to define an algorithm capable of solving the problem, which will be discussed later.
 
     \begin{framedlem}[label={blossom lemma}]{Blossom lemma}
-        Let $G$ be a graph, let $M$ be a matching of $G$, and let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$. Let $G'$ be the graph obtained by contracting $B$, and let $M'$ be the matching induced by $M$ on $G'$. Then $M$ is a maximum matching of $G$ if and only if $M'$ is a maximum matching of $G'$.
+        Let $G$ be a graph, let $M$ be a matching of $G$, and let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from the rest of $M$. Let $G'$ be the graph obtained by contracting $B$, and let $M'$ be the matching induced by $M$ on $G'$. Then $M$ is a maximum matching of $G$ if and only if $M'$ is a maximum matching of $G'$.
     \end{framedlem}
 
     \proofiff{
         By way of contradiction, assume that $M$ is maximum in $G$, but $M'$ is not maximum in $G'$; therefore, by \cref{aug paths}, there must exist an augmenting path $P$ in $G'$ w.r.t. $M'$.
 
-        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G'$. In particular, note that the following situation cannot occur
+        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from the rest $M$, and let $b$ be the node representing $B$ in $G'$. In particular, note that the following situation cannot occur
 
         placeholder \todo{add pic}
 
-        since $B$ is \tit{node-disjoint} from $M$ by hypothesis. Therefore, in $G'$, two cases may occur.
+        since $B$ is \tit{node-disjoint} from the rest of $M$ by hypothesis. Therefore, in $G'$, two cases may occur.
 
         \begin{itemize}
             \item The first case occurs when $P$ does not cross $b$. This implies that $P$ is an augmenting path for both $G'$ w.r.t. $M'$ and $G$ w.r.t. $M$, which would imply that $M$ is not a maximum matching by \cref{aug paths}, raising a contradiction
             \item Consider the case in which $P$ crosses $b$. Note that any edge of $E(G) - E(B)$ that has an endpoint on $B$ cannot be in $M$, because 
 
                 \begin{itemize}
-                    \item the uncovered vertex of $B$ is \tit{node-disjoint} from $M$, by hypothesis
+                    \item the uncovered vertex of $B$ is \tit{node-disjoint} from the rest of $M$, by hypothesis
                     \item each other node of $B$ is adjacent to an edge in $M$, by definition
                 \end{itemize}
 
@@ -3297,7 +3301,7 @@
     }{
         By way of contradiction, assume that $M'$ is maximum in $G'$, but $M$  is not maximum in $G$; therefore, by \cref{aug paths}, there must exist an augmenting path $P$ in $G$ w.r.t. $M$.
 
-        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from $M$, and let $b$ be the node representing $B$ in $G$. Thus, as before, in $G$ two cases may occur.
+        Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from the rest of $M$, and let $b$ be the node representing $B$ in $G$. Thus, as before, in $G$ two cases may occur.
 
         \begin{itemize}
             \item The first case occurs when $P$ does not cross $B$. This would imply that $P$ is an augmenting path both for $G$ and $G'$, which would raise a contradiction by \cref{aug paths}.
