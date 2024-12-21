@@ -596,7 +596,7 @@
 
     \chapter{The interconnection topology layout problem}
     
-    The \tbf{interconnection topology layout problem} is a crucial challenge in \href{very-large-scale integration} (VLSI) design, the process of creating an \href{https://en.wikipedia.org/wiki/Integrated_circuit}{integrated circuit} (IC) by combining billions of \href{https://en.wikipedia.org/wiki/MOSFET}{MOS} transistors onto a single chip. It involves finding the most efficient way to place and connect various components (such as transistors, resistors, and other circuit elements) on a silicon chip. The goal is to optimize several factors, including \tit{space}, \tit{power consumption}, \tit{signal delay}, and \tit{manufacturing cost}. This problem becomes particularly important as modern chips contain billions of transistors and require complex interconnections between components.
+    The \tbf{interconnection topology layout problem} is a crucial challenge in \href{very-large-scale integration}{Very Large Scale Integration} (VLSI) design, the process of creating an \href{https://en.wikipedia.org/wiki/Integrated_circuit}{integrated circuit} (IC) by combining billions of \href{https://en.wikipedia.org/wiki/MOSFET}{MOS} transistors onto a single chip. It involves finding the most efficient way to place and connect various components (such as transistors, resistors, and other circuit elements) on a silicon chip. The goal is to optimize several factors, including \tit{space}, \tit{power consumption}, \tit{signal delay}, and \tit{manufacturing cost}. This problem becomes particularly important as modern chips contain billions of transistors and require complex interconnections between components.
 
     The problem originated in the 1940s, during the early stages of digital computing. However, at that time, the technology was not advanced enough to implement complex circuit layouts in an efficient manner. Physical constraints, costs, and the lack of sophisticated computational methods limited the practical application of these ideas.
 
@@ -834,11 +834,11 @@
 
         The line $x = a$ is said to account for the $w$ square units of area of wire and vertices that lie within $\frac{1}{2}$ unit distance of it.
 
-        Consider a \curlyquotes{zig-zag} defined as follows: $$Z_1(x) := \soe{ll}{a - 1 & y \ge b_1 \\ a - 1 \le x \le a + 1 & y = b_1 \\ a + 1 & y \le b_1}$$ where $b_1$ is such that $Z_1$ still bisects the graph, therefore it cuts at least $w$ edges. Note that the horizontal segment of $Z_1$ may cut at most 2 wires, therefore its vertical sections will cross at least $w - 2$ wires.
+        Consider a \curlyquotes{zig-zag} defined as follows: $$Z_1(x) := \soe{ll}{a - 1 & y > b_1 \\ a - 1 \le x \le a + 1 & y = b_1 \\ a + 1 & y < b_1}$$ where $b_1$ is such that $Z_1$ still bisects the graph, therefore it cuts at least $w$ edges. Note that the horizontal segment of $Z_1$ may cut at most 2 wires, therefore its vertical sections will cross at least $w - 2$ wires.
 
-        Consider each possible zig-zag $$Z_k(x) := \soe{ll}{a - k & y \ge b_k \\ a_ k \le x \le a + k & y = b_k \\ a + k & y \le b_k}$$ where $b_k$ is such that $Z_k$ still bisects the graph, therefore it cuts at least $w$ edges. Since the horizontal segment will cut $2k$ edges, the vertical sections of $Z_k$ will cut $w - 2k$ edges.
+        Consider each possible zig-zag $$Z_k(x) := \soe{ll}{a - k & y > b_k \\ a_ k \le x \le a + k & y = b_k \\ a + k & y < b_k}$$ where $b_k$ is such that $Z_k$ still bisects the graph, therefore it cuts at least $w$ edges. Since the horizontal segment will cut $2k$ edges, the vertical sections of $Z_k$ will cut $w - 2k$ edges.
 
-        Finally, since $\floor{\dfrac{w}{2}}$ zig-zags can be drawn on the graph (by definition of \tit{bisection width}), the total area of wire and vertices of the VLSI design is at least $$\sum_{k = 0}^{\floor{\frac{w}{2}}} > \dfrac{w^2}{4}$$
+        Finally, since $\floor{\dfrac{w}{2}}$ zig-zags can be drawn on the graph (by definition of \tit{bisection width}), the total area of wire and vertices of the VLSI design is at least $$\sum_{k = 0}^{\floor{\frac{w}{2}}}{(w - 2k)} > \dfrac{w^2}{4}$$
     \end{proof}
 
     \subsection{The Wise layout} \label{wise}
@@ -1491,7 +1491,7 @@
 
     The labeling problem that will be considered in this chapter is defined as follows.
 
-    \begin{frameddefn}{$L(h, k)$-labeling}
+    \begin{frameddefn}[label={lhk labeling}]{$L(h, k)$-labeling}
         Given a graph $G= (V, E)$, an \tbf{$L(h, k)$-labeling} of $G$ is a \tit{node coloring function} $f$ that assigns colors to each node of $G$, such that:
 
         \begin{itemize}
@@ -1500,12 +1500,34 @@
         \end{itemize}
     \end{frameddefn}
 
-    Note that the words \curlyquotes{labeling} and \curlyquotes{coloring} will be used interchangeably in the following sections.
+    The words \curlyquotes{labeling} and \curlyquotes{coloring} will be used interchangeably in the following sections.
+
+    Note that in the literature two slightly different definitions of $L(h, k)$-labeling are usually utilized. In particular, the other definition is similar to the one provided above, except for the second constraint, which is often written as follows: $$\forall u, v \in V(G) \quad \dist_G(u, v) = 2 \implies \abs{f(u) - f(v)} \ge k$$ Now, consider the following $L(1,2)$-labeling over a $K_3$
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[-,>=stealth,shorten >=1pt,auto,node distance=1.5cm, thick,main node/.style={scale=0.9,circle,draw,font=\sffamily\normalsize}]
+
+                \node[circle, draw]  (1) [] {$0$};
+                \node[circle, draw]  (2) [below left of = 1] {$1$};
+                \node[circle, draw]  (3) [below right of = 1] {$2$};
+
+                \path[every node/.style={font=\sffamily\small}]
+
+                (1) edge (2)
+                (2) edge (3)
+                (3) edge (1)
+
+                ;
+            \end{tikzpicture}
+        \end{figure}
+
+    This is a valid $L(2,1)$-labeling w.r.t. this second definition, because there are no nodes at distance 2 in the graph, therefore the condition is vacuously true. However, this is not a valid $L(2,1)$-labeling w.r.t. the definition provided in \cref{lhk labeling}. This problem arises because $h < k$, but if $h \ge k$ the two definitions coincide.
     
     Clearly, since \tbf{bandwidth} is expensive, a \tit{good} coloring (i.e. frequency assignment) function $f$ on the nodes is one that minimizes the total bandwidth $\sigma_{h, k}$ utilized in order to determine a valid $L(h, k)$-labeling. The minimum possible bandwidth will be noted with $\lambda_{h, k}$.
     
     \begin{framedobs}{Notation}
-        Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having \tit{span} (i.e. \tit{bandwidth}) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which is counterintuitive but this notation is used for historical reasons.
+        Usually the minimum color used for the labeling is 0, thus an $L(h, k)$-labeling having \tit{span} (i.e. \tit{bandwidth}) $\sigma_{h, k}(G)$ uses $\sigma_{h, k}(G) + 1$ different colors, which may be counterintuitive but this notation is used for historical reasons.
     \end{framedobs}
 
     The problem of finding a \tbf{minimum bandwidth labeling} has been introduced in 1991 by \textcite{griggs}, in the context of a frequency assignment problem, for the case of $h = 2$ and $k = 1$.
@@ -1549,7 +1571,7 @@
     \begin{proof}
         Let $f$ be an $L(dh, dk)$-labeling over a given graph $G$, that realizes $\lambda_{dh, dk}$; thus, we can define $f'$ to be a labeling function such that $$\funcmap{f'}{V(G)}{\N}{x}{\dfrac{f(x)}{d}}$$ and it is clearly an $L(h, k)$-labeling of $G$, by definition. Hence, we have $$\dfrac{\lambda_{dh, dk}}{d} = \sigma_{h, k}^{f'} \ge \lambda_{h, k}$$
 
-        Note that, if $d \nmid f(x)$, then we can still let $f'(x) := \floor{\dfrac{x}{d}}$, since $$\abs{f(u) - f(v)} \ge dh \implies \abs{d \floor{\dfrac{f(u)}{d}} -  d \floor{\dfrac{f(v)}{d}}} \ge dh \implies \abs{\floor{\dfrac{f(u)}{d}} - \floor{\dfrac{f(v)}{d}}} \ge d$$ which follows from \cref{lemma for dhk}.
+        Note that, if $d \nmid f(x)$, then we can still let $f'(x) := \floor{\dfrac{x}{d}}$, since $$\abs{f(u) - f(v)} \ge dh \implies \abs{d \floor{\dfrac{f(u)}{d}} -  d \floor{\dfrac{f(v)}{d}}} \ge dh \implies \abs{\floor{\dfrac{f(u)}{d}} - \floor{\dfrac{f(v)}{d}}} \ge h$$ which follows from \cref{lemma for dhk}.
 
         Conversely, let $f$ be an $L(h, k)$-labeling over a given graph $G$, that realizes $\lambda_{h, k}$; thus, we can define $f'$ to be a labeling function such that $$\funcmap{f'}{V(G)}{\N}{x}{f(x) \cdot d}$$ and it is clearly an $L(dh, dk)$-labeling of $G$, by definition. Hence, we have $$d \cdot \lambda_{h,k} = \sigma_{dh, dk}^{f'} \ge \lambda_{dh, dk}$$
     \end{proof}
@@ -2875,7 +2897,7 @@
 
         By way of contradiction, assume that $v_1$ is not covered by the edges of $M^*$; thus, $u_0 \sim v_1$ would imply that $M^* \cup \{(u_0, v_1)\}$ is a matching that has more edges than $M^*$ --- note that $u_0$ is free w.r.t. $M^*$, by hypothesis --- which is a contradiction by definition of $M^*$. This proves that $v_1$ must be matched through $M^*$ with some vertex $u_1 \in V_1$, and clearly $u_1 \neq u_0$.
 
-        Let $S_1 := \{u_0, u_1\}$; since $\abs{S_1} \le \abs{\delta(S_1)}$ and $u_0 \sim v_1 \sim u_1$, there must exist another vertex $v_2 \in \delta(S_1)$ such that $u_1 \neq v_2$, and clearly $v_2 \neq v_1$. By the same reasoning as before, we have that $v_2$ must be matched through $M^*$ to a node $u_2 \in V_1$, but note that $u_2 \notin S_1$, since
+        Let $S_1 := \{u_0, u_1\}$; since $\abs{S_1} \le \abs{\delta(S_1)}$ and $u_0 \sim v_1 \sim u_1$, there must exist another vertex $v_2 \in \delta(S_1)$ such that $v_2 \neq v_1$. By the same reasoning as before, we have that $v_2$ must be matched through $M^*$ to a node $u_2 \in V_1$, but note that $u_2 \notin S_1$, since
 
         \begin{itemize}
             \item $u_2 \neq u_0$ because we chose $u_0$ as a non-matched vertex w.r.t. $M^*$ by hypothesis
