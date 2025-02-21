@@ -588,10 +588,6 @@
         \end{itemize}
     \end{frameddefn}
 
-    \begin{example}[Mesh network]
-        placeholder \todo{add pic}
-    \end{example}
-
     For the convenience of physical layout, mesh networks are the most used topologies in \href{https://en.wikipedia.org/wiki/Network_on_a_chip}{Network-on-Chip} (NoC) design; however, this network will not be explored in these notes.
 
     \chapter{The interconnection topology layout problem}
@@ -813,9 +809,7 @@
         \end{split}
     \end{equation*}
 
-    placeholder \todo{incomplete}
-
-    \begin{framedthm}{Thompson's theorem}
+    \begin{framedthm}[label={thompson's theorem}]{Thompson's theorem}
         Given a VLSI design, and its corresponding graph $G$, the area occupied by the wires and the nodes of the design is at least $\frac{w^2}{4}$, where $w$ is $G$'s bisection width.
     \end{framedthm}
 
@@ -856,8 +850,7 @@
     \begin{itemize}
         \item All the wires in the same layer have \tbf{equal length}. Note that this is \tit{not true} for every layout; for instance, in the \tit{classical drawing} of the butterfly network, the \tit{straight edges} in the last layer have \tbf{unit length}, while the \tit{cross-edges} in the same layer have lengths that \tbf{scale} linearly with the input size $N$. This disparity is problematic, as it causes a \tit{loss of synchronization} in the information flow. Nevertheless, this length grows exponentially.
         \item The length of the \tbf{longest path} from any input to any output is linear in $N$, namely $2(N - 1)$, and it can be computed by evaluating the diagonal of the square having side length equal to $\sqrt 2 (N - 1)$, which is $$\sqrt{2 \cdot \rbk{\sqrt{2}(N - 1)}^2} = \sqrt{2 \cdot 2 \rbk{N - 1}^2} = \sqrt{4 \cdot \rbk{N - 1}^2} = 2( N - 1)$$
-        \item placeholder \todo{pag 20 slide?}
-        \item The value of the \tbf{area} of this layout is good, which is $$\rbk{\sqrt 2(N - 1)}^2 = 2N^2 + o(N^2)$$
+        \item The value of the \tbf{area} of this layout is \curlyquotes{good}, which is $$\rbk{\sqrt 2(N - 1)}^2 = 2N^2 + o(N^2)$$
     \end{itemize}
 
     Later studies found that the \tbf{area} of this layout is \tit{inaccurate} because the \tbf{slanted} lines --- rotated by 45° --- that define this layout cannot be produced by machines of the fabrication process. In fact, machines can only create \tit{horizontal and vertical lines}, which means that the actual layout on a board would occupy significantly more area.
@@ -877,7 +870,7 @@
     \begin{example}[Layered graphs]
         The following is an example of a layered graph.
 
-        placeholder \todo{add pic}
+        \centeredimage[A layered graph.]{0.4}{../assets/layered_graph.png}
     \end{example}
 
     \begin{frameddefn}{Layered cross product}
@@ -950,7 +943,7 @@
 
     All the required constraints are summarized in the next proposition.
 
-    \begin{framedprop}{Valid PM layouts}
+    \begin{framedprop}[breakable]{Valid PM layouts}
         Given two graphs $G_1$ and $G_2$, the PM between them generates \tbf{valid layouts}, i.e. in the resulting graph
 
         \begin{enumerate}
@@ -992,13 +985,95 @@
 
     \subsection{Optimal area of the butterfly network}
 
+    In this section we will just show how it is possible to rearrange a butterfly network to get the optimal area, but we will not delve into the details of the proof.
+
     \begin{framedlem}{}
         Given an $n$-dimensional butterfly network, for any non-negative integers $j, k > 0$ such that $0 \le j \le j + k \le n$, the subgraph of the butterfly network induces by the nodes in levels $j, j + 1, \ldots, j + k$ is the disjoint union of $2^{n - k}$ copies of $k$-dimensional butterfly networks.
     \end{framedlem}
 
-    In particular, if $j = 0$ and $k = n - 1$, we get have the following \todo{add pic}
+    In particular, if $j = 0$ and $k = n - 1$, we have the following:
 
-    Therefore, an $(n - 1)$-dimensional butterfly network can be built from a pair of $(n - 2)$-dimensional butterfly networks connected by one node layer and one ege layer. \todo{what?}
+    \centeredimage{0.3}{../assets/optimal_butterfly1.png}
+
+    Therefore, an $(n - 1)$-dimensional butterfly network can be built from a pair of $(n - 2)$-dimensional butterfly networks connected by one node layer and one ege layer.
+
+    If we cut out the input and output nodes from an $n$-dimensional bufferfly network, we get the following:
+
+    \centeredimage{0.3}{../assets/optimal_butterfly2.png}
+
+    and, in turn, each of the $(n- 2)$-dimensional butterfly networks can be cut into many smaller butterfly networks, as shown below:
+
+    \centeredimage{0.25}{../assets/optimal_butterfly3.png}
+
+    Lastly, although we will not cover the details of this result, it is possible to rearrange the butterfly such that the smaller butterfly networks can be connected as shown in the following image
+
+    \centeredimage{0.3}{../assets/optimal_butterfly4.png}
+
+    and, for the case of the slanted layout, it possible to bend the cables along the \tit{red line} shown in the previous image.
+
+    \subsection{The hypercube network}
+
+The \tbf{hypercube network} layout is widely utilized in \href{https://en.wikipedia.org/wiki/Parallel_computing}{parallel computing} due to its advantageous properties, including \tit{high regularity}, a \tit{logarithmic diameter}, and strong \tit{fault tolerance}. These characteristics make it an efficient and reliable choice for various computational tasks.
+    
+    \begin{frameddefn}{$n$-dimensional hypercube}
+        An \tbf{$n$-dimensional hypercube} $Q_n$ has $N = 2^n$ nodes and $\frac{1}{2}n2^n$ edges. Each node is labeled with an $n$-bit binary string, and any two nodes are linked with an edge if and onlyh if the corresponding binary strings differ in precisely one bit.
+    \end{frameddefn}
+
+    \begin{example}[Hypercubes]
+        The following are examples of hypercubes.
+
+        \centeredimage[Some hypercube network, namely $Q_2$, $Q_3$ and $Q_4$.]{0.3}{../assets/hypercubes.png}
+    \end{example}
+
+    In particular, from this example it is easy to see that $Q_n$ can be built by joining, with additional edges, nodes in 2 different copies of $Q_{n - 1}$, assuming they have the same label. Then, in the resulting structure, to obtain $Q_n$ it is sufficient to prefix with a 0 and with a 1 different endpoints of the newly created edges. Note that the new edges will form a \tbf{perfect matching}.
+
+    Additionally, it can be proven that cutting the $Q_n$ hypercube over these newly added edge is precisely the cut that yields the \tbf{bisection width} of $Q_n$.
+
+    \begin{framedprop}{Bisection width of hypercubes}
+        The bisection width of $Q_n$ is $\frac{N}{2}$.
+    \end{framedprop}
+
+    Together with \cref{thompson's theorem}, this property yields the following result.
+
+    \begin{framedcor}{}
+        Each hypercube network $Q_n$ must have area at least $\frac{N^2}{16}$.
+    \end{framedcor}
+
+    Lastly, consider the following property.
+
+    \begin{framedprop}{Diameter of hypercubes}
+        $Q_n$ has diameter $n$.
+    \end{framedprop}
+
+    We will not cover the details of the proof of this property, but it can be intuitively seen from the following example of $Q_3$, as shown below.
+
+    \centeredimage[]{0.3}{../assets/hypercube_diameter.png}
+
+    Interestingly, it is possible to represent any hypercube network through a \tbf{collinear layout}. For instance, consider the following conversion between a $Q_2$ and the corresponding collinear layout having 2 tracks:
+
+    \centeredimage[Conversion between a $Q_2$ and its collinear layout.]{0.3}{../assets/q2_collinear.png}
+    
+    In general, if $n$ is odd, and $Q_{n - 1}$ requires $f(n - 1)$ tracks to be represented as a collinear layout, then $Q_n$ requires the following number of tracks $$n \ \mathrm{odd} \ \implies f(n) = 2 \cdot f(n - 1) + 1$$
+
+    \centeredimage[Conversion between a $Q_3$ and its collinear layout.]{0.3}{../assets/q3_collinear.png}
+
+    while if $n$ is even, we just need to place two copies of $Q_{n - 2}$ next to each other in order to obtain $Q_n$, and $$n \ \mathrm{even} \ \implies f(n) = 4 \cdot f(n - 2) + 2$$
+
+    \centeredimage[Conversion between a $Q_4$ and its collinear layout.]{0.28}{../assets/q4_collinear.png}
+
+    Solving the recurrence relations provided above, we derive the following result.
+
+    \begin{framedthm}{}
+        The number of tracks required for the collinear layout of $Q_n$ is $\frac{2}{3}N$.
+    \end{framedthm}
+
+    Finally, although the details will be omitted in these notes, if can be proven the following theorem.
+
+    \begin{framedthm}{}
+        $Q_n$ can be laid out in $\frac{4}{9}N^2 + o(N^2)$.
+    \end{framedthm}
+
+    \centeredimage[The arrangement of a $Q_5$'s collinear layout.]{0.25}{../assets/q5_area.png}
 
     \chapter{The worm propagation prevention problem}
 
@@ -1280,7 +1355,7 @@
     The nodes that are not covered by a matching are called \tbf{free nodes}.
 
     \begin{frameddefn}{Perfect matching}
-        Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of the $G$.
+        Given a graph $G$, a \tbf{perfect matching} is a matching that covers every vertex of $G$.
     \end{frameddefn}
 
     Note that every perfect matching is a \tit{maximum matching}. Additionally, note that a perfect matching exists only if the number of vertices $n$ of $G$ is even, since each edge of the perfect matching covers exactly 2 vertices. In particular, the cardinality of a perfect matching is always $\frac{n}{2}$, since each node is adjacent to exactly one edge of the perfect matching.
@@ -1978,7 +2053,7 @@
     Differently from the Min Broadcast problem, nothing is known about the hardness of the Euclidean version of the problem, but there exists an approximation algorithm that is based on the computation of an MST of the given graph, which works as follows:
 
     \begin{itemize}
-        \item compute the MST of the complete graph, induced by \todo{BY WHAT pag 29}
+        \item compute the MST of the complete graph induced by $G^{(\alpha)}$, which is the complete and weighted graph where the weight of each edge $(u, v)$ is precisely $\dist(u, v)^\alpha$
         \item assign a direction to the edges, from $s$ toward the leaves
         \item the power assignment is defined as follows: assign to each node $i$ the radius equal to the length of the longest directed edge outgoing from $i$
     \end{itemize}
@@ -2050,7 +2125,7 @@
 
         \quad
         \begin{algorithmic}[1]
-            \Function{kruskal}{$G$, $w$}
+            \Function{Kruskal}{$G$, $w$}
                 \State $T := \varnothing$
                 \While{$V(T) \neq V(G)$}
                     \State Let $e$ be the edge that connects two different connected components of $T$ that has the least weight w.r.t. $w$
@@ -2118,17 +2193,44 @@
         This implementation through a \tbf{MinHeap} has cost of $O(m \log n)$, but it is possible to achieve a cost of $O(m + n \log n)$ through a \tbf{Fibonacci Heap}.
     }
 
-    placeholder \todo{missing boruvka's alg}
-    
-    \subsection{Min Broadcast heuristics}
-    
-    In 2000 \textcite{wieselthier} developed three heuristics which leverage \tbf{greedy algorithms} to construct efficient broadcast trees:
+    \begin{framedalgo}{Borůvka's algorithm}
+        Given a graph $G$, and a weight function $\func{w}{E(G)}{\R^+}$ that assigns \tit{distinct weights} to the edges of $G$, the algorithm returns an MST of $G$. \\
+        \hrule
 
-    \begin{itemize}
-        \item \tbf{Spanning Path Tree} (SPT): it constructs a \tit{minimum path tree} using Dijkstra's algorithm (refer to \cref{dijkstra}), and then its edges are directed from the root to the leaves, to define the direction of the broadcast
-        \item \tbf{Broadcast Average Incremental Power} (BAIP): it is a modified version of the Dijkstra's algorithm, where a new node is added to the tree based on its \tit{minimum average cost}
-        \item \tbf{Minimum Spanning Tree} (MST): it runs Prim's algorithm to compute an MST, then its edges are directed from the root to the leaves, to define the direction of the broadcast
-    \end{itemize}
+        \quad
+        \begin{algorithmic}[1]
+            \Function{Boruvka}{$G$, $w$}
+                \State $T := \varnothing$
+                \While{$V(T) \neq V(G)$}
+                    \For{each connected component $C_i$ of $T$}
+                        \State Let $e$ be the edge that connects $C_i$ to another connected component of $T$ that has the least weight w.r.t. $w$
+                        \State $T = T \cup \{e\}$
+                    \EndFor
+                \EndWhile
+                \State \tbf{return} $T$
+            \EndFunction
+        \end{algorithmic}
+    \end{framedalgo}
+
+    \idea{
+        This algorithm repeatedly links different connected components of the tree it is generating, by always choosing the edge with minimum weight w.r.t $w$. Note that the hypothesis on $w$ allows to introduce cycles inside the solution.
+    }
+
+    \cost{
+        As for the other algorithms, it is possible to implement this algorithm in $O(m \log n)$, and in planar graphs it is possible to provide an implementation of $O(m + n)$.
+    }
+    
+    % \subsection{Min Broadcast heuristics}
+    % 
+    % In 2000 \textcite{wieselthier} developed three heuristics which leverage \tbf{greedy algorithms} to construct efficient broadcast trees:
+    %
+    % \begin{itemize}
+    %     \item \tbf{Spanning Path Tree} (SPT): it constructs a \tit{minimum path tree} using Dijkstra's algorithm (refer to \cref{dijkstra}), and then its edges are directed from the root to the leaves, to define the direction of the broadcast
+    %     \item \tbf{Broadcast Average Incremental Power} (BAIP): it is a modified version of the Dijkstra's algorithm, where a new node is added to the tree based on its \tit{minimum average cost}
+    %     \item \tbf{Minimum Spanning Tree} (MST): it runs Prim's algorithm to compute an MST, then its edges are directed from the root to the leaves, to define the direction of the broadcast
+    % \end{itemize}
+    %
+    % placeholder \todo{missing last part}
     
     \chapter{The data mule scheduling problem}
 
@@ -2420,8 +2522,6 @@
     \textcite{christofides} originally developed his algorithm to solve the Euclidean TSP, a specific type of metric TSP. However, this algorithm is more general and can be applied to any metric TSP, not limited to Euclidean cases. Despite its general applicability, there are certain inputs that push the performance of this algorithm close to its worst-case approximation ratio of $\frac{3}{2}$.
 
     In fact, it is actually possible to achieve a better approximation, and a solution was provided by \textcite{arora} in 1996, for which he was awarded with the \href{https://en.wikipedia.org/wiki/G%C3%B6del_Prize}{Gödel Prize} in 2010. In particular, they proved that there exists a polynomial-time approximation scheme (PTAS) for the Euclidean TSP. This means that, for any constant $c > 0$ in a $d$-dimensional Euclidean space, there is a polynomial-time algorithm that can find a TS tour with a length at most $1 + \frac{1}{c}$ times the optimal length for geometric instances of TSP, in time $$O\rbk{n (\log n)^{{\rbk{O(c \sqrt d)}}^{d - 1}}}$$ which was later improved in 2012 by \textcite{bartal}.
-
-    placeholder \todo{last part?}
 
     \chapter{The data collection problem}
 
@@ -2836,7 +2936,7 @@
 
     It is well known that \tit{optimal coverage} with \tit{equally sized circles} is achieved by positioning sensor's centers at the vertices of a triangular grid, with an appropriately chosen grid size.
 
-    placeholder \todo{add pic}
+    \centeredimage[]{0.25}{../assets/grid8.png}
 
     This configuration is used in the \tbf{carrier-based method}. Moreover, note that
 
@@ -2852,7 +2952,43 @@
         \item \tbf{distributed (or local) approach}: in this approach, sensors use only local information, with iterative exchanges between neighboring sensors; this method is more scalable and better suited for large, dynamic networks
     \end{itemize}
 
-    placeholder \todo{from pag 26}
+    If no prior information about the AoI is available, an \tbf{incremental deployment} strategy is used. This method follows a step-by-step approach, where each newly deployed node relies on data collected by the previously placed nodes to determine its optimal location. The deployment calculations are performed at a powerful \tit{base station}, ensuring precise placement.
+
+    Each deployed node plays a crucial role in transmitting its local information back to the base station, which then uses this data for the next deployment iteration. As a result, every node must maintain reliable bidirectional communication with the sink. Notably, no specialized localization technique is required, as the nodes themselves act as landmarks to determine the placement of subsequent nodes.
+
+    This strategy has some advantages, for example:
+
+    \begin{itemize}
+        \item it ensures the \tit{optimal placement} of each node at every step, leading to a well-structured and efficient network
+            \tit once deployed, sensors remain \tit{fixed}, minimizing energy consumption and extending their operational lifespan
+\end{itemize}
+
+    but it also has some downsides, in fact:
+
+    \begin{itemize}
+        \item deployment is \tit{time-consuming}, which can significantly delay network initialization
+        \item it is \tit{computationally demanding}, as each new node placement requires extensive calculations to determine the ideal location
+    \end{itemize}
+
+    Differently, if prior information about the AoI is available, deployment can be \tbf{planned in advance} to ensure complete coverage. Each sensor is assigned a predefined position on a grid that spans the entire AoI, guaranteeing full network coverage and efficient placement.  
+
+    To optimize performance, the \tit{total energy consumption} should be minimized, ensuring long-term sustainability of the network. This optimization is achieved by modeling the deployment problem using the classical \tbf{minimum weight perfect matching approach} in bipartite graphs, which allows for an efficient and balanced assignment of sensor locations. This problem will be analyzed in the following chapter.
+
+    We can formalize the graph model of the problem as follows
+
+    \begin{frameddefn}{Mobile sensor deployment problem}
+        Given a set of $n$ mobile sensors $S = \{s_1, \ldots, s_n\}$, and a set of $p$ locations of the AoI $L = \{l_1, \ldots, l_p\}$, where $n \ge p$ --- such that complete coverage can be guaranteed --- for each $s_i \in S$ determine the location $l_j \in L$ that $s_i$ will have to reach in order to minimize the total energy consumption.
+    \end{frameddefn}
+
+    To solve this problem, we will define a \tbf{weighted complete bipartite graph} $G = (S \cup L, E)$ weighted through $w$, described as follows:
+
+    \begin{itemize}
+        \item the graph contains one node for each sensor $s_i \in S$
+        \item the graph contains one node for each location $l_j \in L$
+        \item $E(G) = S \times L$, implying that there is an edge $(s_i, l_j)$ for each possible sensor-location pair
+        \item for each edge $e_{i, j}$, the weight $w(e_{i, j})$ is proportional to the energy that $s_i$ has to spend to reach location $l_j$
+        \item the objective is to determine a \tbf{matching} between the sensors and the locations such that the total consumed energy is minimized
+    \end{itemize}
 
     \section{Matchings on bipartite graphs}
 
@@ -2865,10 +3001,6 @@
     \begin{frameddefn}{Maximum matching}
         Given a graph $G$, and a matching $M$ of $G$, $M$ is a \tbf{maximum} matching if it has the maximum possible cardinality $\abs M$ for any matching of $G$.
     \end{frameddefn}
-
-    \begin{example}[Maximal and maximum]
-        placeholder \todo{add pics}
-    \end{example}
 
     These concepts of \tit{maximal} (or \tit{minimal}) and \tit{maximum} (or \tit{minimum}) will be applied accordingly to every other structure discussed.
 
@@ -2924,7 +3056,7 @@
 
         \begin{figure}[H]
             \centering
-            \begin{tikzpicture}[node distance={20mm}, thick , main/.style = {draw, circle}] 
+            \begin{tikzpicture}[node distance={15mm}, thick , main/.style = {draw, circle}] 
                 \node[main] (s) {$s$};
                 \node[main] (1) at(2,1) {1};
                 \node[main] (2) at(2,-1)  {2};
@@ -2936,7 +3068,7 @@
                 \node[main] (7) [right of = 3] {7};
                 \node[main] (8) [right of = 4] {8};
 
-                \node[main] (t) at(6,0) {$t$};
+                \node[main] (t) at(5.3,0) {$t$};
 
                 % \draw[->] (s) to (1);
                 % \draw[->] (s) to (2);
@@ -3004,7 +3136,7 @@
         The maximum matching problem on bipartite graphs is reducible to the maximum flow problem on flow networks.
     \end{framedthm}
 
-    \begin{proof}
+    \begin{proof}[Proof sketch]
         Consider a bipartite graph $G = (V = V_1 \cup V_2, E)$, and construct a flow network $G' = (V', E')$ as follows:
 
         \begin{itemize}
@@ -3015,7 +3147,7 @@
 
         Consider a perfect matching $M$ on the bipartite graph $G$; by defining an integer-valued flow $f$ on the flow network $G'$, it is easy to see that $f$ is a maximum flow, since the capacity of each edge is 1; the other implication can be proved with a similar reasoning.
 
-        \centeredimage[]{0.3}{../assets/match2flow.png} \todo{this should be done better}
+        \centeredimage[]{0.3}{../assets/match2flow.png}
     \end{proof}
 
     \begin{framedcor}{}
@@ -3032,17 +3164,9 @@
         Given a bipartite graph $G = (V, E)$, and a matching $M$ of $G$, an \tbf{alternating path} w.r.t. $M$ is a path that alternates the edges of $M$ and $E(G) - M$.
     \end{frameddefn}
 
-    \begin{example}[Alternating paths]
-        placeholder \todo{add pic}
-    \end{example}
-
     \begin{frameddefn}[label={aug path}]{Augmenting path (unweighted case)}
         Given a bipartite graph $G$, and a matching $M$ of $G$, an \tbf{augmenting path} w.r.t. $M$ is an alternating path starting and ending in two free nodes w.r.t. $M$.
     \end{frameddefn}
-
-    \begin{example}[Augmenting paths]
-        placeholder \todo{add pic}
-    \end{example}
 
     In 1957, \textcite{berge} proved two important theorems in graph theory, one of which is discussed below.
 
@@ -3213,10 +3337,6 @@
 
     With this reduction, we can aim at maximizing both the weight and the number of covered vertices, simultaneously.
 
-    \begin{example}[Max-weight PM]
-        placeholder \todo{add pic}
-    \end{example}
-
     In order to develop an algorithm which is able to find a maximum weight perfect matching, we need to provide a new definition for \tit{augmenting paths} --- different from the \cref{aug path}.
 
     \begin{frameddefn}{Augmenting path (weighted case)}
@@ -3306,7 +3426,7 @@
 
         Let $B$ be a blossom in $G$ w.r.t. $M$ that is \tit{node-disjoint} from the rest $M$, and let $b$ be the node representing $B$ in $G'$. In particular, note that the following situation cannot occur
 
-        placeholder \todo{add pic}
+        \centeredimage[]{0.25}{../assets/blossom_node_disj.png}
 
         since $B$ is \tit{node-disjoint} from the rest of $M$ by hypothesis. Therefore, in $G'$, two cases may occur.
 
@@ -3361,8 +3481,6 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
-
-    The complexity of the algorithm \todo{pag 90}
 
     In particular, the time complexity of the algorithm depends on how blossoms are handled; in particular, depending on the data structure emplyoed, the cost of the algorithm can be either $O(n^3)$ or $O(m n^2)$. As a final note, the best-known implementation of this algorithms in terms of time complexity has been provided by \textcite{micali}, which showed an implementation that has a cost of $O(m \sqrt n)$.
 
@@ -3498,18 +3616,12 @@
     \begin{proof}
         If the Voronoi diagram is defined by \tit{only} collinear points, then we have $\abs V = 0 \le 2n - 5$ for any $n \ge 3$, and $\abs E = n - 1 \le 3n - 6$ for any $n \ge 3$.
 
-        For the general case, consider the given Voronoi diagram; clearly, since it is not defined by \tit{only} collinear points, it will contain some edges that extend infinitely, which implies that the Voronoi diagram does not describe a planar graph. Nevertheless, we can create a \tit{dummy node} $p_\infty$ to which we can connect all the infinite edges, turning the Voronoi diagram into a planar graph, as shown below:
-
-        placeholder \todo{add pic pag 32}
+        For the general case, consider the given Voronoi diagram; clearly, since it is not defined by \tit{only} collinear points, it will contain some edges that extend infinitely, which implies that the Voronoi diagram does not describe a planar graph. Nevertheless, we can create a \tit{dummy node} $p_\infty$ to which we can connect all the infinite edges, turning the Voronoi diagram into a planar graph.
 
         Now that the graph is planar, we can use \href{https://en.wikipedia.org/wiki/Planar_graph#Euler's_formula}{Euler's formula} which states that $$\abs V - \abs E + F = 2$$ where $F$ is the number of faces (i.e. Voronoi regions) of the graph we are considering, which is $n$, and since the number of nodes is $\abs V + 1$ for the \tit{dummy node}, we have that $$\abs V + 1 - \abs E + n =  2$$ Moreover, for the \cref{handshaking lemma} we know that $$\sum_{v \in V \cup \{p_\infty\}}{\deg(v)} = 2 \abs E$$ and since $\deg(v) \ge 3$ it must be that $$2 \abs E = \sum_{v \in V \cup \{p_\infty\}}{\deg(v)} \ge 3 \abs{V \cup \{p_\infty\}} = 3 (\abs V + 1)$$
 
         Finally, by using this inequality and Euler's formula, we find the bounds of the statement.
     \end{proof}
-
-    % \centeredimage[A Delaunay triangulation, along with the associate Voronoi cells.]{0.22}{../assets/delaunay.png}
-    %
-    % Note that, by definition, the circle circumscribed to a Delaunay triangle does not contain any point in $\mathcal P$ inside it
 
     \subsection{Algorithms for computing Voronoi diagrams}
 
@@ -3694,8 +3806,6 @@
     \begin{framedthm}{}
         Given $n$ circles $\mathscr C_1, \ldots \mathscr C_n$, centered at $C_1, \ldots, C_n$ and having radii $r_1, \ldots r_n$, respectively, it holds that $$\forall i, j \in [1, n] \quad V_i \cap \mathscr C_j \subseteq \mathscr C_i$$
     \end{framedthm}
-
-    placeholder \todo{from pag 83}
 
     \chapter{The UAV monitoring problem}
     
@@ -3896,7 +4006,7 @@
 
     \centeredimage[]{0.3}{../assets/time_consistency.png}
 
-    It turns out that computing time consistent reconciliations is \NPHard, but if we drop this constraint we can compute \tbf{time inconsistent reconciliations} in polynomial time by employing a dynamic programming approach. \todo{i skipped pag 16}
+    It turns out that computing time consistent reconciliations is \NPHard, but if we drop this constraint we can compute \tbf{time inconsistent reconciliations} in polynomial time by employing a dynamic programming approach.
 
     There are multiple \tit{open problems} related to tree reconciliations:
 

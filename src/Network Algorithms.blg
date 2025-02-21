@@ -17,7 +17,7 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated field_info (elt_size=8) to 13540 items from 5000.
+Reallocated field_info (elt_size=8) to 13400 items from 5000.
 Database file #1: Network_Algorithms-blx.bib
 Database file #2: ./references.bib
 Warning--entry type for "konig" isn't style-file defined
@@ -25,45 +25,45 @@ Warning--entry type for "konig" isn't style-file defined
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 61 entries,
+You've used 60 entries,
             6399 wiz_defined-function locations,
-            1683 strings with 21912 characters,
-and the built_in function-call counts, 470354 in all, are:
-= -- 37624
-> -- 7292
-< -- 2600
-+ -- 13199
-- -- 2615
-* -- 32147
-:= -- 50054
+            1678 strings with 21564 characters,
+and the built_in function-call counts, 460120 in all, are:
+= -- 36725
+> -- 7193
+< -- 2572
++ -- 12938
+- -- 2580
+* -- 31344
+:= -- 48865
 add.period$ -- 0
-call.type$ -- 61
-change.case$ -- 1654
+call.type$ -- 60
+change.case$ -- 1639
 chr.to.int$ -- 248
-cite$ -- 120
-duplicate$ -- 49983
-empty$ -- 41465
-format.name$ -- 3708
-if$ -- 96013
+cite$ -- 118
+duplicate$ -- 49044
+empty$ -- 40538
+format.name$ -- 3638
+if$ -- 93946
 int.to.chr$ -- 0
-int.to.str$ -- 181
+int.to.str$ -- 178
 missing$ -- 0
-newline$ -- 2245
-num.names$ -- 3667
-pop$ -- 21292
+newline$ -- 2208
+num.names$ -- 3619
+pop$ -- 20920
 preamble$ -- 1
-purify$ -- 1922
+purify$ -- 1901
 quote$ -- 0
-skip$ -- 12668
+skip$ -- 12498
 stack$ -- 0
-substring$ -- 66919
-swap$ -- 10603
-text.length$ -- 1550
-text.prefix$ -- 61
+substring$ -- 65055
+swap$ -- 10442
+text.length$ -- 1525
+text.prefix$ -- 60
 top$ -- 1
-type$ -- 2061
+type$ -- 2027
 warning$ -- 0
-while$ -- 6215
+while$ -- 6088
 width$ -- 0
-write$ -- 2185
+write$ -- 2149
 (There was 1 warning)

@@ -17,42 +17,42 @@
 \contentsline {subsection}{\numberline {2.1.3}The Wise layout}{29}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Layered layout}{31}{subsection.2.1.4}%
 \contentsline {subsection}{\numberline {2.1.5}Optimal area of the butterfly network}{36}{subsection.2.1.5}%
-\contentsline {chapter}{\numberline {3}The worm propagation prevention problem}{37}{chapter.3}%
-\contentsline {section}{\numberline {3.1}The vertex cover problem}{38}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{40}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{47}{subsection.3.1.2}%
-\contentsline {chapter}{\numberline {4}The frequency assignment problem}{50}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The $L(h, k)$-labeling problem}{54}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Known results}{60}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Variations of the problem}{63}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Map coloring}{65}{subsection.4.1.3}%
-\contentsline {chapter}{\numberline {5}The broadcast's energy consumption problem}{67}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The Min Broadcast problem}{69}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Euclidean Min Broadcast}{71}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}The minimum spanning tree problem}{72}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Min Broadcast heuristics}{76}{subsection.5.2.1}%
-\contentsline {chapter}{\numberline {6}The data mule scheduling problem}{77}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The Traveling Salesman Problem}{81}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Special cases for the TSP}{83}{subsection.6.1.1}%
-\contentsline {chapter}{\numberline {7}The data collection problem}{89}{chapter.7}%
-\contentsline {section}{\numberline {7.1}The minimum connected dominating set problem}{91}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Minimum Dominating set}{93}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Greedy approach for the min-CDS}{94}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}Unit Disk Graphs}{96}{subsection.7.1.3}%
-\contentsline {chapter}{\numberline {8}The centralized deployment of mobile sensors problem}{98}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Matchings on bipartite graphs}{102}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Flow networks}{104}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Finding a maximum matching}{107}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}Finding a minimum-weight perfect matching}{112}{subsection.8.1.3}%
-\contentsline {section}{\numberline {8.2}Maximum matchings in the general case}{114}{section.8.2}%
-\contentsline {chapter}{\numberline {9}The sensor self-deployment problem}{119}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Voronoi diagrams}{121}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Algorithms for computing Voronoi diagrams}{125}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}Sensor heterogeneity}{128}{section.9.2}%
-\contentsline {chapter}{\numberline {10}The UAV monitoring problem}{133}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Connection with the RMCCP}{136}{section.10.1}%
-\contentsline {section}{\numberline {10.2}A new graph model}{137}{section.10.2}%
-\contentsline {chapter}{\numberline {11}The reconciliation visualization problem}{140}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Reconciliation between phylogenetic trees}{141}{section.11.1}%
-\contentsline {subsection}{\numberline {11.1.1}Reducing the number of optimal reconciliations}{143}{subsection.11.1.1}%
-\contentsline {subsection}{\numberline {11.1.2}Visualizing reconciliations}{144}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {2.1.6}The hypercube network}{38}{subsection.2.1.6}%
+\contentsline {chapter}{\numberline {3}The worm propagation prevention problem}{41}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The vertex cover problem}{42}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Approximation algorithms}{44}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}The eternal vertex cover problem}{51}{subsection.3.1.2}%
+\contentsline {chapter}{\numberline {4}The frequency assignment problem}{54}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The $L(h, k)$-labeling problem}{58}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Known results}{64}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Variations of the problem}{67}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Map coloring}{69}{subsection.4.1.3}%
+\contentsline {chapter}{\numberline {5}The broadcast's energy consumption problem}{71}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The Min Broadcast problem}{73}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Euclidean Min Broadcast}{75}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}The minimum spanning tree problem}{76}{section.5.2}%
+\contentsline {chapter}{\numberline {6}The data mule scheduling problem}{81}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The Traveling Salesman Problem}{85}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Special cases for the TSP}{87}{subsection.6.1.1}%
+\contentsline {chapter}{\numberline {7}The data collection problem}{93}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The minimum connected dominating set problem}{95}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Minimum Dominating set}{97}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Greedy approach for the min-CDS}{98}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Unit Disk Graphs}{100}{subsection.7.1.3}%
+\contentsline {chapter}{\numberline {8}The centralized deployment of mobile sensors problem}{102}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Matchings on bipartite graphs}{107}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Flow networks}{110}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Finding a maximum matching}{112}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Finding a minimum-weight perfect matching}{117}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Maximum matchings in the general case}{119}{section.8.2}%
+\contentsline {chapter}{\numberline {9}The sensor self-deployment problem}{124}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Voronoi diagrams}{126}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Algorithms for computing Voronoi diagrams}{130}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Sensor heterogeneity}{133}{section.9.2}%
+\contentsline {chapter}{\numberline {10}The UAV monitoring problem}{138}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Connection with the RMCCP}{141}{section.10.1}%
+\contentsline {section}{\numberline {10.2}A new graph model}{142}{section.10.2}%
+\contentsline {chapter}{\numberline {11}The reconciliation visualization problem}{145}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Reconciliation between phylogenetic trees}{146}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Reducing the number of optimal reconciliations}{148}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Visualizing reconciliations}{149}{subsection.11.1.2}%

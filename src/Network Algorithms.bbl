@@ -2131,43 +2131,6 @@
     \field{year}{1977}
   \endentry
 
-  \entry{wieselthier}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=WJE}{%
-         family={Wieselthier},
-         familyi={W\bibinitperiod},
-         given={Jeffrey\bibnamedelima E},
-         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=NGD}{%
-         family={Nguyen},
-         familyi={N\bibinitperiod},
-         given={Gam\bibnamedelima D},
-         giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=EA}{%
-         family={Ephremides},
-         familyi={E\bibinitperiod},
-         given={Anthony},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{WJE+1}
-    \strng{fullhash}{WJENGDEA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{booktitle}{Proceedings IEEE INFOCOM 2000. Conference on Computer Communications. Nineteenth Annual Joint Conference of the IEEE Computer and Communications Societies (Cat. No. 00CH37064)}
-    \field{pages}{585\bibrangedash 594}
-    \field{title}{On the construction of energy-efficient broadcast and multicast trees in wireless networks}
-    \field{volume}{2}
-    \field{year}{2000}
-  \endentry
-
   \entry{butterwise}{inbook}{}
     \name{author}{1}{}{%
       {{hash=WDS}{%
