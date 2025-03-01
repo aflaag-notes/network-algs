@@ -1375,7 +1375,7 @@ The \tbf{hypercube network} layout is widely utilized in \href{https://en.wikipe
     Note that, although a maximum matching can be found in polynomial time, the contrapositive of this corollary is not true in general, therefore it is not possible to try to solve the minimum vertex cover through the maximum matching problem.
 
     \begin{framedalgo}{2-approximation VC (matching)}
-        Given an undirected graph $G$, the algorithm returns a minimum vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover. \\
+        Given an undirected \tit{and connected} graph $G$, the algorithm returns a minimum vertex cover $V'$ for $G$, such that $\abs{V'} \le 2 \abs {V^*}$, where $V^*$ is a minimum vertex cover. \\
         \hrule
 
         \quad
@@ -1393,7 +1393,7 @@ The \tbf{hypercube network} layout is widely utilized in \href{https://en.wikipe
     \end{framedalgo}
 
     \idea{
-        By computing a maximum matching $M$ on $G$, all the endpoints of the edges in $M$ will form a vertex cover for $G$, by definition of matching.
+        Since we are assuming that $G$ is connected, by computing a maximal matching $M$ on $G$, all the endpoints of the edges in $M$ will form a vertex cover for $G$, by definition of matching.
     }
 
     \cost{
@@ -1401,7 +1401,7 @@ The \tbf{hypercube network} layout is widely utilized in \href{https://en.wikipe
     }
 
     \begin{proof}
-        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been put into $M$, but this is not possible because $M$ is maximum. This proves that $V'$ is a vertex cover.
+        Consider an edge $(u, v) \in E(G)$; this edge is either in $M$, and therefore both endpoints are inserted into $V'$ by the algorithm, or $(u, v) \in E(G) - M$, but at least one of its endpoints must be in $V'$, otherwise it could have been put into $M$, but this is not possible because $M$ is maximal. This proves that $V'$ is a vertex cover.
 
         Let $V^*$ be a minimum vertex cover for $G$; to prove that $V'$ is a 2-approximation of the VC problem, note that by \cref{bounded_matching} we have that $\abs M \le \abs{V^*}$, therefore $$\abs{V'} = 2 \abs M \le 2 \abs{V^*}$$
     \end{proof}

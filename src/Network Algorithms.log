@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.10)  21 FEB 2025 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.3.1)  1 MAR 2025 12:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2972,7 +2972,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{ALG@line.8}) h
                    \relax 
 l.1391             \EndFunction
                                
-Package cleveref Info: loaded `english' language definitions on input line 1407.
+Package cleveref Info: loaded `english' language definitions on input line 1406.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2981,7 +2981,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 1407.
+Package cleveref Info: loaded `english' language definitions on input line 1406.
 [50]
 Package cleveref Info: loaded `english' language definitions on input line 1437.
 
@@ -5217,14 +5217,14 @@ Package logreq Info: Writing requests to '"Network Algorithms".run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  76666 strings out of 476024
- 1866304 string characters out of 5792396
+ 1866304 string characters out of 5792397
  3015688 words of memory out of 5000000
  97219 multiletter control sequences out of 15000+600000
  598813 words of font info for 132 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  119i,20n,123p,1909b,2711s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on "Network Algorithms.pdf" (161 pages, 11312707 bytes).
+Output written on "Network Algorithms.pdf" (161 pages, 11312754 bytes).
 PDF statistics:
  2034 PDF objects out of 2073 (max. 8388607)
  1676 compressed objects within 17 object streams
