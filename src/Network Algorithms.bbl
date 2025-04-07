@@ -32,10 +32,11 @@
          giveni={W\bibinitperiod},
       }}%
     }
-    \strng{namehash}{AK+1}
+    \strng{namehash}{AKHW1}
     \strng{fullhash}{AKHW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{AH76}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{title}{Every planar map is four colorable}
@@ -58,6 +59,7 @@
     \strng{fullhash}{AS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Aro}
     \field{sortinit}{A}
     \field{sortinithash}{A}
     \field{booktitle}{Proceedings of 37th Conference on Foundations of Computer Science}
@@ -70,50 +72,6 @@
     \verb{url}
     \verb http://dx.doi.org/10.1109/SFCS.1996.548458
     \endverb
-  \endentry
-
-  \entry{bartal}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=BY}{%
-         family={Bartal},
-         familyi={B\bibinitperiod},
-         given={Yair},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=GLA}{%
-         family={Gottlieb},
-         familyi={G\bibinitperiod},
-         given={Lee-Ad},
-         giveni={L\bibinithyphendelim A\bibinitperiod},
-      }}%
-      {{hash=KR}{%
-         family={Krauthgamer},
-         familyi={K\bibinitperiod},
-         given={Robert},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {ACM}%
-    }
-    \strng{namehash}{BY+1}
-    \strng{fullhash}{BYGLAKR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{booktitle}{Proceedings of the forty-fourth annual ACM symposium on Theory of computing}
-    \verb{doi}
-    \verb 10.1145/2213977.2214038
-    \endverb
-    \field{pages}{663–672}
-    \field{series}{STOC’12}
-    \field{title}{The traveling salesman problem: low-dimensionality implies a polynomial time approximation scheme}
-    \verb{url}
-    \verb http://dx.doi.org/10.1145/2213977.2214038
-    \endverb
-    \field{month}{05}
-    \field{year}{2012}
   \endentry
 
   \entry{bellman}{article}{}
@@ -132,6 +90,7 @@
     \strng{fullhash}{BR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Bel58}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \field{issn}{0033569X, 15524485}
@@ -162,6 +121,7 @@
     \strng{fullhash}{BC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Ber57}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \verb{doi}
@@ -180,32 +140,49 @@
     \field{year}{1957}
   \endentry
 
-  \entry{blaschke}{article}{}
-    \name{author}{2}{}{%
-      {{hash=BW}{%
-         family={Blaschke},
+  \entry{bartal}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BY}{%
+         family={Bartal},
          familyi={B\bibinitperiod},
-         given={Wilhelm},
-         giveni={W\bibinitperiod},
+         given={Yair},
+         giveni={Y\bibinitperiod},
       }}%
-      {{hash=TG}{%
-         family={Thomsen},
-         familyi={T\bibinitperiod},
-         given={Gerhard},
-         giveni={G\bibinitperiod},
+      {{hash=GLA}{%
+         family={Gottlieb},
+         familyi={G\bibinitperiod},
+         given={Lee-Ad},
+         giveni={L\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Krauthgamer},
+         familyi={K\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Springer}%
+      {ACM}%
     }
-    \strng{namehash}{BW+1}
-    \strng{fullhash}{BWTG1}
+    \strng{namehash}{BYGLAKR1}
+    \strng{fullhash}{BYGLAKR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{BGK12}
     \field{sortinit}{B}
     \field{sortinithash}{B}
-    \field{title}{Vorlesungen {\"u}ber Differentialgeometrie und geometrische Grundlagen von Einsteins Relativit{\"a}tstheorie: Elementare Differentialgeometrie}
-    \field{year}{1924}
+    \field{booktitle}{Proceedings of the forty-fourth annual ACM symposium on Theory of computing}
+    \verb{doi}
+    \verb 10.1145/2213977.2214038
+    \endverb
+    \field{pages}{663–672}
+    \field{series}{STOC’12}
+    \field{title}{The traveling salesman problem: low-dimensionality implies a polynomial time approximation scheme}
+    \verb{url}
+    \verb http://dx.doi.org/10.1145/2213977.2214038
+    \endverb
+    \field{month}{05}
+    \field{year}{2012}
   \endentry
 
   \entry{brent}{article}{}
@@ -226,10 +203,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{BR+1}
+    \strng{namehash}{BRKH1}
     \strng{fullhash}{BRKH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{BK80}
     \field{sortinit}{B}
     \field{sortinithash}{B}
     \verb{doi}
@@ -248,37 +226,80 @@
     \field{year}{1980}
   \endentry
 
-  \entry{cagalj}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=CM}{%
-         family={{\v{C}}agalj},
-         familyi={{\v{C}}\bibinitperiod},
-         given={Mario},
-         giveni={M\bibinitperiod},
+  \entry{blaschke}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BW}{%
+         family={Blaschke},
+         familyi={B\bibinitperiod},
+         given={Wilhelm},
+         giveni={W\bibinitperiod},
       }}%
-      {{hash=HJP}{%
-         family={Hubaux},
-         familyi={H\bibinitperiod},
-         given={Jean-Pierre},
-         giveni={J\bibinithyphendelim P\bibinitperiod},
-      }}%
-      {{hash=EC}{%
-         family={Enz},
-         familyi={E\bibinitperiod},
-         given={Christian},
-         giveni={C\bibinitperiod},
+      {{hash=TG}{%
+         family={Thomsen},
+         familyi={T\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
       }}%
     }
-    \strng{namehash}{CM+1}
-    \strng{fullhash}{CMHJPEC1}
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BWTG1}
+    \strng{fullhash}{BWTG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{BT24}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Vorlesungen {\"u}ber Differentialgeometrie und geometrische Grundlagen von Einsteins Relativit{\"a}tstheorie: Elementare Differentialgeometrie}
+    \field{year}{1924}
+  \endentry
+
+  \entry{clark}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CBN}{%
+         family={Clark},
+         familyi={C\bibinitperiod},
+         given={Brent\bibnamedelima N.},
+         giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=CCJ}{%
+         family={Colbourn},
+         familyi={C\bibinitperiod},
+         given={Charles\bibnamedelima J.},
+         giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=JDS}{%
+         family={Johnson},
+         familyi={J\bibinitperiod},
+         given={David\bibnamedelima S.},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{CBNCCJJDS1}
+    \strng{fullhash}{CBNCCJJDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{CCJ90}
     \field{sortinit}{C}
     \field{sortinithash}{C}
-    \field{booktitle}{Proceedings of the 8th annual international conference on Mobile computing and networking}
-    \field{pages}{172\bibrangedash 182}
-    \field{title}{Minimum-energy broadcast in all-wireless networks: NP-completeness and distribution issues}
-    \field{year}{2002}
+    \verb{doi}
+    \verb 10.1016/0012-365x(90)90358-o
+    \endverb
+    \field{issn}{0012-365X}
+    \field{number}{1–3}
+    \field{pages}{165–177}
+    \field{title}{Unit disk graphs}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/0012-365X(90)90358-O
+    \endverb
+    \field{volume}{86}
+    \field{journaltitle}{Discrete Mathematics}
+    \field{month}{12}
+    \field{year}{1990}
   \endentry
 
   \entry{calamoneri2}{article}{}
@@ -305,10 +326,11 @@
     \list{publisher}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{CT+1}
-    \strng{fullhash}{CTCFMS2}
+    \strng{namehash}{CTCFMS1}
+    \strng{fullhash}{CTCFMS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{CCM22}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{pages}{6109\bibrangedash 6125}
@@ -342,10 +364,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{CT+1}
-    \strng{fullhash}{CTCFMS1}
+    \strng{namehash}{CTCFMS2}
+    \strng{fullhash}{CTCFMS2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{CCM24}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \verb{doi}
@@ -361,6 +384,134 @@
     \field{journaltitle}{Expert Systems with Applications}
     \field{month}{10}
     \field{year}{2024}
+  \endentry
+
+  \entry{cagalj}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={{\v{C}}agalj},
+         familyi={{\v{C}}\bibinitperiod},
+         given={Mario},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HJP}{%
+         family={Hubaux},
+         familyi={H\bibinitperiod},
+         given={Jean-Pierre},
+         giveni={J\bibinithyphendelim P\bibinitperiod},
+      }}%
+      {{hash=EC}{%
+         family={Enz},
+         familyi={E\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CMHJPEC1}
+    \strng{fullhash}{CMHJPEC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{{\v{C}}HE02}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of the 8th annual international conference on Mobile computing and networking}
+    \field{pages}{172\bibrangedash 182}
+    \field{title}{Minimum-energy broadcast in all-wireless networks: NP-completeness and distribution issues}
+    \field{year}{2002}
+  \endentry
+
+  \entry{cheng}{article}{}
+    \name{author}{5}{}{%
+      {{hash=CX}{%
+         family={Cheng},
+         familyi={C\bibinitperiod},
+         given={Xiuzhen},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=HX}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Xiao},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Deying},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=WW}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Weili},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={Du},
+         familyi={D\bibinitperiod},
+         given={Ding‐Zhu},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{CXHXLD+1}
+    \strng{fullhash}{CXHXLDWWDD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{CHL+03}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1002/net.10097
+    \endverb
+    \field{issn}{1097-0037}
+    \field{number}{4}
+    \field{pages}{202–208}
+    \field{title}{A polynomial‐time approximation scheme for the minimum‐connected dominating set in ad hoc wireless networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1002/net.10097
+    \endverb
+    \field{volume}{42}
+    \field{journaltitle}{Networks}
+    \field{month}{09}
+    \field{year}{2003}
+  \endentry
+
+  \entry{christofides}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CN}{%
+         family={Christofides},
+         familyi={C\bibinitperiod},
+         given={Nicos},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{CN1}
+    \strng{fullhash}{CN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Chr22}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.1007/s43069-021-00101-z
+    \endverb
+    \field{issn}{2662-2556}
+    \field{number}{1}
+    \field{title}{Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s43069-021-00101-z
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{Operations Research Forum}
+    \field{month}{03}
+    \field{year}{2022}
   \endentry
 
   \entry{chang}{article}{}
@@ -381,10 +532,11 @@
     \list{publisher}{1}{%
       {SIAM}%
     }
-    \strng{namehash}{CGJ+1}
+    \strng{namehash}{CGJKD1}
     \strng{fullhash}{CGJKD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{CK96}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{number}{2}
@@ -412,10 +564,11 @@
          giveni={S\bibinithyphendelim C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{CGJ+1}
+    \strng{namehash}{CGJLSC+1}
     \strng{fullhash}{CGJLSC+1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{CL+03}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{pages}{23\bibrangedash 31}
@@ -467,10 +620,11 @@
     \list{publisher}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{CW+1}
+    \strng{namehash}{CWLMLK+1}
     \strng{fullhash}{CWLMLKLYLXLX1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{CLL+08}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{booktitle}{2008 IEEE International Symposium on Parallel and Distributed Processing}
@@ -485,144 +639,6 @@
     \endverb
     \field{month}{04}
     \field{year}{2008}
-  \endentry
-
-  \entry{cheng}{article}{}
-    \name{author}{5}{}{%
-      {{hash=CX}{%
-         family={Cheng},
-         familyi={C\bibinitperiod},
-         given={Xiuzhen},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=HX}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={Xiao},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=LD}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Deying},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=WW}{%
-         family={Wu},
-         familyi={W\bibinitperiod},
-         given={Weili},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=DD}{%
-         family={Du},
-         familyi={D\bibinitperiod},
-         given={Ding‐Zhu},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Wiley}%
-    }
-    \strng{namehash}{CX+1}
-    \strng{fullhash}{CXHXLDWWDD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{doi}
-    \verb 10.1002/net.10097
-    \endverb
-    \field{issn}{1097-0037}
-    \field{number}{4}
-    \field{pages}{202–208}
-    \field{title}{A polynomial‐time approximation scheme for the minimum‐connected dominating set in ad hoc wireless networks}
-    \verb{url}
-    \verb http://dx.doi.org/10.1002/net.10097
-    \endverb
-    \field{volume}{42}
-    \field{journaltitle}{Networks}
-    \field{month}{09}
-    \field{year}{2003}
-  \endentry
-
-  \entry{christofides}{article}{}
-    \name{author}{1}{}{%
-      {{hash=CN}{%
-         family={Christofides},
-         familyi={C\bibinitperiod},
-         given={Nicos},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{CN1}
-    \strng{fullhash}{CN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{doi}
-    \verb 10.1007/s43069-021-00101-z
-    \endverb
-    \field{issn}{2662-2556}
-    \field{number}{1}
-    \field{title}{Worst-Case Analysis of a New Heuristic for the Travelling Salesman Problem}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/s43069-021-00101-z
-    \endverb
-    \field{volume}{3}
-    \field{journaltitle}{Operations Research Forum}
-    \field{month}{03}
-    \field{year}{2022}
-  \endentry
-
-  \entry{clark}{article}{}
-    \name{author}{3}{}{%
-      {{hash=CBN}{%
-         family={Clark},
-         familyi={C\bibinitperiod},
-         given={Brent\bibnamedelima N.},
-         giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod},
-      }}%
-      {{hash=CCJ}{%
-         family={Colbourn},
-         familyi={C\bibinitperiod},
-         given={Charles\bibnamedelima J.},
-         giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=JDS}{%
-         family={Johnson},
-         familyi={J\bibinitperiod},
-         given={David\bibnamedelima S.},
-         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Elsevier BV}%
-    }
-    \strng{namehash}{CBN+1}
-    \strng{fullhash}{CBNCCJJDS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{doi}
-    \verb 10.1016/0012-365x(90)90358-o
-    \endverb
-    \field{issn}{0012-365X}
-    \field{number}{1–3}
-    \field{pages}{165–177}
-    \field{title}{Unit disk graphs}
-    \verb{url}
-    \verb http://dx.doi.org/10.1016/0012-365X(90)90358-O
-    \endverb
-    \field{volume}{86}
-    \field{journaltitle}{Discrete Mathematics}
-    \field{month}{12}
-    \field{year}{1990}
   \endentry
 
   \entry{cook}{inproceedings}{}
@@ -641,6 +657,7 @@
     \strng{fullhash}{CSA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Coo71}
     \field{sortinit}{C}
     \field{sortinithash}{C}
     \field{booktitle}{Proceedings of the third annual ACM symposium on Theory of computing - STOC ’71}
@@ -680,10 +697,11 @@
     \list{publisher}{1}{%
       {INFORMS}%
     }
-    \strng{namehash}{DG+1}
+    \strng{namehash}{DGFRJS1}
     \strng{fullhash}{DGFRJS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{DFJ54}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{abstract}{%
@@ -718,6 +736,7 @@
     \strng{fullhash}{DE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Dij59}
     \field{sortinit}{D}
     \field{sortinithash}{D}
     \field{pages}{269\bibrangedash 271}
@@ -743,6 +762,7 @@
     \strng{fullhash}{EJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Edm65}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \verb{doi}
@@ -777,10 +797,11 @@
     \list{publisher}{1}{%
       {Wiley}%
     }
-    \strng{namehash}{EG+1}
+    \strng{namehash}{EGES1}
     \strng{fullhash}{EGES1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{EE00}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \verb{doi}
@@ -817,10 +838,11 @@
     \list{publisher}{1}{%
       {Wiley}%
     }
-    \strng{namehash}{ES+1}
+    \strng{namehash}{ESLA1}
     \strng{fullhash}{ESLA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{EL97}
     \field{sortinit}{E}
     \field{sortinithash}{E}
     \verb{doi}
@@ -856,6 +878,7 @@
     \strng{fullhash}{FRW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Flo62}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \verb{doi}
@@ -890,6 +913,7 @@
     \strng{fullhash}{FLR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{For56}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{title}{Network Flow Theory.}
@@ -912,6 +936,7 @@
     \strng{fullhash}{FS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{For86}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{booktitle}{Proceedings of the second annual symposium on Computational geometry}
@@ -938,10 +963,11 @@
     \list{publisher}{1}{%
       {ACM}%
     }
-    \strng{namehash}{FZ+1}
+    \strng{namehash}{FZSC1}
     \strng{fullhash}{FZSC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{FS14}
     \field{sortinit}{F}
     \field{sortinithash}{F}
     \field{booktitle}{Proceedings of the forty-sixth annual ACM symposium on Theory of computing}
@@ -982,10 +1008,11 @@
     \list{publisher}{1}{%
       {Springer International Publishing}%
     }
-    \strng{namehash}{GM+1}
+    \strng{namehash}{GMCTSMF1}
     \strng{fullhash}{GMCTSMF1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{GCS19}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \field{booktitle}{Computational Intelligence Methods for Bioinformatics and Biostatistics}
@@ -1000,6 +1027,48 @@
     \verb http://dx.doi.org/10.1007/978-3-030-14160-8_2
     \endverb
     \field{year}{2019}
+  \endentry
+
+  \entry{guha}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GS}{%
+         family={Guha},
+         familyi={G\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Khuller},
+         familyi={K\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{GSKS1}
+    \strng{fullhash}{GSKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{GK98}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1007/pl00009201
+    \endverb
+    \field{issn}{1432-0541}
+    \field{number}{4}
+    \field{pages}{374–387}
+    \field{title}{Approximation Algorithms for Connected Dominating Sets}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/PL00009201
+    \endverb
+    \field{volume}{20}
+    \field{journaltitle}{Algorithmica}
+    \field{month}{04}
+    \field{year}{1998}
   \endentry
 
   \entry{gorain14}{article}{}
@@ -1020,10 +1089,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{GB+1}
+    \strng{namehash}{GBMPS1}
     \strng{fullhash}{GBMPS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{GM14}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \verb{doi}
@@ -1060,10 +1130,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{GB+1}
+    \strng{namehash}{GBMPS1}
     \strng{fullhash}{GBMPS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{GM17}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \verb{doi}
@@ -1099,10 +1170,11 @@
     \list{publisher}{1}{%
       {Society for Industrial & Applied Mathematics (SIAM)}%
     }
-    \strng{namehash}{GJR+1}
+    \strng{namehash}{GJRYRK1}
     \strng{fullhash}{GJRYRK1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{GY92}
     \field{sortinit}{G}
     \field{sortinithash}{G}
     \verb{doi}
@@ -1119,47 +1191,6 @@
     \field{journaltitle}{SIAM Journal on Discrete Mathematics}
     \field{month}{11}
     \field{year}{1992}
-  \endentry
-
-  \entry{guha}{article}{}
-    \name{author}{2}{}{%
-      {{hash=GS}{%
-         family={Guha},
-         familyi={G\bibinitperiod},
-         given={S.},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=KS}{%
-         family={Khuller},
-         familyi={K\bibinitperiod},
-         given={S.},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Springer Science}%
-      {Business Media LLC}%
-    }
-    \strng{namehash}{GS+1}
-    \strng{fullhash}{GSKS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
-    \verb{doi}
-    \verb 10.1007/pl00009201
-    \endverb
-    \field{issn}{1432-0541}
-    \field{number}{4}
-    \field{pages}{374–387}
-    \field{title}{Approximation Algorithms for Connected Dominating Sets}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/PL00009201
-    \endverb
-    \field{volume}{20}
-    \field{journaltitle}{Algorithmica}
-    \field{month}{04}
-    \field{year}{1998}
   \endentry
 
   \entry{hasunuma}{inproceedings}{}
@@ -1192,10 +1223,11 @@
     \list{organization}{1}{%
       {Springer}%
     }
-    \strng{namehash}{HT+1}
+    \strng{namehash}{HTITOH+1}
     \strng{fullhash}{HTITOHUY1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{HIO+08}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \field{booktitle}{Scandinavian Workshop on Algorithm Theory}
@@ -1222,10 +1254,11 @@
     \list{publisher}{1}{%
       {Society for Industrial & Applied Mathematics (SIAM)}%
     }
-    \strng{namehash}{HJE+1}
+    \strng{namehash}{HJEKRM1}
     \strng{fullhash}{HJEKRM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{HK73}
     \field{sortinit}{H}
     \field{sortinithash}{H}
     \verb{doi}
@@ -1268,10 +1301,11 @@
     \list{publisher}{1}{%
       {SIAM}%
     }
-    \strng{namehash}{IH+1}
+    \strng{namehash}{IHIMMK1}
     \strng{fullhash}{IHIMMK1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{IIM85}
     \field{sortinit}{I}
     \field{sortinithash}{I}
     \field{number}{1}
@@ -1298,6 +1332,7 @@
     \strng{fullhash}{JTK1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Jon93}
     \field{sortinit}{J}
     \field{sortinithash}{J}
     \field{title}{Graph coloring analogues with a condition at distance two: L (2, 1)-labellings and list lambda-labellings}
@@ -1320,6 +1355,7 @@
     \strng{fullhash}{KRM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Kar72}
     \field{sortinit}{K}
     \field{sortinithash}{K}
     \field{booktitle}{Complexity of Computer Computations}
@@ -1365,10 +1401,11 @@
     \list{publisher}{1}{%
       {Elsevier}%
     }
-    \strng{namehash}{KLM+1}
+    \strng{namehash}{KLMKEKD+1}
     \strng{fullhash}{KLMKEKDPA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{KKK+00}
     \field{sortinit}{K}
     \field{sortinithash}{K}
     \field{number}{1-2}
@@ -1395,6 +1432,7 @@
     \strng{fullhash}{KHW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Kuh55}
     \field{sortinit}{K}
     \field{sortinithash}{K}
     \verb{doi}
@@ -1429,6 +1467,7 @@
     \strng{fullhash}{LCE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Lei80}
     \field{sortinit}{L}
     \field{sortinithash}{L}
     \field{booktitle}{21st Annual Symposium on Foundations of Computer Science (sfcs 1980)}
@@ -1459,6 +1498,7 @@
     \strng{fullhash}{LD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Lic82}
     \field{sortinit}{L}
     \field{sortinithash}{L}
     \verb{doi}
@@ -1475,6 +1515,33 @@
     \field{journaltitle}{SIAM Journal on Computing}
     \field{month}{05}
     \field{year}{1982}
+  \endentry
+
+  \entry{moore}{book}{}
+    \name{author}{1}{}{%
+      {{hash=ME}{%
+         family={Moore},
+         familyi={M\bibinitperiod},
+         given={E.F.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Bell Telephone System.}%
+    }
+    \strng{namehash}{ME1}
+    \strng{fullhash}{ME1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Moo59}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{series}{Bell Telephone System. Technical publications. monograph}
+    \field{title}{The Shortest Path Through a Maze}
+    \verb{url}
+    \verb https://books.google.it/books?id=IVZBHAAACAAJ
+    \endverb
+    \field{year}{1959}
   \endentry
 
   \entry{micali}{inproceedings}{}
@@ -1495,10 +1562,11 @@
     \list{publisher}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{MS+1}
+    \strng{namehash}{MSVVV1}
     \strng{fullhash}{MSVVV1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{MV80}
     \field{sortinit}{M}
     \field{sortinithash}{M}
     \field{booktitle}{21st Annual Symposium on Foundations of Computer Science (sfcs 1980)}
@@ -1512,32 +1580,6 @@
     \endverb
     \field{month}{10}
     \field{year}{1980}
-  \endentry
-
-  \entry{moore}{book}{}
-    \name{author}{1}{}{%
-      {{hash=ME}{%
-         family={Moore},
-         familyi={M\bibinitperiod},
-         given={E.F.},
-         giveni={E\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Bell Telephone System.}%
-    }
-    \strng{namehash}{ME1}
-    \strng{fullhash}{ME1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{series}{Bell Telephone System. Technical publications. monograph}
-    \field{title}{The Shortest Path Through a Maze}
-    \verb{url}
-    \verb https://books.google.it/books?id=IVZBHAAACAAJ
-    \endverb
-    \field{year}{1959}
   \endentry
 
   \entry{nagarajan}{article}{}
@@ -1558,10 +1600,11 @@
     \list{publisher}{1}{%
       {Wiley Online Library}%
     }
-    \strng{namehash}{NV+1}
+    \strng{namehash}{NVRR1}
     \strng{fullhash}{NVRR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{NR12}
     \field{sortinit}{N}
     \field{sortinithash}{N}
     \field{number}{2}
@@ -1591,10 +1634,11 @@
       {Academy}%
       {Industry Research Collaboration Center (AIRCC)}%
     }
-    \strng{namehash}{PGN+1}
+    \strng{namehash}{PGNSU1}
     \strng{fullhash}{PGNSU1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{PS10}
     \field{sortinit}{P}
     \field{sortinithash}{P}
     \verb{doi}
@@ -1655,10 +1699,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{RL+1}
+    \strng{namehash}{RLDHJX+1}
     \strng{fullhash}{RLDHJXWWLYKKI1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{RDJ+04}
     \field{sortinit}{R}
     \field{sortinithash}{R}
     \verb{doi}
@@ -1714,10 +1759,11 @@
       {Institute of Electrical}%
       {Electronics Engineers (IEEE)}%
     }
-    \strng{namehash}{SW+1}
+    \strng{namehash}{SWLWWT+1}
     \strng{fullhash}{SWLWWTZZZG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{SLW+19}
     \field{sortinit}{S}
     \field{sortinithash}{S}
     \verb{doi}
@@ -1732,74 +1778,6 @@
     \field{volume}{7}
     \field{journaltitle}{IEEE Access}
     \field{year}{2019}
-  \endentry
-
-  \entry{sinaimeri}{article}{}
-    \name{author}{4}{}{%
-      {{hash=SB}{%
-         family={Sinaimeri},
-         familyi={S\bibinitperiod},
-         given={Blerina},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=UL}{%
-         family={Urbini},
-         familyi={U\bibinitperiod},
-         given={Laura},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=SMF}{%
-         family={Sagot},
-         familyi={S\bibinitperiod},
-         given={Marie-France},
-         giveni={M\bibinithyphendelim F\bibinitperiod},
-      }}%
-      {{hash=MC}{%
-         family={Matias},
-         familyi={M\bibinitperiod},
-         given={Catherine},
-         giveni={C\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SB+1}
-    \strng{fullhash}{SBULSMFMC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{title}{1 The event-based model}
-  \endentry
-
-  \entry{solisoba}{inbook}{}
-    \name{author}{1}{}{%
-      {{hash=SOR}{%
-         family={Solis-Oba},
-         familyi={S\bibinithyphendelim O\bibinitperiod},
-         given={Roberto},
-         giveni={R\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer Berlin Heidelberg}%
-    }
-    \strng{namehash}{SOR1}
-    \strng{fullhash}{SOR1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{booktitle}{Algorithms — ESA’ 98}
-    \verb{doi}
-    \verb 10.1007/3-540-68530-8_37
-    \endverb
-    \field{isbn}{9783540685302}
-    \field{issn}{0302-9743}
-    \field{pages}{441–452}
-    \field{title}{2-Approximation Algorithm for Finding a Spanning Tree with Maximum Number of Leaves}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/3-540-68530-8_37
-    \endverb
-    \field{year}{1998}
   \endentry
 
   \entry{sorbelli}{article}{}
@@ -1838,10 +1816,11 @@
     \list{publisher}{1}{%
       {Elsevier}%
     }
-    \strng{namehash}{SFB+1}
+    \strng{namehash}{SFBNAPL+1}
     \strng{fullhash}{SFBNAPLPCMPG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{SNP+24}
     \field{sortinit}{S}
     \field{sortinithash}{S}
     \field{pages}{103475}
@@ -1849,6 +1828,76 @@
     \field{volume}{139}
     \field{journaltitle}{Journal of Computer and System Sciences}
     \field{year}{2024}
+  \endentry
+
+  \entry{solisoba}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=SOR}{%
+         family={Solis-Oba},
+         familyi={S\bibinithyphendelim O\bibinitperiod},
+         given={Roberto},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{SOR1}
+    \strng{fullhash}{SOR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{SO98}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Algorithms — ESA’ 98}
+    \verb{doi}
+    \verb 10.1007/3-540-68530-8_37
+    \endverb
+    \field{isbn}{9783540685302}
+    \field{issn}{0302-9743}
+    \field{pages}{441–452}
+    \field{title}{2-Approximation Algorithm for Finding a Spanning Tree with Maximum Number of Leaves}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/3-540-68530-8_37
+    \endverb
+    \field{year}{1998}
+  \endentry
+
+  \entry{sinaimeri}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SB}{%
+         family={Sinaimeri},
+         familyi={S\bibinitperiod},
+         given={Blerina},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=UL}{%
+         family={Urbini},
+         familyi={U\bibinitperiod},
+         given={Laura},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SMF}{%
+         family={Sagot},
+         familyi={S\bibinitperiod},
+         given={Marie-France},
+         giveni={M\bibinithyphendelim F\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Matias},
+         familyi={M\bibinitperiod},
+         given={Catherine},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SBULSMF+1}
+    \strng{fullhash}{SBULSMFMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{SUS+}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{1 The event-based model}
   \endentry
 
   \entry{konig}{misc}{}
@@ -1864,6 +1913,7 @@
     \strng{fullhash}{SG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Sz�20}
     \field{sortinit}{S}
     \field{sortinithash}{S}
     \verb{doi}
@@ -1898,10 +1948,11 @@
     \list{publisher}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{TD+1}
+    \strng{namehash}{TDCTVP1}
     \strng{fullhash}{TDCTVP1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{TCV20}
     \field{sortinit}{T}
     \field{sortinithash}{T}
     \field{number}{2}
@@ -1928,6 +1979,7 @@
     \strng{fullhash}{TCD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Tho79}
     \field{sortinit}{T}
     \field{sortinithash}{T}
     \field{booktitle}{Proceedings of the eleventh annual ACM symposium on Theory of computing - STOC ’79}
@@ -1967,10 +2019,11 @@
     \list{publisher}{1}{%
       {Elsevier BV}%
     }
-    \strng{namehash}{US+1}
+    \strng{namehash}{USKYGS1}
     \strng{fullhash}{USKYGS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{UKG88}
     \field{sortinit}{U}
     \field{sortinithash}{U}
     \verb{doi}
@@ -2006,6 +2059,7 @@
     \strng{fullhash}{VLG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{Val81}
     \field{sortinit}{V}
     \field{sortinithash}{V}
     \verb{doi}
@@ -2021,6 +2075,96 @@
     \field{volume}{C–30}
     \field{journaltitle}{IEEE Transactions on Computers}
     \field{month}{02}
+    \field{year}{1981}
+  \endentry
+
+  \entry{warshall}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WS}{%
+         family={Warshall},
+         familyi={W\bibinitperiod},
+         given={Stephen},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \strng{namehash}{WS1}
+    \strng{fullhash}{WS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{War62}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{doi}
+    \verb 10.1145/321105.321107
+    \endverb
+    \field{issn}{0004-5411}
+    \field{number}{1}
+    \field{pages}{11–12}
+    \field{title}{A Theorem on Boolean Matrices}
+    \field{volume}{9}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{J. ACM}
+    \field{month}{01}
+    \field{year}{1962}
+  \endentry
+
+  \entry{wegner}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=WG}{%
+         family={Wegner},
+         familyi={W\bibinitperiod},
+         given={Gerd},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WG1}
+    \strng{fullhash}{WG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Weg77}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Graphs with given diameter and a coloring problem}
+    \verb{url}
+    \verb https://api.semanticscholar.org/CorpusID:118873943
+    \endverb
+    \field{year}{1977}
+  \endentry
+
+  \entry{butterwise}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=WDS}{%
+         family={Wise},
+         familyi={W\bibinitperiod},
+         given={David\bibnamedelima S.},
+         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{WDS1}
+    \strng{fullhash}{WDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Wis81}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{VLSI Systems and Computations}
+    \verb{doi}
+    \verb 10.1007/978-3-642-68402-9_21
+    \endverb
+    \field{isbn}{9783642684029}
+    \field{pages}{186–195}
+    \field{title}{Compact Layouts of Banyan/FFT Networks}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-642-68402-9_21
+    \endverb
     \field{year}{1981}
   \endentry
 
@@ -2058,10 +2202,11 @@
       {Schloss Dagstuhl – Leibniz-Zentrum f\"{u}r Informatik}%
     }
     \keyw{Cophylogeny, Enumeration, Equivalence relation, Dynamic programming, Theory of computation → Dynamic programming, Mathematics of computing → Graph enumeration, Theory of computation → Backtracking}
-    \strng{namehash}{WY+1}
+    \strng{namehash}{WYMASMF+1}
     \strng{fullhash}{WYMASMFSB1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{WMS+21}
     \field{sortinit}{W}
     \field{sortinithash}{W}
     \verb{doi}
@@ -2073,93 +2218,6 @@
     \verb 3
     \endverb
     \field{year}{2021}
-  \endentry
-
-  \entry{warshall}{article}{}
-    \name{author}{1}{}{%
-      {{hash=WS}{%
-         family={Warshall},
-         familyi={W\bibinitperiod},
-         given={Stephen},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Association for Computing Machinery}%
-    }
-    \strng{namehash}{WS1}
-    \strng{fullhash}{WS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \verb{doi}
-    \verb 10.1145/321105.321107
-    \endverb
-    \field{issn}{0004-5411}
-    \field{number}{1}
-    \field{pages}{11–12}
-    \field{title}{A Theorem on Boolean Matrices}
-    \field{volume}{9}
-    \list{location}{1}{%
-      {New York, NY, USA}%
-    }
-    \field{journaltitle}{J. ACM}
-    \field{month}{01}
-    \field{year}{1962}
-  \endentry
-
-  \entry{wegner}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=WG}{%
-         family={Wegner},
-         familyi={W\bibinitperiod},
-         given={Gerd},
-         giveni={G\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{WG1}
-    \strng{fullhash}{WG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{title}{Graphs with given diameter and a coloring problem}
-    \verb{url}
-    \verb https://api.semanticscholar.org/CorpusID:118873943
-    \endverb
-    \field{year}{1977}
-  \endentry
-
-  \entry{butterwise}{inbook}{}
-    \name{author}{1}{}{%
-      {{hash=WDS}{%
-         family={Wise},
-         familyi={W\bibinitperiod},
-         given={David\bibnamedelima S.},
-         giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer Berlin Heidelberg}%
-    }
-    \strng{namehash}{WDS1}
-    \strng{fullhash}{WDS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{booktitle}{VLSI Systems and Computations}
-    \verb{doi}
-    \verb 10.1007/978-3-642-68402-9_21
-    \endverb
-    \field{isbn}{9783642684029}
-    \field{pages}{186–195}
-    \field{title}{Compact Layouts of Banyan/FFT Networks}
-    \verb{url}
-    \verb http://dx.doi.org/10.1007/978-3-642-68402-9_21
-    \endverb
-    \field{year}{1981}
   \endentry
 
   \entry{yeh}{inproceedings}{}
@@ -2186,10 +2244,11 @@
     \list{publisher}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{YCH+1}
+    \strng{namehash}{YCHVEPB1}
     \strng{fullhash}{YCHVEPB1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{labelalpha}{YVP99}
     \field{sortinit}{Y}
     \field{sortinithash}{Y}
     \field{booktitle}{Proceedings. Frontiers ’99. Seventh Symposium on the Frontiers of Massively Parallel Computation}
